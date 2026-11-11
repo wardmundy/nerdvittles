@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'wpzoom-icon';
+  src:
+    url('/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/fonts/wpzoom-icon.woff?j5nr6c') format('woff'),
+    url('/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/fonts/wpzoom-icon.svg?j5nr6c#wpzoom-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+#toplevel_page_wpzoom_options .wp-menu-image {
+    font-family: 'wpzoom-icon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#toplevel_page_wpzoom_options .wp-menu-image:before {
+    font-family: inherit !important;
+    content: "\e600";
+}
+
+
+.wpzoom-iconinspiro:before {
+  content: "\e901";
+}
+
+/* WPZOOM tab on Plugins > Add New */
+.wp-filter .filter-links .plugin-install-wpzoom > a:before {
+    font-family: 'wpzoom-icon';
+    content: "\e600";
+    speak: none;
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: -3px;
+    margin-right: 6px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.zoomfw-seo.update-nag + .clear + #zoomWrap {
+    margin-top: 20px;
+}
+
+#update-nag, .update-nag {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#update-nag.wpz-error {
+    margin-right: 0;
+    font-size: 16px;
+    -js-display: flex;
+    display: flex;
+    padding: 0;
+}
+
+#update-nag.wpz-error p {
+    font-size: 15px;
+}
+
+#update-nag.wpz-error .dashicons {
+    color: #d63638;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.wpz-circle {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 1px 1px #0000001a;
+    background: #d63638;
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+#update-nag.wpz-error em {
+    color: #d63638;
+    font-style: normal;
+}
+
+
+.wpz-pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
+
+.wpz-notice-aside {
+    width: 50px;
+    text-align: center;
+    padding-block-start: 15px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 10px 0 10px 10px;
+
+    -js-display: flex;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.wpz-notice-content {
+    padding: 10px;
+}

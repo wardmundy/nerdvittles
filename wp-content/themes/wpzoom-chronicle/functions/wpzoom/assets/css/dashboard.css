@@ -1,0 +1,510 @@
+/* WP Dashboard widgets */
+#dashboard_wpzoom .table {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#dashboard_wpzoom .inside {
+    font-size: 12px;
+    padding-bottom: 0;
+}
+
+#dashboard_wpzoom .table_theme {
+    border-bottom: 1px solid #eee;
+    padding: 0 0 20px;
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+#dashboard_wpzoom p.sub {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+#dashboard_wpzoom a.button {
+    font-size: 13px!important;
+}
+
+#dashboard_wpzoom .news {
+    margin: 0;
+    padding: 0;
+}
+
+#dashboard_wpzoom .rssSummary p {
+    margin: 0;
+}
+
+#dashboard-widgets .news li {
+    border-bottom: 1px solid #eee;
+    padding: 0 0 13px;
+}
+
+#dashboard-widgets .news a {
+    font-weight: 600;
+}
+
+#dashboard-widgets .news .rss-date {
+    display: block;
+    margin-left: 0;
+}
+
+#dashboard-widgets .news .rssSummary {
+    font-size: 14px;
+}
+
+/* Featured Starter Site card (Updates tab, top section) — same card as wpzoom.com */
+.starter-sites-heading {
+    display: block;
+    max-width: 320px;
+    margin: 0 auto 12px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #81909c;
+}
+
+/* Footer nav at the bottom of the WPZOOM Updates dashboard widget */
+#dashboard_wpzoom .wpz-dashboard-widget__footer {
+    margin: 25px -12px -12px;
+    padding: 12px 16px;
+    border-top: 1px solid #e8e8e8;
+    border-radius: 0 0 4px 4px;
+}
+#dashboard_wpzoom .wpz-dashboard-widget__footer-nav ul {
+    -js-display: flex;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: flex-start;
+}
+#dashboard_wpzoom .wpz-dashboard-widget__footer-nav li {
+    margin: 0;
+    padding: 0 8px 0 0;
+    border-right: 1px solid #e8e8e8;
+    margin: 0 8px 0 0;
+    list-style: none;
+}
+#dashboard_wpzoom .wpz-dashboard-widget__footer-nav li:last-child {
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+#dashboard_wpzoom .wpz-dashboard-widget__footer-nav a {
+    color: #50575e;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+#dashboard_wpzoom .wpz-dashboard-widget__footer-nav a:hover,
+#dashboard_wpzoom .wpz-dashboard-widget__footer-nav a:focus {
+    text-decoration: underline;
+}
+#dashboard_wpzoom .wpz-dashboard-widget__footer-count {
+    color: #8c8f94;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* Same 320px column as before: the card is centred, its contents left-aligned. */
+#dashboard_wpzoom .wpz-starter-card {
+    max-width: 320px;
+    margin: 0 auto;
+    text-align: left;
+    padding-bottom: 4px;
+}
+#dashboard_wpzoom .wpz-starter-card__thumb {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 1px solid rgba(16, 22, 29, .09);
+    border-radius: 12px;
+    background: #fff;
+    line-height: 0;
+    transition: border-color .18s ease;
+}
+#dashboard_wpzoom .wpz-starter-card__thumb:hover,
+#dashboard_wpzoom .wpz-starter-card__thumb:focus {
+    border-color: rgba(16, 22, 29, .24);
+    outline: none;
+}
+#dashboard_wpzoom .wpz-starter-card__thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 6 / 7; /* tall crop, same as the theme cards on wpzoom.com */
+    object-fit: cover;
+    object-position: top;
+    transition: transform .4s cubic-bezier(.2, .6, .2, 1);
+}
+#dashboard_wpzoom .wpz-starter-card__thumb:hover img {
+    transform: scale(1.025);
+}
+#dashboard_wpzoom .wpz-starter-card__badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(16, 22, 29, .9);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+#dashboard_wpzoom .wpz-starter-card__details {
+    -js-display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 14px 0 12px;
+}
+#dashboard_wpzoom .wpz-starter-card__title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #242628;
+}
+#dashboard_wpzoom .wpz-starter-card__subtitle {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: #81909c;
+}
+#dashboard_wpzoom .wpz-starter-card__subtitle:empty {
+    display: none;
+}
+#dashboard_wpzoom .wpz-starter-card__shuffle {
+    -js-display: inline-flex;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid rgba(16, 22, 29, .18);
+    border-radius: 50%;
+    background: #fff;
+    color: #50575e;
+    cursor: pointer;
+    transition: color .15s ease, border-color .15s ease, background .15s ease;
+}
+#dashboard_wpzoom .wpz-starter-card__shuffle:hover,
+#dashboard_wpzoom .wpz-starter-card__shuffle:focus {
+    color: #242628;
+    border-color: rgba(16, 22, 29, .3);
+    background: #f2f4f6;
+    outline: none;
+}
+#dashboard_wpzoom .wpz-starter-card__shuffle.is-spinning svg {
+    animation: wpz-spin .5s ease-out;
+}
+@keyframes wpz-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+#dashboard_wpzoom .wpz-starter-card__buttons {
+    -js-display: flex;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+#dashboard_wpzoom .wpz-btn {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: .2s ease all;
+}
+#dashboard_wpzoom .wpz-btn--dark {
+    background: #242628;
+    color: #fff;
+}
+#dashboard_wpzoom .wpz-btn--dark:hover,
+#dashboard_wpzoom .wpz-btn--dark:focus {
+    background: #10161d;
+    color: #fff;
+    opacity: .85;
+}
+#dashboard_wpzoom .wpz-btn--outline {
+    background: #fff;
+    color: #242628;
+    box-shadow: inset 0 0 0 1px rgba(16, 22, 29, .18);
+}
+#dashboard_wpzoom .wpz-btn--outline:hover,
+#dashboard_wpzoom .wpz-btn--outline:focus {
+    background: #f2f4f6;
+    color: #242628;
+    box-shadow: inset 0 0 0 1px rgba(16, 22, 29, .3);
+}
+#dashboard_wpzoom .wpz-btn:focus-visible {
+    outline: 2px solid #242628;
+    outline-offset: 2px;
+}
+
+/* Tab nav inside the WPZOOM News dashboard widget */
+#dashboard_wpzoom .wpz-dashboard-tabs__nav {
+    -js-display: flex;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+    border-bottom: 1px solid #dcdcde;
+}
+#dashboard_wpzoom .wpz-dashboard-tabs__nav-item {
+    margin: 0 15px 0 0;
+    list-style: none;
+}
+#dashboard_wpzoom .wpz-dashboard-tabs__nav-item a {
+    -js-display: flex;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 4px;
+    font-weight: 500;
+    color: #50575e;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color .15s ease, border-color .15s ease;
+}
+#dashboard_wpzoom .wpz-dashboard-tabs__nav-item a:hover,
+#dashboard_wpzoom .wpz-dashboard-tabs__nav-item a:focus {
+    color: #1d2327;
+}
+#dashboard_wpzoom .wpz-dashboard-tabs__nav-item.is-active a {
+    color: #1d2327;
+    border-bottom-color: var(--wp-admin-theme-color);
+}
+#dashboard_wpzoom .wpz-dashboard-tabs__count {
+    -js-display: inline-flex;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 10px;
+    height: 17px;
+    padding: 0 7px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    background: #d63638;
+}
+#dashboard_wpzoom .wpz-dashboard-tabs__panel {
+    display: none;
+}
+#dashboard_wpzoom .wpz-dashboard-tabs__panel.is-active {
+    display: block;
+}
+#dashboard_wpzoom .wpz-dashboard-tabs__panel .table {
+    margin: 0;
+}
+#dashboard_wpzoom .wpz-dashboard-tabs__panel .table_changelog {
+    padding: 22px 0 0;
+    border: 0;
+}
+
+/* Feed items with thumbnails (Releases / News tabs) */
+#dashboard_wpzoom .wpz-feed-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#dashboard_wpzoom .wpz-feed-item {
+    -js-display: flex;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 0 0 14px;
+    margin: 0 0 14px;
+    border-bottom: 1px solid #f1f1f1;
+}
+#dashboard_wpzoom .wpz-feed-item:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+#dashboard_wpzoom .wpz-feed-item__thumb {
+    flex: 0 0 90px;
+    width: 90px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #f1f1f1;
+    display: block;
+}
+#dashboard_wpzoom .wpz-feed-item__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+#dashboard_wpzoom .wpz-feed-item__body {
+    flex: 1;
+    min-width: 0;
+}
+#dashboard_wpzoom .wpz-feed-item__body .rss-date {
+    display: block;
+    color: #8c8f94;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+#dashboard_wpzoom .wpz-feed-item__body .rsswidget {
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Yellow "newer version available" notice */
+.wpz-changelog-update-notice {
+    -js-display: flex;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px 16px;
+    margin: 10px 0 18px;
+    background: #fff8e1;
+    border-left: 4px solid #f0a020;
+}
+.wpz-changelog-update-notice__icon {
+    flex: 0 0 20px;
+    line-height: 0;
+    margin-top: 1px;
+}
+.wpz-changelog-update-notice__body {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #50575e;
+}
+.wpz-changelog-update-notice__body > strong:first-child {
+    color: #1d2327;
+    display: block;
+    margin-bottom: 4px;
+}
+.wpz-changelog-update-notice__body strong {
+    color: #1d2327;
+}
+.wpz-changelog-update-notice__cta {
+    display: inline-block;
+    margin-top: 6px;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+/* Compact changelog list */
+.wpz-mini-changelog {
+    margin: 0 0 14px;
+    padding: 0;
+    list-style: none;
+}
+.wpz-mini-changelog__entry {
+    margin: 0 0 16px;
+}
+.wpz-mini-changelog__entry:last-child {
+    margin-bottom: 0;
+}
+.wpz-mini-changelog__head {
+    -js-display: flex;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+.wpz-mini-changelog__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #c3c4c7;
+    background: transparent;
+    display: inline-block;
+    flex: 0 0 12px;
+    box-sizing: border-box;
+}
+.wpz-mini-changelog__entry.is-latest .wpz-mini-changelog__dot {
+    border-color: var(--wp-admin-theme-color);
+    background: var(--wp-admin-theme-color);
+    box-shadow: inset 0 0 0 2px #fff;
+}
+.wpz-mini-changelog__version {
+    font-weight: 600;
+    color: #1d2327;
+    font-size: 13px;
+}
+.wpz-mini-changelog__date {
+    color: #8c8f94;
+    font-size: 12px;
+}
+.wpz-mini-changelog__row {
+    -js-display: flex;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding-left: 22px;
+}
+.wpz-mini-changelog__badge {
+    display: inline-block;
+    flex: 0 0 auto;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #fff;
+    background: #6c7781;
+    min-width: 60px;
+    text-align: center;
+}
+.wpz-mini-changelog__badge--new      { background: #46b450; }
+.wpz-mini-changelog__badge--improved { background: var(--wp-admin-theme-color); }
+.wpz-mini-changelog__badge--fixed    { background: #d63638; }
+.wpz-mini-changelog__badge--removed  { background: #8c8f94; }
+.wpz-mini-changelog__badge--update   { background: #6c7781; }
+.wpz-mini-changelog__text {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #1d2327;
+}
+.wpz-mini-changelog__more {
+    display: inline-block;
+    margin: 4px 0 0 112px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--wp-admin-theme-color);
+    text-decoration: none;
+}
+.wpz-mini-changelog__more:hover,
+.wpz-mini-changelog__more:focus {
+    color: #135e96;
+    text-decoration: underline;
+}
+
+/* Footer links */
+.wpz-mini-changelog__links {
+    margin: 14px 0 0;
+    color: #8c8f94;
+    font-size: 13px;
+}
+.wpz-mini-changelog__links a {
+    text-decoration: underline;
+}
+.wpz-mini-changelog__links span {
+    margin: 0 8px;
+    color: #c3c4c7;
+}

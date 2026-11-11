@@ -1,0 +1,77 @@
+.s1-rc-panel .components-tab-panel__tabs {
+    margin-bottom: 10px;
+}
+
+/*
+ * Hide the landscape tabs (Tablet landscape = 1st, Mobile landscape = 3rd
+ * in the bundled JS tab order). Only the portrait controls remain visible.
+ */
+.s1-rc-breakpoints .components-tab-panel__tabs > button[role="tab"]:nth-child(1),
+.s1-rc-breakpoints .components-tab-panel__tabs > button[role="tab"]:nth-child(3) {
+    display: none !important;
+}
+
+.s1-rc-gap-control {
+    position: relative;
+}
+.s1-rc-gap-control .components-input-control__suffix {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 12px;
+    line-height: 32px;
+    padding-right: 4px;
+    color: var(--wp-components-color-accent, var(--wp-admin-theme-color, #3858e9));
+    pointer-events: none;
+}
+.s1-rc-gap-control input {
+    padding-right: 20px !important;
+}
+
+/* Masonry feature removed from the WPZOOM integration. */
+.s1-rc-masonry-toggle,
+.s1-rc-masonry-toggle__notice {
+    display: none !important;
+}
+
+/*
+ * The bundled JS renders the breakpoint panel as a single flex child of
+ * .components-panel__row. That row has flex: 0 1 auto so the panel only
+ * takes its content width (~100px) and the slider has no room to breathe.
+ * Force full width so the RangeControl track can expand to fill the sidebar.
+ */
+.components-panel__row > .s1-rc-breakpoints {
+    width: 100% !important;
+    flex: 1 1 auto !important;
+}
+
+.block-editor-block-list__block.is-layout-grid,
+.wp-block-post-template-is-layout-grid.has-s1-rc-columns,
+.wp-block-columns.has-s1-rc-columns {
+    column-gap: var(--s1-rc-gap-x, var(--wp--style--block-gap, 1.5rem)) !important;
+    row-gap:    var(--s1-rc-gap-y, var(--s1-rc-gap-x, var(--wp--style--block-gap, 1.5rem))) !important;
+}
+
+@media (max-width: 1199.98px) {
+    .block-editor-block-list__block.is-layout-grid,
+    .wp-block-post-template-is-layout-grid.has-s1-rc-columns,
+    .wp-block-columns.has-s1-rc-columns {
+        display: grid !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .block-editor-block-list__block.is-layout-grid,
+    .wp-block-post-template-is-layout-grid.has-s1-rc-columns,
+    .wp-block-columns.has-s1-rc-columns {
+        grid-template-columns: repeat(var(--s1-rc-columns-mobile-portrait, 1), 1fr) !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    .block-editor-block-list__block.is-layout-grid,
+    .wp-block-post-template-is-layout-grid.has-s1-rc-columns,
+    .wp-block-columns.has-s1-rc-columns {
+        grid-template-columns: repeat(var(--s1-rc-columns-tablet-portrait, var(--wp--columns, 2)), 1fr) !important;
+    }
+}

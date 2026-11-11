@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>Crippleware: Is Red Hat Rewriting the GPL and the Future of Open Source? – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/">
+<link rel="shortlink" href="/?p=8888">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=B0A78805FF6DC6C6F578294D19E088FA');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=8888">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-8888 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/" title="Permalink to Crippleware: Is Red Hat Rewriting the GPL and the Future of Open Source?" rel="bookmark">Crippleware: Is Red Hat Rewriting the GPL and the Future of Open Source?</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Tuesday, February 11, 2014 at 5:40 am</li>		<li class="category">in <a href="/category/technology/networking/" rel="category tag">Networking</a>, <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fcrippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source%2F&amp;text=Crippleware%3A+Is+Red+Hat+Rewriting+the+GPL+and+the+Future+of+Open+Source%3F" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fcrippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source%2F&amp;t=Crippleware%3A+Is+Red+Hat+Rewriting+the+GPL+and+the+Future+of+Open+Source%3F" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-8888" class="clearfix post-8888 post type-post status-publish format-standard hentry category-networking category-technology category-telephony tag-asterisk tag-freepbx tag-piaf">
+
+		<div class="entry">
+
+			<p></p><center><img fetchpriority="high" decoding="async" src="https://pbs.twimg.com/media/BgIWDbVIIAAS-57.jpg:large" title="Original photo courtesy of The Agency Post" width="400" height="271"></center>
+<p>We’ve always been a believer that things happen for a reason. And so it is with the recent CentOS “acquisition” by Red Hat. It’s no secret that CentOS was cutting into Red Hat’s revenue stream. While Red Hat had announced plans to create its own CentOS-like spinoff, the actual absorption of CentOS and its development team into Red Hat, Inc. was a surprise. So was the <a href="http://tsdr.uspto.gov/#caseNumber=86014936&amp;caseType=SERIAL_NO&amp;searchType=statusSearch" target="_blank">claim by Karanbir Singh</a> that he individually owned the CentOS trademark. <a href="/?p=8721" target="_blank">As we previously described</a>, the whole CentOS story is more than a little murky. What began as a rebellion by some open source developers to the heavy-handed Red Hat reinvention of what open source and the GPL were all about abruptly morphed into something quite different. We hope Red Hat has the best of intentions, but some may see things differently given Red Hat’s history in the open source space. Did one or more developers just throw in the towel in exchange for some undisclosed money and a cushy job? Only the developer(s) know the answer to that. From Red Hat’s perspective, it gives them complete control of the best known, free, competitive and compatible product that was making inroads into their cash cow, Enterprise Linux. Only time will tell whether the goal of this acquisition was to make CentOS a better product. Nothing now prevents Red Hat from diminishing the compatibility between Enterprise Linux and CentOS.</p>
+<p>In the VoIP world, CentOS has played a leading role in the evolution of Asterisk-compatible turnkey systems. That history includes Asterisk@Home, trixbox, Elastix, PBX in a Flash, Asterisk Now, and the FreePBX platform. Just as Excel relies upon Windows to run, all of these distributions have relied upon CentOS as the underlying Linux operating system for their VoIP platform. And this has been the case for almost a decade with no objection from the CentOS folks. In fact, some of us that contributed to the CentOS project received tacit approval to do exactly what we’ve been doing by bundling CentOS with the PBX in a Flash VoIP platform. After all, CentOS is GPL2 software, and we can read.</p>
+<p>Having said that, the PBX in a Flash Dev Team is shifting gears. Down the road we plan to release 32-bit and 64-bit Scientific Linux-based ISOs. By popular demand, over the next few weeks, we will release the <strong>PIAF3-Installer</strong>, a freeware installation program that installs PBX in a Flash 3.0.6.5 on an existing Linux platform. You first install the operating system of your choice, and then the PIAF3-Installer takes it from there. The first release will support 32-bit or 64-bit <a href="http://www.centos.org/download/" target="_blank">CentOS 6.5</a> or the <a href="http://mirror.mcs.anl.gov/pub/scientific-linux/6.5/" target="_blank">Scientific Linux 6.5</a> minimal install. Future releases will support additional Linux operating systems, and we’ll keep you posted on what those platforms will be. All of the installs have been designed to look and feel and perform exactly as the PIAF 2.0.6.5 ISO works today. The installer also has been designed to work with our cloud partner, RentPBX. And it should work well on other cloud platforms as well as virtual machines including VirtualBox. The <a href="/?p=8764&amp;cpage=1#comment-98030" target="_blank">PIAF-Green Virtual Machine featuring Scientific Linux 6.5</a> is already available and was built using the new PIAF3-Installer. For the time being, the PIAF3-Installer gets us out of the operating system business until some of the legal issues are resolved. There’s lots of exciting new PIAF3 software coming your way very shortly. So stay tuned.</p>
+<p>So what’s the big deal with the Red Hat acquisition?</p>
+<p>Red Hat has a different view of the open source universe and the <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GNU General Public license (GPL2)</a> under which CentOS is distributed. And, make no mistake, Red Hat has no choice about using the GPL2 license because their aggregations include thousands of components, most of which are licensed under GPL2. One of the fundamental precepts of GPL licensing is you are free to use or add to others’ GPL-licensed products so long as you also license your software under the same terms, i.e. the GPL2 license. Historically, Red Hat has applied its own GPL interpretation.</p>
+<p>Here’s where it gets interesting. Red Hat aggregated thousands of these GPL2 products and configured them so that they worked harmoniously. And thus was born Enterprise Linux, a wildly profitable Linux “operating system” which consisted primarily of other developers’ free open source software components. And what did Red Hat bring to the table? A trademarked name and logo consisting of some artwork, a method of installing and configuring the various components so that they played nice with each other, and a marketing, support, and legal department. In pulling off this hat trick, Red Hat sprinkled its trademarked name and copyrighted artwork in various files throughout the operating system in such a way that the system wouldn’t function if you removed or renamed some of the files under which the Enterprise Linux operating system was running. Then Red Hat barred others from using its trademarks and copyrighted artwork in competitive products that sought to fork, use, and enhance the Enterprise Linux GPL2-licensed code claiming brand confusion. Merriam-Webster calls it a <a href="http://www.merriam-webster.com/dictionary/gotcha" target="_blank"><strong><em>gotcha</em></strong></a>. We do, too.</p>
+<p>With CentOS, the developers (perhaps with some Red Hat coaching) were sufficiently savvy to remove the Red Hat branding and artwork and then recompiled the source code substituting their own branding and artwork while never disclosing exactly how they did what they did. Scientific Linux did much the same thing a bit later. Was there a non-disclosure agreement between CentOS and Red Hat that was part of their legal settlement? Who knows? The bottom line was that the CentOS project operating under the <a href="https://web.archive.org/web/20041204223431/http://www.centos.org/about/socialcontract" target="_blank">cAOS Foundation made bold claims</a> that they’d never act like RedHat in dealing with others that wanted to use their free product. And, more importantly, they kept their word and never did… at least until the 2014 Red Hat acquisition when CentOS license terms abruptly changed.<br>
+</p><center><img decoding="async" src="https://pbs.twimg.com/media/BecJBHjCIAASiQr.jpg"></center>
+<p>Here’s the key language that all of us relied upon as far as CentOS licensing and integration into other products: </p>
+<blockquote><p>[W]e will never make the system depend on an item of non-free software.</p>
+<p>We won’t object to commercial software that is intended to run on cAos systems, and we’ll allow others to create value-added distributions containing both cAos and commercial software, without any fee from us. To support these goals, we will provide an integrated system of high quality, 100% open source software, <strong>with no legal restrictions that would prevent these kinds of use.</strong> (Emphasis added)
+</p></blockquote>
+<p>Indeed, this licensing approach is exactly what GPL2 requires! The <a href="http://www.centos.org/legal/trademarks/" target="_blank">Red Hat theory of open source licensing</a> goes something like this. You are free to use our source code (only) to develop your own GPL2 product provided you recompile the executables after removing all of our trademarks and copyrighted artwork from the source before you proceed. And here’s the rub with that approach: <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">the GPL2 license</a>. Three important components of the GPL2 license are listed below. <a href="http://www.centos.org/legal/trademarks/" target="_blank">Red Hat’s new CentOS license</a> only partially complies with sections 1 and 2 while ignoring sections 3 and 7.</p>
+<p><strong>Sections 1 and 2 of GPL2</strong> give users the right to copy, modify, and redistribute <u>source code</u> provided appropriate notices are attached and the new source code is licensed under GPL2. There’s no authorization to restrict or limit reuse or modification of individual components in the GPL2 program.</p>
+<p><strong>Section 3 of GPL2</strong> gives users the right to copy and use or modify the <u>object code</u> provided in the original work. There’s no authorization to restrict or limit reuse or modification of individual executable components in the program.</p>
+<p><strong>Section 7 of GPL2</strong> is the enforcement mechanism of the license. If the licensor uses a patent “or any other reason (not limited to patent issues)” to restrict the use of a GPL2-licensed product then the licensor has two options: (1) remove the restriction on use or (2) stop distributing the product pursuant to GPL2. If the licensor insists upon enforcement of a patent, a trademark, or copyright claim whether real or contrived, then “the only way you could satisfy both it and this License would be to refrain entirely from distribution of the Program.” The quoted passages couldn’t be more clear.</p>
+<p>Red Hat wants to have its cake and eat it, too: sell a product using everyone else’s free GPL2 products without restriction and then tie up its own GPL2 product with trademark and copyright land mines that deter others from using the product except in an inoperative form. This is nothing new. <a href="http://archive.is/x5PNZ" target="_blank">Back in the shareware days</a>, we called it <a href="http://en.wikipedia.org/wiki/Crippleware" target="_blank"><em><strong>Crippleware</strong></em></a>. Stated another way, Red Hat wants to permit GPL2 use of modified CentOS in source code format only minus the CentOS marks and images and without any object code or executables and without telling you how to restore functionality after removing the required pieces to which RedHat claims ownership. Simply stated, the boat won’t float without major plumbing changes from any user that wants to keep the boat from sinking. And Red Hat won’t tell you where the boat is leaking or how to fix the leaks. Never mind that Red Hat didn’t mind using thousands of other developers’ trademarks and copyrighted artwork in the Enterprise Linux and CentOS aggregations. There’s a reason. Such restrictions are impermissible under the GPL2 license. Indeed, it’s one of the primary reasons that the GPL license came about in the first place. Assuming Red Hat ever obtains the CentOS registered trademark (which we plan to challenge if no one else does), Red Hat has two options under section 7 of GPL2: drop the trademark and artwork removal requirements or stop marketing CentOS and Enterprise Linux as GPL products (which they obviously cannot do since they are using thousands of other folks’ open source trademarked GPL2 products in “their work” at no cost).</p>
+<p>Here’s a modest proposal that we believe would make everybody happy. First, many folks don’t give a rip about using either the RHEL or CentOS marks or artwork. It’s the source AND executable code that was released under the GPL that users are after just as they were promised under GPL2 and under CentOS previously published licensing terms. What we’re not going to do is invest hundreds of programming hours rebranding and maintaining what is touted and distributed as a GPL2 product. Personally, I’d prefer to spend the hours on a legal brief blowing Red Hat’s GPL2 reincarnation of open source out of the water. It’s dead wrong based upon the clear language of the GPL2 license.  Paying lawyers or experts to twist the meaning of the GPL2 language that’s perfectly clear on its face simply isn’t going to fly. <a href="http://www.leagle.com/decision/19821365554FSupp811_11226" target="_blank">We’ve been down this road before</a>. And David and Goliath is still one of our favorite Bible stories.</p>
+<p>If Red Hat wants a generic, mark-free, image-free distribution of CentOS in lieu of waiving its trademark and copyright claims, then Red Hat can produce a clone <u>with binaries</u> AND keep it current as new versions of RHEL and CentOS are released! Make it a 100% RHEL-compatible and call it MugWump™. Use the Nerd Vittles logo for the artwork. Or come up with any other name and logo so long as there are no restrictions on use by others. If Red Hat uses our proposed name and logo, we will license everyone to use the product, the copyrighted artwork and the MugWump trademark pursuant to GPL2 at no cost. If Red Hat chooses its own new name and logo, then Red Hat agrees to license the product under the same terms we have proffered. The end result: everybody will be happy while saving Red Hat hundreds of thousands of dollars in legal fees. What’s not acceptable is distribution of a product which purports to be GPL2 code but places unreasonable and unachievable restrictions on use without hundreds of hours of development work by potential end users. That’s not what GPL2 was ever about. Hopefully the federal courts won’t have to say so.</p>
+<p></p><center><a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="NerdUno">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></center>
+<p><em><strong><a href="/?p=2" rel="author me">Originally published</a>: Tuesday, February 11, 2014</strong></em></p>
+<hr>
+<p>
+</p><center><a href="http://pbxinaflash.com/forum/"><img decoding="async" src="/wp-images/piaf-forum.gif" alt="" hspace="1" align="center"></a><br>
+<b>Need help with Asterisk?</b> Visit the <a href="http://pbxinaflash.com/community/">PBX in a Flash Forum</a>.<br>
+</center>
+<hr>
+<p> </p>
+<h3>Special Thanks to Our Generous Sponsors</h3>
+<p><br>
+FULL DISCLOSURE: <a href="/?p=32167" target="_new">ClearlyIP</a>, <a href="https://skyetel.com/" target="_new">Skyetel</a>, Vitelity, <a href="https://m.do.co/c/f8725e13f303" target="_new">DigitalOcean</a>, <a href="http://www.vultr.com/?ref=6918611-3B" target="_new">Vultr</a>, <a href="https://voip.ms/en/code/nerdvittles" target="_new">VoIP.ms</a>, 3CX, Sangoma, TelecomsXchange and VitalPBX have provided financial support to Nerd Vittles and our open source projects through advertising, referral revenue, and/or merchandise. As an Amazon Associate and Best Buy Affiliate, we also earn from qualifying purchases. We’ve chosen these providers not the other way around. Our decisions are based upon their corporate reputation and the quality of their offerings and pricing. Our recommendations regarding technology are reached without regard to financial compensation except in situations in which comparable products at comparable pricing are available from multiple sources. In this limited case, we support our sponsors because our sponsors support us.<br>
+<br>
+<a href="/?p=27123" target="_new"><img decoding="async" src="/vitelity/skyetel-bottom.png" alt="" hspace="9" width="250" height="163" align="left"></a><b>BOGO Bonaza:</b> Enjoy state-of-the-art VoIP service with a $10 credit and half-price SIP service on up to $500 of Skyetel trunking with free number porting when you fund your Skyetel account. No limits on number of simultaneous calls. Quadruple data center redundancy. $25 monthly minimum spend required. <a href="/?p=27123" target="_new">Tutorial and sign up details are here</a>.<br>
+<br>
+<a href="https://incrediblepbx.clearlyip.com/" target="_new"><img decoding="async" src="/vitelity/clearlyip.png" alt="" hspace="9" width="250" height="163" align="left"></a>The lynchpin of Incredible PBX 2020 and beyond is ClearlyIP components which bring management of FreePBX modules and SIP phone integration to a level never before available with any other Asterisk distribution. And now you can configure and reconfigure your new Incredible PBX phones from the convenience of the Incredible PBX GUI.<br>
+<br>
+<a href="https://vitalpbx.org/en/" target="_new"><img loading="lazy" decoding="async" src="/vitelity/vitalpbx.gif" alt="" hspace="9" width="250" height="163" align="left"><b>VitalPBX</b></a> is perhaps the fastest-growing PBX offering based upon Asterisk with an installed presence in more than 100 countries worldwide. VitalPBX has generously provided a customized White Label version of Incredible PBX tailored for use with all Incredible PBX and VitalPBX custom applications. <a href="/?p=30854" target="_new">Follow this link</a> for a free test drive!<br>
+ <br>
+<br>
+<img loading="lazy" decoding="async" src="/vitelity/vitelity.png" alt="" hspace="9" width="250" height="163" align="left"><b>Special Thanks to Vitelity.</b> Vitelity is now Voyant Communications and has halted new registrations for the time being. Our special thanks to Vitelity for their unwavering financial support over many years and to the many Nerd Vittles readers who continue to enjoy the benefits of their service offerings. We will keep everyone posted on further developments.<br>
+ </p>
+<hr>
+<p></p>
+<hr>
+<p><b>Some Recent Nerd Vittles Articles of Interest…</b></p>
+<p><iframe loading="lazy" frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			<div class="tag_list">Tags: <a href="/tag/asterisk/" rel="tag">asterisk</a> <span class="separator"> — </span> <a href="/tag/freepbx/" rel="tag">freepbx</a> <span class="separator"> — </span> <a href="/tag/piaf/" rel="tag">piaf</a></div>
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-8888 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 15 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-98066">
+
+			<div id="comment-98066">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/624e932bdb472effdbc0d38ee85beb0d28ebf3c8d96269af2a42b230572541e8?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/624e932bdb472effdbc0d38ee85beb0d28ebf3c8d96269af2a42b230572541e8?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Rob Marti</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98066">Tuesday, February 11, 2014 at 1:29 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>There isn’t a single piece of artwork, etc. involved in Red Hat that can’t be removed.  The difficulty involved in spinning up CentOS wasn’t removing the artwork, it was the build system that involves handling circular dependencies that is the difficult part.</p>
+<p><i>[WM: You kinda missed the point. Wasn’t suggesting that artwork or anything else couldn’t be removed with sufficient effort. It obviously can and has been by several groups. In fact, <a href="http://www.scientificlinux.org/distributions/6x/build/sites" rel="nofollow">Scientific Linux provides the tools to do it</a>. The point is that, under GPL2, you shouldn’t have to remove anything. If it’s proprietary, copyrighted, patented, or trademarked, that burden falls upon Red Hat unless they want to place the resources under GPL2 along with everything else. By all means, enlighten us on the circular dependencies which looks to be further evidence of the crippleware to which we referred. I suspect that’s the reason Red Hat no longer offers free binaries with Enterprise Linux, and you may have seen your last ones with CentOS as well. Binaries are clearly not “independent and separate works” when they are built from GPL2 source code. As such nothing would bar their redistribution pursuant to the terms of GPL2. But we’ll save that discussion for another day.  ]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-98067">
+
+			<div id="comment-98067">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/567cc4a3492d3940b0e3594fbf0d44b33dfe9068aaa9b59f572a4cffd267746c?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/567cc4a3492d3940b0e3594fbf0d44b33dfe9068aaa9b59f572a4cffd267746c?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.centos.org/" class="url" rel="ugc external nofollow">Johnny Hughes</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98067">Tuesday, February 11, 2014 at 3:11 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>You can redistribute CentOS as is (with no modifications) and call it CentOS … if you Modify it in any way, you can say your distribution is “based on CentOS”, but you can not call it CentOS.</p>
+<p>===========================================================</p>
+<p>This policy is not much different than the Ubuntu policy:</p>
+<p><a href="http://www.canonical.com/intellectual-property-rights-policy" rel="nofollow ugc">http://www.canonical.com/intellectual-property-rights-policy</a></p>
+<p>Specifically (Quoting from the page):  </p>
+<p>You can redistribute Ubuntu, but only where there has been no modification to it. </p>
+<p>You can redistribute Ubuntu in its unmodified form, complete with the installer images and packages provided by Canonical (this includes the publication or launch of virtual machine images).</p>
+<p>Any redistribution of modified versions of Ubuntu must be approved, certified or provided by Canonical if you are going to associate it with the Trademarks. Otherwise you must remove and replace the Trademarks and will need to recompile the source code to create your own binaries. This does not affect your rights under any open source licence applicable to any of the components of Ubuntu. If you need us to approve, certify or provide modified versions for redistribution you will require a licence agreement from Canonical, for which you may be required to pay. For further information, please contact us (as set out below).</p>
+<p>===========================================</p>
+<p>Debian is not any different … </p>
+<p><a href="http://www.debian.org/trademark" rel="nofollow ugc">http://www.debian.org/trademark</a></p>
+<p>Specifically:</p>
+<p>When You Can NEVER Use the Debian Trademarks Without Asking Permission – “You cannot use Debian trademarks in a company or organization name or as the name of a product or service.”</p>
+<p>So, if you change the Debian distribution, you can not use the Debian name or trademarks any more because it is not Debian (because it is now “something else”).<br>
+==========================================<br>
+From OpenSUSE:</p>
+<p><a href="http://en.opensuse.org/openSUSE:Trademark_guidelines#Applying_our_Logo" rel="nofollow ugc">http://en.opensuse.org/openSUSE:Trademark_guidelines#Applying_our_Logo</a></p>
+<p>Distributing openSUSE With Modifications</p>
+<p>You may distribute openSUSE with modifications. Such distributions can be created via SUSE Studio, KIWI, or the openSUSE Build Service, or via your own build process.</p>
+<p>In making such a distribution, you must remove all trademark uses of the openSUSE Marks from the version of openSUSE you are modifying. You may, if you wish, combine your own trademark with one of the following openSUSE Mark tag-lines (or its equivalent): “Based on openSUSE”; “Powered by openSUSE”; “Derived from openSUSE”; “Uses openSUSE”; “Built on openSUSE”; or “Built from openSUSE”.</p>
+<p>=====================</p>
+<p>This is standard Trademark policy … if you change something so that it is no longer “Product A”, you can no longer call it “Product A” or use “Product A’s” logo.  </p>
+<p>If someone changes something, the changed thing is no longer CentOS … it is SOMETHING ELSE.  To be able to use the CentOS trademarks in “SOMETHING ELSE”, you need special permission.  Every other major distribution works exactly the same way.</p>
+<p><i>[WM: This is about CentOS so let’s leave the other distributions for a subsequent discussion. Bottom line is GPL2 controls, not what others are doing. There would be little concern if the only modification Red Hat sought was to change the logo from “CentOS” to “Based on CentOS.” That’s a far cry from what the license posted on RedHat’s centos.org site says. And the GPL requirements for CentOS to remove the trademarks and copyrighted artwork or authorize their use under the GPL2 license still stands if you want to continue to market CentOS as a GPL2 product. I’m puzzled why even the most minor change in the CentOS default install transforms it into a non-CentOS product, yet configuration changes made by Red Hat to Apache, SendMail, PHP, MySQL, etc. don’t seem to have the same effect. In other words, Red Hat is changing the configuration of many applications while still referring to the products by their brand names and without removing any of their trademarks or artwork. Would it not still be CentOS if a superset of RPMs from CentOS own repo was included in the base install? If it’s done programmatically rather than letting the end user do it through an installation GUI, what’s the difference? It’s still CentOS or “based on CentOS.” We configure CentOS and add additional applications. The server still boots as CentOS, Apache still loads as Apache, etc. If I add Excel to a Windows machine, it’s still a Windows machine. Am I missing something?]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-98069">
+
+			<div id="comment-98069">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/567cc4a3492d3940b0e3594fbf0d44b33dfe9068aaa9b59f572a4cffd267746c?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/567cc4a3492d3940b0e3594fbf0d44b33dfe9068aaa9b59f572a4cffd267746c?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.centos.org/" class="url" rel="ugc external nofollow">Johnny Hughes</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98069">Tuesday, February 11, 2014 at 6:16 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>So, CentOS is doing what all the other FOSS distros GPL2 distros are doing and that is irrelevant?  So, if the facts don’t agree with your hypothesis then ignore them?  It is extremely relevant that every other distro does it the exact same way.</p>
+<p>Instead of putting a superset of RPMs in the Base install … why don’t you instead distribute CentOS exactly as is and ADD your RPMs to the mix.  Then your are distributing CentOS (perfectly fine) and software for CentOS (also perfectly fine).</p>
+<p>You can have a mirror of non-modified CentOS and your software in another repo/directory.</p>
+<p>If you distribute software that runs on CentOS, then you can say your software “Runs on CentOS” … however, you can’t say your software IS CentOS.  CentOS did not produce your software.</p>
+<p>If you are not modifying the original CentOS software, you can say you are providing CentOS and that you are also providing “Program A” that runs on CentOS.</p>
+<p>If, on the other hand you want to distribute “Program A, CentOS Edition” then all you need to do is create/join a CentOS Special Interest Group at CentOS.org and put your software in a CentOS.org git repo and you can create a Variant of CentOS.  An example might be the CentOS – Storage Edition.  CentOS – Storage Edition might contain Ceph and GlusterFS packages and be on a separate ISO.</p>
+<p>You can’t possibly think that any Distro, be it Debian or Ubuntu or OpenSUSE or any other would be perfectly fine with you creating and signing packages that they did not produce … creating a new ISO and telling people that this new ISO is Debian or Ubuntu or OpenSUSE … because it is not.  It contains things on it that they did not produce and NONE of them allow it.  What they will allow is a separate repository that says that these packages are designed to run on Debian or Ubuntu or OpenSUSE … and they will allow you to also distribute their packages or ISOs unmodified.  This is what every distro allows.</p>
+<p><i>[WM: None of the Asterisk aggregations has ever claimed to be CentOS. What was claimed by all of them was that their Asterisk implementation was “Powered by CentOS” or running <u>under CentOS</u>. Again, think of it as Excel running under Windows. The difference is that the GPL permits distribution of CentOS (the operating system) with additional application code. You obviously can’t distribute Windows with Excel because Windows is a commercially licensed product. CentOS on the other hand is GPL2 licensed, and the GPL2 license expressly permits (and encourages) enhancement and redistribution. Each aggregation installs a slightly different mix of components so I can’t speak to anything other than the way PBX in a Flash works. </i></p>
+<p>Let’s put our differences on GPL2 aside for a moment and see if we can’t agree on an approach going forward. I don’t think we are far apart after reading your comments. What the PBX in a Flash ISO does now is a two-step install. In Phase I, we use the CentOS anaconda setup pretty much as is. We only customize three ks config files (Std, LVM, and SW RAID). In those config files, we choose a drive type, name the machine, bring up a DHCP network connection, and add several RPMs that are not part of the CentOS repo. We then create some directories for subsequent processing and record what’s been installed. We then patch some startup files to set up our installation environment. Finally, we add our startup script to rc.local. It is contained in one of the additional RPMs that is loaded. The system then reboots and runs our Phase II setup procedure after the user logs into CentOS as root. Most of the Phase II install involves downloading and compiling of the various components that turn the platform into an Asterisk-based PBX. </p>
+<p>If it gives the current CentOS developers heartburn, we could easily move all of our custom RPMs from Phase I and download them as part of Phase II. We also could handle the directory creation and file naming tasks in Phase II. Our only essential requirements in Phase I are to set up a DHCP network connection (which CentOS does not do by default) and to modify the rc.local file so that it kicks off our Phase II install on reboot. Let us know if this is acceptable, and we’ll make the necessary changes moving forward.]</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-98071">
+
+			<div id="comment-98071">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7df015726b52ceafa8cf797ce2c2a809bbe8ca4fe90777f95cb078de12e11332?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7df015726b52ceafa8cf797ce2c2a809bbe8ca4fe90777f95cb078de12e11332?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Joncr</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98071">Tuesday, February 11, 2014 at 8:42 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Seems pretty obvious that trademarks, artwork, logos, etc., are not components of source code or compiled object code.</p>
+<p><i>[WM: More accurately, they are not essential source code. Once you include them and release an application under GPL2 is when the problems arise.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-98077">
+
+			<div id="comment-98077">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Lowen</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98077">Wednesday, February 12, 2014 at 12:29 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, there is just one little thing wrong with your analysis that seems to plague most of these sorts of analyses:  The CentOS distribution is not (and cannot be) covered as a whole by the GPL.  Mere aggregation with GPL code does not automatically place other code under GPL (see <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0-faq.html#MereAggregation" rel="nofollow ugc">https://www.gnu.org/licenses/old-licenses/gpl-2.0-faq.html#MereAggregation</a> )</p>
+<p>The source code for the packages for the trademarked logos are not under the GPL.  From my own Red Hat Enterprise Linux 6 system:<br>
+[root@www ~]# rpm -qa|grep logo<br>
+redhat-logos-60.0.14-1.el6.noarch<br>
+[root@www ~]# rpm -qi redhat-logos<br>
+Name        : redhat-logos                 Relocations: (not relocatable)<br>
+Version     : 60.0.14                           Vendor: Red Hat, Inc.<br>
+Release     : 1.el6                         Build Date: Thu 26 Aug 2010 11:00:44 AM EDT<br>
+Install Date: Thu 19 May 2011 01:39:41 PM EDT      Build Host: ppc-003.build.bos.redhat.com<br>
+Group       : System Environment/Base       Source RPM: redhat-logos-60.0.14-1.el6.src.rpm<br>
+Size        : 28112564                         License: Copyright 1999-2010 Red Hat, Inc.  All rights reserved.<br>
+Signature   : RSA/8, Mon 30 Aug 2010 02:00:45 PM EDT, Key ID 199e2f91fd431d51<br>
+Packager    : Red Hat, Inc.<br>
+URL         : <a href="http://www.redhat.com/" rel="nofollow ugc">http://www.redhat.com</a><br>
+Summary     : Red Hat-related icons and pictures<br>
+Description :<br>
+Licensed only for approved usage, see COPYING for details.<br>
+[root@www ~]#</p>
+<p>So GPL-based redistribution of that package, even in source form, isn’t allowed (it’s not under the GPL!).  Redistribution of that package is not in any way affected by the GPL that is used by other packages that are distributed on the same CD.  </p>
+<p>Please see the license for the same package on a CentOS system; it’s not GPL.  </p>
+<p><i>[WM: CentOS is distributed in ISO format as a single file. Once the components are installed and/or intertwined in a manner that they cannot be separated or removed without destroying the basic functionality of the GPL2 components of the “CentOS operating system” (<a href="https://pbs.twimg.com/media/BgSz6LeIAAAmGUa.jpg:large" target="_new" rel="nofollow">see this link for what would happen</a>), then the components in question are no longer a “mere aggregation” and hence become subject to GPL2. Read your own link which makes the same point. If you don’t believe they’re intertwined, remove the 5 dependencies in the link I’ve provided, then remove the redhat-logos RPM, and reboot. 😉 Just kidding. Please don’t try it.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-98080">
+
+			<div id="comment-98080">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="/" class="url" rel="ugc">Nerd Uno</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98080">Wednesday, February 12, 2014 at 9:26 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Contrary to Lowen’s assertion above, the CentOS-6 distribution has been released as GPL code. Here’s the EULA from /usr/share/doc/centos-release-6/EULA:</p>
+<blockquote><p>
+CentOS-6 EULA</p>
+<p>CentOS-6 comes with no guarantees or warranties of any sorts,<br>
+either written or implied.</p>
+<p>The Distribution is released as GPL. Individual packages in the<br>
+distribution come with their own licences.
+</p></blockquote>
+<p>A copy of the GPL2 license is also included in that same directory. As we made clear in the main article, under section 7 of GPL2, the licensor cannot use separate copyright or trademark claims to individual components including artwork and marks to prohibit redistribution of the licensed work as a whole pursuant to GPL2. This is especially true where the individual components have interdependencies with essential components of the licensed work. The licensor has only two options under section 7: (1) remove the copyright and trademark restrictions or (2) stop distributing the product. Simple as that.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-98082">
+
+			<div id="comment-98082">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Lowen</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98082">Wednesday, February 12, 2014 at 10:56 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward,</p>
+<p>Well, I’ll admit to being in error about the overall collective work license to the Distribution for CentOS.  The upstream Red Hat EL EULA is much longer and covers more ground; I’ve read my copy on my RHEL 6 machine.</p>
+<p>However, there again is the little issue that the GPL coverage of the Distribution as a whole is a Collective Work copyright, and 17 USC §201(c) says:<br>
+“Contributions to Collective Works.— Copyright in each separate contribution to a collective work is distinct from copyright in the collective work as a whole, and vests initially in the author of the contribution. In the absence of an express transfer of the copyright or of any rights under it, the owner of copyright in the collective work is presumed to have acquired only the privilege of reproducing and distributing the contribution as part of that particular collective work, any revision of that collective work, and any later collective work in the same series. ”</p>
+<p>CentOS as a whole may be GPL, but each individual component keeps it’s own copyright distinct from the collective, as per US copyright law.  Further, the GPL states in Section 2:<br>
+“These requirements apply to the modified work as a whole. If identifiable sections of that work are not derived from the Program, and can be reasonably considered independent and separate works in themselves, then this License, and its terms, do not apply to those sections when you distribute them as separate works.”</p>
+<p>So the statement you quote from the EULA is not contradictory, since the GPL covers the collective work but each contribution to the collective work, including the logos, retains its distinct copyright and license, especially when separately distributed (as it is in the repositories; CentOS is not just distributed as an ISO).</p>
+<p>Lawrence Rosen’s take on this is at <a href="http://projects.opensource.org/pipermail/license-discuss/2013-September/001235.html" rel="nofollow ugc">http://projects.opensource.org/pipermail/license-discuss/2013-September/001235.html</a> </p>
+<p>The trademarked images, as a contribution to a collective work, still have individual copyright, and, well, they are trademarks, much like the rather neat ‘Nerd Vittles’ is your trademark.</p>
+<p><i>[WM: No one is suggesting that CentOS or Red Hat doesn’t have a copyright claim to the artwork or the collective work. For purposes of this discussion, let’s also assume that CentOS and Red Hat also have legitimate trademark claims to the redhat and centos marks. The point is this. If a collective work is licensed under the GPL and the licensor’s artwork and marks form an integral part of the binaries of that work in such a way that they cannot be removed or renamed without crippling the functionality of the collective work, then those components are not “independent and separate works” under GPL2. Hence, those components become an integral part of the whole GPL2 collective work. As such, they also must be covered by the GPL2 license. That’s the price the licensor pays for using other people’s GPL2 stuff. At this juncture, section 7 requires the licensor to either license use of the collective work, the artwork, and the marks <u>under the terms of GPL2</u> or “refrain entirely from distribution of the Program.” </i></p>
+<p>Why do you think the artwork file is still named redhat-logos? Why is there a file named /etc/centos-release (redhat-release in RHEL) that is protected with an encrypted key? Could these files have been named generically? Of course they could. They weren’t! The clear intention was to embed this artwork and these marks into the GPL2 distribution in such a way that removing them would <u>cripple</u> the functionality of the product. Larry Rosen explained why in the first sentence of the message thread you have cited: profit! But it’s also the very reason that section 7 requires the licensor to either authorize use of the images and marks or to not entangle them in the first place. The alternative remedy under section 7 is removal of the product from the market. 17 USC §201 is not inconsistent with the remedial steps outlined in section 7. Simply stated, these components are not “independent and separate works.” ]</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-98085">
+
+			<div id="comment-98085">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/fb6a59bb42ff2f4759708533e8d1ccf30fda36e9f5627750f9c3a542c2721670?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/fb6a59bb42ff2f4759708533e8d1ccf30fda36e9f5627750f9c3a542c2721670?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.undrhil.com/" class="url" rel="ugc external nofollow">Trousle Undrhil</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98085">Thursday, February 13, 2014 at 3:04 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>So, wait.  Is it GPL or GPL2?  What’s the difference?</p>
+<p><i>[WM: For purposes of our discussion, GPL and GPL2 are being used interchangeably. <a href="http://www.gnu.org/licenses/gpl-2.0.html" rel="nofollow">GPL2</a> is the controlling license. <a ahref="http://www.gnu.org/licenses/gpl-1.0.html" rel="nofollow">GPL1</a> was the original version. </i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-98089">
+
+			<div id="comment-98089">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Lowen</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98089">Thursday, February 13, 2014 at 9:33 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>First, Ward, I do respect much of what you do and have done; neither this nor any of my other posts are meant to disparage you personally in any way. I just believe you are misunderstanding the admittedly complex situation.</p>
+<p>To satisfy my own curiosity, I just did the following on my CentOS 6.5 laptop:<br>
+[root@localhost ~]# rpm -e –nodeps redhat-logos<br>
+[root@localhost ~]# </p>
+<p>No error messages.  I rebooted the system without making any configuration changes.</p>
+<p>The only differences I noted while booting was a image file not found error thrown by grub, and my GNOME backgrounds are now a generic blue with no images. Otherwise, the system is operating normally.</p>
+<p>Now, I knew exactly what I was doing, and I downloaded the CentOS redhat-logos rpm from one of the mirrors before I did that (putting it in /root, since my /home is LUKS encrypted) just in case I needed to reinstall the package in single user mode.</p>
+<p>But I didn’t.  The redhat-logos package is not required for the system to run uncrippled; I’m posting right now from that system where redhat-logos has been removed with –nodeps.</p>
+<p>Try it, Ward.</p>
+<p>Now, I’ve refrained from saying this before, since I really respect you and your work with PBX in a Flash.  But if redhat-logos becomes covered by section 7 just by being aggregated into a GPL covered collective work, then so should the compiled piafdl script distributed with PBX in a Flash, and so all the rights under GPL should fall to that script as well, right?  You yourself claim the freeware installer piafdl that is bundled in the downloaded ISO is ‘merely aggregated’ (according to your post at <a href="http://pbxinaflash.com/community/index.php?threads/gpl2-notice-and-licensing.95/" rel="nofollow ugc">http://pbxinaflash.com/community/index.php?threads/gpl2-notice-and-licensing.95/</a> ) but yet not having piafdl cripples PIAF in much the same way as not having redhat-logos does (that is, PIAF’s phase II can be done without piafdl, just like a CentOS system can be run without redhat-logos; it just takes a bit more effort in both cases).  That is, I personally don’t think the collective work GPL causes the ‘essential’ piafdl script to become GPL-covered any more than it causes redhat-logos to become GPL-covered.</p>
+<p>Now to answer your questions:<br>
+1.) Why is redhat-logos named the way it is?  My best guess would be to make it clear what the package is, but the actual dependency is for ‘system-logos’ in your linked image above.<br>
+2.) As to /etc/centos-release, the only encrypted key of which I’m aware is the package signing key to prevent trojaned packages on the repository (I have rebuilt the centos-release package for CentOS 5 from source on IA64 without any key, and am running it right now on an old SGI Altix).  But I reserve the right to be wrong.</p>
+<p>Now, as to the applicability of Section 7, I believe you’re confusing the overall GPL collective work coverage (of the CentOS-owned collective work copyrtight) with the individual GPL coverage of packages in the collection.  </p>
+<p>The CentOS project owns the collective work copyright to the collection, and cannot violate the collective work GPL as copyright owner (see the GPL FAQ, specifically <a href="https://www.gnu.org/licenses/gpl-faq.html#DeveloperViolate" rel="nofollow ugc">https://www.gnu.org/licenses/gpl-faq.html#DeveloperViolate</a> ).  Redistribution, on the other hand, by third parties must respect the CentOS copyright under the GPL as the collection.  Section 7 is not binding upon initial distribution by the copyright owner, but is part of the conditions under which the copyright owner (the collective copyright owned by the CentOS project in this case) licenses third-party redistribution of the collection.</p>
+<p>The same is true for Red Hat’s collective work copyright license and is why a third party cannot legally redistribute the collective work (as redistribution by the third party is where section 7 applies, as far as the collective work is concerned).  </p>
+<p>Red Hat’s GPL grant on the ISO as a collective work doesn’t cause section 7 apply to CentOS, since CentOS is taking the individual works (under each work’s respective license) and building a new collective work, with CentOS as the copyright owner; CentOS is not redistributing the Red Hat collective work.  </p>
+<p>And thus section 2 applies when redhat-logos is deaggregated from Red Hat’s collective work (causing the individual copyright license for redhat-logos to apply), and must therefore be replaced (which CentOS does do).  Now, the CentOS redistribution license for the CentOS logos is pretty clear, and yes for a third-party to redistribute the CentOS ISO, unmodified or modified, section 7 of the license for the collective work applies.  But it doesn’t apply to the collective work copyright owner, CentOS.</p>
+<p>It’s a matter of distinguishing the collective work license and its owner from the individual contributed package licenses and their owners (as 17 USC §201(c) would seem to require); the collective work’s GPL does not override the PostgreSQL package’s individual BSD license, for instance, but only applies to the collection when redistributed as a collection.</p>
+<p>But I always reserve the right to be wrong, and this is not legal advice, etc.  And I thank you for your work on PIAF.</p>
+<p><i>[WM: Thank you for your comments. This isn’t personal, and I don’t take it that way. Let me first address your initial question regarding the difference in what CentOS is doing and what PIAF is doing. The simple answer is that PIAF includes a freeware installer that is not licensed under the GPL. <a href="http://www.gnu.org/licenses/gpl-faq.html#GPLCompatInstaller" target="_blank" rel="nofollow">It does not have to be under the GPL</a>. The CentOS installer, on the other hand, <u>is</u> distributed as GPL2 code. Once the installer and the collective work are licensed as GPL2 code, CentOS is bound by the terms of the GPL2 license. The PIAF installer is not. </i></p>
+<p>There’s another fundamental difference. You can run the PIAF installer, remove it, and still have a perfectly functioning, CentOS-compatible PBX aggregation. We call it PBX in a Flash, not CentOS PBX. So there is no brand confusion. Stated another way, the GPL2 components of PBX in a Flash don’t blow up by removing the freeware installer after you have run it. In fact, we distribute virtual machine images of PBX in a Flash for a variety of platforms. There’s no installer at all. The reason is the underlying GPL2 binary code is not dependent upon the PIAF installer to continue to function. In the words of GPL2, the installer is an “independent and separate work.” Complete source code is available for every GPL component that is installed. </p>
+<p>Turning to CentOS, remove the CentOS and Red Hat artwork <u>and</u> marks from the installed binary image of CentOS, and that dog won’t hunt, period. And there’s no way to remove them from the binary ISO image without destroying the ability to install CentOS. Yes, with sufficient effort and expertise, some (not all) of the various gotchas can be manually removed by each end user <u>after</u> installation. But you’ve emasculated (some might say crippled) the GPL2 license. It says you don’t have to do any of that because you have an absolute right to redistribute the GPL2 source AND binaries with or without modification. That includes the original or a modified ISO. Setting up copyright and trademark hoops and making these components interdependent with other GPL2 code in the distribution keeps users from being able to exercise their rights to copy, embellish, and redistribute CentOS under GPL2. As previously noted, section 7 gives CentOS two options: (1) remove the impediments by licensing the copyrighted material and marks or (2) “refrain entirely from distribution of the Program.”]</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-98090">
+
+			<div id="comment-98090">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Lowen</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98090">Thursday, February 13, 2014 at 12:27 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward,</p>
+<p>Thanks for the thoughtful reply.</p>
+<p>But when you say:</p>
+<p>“Turning to CentOS, remove the CentOS and Red Hat artwork and marks from the installed binary image of CentOS, and that dog won’t hunt, period.”</p>
+<p>you’re missing the fact that I did just exactly that on my installed CentOS 6.5 system by ‘rpm -e –nodeps redhat-logos’ and this dog is not only hunting, it’s running a rabbit right now…. 🙂  It should be in Little Canada right about now, and heading to Tuckaseegee and then Sylva…. Now, there are some other embedded images (like in the gdm package) that need expunging, but all that is required is to note what packages CentOS modifies and check them for images, and replace them with your own.  Yeah, that’s some work.</p>
+<p>Getting it installed in the first place after removing the redhat-logos package from the ISO would be a bit more work (remove all Requires: system-logos lines from dependent packages), but CentOS and SL (and the Clear Foundation, for that matter) already have and already show how to replace the Red Hat ‘redhat-logos’ package, among others.</p>
+<p>But, back to the real issue, if Red Hat were going to be the bad guy in this, I think they would do more like SuSE, which doesn’t have open distribution of the SLES/SLED sources from which they build their enterprise distribution (at least I’ve not found them, but, again, I reserve the right to be wrong).  </p>
+<p>And if the issue affects CentOS, it will also affect SL and ClearOS, since it is the same upstream source.  I just don’t think it’s quite as large of an issue as you make it out to be, that’s all.  But, yes, I reserve the right to be wrong.  </p>
+<p>Enjoy the snow.</p>
+<p><i>[WM: Just a few brief points. First, there are two separate issues with the binaries and source: installation and operation after installation. Both are covered by GPL2 since the CentOS distribution (including the ISO) has been licensed as GPL2 code. Second, there’s more to the removal than just the artwork. There are numerous marks sprinkled around the distribution in addition to the images. Changing the file names of those marks will cause the distribution not to load or to run. I provided one example with /etc/centos-release. I suspect there are others. Removing or renaming every reference to centos or redhat (even the ones that wouldn’t cause the binaries to implode) is a huge undertaking particularly in the ISO itself. Third, and most importantly, the burden is not on the end user or someone such as the PIAF Dev Team to remove the trademark/copyright minefields and sort out the dependency failures with the binaries. It’s the intertwining of these copyright/trademark dependencies with GPL2 code <u>plus</u> the exercise of these copyright and trademark rights that causes the aggregation to fail the redistribution requirements of GPL2. The burden to remove the impediments falls squarely upon CentOS, not us and not the end user! That’s what section 7 is all about. And it’s a big deal because Red Hat has chosen to make it so. Keep in mind that, until a month ago, none of this was a problem, and the CentOS Dev Team was fully aware of what was going on. We laid it all out in making a most generous contribution to the CentOS project.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-98091">
+
+			<div id="comment-98091">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Lowen</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98091">Thursday, February 13, 2014 at 12:53 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>PS:  And I do know Ward is a retired attorney and do respect that.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-98092">
+
+			<div id="comment-98092">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Lowen</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98092">Thursday, February 13, 2014 at 1:44 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Let’s look again at section 7, the first paragraph:<br>
+“7. If, as a consequence of a court judgment or allegation of patent infringement or for any other reason (not limited to patent issues), conditions are imposed on you (whether by court order, agreement or otherwise) that contradict the conditions of this License, they do not excuse you from the conditions of this License. If you cannot distribute so as to satisfy simultaneously your obligations under this License and any other pertinent obligations, then as a consequence you may not distribute the Program at all. For example, if a patent license would not permit royalty-free redistribution of the Program by all those who receive copies directly or indirectly through you, then the only way you could satisfy both it and this License would be to refrain entirely from distribution of the Program. ”</p>
+<p>The key to this whole thing is just who is the ‘you’ in that paragraph, the licensor or the licensee? </p>
+<p>In every other paragraph and section, ‘you’ is consistently the licensee, not the licensor.  So how does ‘you’ become the licensor for the purposes of Section 7?</p>
+<p>In the preamble, the precedent is set by “We protect your rights with two steps: (1) copyright the software, and (2) offer you this license which gives you legal permission to copy, distribute and/or modify the software. ” In this sentence, the ‘we’ is the licensor(s) and ‘you’ is the licensee.  The ‘we’ is not the authors of the GPL, since they don’t have the copyright to the covered software.</p>
+<p>The GPLv3 preamble is a bit more specific with “Developers that use the GNU GPL protect your rights with two steps: (1) assert copyright on the software, and (2) offer you this License giving you legal permission to copy, distribute and/or modify it.” This language leaves no question as to who ‘you’ is referring to, that is, the licensee(s).</p>
+<p>GPLv3 also specifically calls out, in its section 7: “Notwithstanding any other provision of this License, for material you add to a covered work, you may (if authorized by the copyright holders of that material) supplement the terms of this License with terms:”<br>
+…<br>
+“e) Declining to grant rights under trademark law for use of some trade names, trademarks, or service marks; or”<br>
+…</p>
+<p>This is clear; if the copyright owner of added material agrees, then the licensee may decline to grant those rights to people to whom the covered work is redistributed.  That’s still the licensee; however, this means that a collective work incorporating GPLv3 components can indeed decline to grant trademark usage rights and remain GPLv3 compliant, even if the GPLv3 code’s license ‘goes viral’ and infects the collective work as a whole. (In the case of trademarked logos and artwork added to a GPLv3 covered work, the copyright holder of the added material is likely the trademark holder as well, and can decline to convey trademark usage to the whole GPLv3 covered program).</p>
+<p>Also, in an appeals court in Germany in 2010, the court held that the GPL does not convey trademark use.  See <a href="http://www.lexology.com/library/detail.aspx?g=5b0c0785-3eac-4cbc-ad08-2afba447b1e3" rel="nofollow ugc">http://www.lexology.com/library/detail.aspx?g=5b0c0785-3eac-4cbc-ad08-2afba447b1e3</a> and <a href="https://cyberlaw.stanford.edu/blog/2010/10/recent-developments-anti-circumvention-law-gpl-licensing-and-adwords" rel="nofollow ugc">https://cyberlaw.stanford.edu/blog/2010/10/recent-developments-anti-circumvention-law-gpl-licensing-and-adwords</a></p>
+<p>Yeah, I know that’s Germany and not the US, and thus it’s not a binding precedent.  But I would think that similar reasoning would hold here if this were tested in court; both the US and Germany are party to the Berne Convention and so there are similarities.  But courts surprise us all the time, no? 🙂</p>
+<p><i>[WM: My reading is that “you” refers to anyone who redistributes code covered by GPL2. That would include Red Hat, CentOS, Scientific Linux, and the PIAF Dev Team. Otherwise, section 7 would be meaningless if there was no mechanism for assuring that the entity redistributing existing GPL code didn’t comply with the same openness that was accorded to them.  I think this interpretation also follows from the patent license example which speaks to anyone wishing to redistribute someone else’s GPL code by including material that includes a patent. While perhaps inartfully worded, the purpose of GPL2 is clear: “the intent is to exercise the right to control the distribution of derivative or collective works based on [an existing GPL2] Program.” If you take someone else’s GPL2 code and embellish it, you can’t add patented, copyrighted, or trademarked crap to it and then complain when others seek to redistribute your code. Section 7 says the objectionable material has to be removed, or you cannot distribute the program at all. Anyone that is harmed by your actions would have the legal right to seek injunctive relief to shut down your future distribution of the embellished code pursuant to GPL2… unless you were willing to remove the roadblocks either through licensing or physical removal. The remedy is a subtle one. I can’t force you to license your patent, copyright, or trademark. But, if you don’t, you can’t distribute your product which contains someone else’s GPL2 code. And you have correctly identified why most folks have not moved their works to GPL3 licenses.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-98093">
+
+			<div id="comment-98093">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3db82c6b8c2d88d93380f6ae4e3ed0e684191cdcab84d4fdb49bfb18717c613f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Lowen</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98093">Thursday, February 13, 2014 at 3:20 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>So, Ward, if your legal theory is true (and it hasn’t been tested in court yet), then you need to get the copyright holders of those five packages identified as needing redhat-logos to agree that a violation has occurred, right?  Only the copyright owner of the specific GPL-covered software is the one who has standing to initiate proceedings, right?</p>
+<p>For the distribution as a whole, CentOS owns the collective work copyright, and they’re not going to initiate proceedings against themselves.</p>
+<p>You’re best bet is with GRUB, which is a GNU copyrighted program.  So why hasn’t the GNU project initiated proceedings?  Could it be that they don’t think a trademarked boot logo being used by their program as configured by default in CentOS and distributed with same constitutes a license violation?  They are the only ones with standing to initiate proceedings for GRUB, correct?</p>
+<p>Unless I’m missing something, anaconda, although GPL covered, is copyright by Red Hat.  Well, they would have difficulty initiating proceedings against CentOS for this specific issue, I would think.</p>
+<p>Httpd isn’t GPL covered, but ASL, so a GPL-centric issue doesn’t apply.</p>
+<p>Gnome-desktop’s copyright owner is, I believe, the GNOME Foundation.  Again, they may be unwilling to initiate proceedings based on a logo or artwork, and they’re the only ones with standing to initiate proceedings.</p>
+<p>As a licensee under the GPL we who receive copies have no standing to initiate proceedings, I would think (and no, I am not a lawyer, but I’ve had this very discussion with a couple of lawyers before).</p>
+<p>Anyway, this has been a good discussion, but, until it’s actually settled in court, we’re just speculating.  So, I hope you have a great day.</p>
+<p><i>[WM: Standing arises from all sorts of circumstances. We prefer to keep our powder dry for the time being. There are a number of legal bases supporting what PBX in a Flash and the other Asterisk distributions have done over the past decade. Some have been covered in this article and our previous one. Hopefully, we can work something out that benefits everyone in the open source community. Unlike some, we don’t do this for profit. Enjoyed the discussion anyway. Thanks for your thought-provoking contributions.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-98095">
+
+			<div id="comment-98095">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/41a781a8db0f0e204f1bb3f94ff00e274b14e256ea77107c7dc1b2b132f19814?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/41a781a8db0f0e204f1bb3f94ff00e274b14e256ea77107c7dc1b2b132f19814?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.jaredsmith.net/" class="url" rel="ugc external nofollow">Jared Smith</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98095">Thursday, February 13, 2014 at 5:51 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>(Note: I went back and read the latest comments after writing this reply, and it looks like some of the points I make have already been addressed in the comments since the time I first saw your post, so I apologize in advance if I’m duplicating some themes here.)</p>
+<p>Ward,</p>
+<p>Even though I respect you and I’m glad you’re so passionate about free software and about telephony (as am I!), I’ve got to admit that some of your comments here don’t sit right with me, and I feel like some of my experiences (both outside of Red Hat and inside as well, and now outside again) might add some additional flavor to the conversation.  I’ve tried to simply hold my tongue and ignore your post, but enough other people have asked me for my insights that I figured it would only be fair to share them with you as well.  In short, what I see in your blog post is a lot of smoke and not a lot of fire.  </p>
+<p>(For those of you following along at home, and not aware of my background, I’ve spent a lot of time and effort in the Asterisk community over the past eleven years — writing documentation, doing Asterisk training and consulting, and doing open source community outreach.  I’ve also been actively involved in the Red Hat and Fedora Linux communities for the past eleven or twelve years.  A few years ago I left my job as Training Manager at Digium to work for Red Hat as the Fedora Project Leader, and when my two-year term as the FPL was up, I left Red Hat to take another job.  In short — I’ve had a lot of experience with both telephony, with Red Hat, and with open source legal matters.  In the interest of full disclosure, I’m not an attorney [and don’t play one on the internet], and please don’t take any of my comments or beliefs as legal advice. I don’t pretend to be an expert either, but I have been around this particular block a few times.)  </p>
+<p>Since your post started with the relationship between CentOS and Red Hat, let me start there.  Even though I no longer work at Red Hat, I can tell you what I’ve heard from both Red Hat insiders and community members about the deal. Red Hat is sponsoring the project (employing some key people, making infrastructure such as build systems and QA resources available, offering legal assistance, etc.) in almost the exact same manner as it does with the Fedora Project. And just like the Fedora Project is run by a board, CentOS is too. As a former Fedora Project Leader, I can state unequivocally that Red Hat never told me or the Fedora Board what to do. They trust that the board and the community will make good decisions.  Now, in the case of CentOS, I think it’s even more clear because of the obviously limited scope of the project. Whereas Fedora is out pioneering on the cutting edge of Linux distros and doing a lot of development and integration work (and as such, has an obviously short life-cycle), CentOS is obviously more closely tied to following RHEL’s slower, longer-term cadence.  And because it’s mostly a simple rebuild of the Red Hat source RPMS, there’s a much cleaner split.</p>
+<p>If you look at the makeup of the CentOS board, you’ll see it’s a good mix of community-minded folks.  Maybe you’ve never been lucky enough to meet Karsten Wade, but I have, and I have no doubt that if a tough decision came down to either “community” or “Red Hat”, he’d side with the community.  I’ve seen Karsten in action in the Fedora community over the past six or seven years, and his actions speak for themselves.  I could say similar things about many of the other people on the board — they’re all very community minded.  Another is Johnny Hughes — who commented earlier — but maybe you didn’t recognize the name.  And while I 100% agree with you that only time will tell if the deal ends up helping CentOS become better, I’m more than willing to give them the benefit of the doubt, because I know many of the people involved.  You, on the other hand, seem to be assuming malice or bad intentions without providing any evidence to support your assumptions.</p>
+<p>Yes, Red Hat is in the business of making money. That’s what they do — but they’re also smart enough to understand that without the respect and cooperation of the tremendous open source communities that they interact with, they’d never be able to make a dime.  That’s why they invest heavily in all kinds of open source projects, whether it be in community distributions like Fedora or RDO or CentOS or in individual projects like the kernel, SAMBA, NFS, OpenStack, GNOME, or LibreOffice.  I don’t think most people realize just how much Red Hat does to hire great engineers and then let them spend the vast majority of their time working on open source code in public, and contributing to open source communities that make a difference.  Even as someone who was actively involved in the Red Hat Linux and Fedora communities before becoming a Red Hat employee, I didn’t realize just how much Red Hat cares (and invests) in giving back to communities until I got hired and saw the inside perspective.</p>
+<p>Now, let me shift gears a bit and address some of your concerns about trademarks and copyright law.  Again, I’m no attorney, but it seems to me that you’ve got a very naive view of the way that trademark law works, especially in combination with copyright law and copyright licenses.  (This surprises me, considering how much time you’ve spent in the US legal system.)  Frankly, I don’t see a lot of difference between the CentOS trademark situation and many of the Fedora trademark issues I dealt with during my tenure as the Fedora Project Leader.  In particular, I’ll point out a few key observations.  First, trademark law is different than copyright law in the sense that trademark law requires you to actively defend your registered mark, or you can lose it.  In particular, the legal concept of “naked licensing” is a big concern in this particular case. (If you want a fascinating legal read, study up on the Freecycle case about naked licensing.  You can find an introduction to the case at <a href="http://www.theiplawblog.com/archives/-trademark-law-naked-licensing-trademark-owners-beware.html" rel="nofollow ugc">http://www.theiplawblog.com/archives/-trademark-law-naked-licensing-trademark-owners-beware.html</a>)  I don’t have energy to go into all the details, but in short “naked” licensing refers to the act of letting anybody use your registered mark without any sort of quality check. (Remember, the whole point of trademark law is to let your customers know that they’re really getting your quality product, and not an imitation.) If you let anyone use your registered mark without doing any sort of quality check, the mark can no longer be considered a reliable indication of quality, and it’s lost its usefulness.  In open source software circles, naked licensing is becoming an increasingly easy way to lose the ability to enforce your trademark rights. So going back to the situation at hand… CentOS appears to me to be simply making sure that it’s trademarks don’t get lost. In Fedora, we went a step forward and specifically created a secondary mark for Fedora “remixes”, and created specific trademark guidelines such that people could use that secondary mark without fear of somehow hurting the primary mark. (Debian also has a policy around secondary marks, but I’ve actually only ever seen the secondary mark used in public.)  Fedora also created some trademark licensing agreements so that third parties could use the primary Fedora mark on commercial items, etc.  In particular, I’ll point you to the Fedora Trademark Guidelines at <a href="https://fedoraproject.org/wiki/Legal:Trademark_guidelines?rd=Legal/TrademarkGuidelines" rel="nofollow ugc">https://fedoraproject.org/wiki/Legal:Trademark_guidelines?rd=Legal/TrademarkGuidelines</a> where we specifically call out uses that do and do not require permission.  </p>
+<p>The second area of confusion seems to be around copyright licenses and their interaction with trademarks.  Your remarks seem to indicate that you think the GPL copyright license (or other open source copyright licenses) somehow grant the user of free software a trademark license to use the trademarks any any way they see fit.  I don’t think that’s a fair reading of the GPL, or even a view that is commonly held.  Even the GNU free software distribution guidelines say “the distribution itself may hold particular trademarks. It is not a problem if modification requires removal of these trademarks, as long as they can readily be removed without losing functionality.”  (See <a href="http://www.gnu.org/philosophy/free-system-distribution-guidelines.html" rel="nofollow ugc">http://www.gnu.org/philosophy/free-system-distribution-guidelines.html</a>)  Remember — copyright law was designed (at least in the US Constitution) to promote authorship and art, and covers the details of expression of a work.  Copyright licenses like the GPL cover the copyright aspects of the source code, and a person’s ability to copy, change, redistribute, and redistribute changed copies of the source code.  (The so-called “Four Freedoms” of the GPL.)  Trademark law, on the other hand, was not intended to enable consumers to know that the products they are buying or using are of a particular quality and are not imitations — in short, trademarks are about consumer protection.  As such, trademark licenses don’t deal with source code — they deal with registered marks, and a person’s ability to use them.  (Information on an interesting legal case out of Germany, where the courts there also found that the GPL doesn’t convey a trademark license, can be found at <a href="http://www.lexology.com/library/detail.aspx?g=5b0c0785-3eac-4cbc-ad08-2afba447b1e3" rel="nofollow ugc">http://www.lexology.com/library/detail.aspx?g=5b0c0785-3eac-4cbc-ad08-2afba447b1e3</a>.)</p>
+<p>Last but not least, since you’re insistent on referring to section 7 of the GPL, I’ll point out that section 7 of the GPLv3 specifically calls out several restrictions that are *specifically* allowed, including subsection c (Prohibiting misrepresentation of the origin of that material, or requiring that modified versions of such material be marked in reasonable ways as different from the original version) and subsection e (declining to grant rights under trademark law for use of some trade names, trademarks, or service marks).  In short, I hope you’ll see that just because a program is licensed under the GPL, that *copyright* license doesn’t grant the end user an automatic *trademark* license to use the trademarks in the same way that the end user is able to use the source code.  And sorry, the trademarks don’t count as “source code”, even if images of the registered mark are included with the source code.  It doesn’t work that way.  For a more complete explanation, I strongly suggest you read an article entitled “Passport without a Visa: Open Source Software Licensing and Trademarks”, available at the International Free and Open Source Software Law Review website at <a href="http://www.ifosslr.org/ifosslr/article/view/11/37" rel="nofollow ugc">http://www.ifosslr.org/ifosslr/article/view/11/37</a> as well as “Who Owns the Project Name?” at <a href="http://www.ifosslr.org/ifosslr/article/view/87/159" rel="nofollow ugc">http://www.ifosslr.org/ifosslr/article/view/87/159</a>.</p>
+<p>So go ahead, file a legal brief and try to drag Red Hat into court over this if you’re so inclined.  But if you think that’s really going to be effective, I strongly suggest at least taking the time to read a few of the articles I’ve posted here to brush up on trademark law, and hopefully not conflate trademark law with copyright law.  And if you think a legal fight is going to be less effort than rebranding a distro (or working with a distro to make sure you’re not violating trademark guidelines), I’d say you don’t have a clear understanding of the technical side of building a distro.  I’d be happy to show you how easy it is to rebrand Fedora, and I can’t imagine that CentOS would be that much harder.  Otherwise, I’m looking forward to seeing more case law here in the US (and abroad too, but as a US citizen, I’m more interested in US case law) around both copyright law and trademark law and how they apply to free and open source software.</p>
+<p><i>[WM: Hi, Jared. Thanks very much for your comments. As my previous responses make clear, we’re not looking to sue anybody, especially Red Hat. I share your view that they have done an incredible amount of constructive work in and for the open source community. I haven’t met most of the people you mentioned, but if you think they’re great people, that’s good enough for me. We want to work this out; however, there are <a href="/?p=8721" target="_blank" rel="nofollow">serious trademark issues</a> concerning the CentOS mark. I’ve previously written about it so I won’t repeat it here. The licensing model also is problematic. It directly conflicts with GPL2. Much of your analysis is based upon GPL3 which does exempt trademarks from the license. GPL2 controls in the current situation. That is the way CentOS was licensed. GPL2 prohibits the use of trademarks and copyrights as a means of deterring copying or modification of code released under the license. The fact that GPL3 allows the trademark exemption is one of the primary reasons that few are using the GPL3 license. If you will review the comments that have been made since this article was released, I think it addresses many of the concerns you have raised. Along with other Asterisk aggregations, we have been operating under a set of understandings with the CentOS development team for nearly a decade that were basically turned on their head in January of this year. Like you, I hope we can work this out in a way that benefits everyone, and we would welcome your participation in discussions to make that happen. ]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-ward bypostauthor even thread-even depth-1" id="li-comment-98125">
+
+			<div id="comment-98125">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://mundy.org/" class="url" rel="ugc external nofollow">ward</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/#comment-98125">Saturday, February 15, 2014 at 7:58 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Having given Jared’s comments some additional thought, let me add the following. First, Red Hat has retained and controls a majority of seats on the new CentOS board to which Jared refers. That’s not necessarily a bad thing, but it does highlight that Red Hat is very much in control of the board’s future actions, and everyone on the board knows it either through a pay check or through the majority vote calculus. Finally, as for the CentOS licensing, we merely want Red Hat to live up to the bargain that the CentOS folks made with the FOSS community almost a decade ago. We’ve all relied upon that. Jared’s former employer (before Red Hat) was Digium. They used CentOS in exactly the same way that the rest of us did. That was on Jared’s watch if I recall correctly. And, if I’m not mistaken, Digium still is distributing <a href="http://www.asterisk.org/downloads/asterisknow" target="_blank" rel="nofollow">AsteriskNOW</a> in the same manner, bundled with a subset of CentOS RPMs to provide the necessary LAMP stack on which to run Asterisk. So, Jared, we didn’t just dream this up to irritate people. Read <a href="http://www.centos.org/legal/trademarks/" target="_blank" rel="nofollow">Red Hat’s new CentOS license</a>. It doesn’t jibe with <a href="https://twitter.com/NerdUno/status/434677099366871041" target="_blank" rel="nofollow">your tweets</a>. It’s a major shift in direction and one that may also have impact upon whether Red Hat is successful in obtaining a registered CentOS trademark. After all, CentOS openly permitted (in fact, encouraged!) use of the mark by everyone for many, many years.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/crippleware-is-red-hat-rewriting-the-gpl-and-the-future-of-open-source/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjU5MDU3NSwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

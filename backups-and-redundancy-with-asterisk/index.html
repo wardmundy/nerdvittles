@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>Backups and Redundancy with Asterisk – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/backups-and-redundancy-with-asterisk/">
+<link rel="shortlink" href="/?p=89">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=052A6C13DFB1AAC7BD3F81835823C4E7');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=89">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-89 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/backups-and-redundancy-with-asterisk/" title="Permalink to Backups and Redundancy with Asterisk" rel="bookmark">Backups and Redundancy with Asterisk</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Monday, December 12, 2005 at 1:00 am</li>		<li class="category">in <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fbackups-and-redundancy-with-asterisk%2F&amp;text=Backups+and+Redundancy+with+Asterisk" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fbackups-and-redundancy-with-asterisk%2F&amp;t=Backups+and+Redundancy+with+Asterisk" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-89" class="clearfix post-89 post type-post status-publish format-standard hentry category-technology category-telephony">
+
+		<div class="entry">
+
+			<p><a href="http://www.georgiaaquarium.org/"><img decoding="async" src="/wp-images/aquarium.jpg" alt="Georgia Aquarium" hspace="9" align="left"></a>One of the first things you learn after you purchase a new aquarium is that you're much better off with two tanks rather than one. This generally doesn't make the little Mrs. too happy but, after you explain that each dead fish represents a $100 bill, most wives usually come around. <a href="http://www.google.com/search?client=safari&amp;rls=en&amp;q=define:+ymmv&amp;ie=UTF-8&amp;oe=UTF-8">YMMV</a>! You'll learn much the same thing with Asterisk®. It's not that new versions are that terrible. They're not. In fact, they're generally a quantum leap better and less buggy than the version you're replacing. It's just that programmers have this death wish to always "improve" everything. I've had lots of programmers work with me over the years, and the hardest thing to get across to them short of branding or tattooing the message directly onto their heads is this: "If It Ain't Broke, Don't Fix It!" The gotcha in Asterisk 1.2 was leaving out the sound card driver, chan_oss.so, which broke every company's paging system ... at least all those companies that now depend upon Asterisk. Digium® apparently has fixed the problem in the just released Asterisk 1.2.1, but it still ranks up there as a big mistake that should and could have been avoided. The silver lining in this tale is that it prompted a single individual, Tracy Carlton, to stay up an entire night trying to figure out what had come unglued. In the process, Tracy uncovered why the chann_oss.so driver has never worked with half-duplex sound cards, you know, the type that comes standard in virtually every PC on the planet. Guess what? Now it works with one simple tweak. You can read all about sound cards and paging in Tracy's post on <a href="http://sourceforge.net/forum/forum.php?thread_id=1396336&amp;forum_id=420324">SourceForge</a>. Don't miss it! And, speaking of not missing it, the next time you come through our hometown of Atlanta, don't miss the new <a href="http://www.georgiaaquarium.org/">Georgia Aquarium</a> (see insets). Known affectionately as <i>Fish Depot</i> because it was funded privately by Bernie Marcus of Home Depot fame, it's truly one of a kind and destined to become one of this country's national treasures. The Showstopper: an unbelievably friendly, 3,000 pound Beluga whale (inset below). And the mascot: a little orange fish called a garibaldi appropriately named ... <a href="http://www.tbo.com/travel/includes/MGB8XMLJEGE.html">Deepo</a>.</p>
+<p><a href="http://www.georgiaaquarium.org/"><img decoding="async" src="/wp-images/beluga.jpg" alt="Beluga Whale" hspace="9" align="left"></a>What does all this have to do with Backups and Redundancy? Plenty.  You'll save yourself and your customers a boatload of grief by thoroughly testing new Asterisk releases before you put them into production.  Asterisk is such an exciting technology that it's always tempting to deploy the latest, greatest version immediately to take advantage of some new bell or whistle. The downside is what happened with paging in Asterisk 1.2.  I'm no longer dumbfounded by developers that don't try everything before releasing an upgrade. There just isn't time, and usually it's not very exciting work either.  Plus, it requires a substantial hardware investment. Your best defense is a sandbox (aka clunker) PC that can be used for all sorts of things. First, you can try out new releases. And second, for about $100 on Ebay, you can buy a great Asterisk@Home PC which can do all sorts of other things, too ... like automatic full system backups. If you're feeling rich, buy another Wal-Mart special for under $200, and you've got a great alternate server/backup/sandbox all rolled into one.  Or, if you previously built our dual-system <a href="/index.php?p=80">Bluetooth Proximity Detection System</a>, then you're all set. And, yes, we're going to get software RAID 2 working with Asterisk@Home 2 one of these days for those that want a mirrored hard disk, but first things first.  RAID doesn't offer the same protection as a good, frequent backup. Mirrored RAID drives immediately copy everything from one disk to another, mistakes and all. So, if you clobber a config file or driver by pressing the wrong button, a mirrored drive won't help you at all. It'll just give you a second copy of your original mess. So today we're going to show you a painless backup strategy that'll get you through almost any disaster except perhaps Katrina or a fire that totally destroys your home or office.</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="walmart microtel pc"></eminimall>
+<p></p></center>
+<p><b>Overview</b>. Our project for today is to build a bullet-proof backup system between your two Asterisk@Home systems. Yes, Asterisk@Home can be configured to make backups, but it puts them on the same hard disk as your system, not too helpful with a disk crash. That's not to say you shouldn't implement the Asterisk@Home backups. They're a great resource when you accidentally clobber something. It's easy: AMP-&gt;Setup-&gt;Backup and Restore-&gt;Add Backup Schedule. Give it a name and set everything to Yes. Then select Run Daily at Midnight. Click Submit Changes and then the red bar to reload Asterisk. Just don't forget to clean out some of the daily backups from time to time. They live in /var/lib/asterisk/backups under a directory name matching whatever you named your backup schedule.</p>
+<p>The dual-PC backup system we're going to build today works well for almost any two Linux systems since Asterisk@Home really is a Linux system. It also works swimmingly on systems running BSD or MacOS X. If you need help getting either or both of your Asterisk systems set up, start <a href="/index.php?p=81">here</a>. And the software cost of the project: still $0.  For those with a small business and one or more satellite offices, next week we'll tackle tying multiple Asterisk systems together for instant communications between your offices. Yet another freebie for those that deploy today's backup system. But we're getting ahead of ourselves. The drill for today is to use our previous SSH automatic login trick to enable us to do scheduled backups in the background on one or both of your systems. Lucky for us, CentOS includes the rsync utility which makes mirror image backups using SSH as the transport between two systems. Here's the step-by-step if you want to follow along.</p>
+<p><b>Password-Free SSH Access</b>. As with our Proximity Detection System, we want to use SSH for our backups to protect our sensitive data. After all, there's no reason that your two Asterisk@Home systems have to be in the same building. One can be across town or around the globe. This backup system will work exactly the same ... just slower. But to automate the process, we need to use crontab to schedule the backups. That means there will be no user interaction in the backup process. As you know, SSH typically prompts for a password when you connect to a remote resource. So here's the trick we introduced in our Bluetooth project. We'll do the same thing for backups.  And, if you want to backup both of your systems, you'll need to perform this trick in both directions, i.e. from Server A to Server B and from Server B to Server A. For ease of explanation, we're going to refer to the servers as Asterisk Main and Asterisk Backup. You can extrapolate for your own systems from there. We're going to go through this example assuming you want to backup the data on Asterisk Main to Asterisk Backup. Once you complete the steps, there's no reason you can't reverse the process and also backup Asterisk Backup to Asterisk Main. We'll leave that for you to work out on your own. Just let us know if you get stumped.</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="apple imac"></eminimall>
+<p></p></center>
+<p>To begin, log in to Asterisk Main as root.  Then, from the command prompt, issue the following command: <i>ssh-keygen -t rsa</i>. Press the <i>enter</i> key three times. You should see something similar to the following. The file name and location in bold below is the information we need:<br>
+<code><br>
+Generating public/private rsa key pair.<br>
+Enter file in which to save the key (/root/.ssh/id_rsa):<br>
+Enter passphrase (empty for no passphrase):<br>
+Enter same passphrase again:<br>
+Your identification has been saved in /root/.ssh/id_rsa.<br>
+Your public key has been saved in <b>/root/.ssh/id_rsa.pub</b>.<br>
+The key fingerprint is:<br>
+1d:3c:14:23:d8:7b:57:d2:cd:18:70:80:0f:9b:b5:92 root@asterisk1.local<br>
+</code><br>
+Now copy the file in bold above to your Asterisk Backup server from Asterisk Main using SCP. The command should look like the following (except use the private IP address of your Asterisk Backup server instead of 192.168.0.104). Provide the root password to Asterisk Backup when prompted to do so.<br>
+<code><br>
+scp /root/.ssh/id_rsa.pub root@192.168.0.104:/root/.ssh/authorized_keys<br>
+</code><br>
+Once the file has been copied, you now should be able to log in to Asterisk Backup from Asterisk Main with SSH without being prompted for a password. Let's try it. Log in to Asterisk Backup from Asterisk Main with the following command using the actual IP address of Asterisk Backup, of course:<br>
+<code><br>
+ssh root@192.168.0.104<br>
+</code><br>
+You should be admitted without entering a password.  If not, repeat the drill or read the <a href="http://new.linuxjournal.com/article/8600">complete article</a> and find where you made a mistake. While you're logged in to Asterisk Backup, let's create the directory where your Asterisk Main system will be stored: <i>mkdir /backup</i>. We're assuming you have sufficient disk space on Asterisk Backup to store the complete contents of Asterisk Main. If you're not sure, issue the <i>df</i> command on both systems and be sure. Here's a sample from our system:<br>
+<code><br>
+[root@asterisk1 backup]# <b>df</b></code></p>
+<p>Filesystem           1K-blocks      Used          Available   Use% Mounted on<br>
+/dev/hda2              27980732    4625788  21933596   18%   /<br>
+/dev/hda1                101086          11077        84790           12%  /boot<br>
+none                               62612                0                62612              0% /dev/shm<br>
+</p>
+<p>The device we care about is /dev/hda2. That's where your backup data will reside. The Available column will tell you how much space is left on Asterisk Backup. When you run the same df command on Asterisk Main, the Used column for /dev/hda2 will tell you how much room you need to reserve on Asterisk Backup to hold the backup. Finally, if you should ever want to delete the /backup directory and all the backup data stored on Asterisk Backup, here's the command to do it: <i> rm -rfd /backup</i>. You get no warnings! Now log out of Asterisk Backup by typing <i>exit</i>. Then rerun the df utility on Asterisk Main to see how much space will be needed for the backup. Incidentally, all of the remaining steps in this tutorial will be performed on Asterisk Main.</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="cisco 7940 ip phone"></eminimall>
+<p></p></center>
+<p><b>Using rsync for Asterisk@Home Backups</b>.  There are a number of great tutorials on <i>rsync</i>. If you want to learn more than what's covered below, start <a href="http://www.tux.org/~tbr/rsync/?S=A">here</a>. We did. The actual command we're going to use to make our backups is shown below. It will make the first backup and then freshen it each time you run it in the future. We recommend running the command manually the first time to be sure everything is working as it should.  When the rsync session completes (5-10 minutes on a new system with a 100 megabit Ethernet connection between the servers), issue the following command to check the rsync log for errors: <i>tail /var/log/backup.log</i>. If errors are reported, you can open the log with nano (<i>nano /var/log/backup.log</i>) to search for errors (Ctrl-W, failed to open). Then close nano (Ctrl-X, n). Typically, errors involve changes during the backup process, such as deleting a voicemail message while the backup is in process. Normally, running rsync again will solve any problems. Once you get a clean backup, move on to the Automating Backups step below.<br>
+<code><br>
+rsync -avvz --delete --exclude "/proc/" --exclude "/mnt/" --exclude "[cC]ache" -e  ssh / root@192.168.0.104:/backup/  &gt; /var/log/backup.log</code></p>
+<p><i>WARNING: If you cut-and-paste the code above, make sure you adjust the quotation marks which get mangled by the WordPress blog.<br>
+Both Linux and Asterisk like and want regular quotation marks in all commands or disaster awaits!</i><br>
+<br>
+The only change you'll need to make in the command above is to replace the quotes and the 192.168.0.104 IP address with the actual IP address of your Asterisk Backup server. This will backup everything on Asterisk Main except cache files, the /mnt directory (which includes the contents of any mounted CD-ROM), and the /proc directory (which includes a bunch of stuff that would be unchanged if you did a clean Asterisk@Home install).  </p>
+<p><b>Restoring Your Asterisk@Home System</b>. For future reference, to do a full system restore of Asterisk Main with a new hard disk, you would first reinstall Asterisk@Home from the same installation disk used to create Asterisk Main. Then you would restore the backup data from Asterisk Backup by logging into Asterisk Main as root  and manually issuing the following commands:<br>
+<code><br>
+cd /<br>
+rsync -avv -e ssh root@192.18.0.104:/backup/ . &gt; /var/log/restore.log<br>
+</code><br>
+Of course, we're assuming the IP address of your Asterisk Backup server is 192.168.0.104 in the above example so change it to properly reflect your Asterisk Backup's IP address. And don't forget the space and period and space in the above command. That's what tells rsync to restore your backup to the current folder location.</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="ide hard disk"></eminimall>
+<p></p></center>
+<p><b>Automating Backups</b>. Now that you have rsync working reliably, we want to automate the Linux backup process so that it runs each night without user intervention. This will assure that you never lose more than one day's data which usually isn't life threatening in the telephone business. If it is, you can adjust the crontab schedule to better meet your requirements. To begin, download the backup script <a href="/wp-content/backup.sh">here</a>. Now log in as root and copy the script to /etc/asterisk on your Asterisk Main server. Reset the permissions: <i>chmod 775 /etc/asterisk/backup.sh</i>. Fix the ownership: <i>chown asterisk:asterisk /etc/asterisk/backup.sh</i>. And adjust the IP address in the file to match the IP address of your Asterisk Backup server: <i>nano -w /etc/asterisk/backup.sh</i>. Finally, add the script to your crontab to kick off at 2:01 a.m. each morning, save your update (<i>Ctrl-X, Y, then enter</i>) and you're all set to go.<br>
+<code><br>
+export EDITOR=nano<br>
+crontab -e<br>
+01 02 * * * /etc/asterisk/backup.sh &gt;/dev/null 2&gt;&amp;1<br>
+</code></p>
+<p><b>Coming Attractions</b>. Yes, we're finally going to cover faxing later this week or early next week. And, the #1 requested feature for Asterisk, call presence monitoring with pickup button support, is now a reality. And soon we'll show you how to use it to mimic the key telephone instruments that corporate America just can't seem to live without. There also are new versions of both Asterisk (1.2.1) and Asterisk@Home (2.2) with more bug fixes so we'll have an updated HOW-TO guide for you shortly. Finally, as mentioned previously, we'll connect up our two new Asterisk servers to communicate with each other and start sharing extensions and dialplans as soon as Weekly UPDATE-itis comes to a close.</p>
+<p><b>BroadVoice in the News</b>.  Well, it looks like our old pals at BroadVoice are back in the news ... at least with the Better Business Bureau. See this <a href="http://www.bosbbb.org/reports/reliability_report.asp?FirmId=0000096312">link</a> where BroadVoice finishes in second place for most complaints out of 77 telephone providers over a three year period. And, better yet, BroadVoice would retain or perhaps better their ranking if the numbers were based upon just the past 12 months. In fact, all but one of the complaints filed against BroadVoice were filed within the past 12 months. And, yes, there is a silver lining to this story, too.  BroadVoice for the most part gives BBB complaints the same great treatment that we've received when inquiring about a problem ... nada!<br>
+<img decoding="async" src="http://mundy.org/the_end.gif" alt="" align="left"></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-89 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 12 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-728">
+
+			<div id="comment-728">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2c39f7316acf59ec6e5ea42fe644e07d404d9cc33c3979574e29baa26bc17481?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2c39f7316acf59ec6e5ea42fe644e07d404d9cc33c3979574e29baa26bc17481?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn"><a href="http://www.call-europe.co.uk/" class="url" rel="ugc external nofollow">Jon</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/backups-and-redundancy-with-asterisk/#comment-728">Friday, December 16, 2005 at 4:48 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I’m getting a load of errors (see below) running the backup script for the first time.  I have to admit running this on Fedora rather than Centos, so maybe this is the problem.</p>
+<p>Any thoughts?  Feel free to ignore, because I know you must get a million support questions!!</p>
+<p>Thanks once more for your amazing articles.  I have learnt so much from them.  Please please please keep them up!! :o)</p>
+<p>rsync: link_stat “/root/.delete” failed: No such file or directory (2)<br>
+rsync: link_stat “/root/.exclude” failed: No such file or directory (2)<br>
+rsync: link_stat “/root/.exclude” failed: No such file or directory (2)<br>
+rsync: link_stat “/root/.exclude” failed: No such file or directory (2)<br>
+rsync: link_stat “/root/[cC]ache” failed: No such file or directory (2)<br>
+rsync: send_files failed to open “/proc/acpi/event”: Device or resource busy (16)<br>
+rsync: send_files failed to open “/proc/kcore”: Operation not permitted (1)<br>
+rsync: send_files failed to open “/proc/acpi/event”: Device or resource busy (16)<br>
+rsync: send_files failed to open “/proc/kcore”: Operation not permitted (1)<br>
+rsync: send_files failed to open “/sys/bus/pci/drivers/AEC62xx_IDE/new_id”: Permission denied (13)<br>
+rsync: send_files failed to open “/sys/bus/pci/drivers/ALI15x3_IDE/new_id”: Permission denied (13)<br>
+rsync: send_files failed to open “/sys/bus/pci/drivers/AMD_IDE/new_id”: Permission denied (13)<br>
+rsync: send_files failed to open “/sys/bus/pci/drivers/ATIIXP_IDE/new_id”: Permission denied (13)<br>
+Thanks – Jon</p>
+<p><i>[WM: Fedora probably is the problem. You can either ignore the errors understanding that these files aren’t getting backed up. Or you can work through the individual problems and try to eliminate them. The permissions problems probably can be fixed by making sure that root has rights to the affected files. I think I would exclude /proc/ just as we did with the other exclusions. The rest of the errors are harmless since the files don’t exist. Good luck!]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-736">
+
+			<div id="comment-736">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2c39f7316acf59ec6e5ea42fe644e07d404d9cc33c3979574e29baa26bc17481?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2c39f7316acf59ec6e5ea42fe644e07d404d9cc33c3979574e29baa26bc17481?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn"><a href="http://www.call-europe.co.uk/" class="url" rel="ugc external nofollow">Jon</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/backups-and-redundancy-with-asterisk/#comment-736">Sunday, December 18, 2005 at 8:38 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Update on the Fedora problem.  Where your script had single ‘-‘ I had to  change it to ‘–‘ for example –exclude . I then excluded one more directory, and all worked perfectly.</p>
+<p>thanks again – Jon</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-742">
+
+			<div id="comment-742">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/45aef39eab63e38467c2ec80fc36a4946f95ee04b0678a67b50dc247b691e522?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/45aef39eab63e38467c2ec80fc36a4946f95ee04b0678a67b50dc247b691e522?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">Frank</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/backups-and-redundancy-with-asterisk/#comment-742">Tuesday, December 20, 2005 at 3:11 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>When I tried to enter the code above to run the rsync and copy it to the back-up server it failed with an error message:</p>
+<p>rsync: -delete: unknown option</p>
+<p>I’m not sure what I’m doing wrong, because I can’t tell exactly what I should be entering.  Can you put a screen shot up perhaps?</p>
+<p><i>[WM: If you’re using a version of Linux other than CentOS, then you may need double hyphens. See comment above.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-744">
+
+			<div id="comment-744">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/45aef39eab63e38467c2ec80fc36a4946f95ee04b0678a67b50dc247b691e522?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/45aef39eab63e38467c2ec80fc36a4946f95ee04b0678a67b50dc247b691e522?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Frank</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/backups-and-redundancy-with-asterisk/#comment-744">Tuesday, December 20, 2005 at 7:29 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>In comment 2 above, the writer did the exact same things both times.  Perhaps the blog software mangled it too, but he wrote ‘-‘ instead of ‘-‘ where in both places he shows a single hyphen just as in your example.  I feel as if I’m missing something really fundamental…or else you’re all pulling a really elaborate joke on me.  I’m using Firefox 1.5 for Windows in case that has anything to do with it.  I’ve tried looking at this page with different themes, different browsers, and on different OSs (Mac, Linux, and Windows XP) using IE, Firefox, and Opera.  In all scenario’s  it seems to have the same errors.  What kind of adjustment needs to be made to the quotes?  What are regular quotation marks?  I know of only two types of quotation marks, single and double.  The example above uses double, should I assume that we should use single quotations?</p>
+<p><i>[WM: Believe it or not, there are other quotation marks that don’t appear on the keyboard that face right and left and are typically used in newspapers and magazines. “Regular quotation mark” means the quotation mark character that usually is two keys to the right of the L key on PC keyboards and is created by holding down the shift key while pressing the single quote character. That’s the best I can do by way of explanation.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-748">
+
+			<div id="comment-748">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/8007bd1fc26f7e3c26ee29364416466104b8521b561c5a2f0a24291422870fc8?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/8007bd1fc26f7e3c26ee29364416466104b8521b561c5a2f0a24291422870fc8?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.mcs-wireless.com/" class="url" rel="ugc external nofollow">Mark Green</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/backups-and-redundancy-with-asterisk/#comment-748">Wednesday, December 21, 2005 at 3:33 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>This this what you mean?</p>
+<p>rsync -avvz ???????Ǭ????Ǩ???ɂİ?Ǭ????Ǩ???ɂ???ɬ?-delete???????Ǭ????Ǩ???ɂİ?Ǭ????Ǩ???ɂ???ɬ?exclude ???????Ǭ????Ǩ???ɂİ?Ǭ?????????ɬ?/proc/???????Ǭ????Ǩ???ɂİ?Ǭ?? ???????Ǭ????Ǩ???ɂİ?Ǭ????Ǩ???ɂ???ɬ?exclude ???????Ǭ????Ǩ???ɂİ?Ǭ?????????ɬ?/mnt/???????Ǭ????Ǩ???ɂİ?Ǭ?? ???????Ǭ????Ǩ???ɂİ?Ǭ????Ǩ???ɂ???ɬ?exclude ???????Ǭ????Ǩ???ɂİ?Ǭ?????????ɬ?[cC]ache???????Ǭ????Ǩ???ɂİ?Ǭ?? -e ssh / <a href="mailto:root@192.168.0.104">root@192.168.0.104</a>:/backup/ &gt; /var/log/backup.log</p>
+<p><i>[WM: I don’t know the syntax for the rsync command in any particular flavor of Linux other than CentOS/4 which is what the article was about.  Once you undertake to change the recipe from what we’ve recommended, you are really, really on  your own. There are a number of ways to figure out what the rsync syntax is for any OS. There’s rsync –help, there’s man rsync, there’s rsync -h, and there’s Google. Sorry I can’t be more helpful.]</i> </p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-815">
+
+			<div id="comment-815">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/8007bd1fc26f7e3c26ee29364416466104b8521b561c5a2f0a24291422870fc8?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/8007bd1fc26f7e3c26ee29364416466104b8521b561c5a2f0a24291422870fc8?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.mcs-wireless.com/" class="url" rel="ugc external nofollow">Mark Green</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/backups-and-redundancy-with-asterisk/#comment-815">Friday, January 6, 2006 at 10:23 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>After getting this to work, say the main AAH 1.5 hard drive fails. Can I install AAH 2.2 on a new hard drive and use the restore to recover all the settings?</p>
+<p><i>[WM: Nice try, Mark, but no. You have to reinstall the original AAH 1.5 on a new hard drive and then restore your 1.5 backup.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-834">
+
+			<div id="comment-834">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/45aef39eab63e38467c2ec80fc36a4946f95ee04b0678a67b50dc247b691e522?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/45aef39eab63e38467c2ec80fc36a4946f95ee04b0678a67b50dc247b691e522?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Frank</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/backups-and-redundancy-with-asterisk/#comment-834">Friday, January 13, 2006 at 7:41 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>It looks like you’ve fixed the problem with the WordPress blog software.  Thank you!!!</p>
+<p><i>[WM: You’re not half as glad as I am.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1108">
+
+			<div id="comment-1108">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7ba290ba8cafaa6d74a244193995c2d3a434e00876200bd0c4a7c570bfc0b9e9?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7ba290ba8cafaa6d74a244193995c2d3a434e00876200bd0c4a7c570bfc0b9e9?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">TimC</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/backups-and-redundancy-with-asterisk/#comment-1108">Tuesday, February 28, 2006 at 6:58 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>It would seem you see little value in a RAID1, But my Asterisk runs my home &amp; office and does not get touched for weeks/months on end, I have given up on CentOS supporting any RAID card out-of-the-box and need a soft mirror. I just want uptime, and generally I am not stupid enough to screw up my asterisk during a config change. You talk about a bullet-proof config, but poo-poo a mirror in such a designation? are you kidding? It’s the drives that fail most often on these “untouched” servers. Being a lost linux newbie (MCSE/CCNA, so I guess you would say I have gone to the dark side) I have been unable to figure this out myself. Please lay out some procedure for the linux handicapped. I am hoping to add a mirror to 3 existing servers (2 are IDE, 1 SCSI) 2 of these servers are remote, so a minor hard drive crash means no phones for 3 hours. Help.<br>
+TimC</p>
+<p><i>[WM: I’m not opposed to RAID. You just have to understand what it’s good for and what it’s not.  It isn’t a good backup. It does provide some fault tolerance. If you want to install RAID with Linux, you’ll need to build up a CentOS/4 box using the standard CentOS install, and then install Asterisk@Home from the <a href="http://sourceforge.net/project/showfiles.php?group_id=123387">tarball</a> and then run the install script after reading the <a href="http://sourceforge.net/project/shownotes.php?release_id=396684&amp;group_id=123387">installation notes</a>. There are some other gotcha’s so be sure to check <a href="http://sourceforge.net/forum/forum.php?thread_id=1449058&amp;forum_id=420324">SourceForge</a> before you begin. We’re planning to do this for a customer soon, and I’ll write it up afterwards.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1146">
+
+			<div id="comment-1146">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/ea0befeaa000e8a8e37ae03968baa308e9845678ad879e9f01774dd5bcc61ffa?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/ea0befeaa000e8a8e37ae03968baa308e9845678ad879e9f01774dd5bcc61ffa?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Kwon</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/backups-and-redundancy-with-asterisk/#comment-1146">Wednesday, March 8, 2006 at 1:49 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Regarding RAID1, I have been struggling with it for the past week now and after many installs, I can now offer the following solution:<br>
+Install Summary:<br>
+1. Install a@h v2.6 using the command ???Ǩ??linux askmethod???Ǩ?? with raid1 &amp; minimal package install; reboot;<br>
+2. Follow the release notes:<br>
+mkdir /var/aah_load (must use this directory)<br>
+cp asteriskathome-1.5.tar.gz /var/aah_load<br>
+cd /var/aah_load<br>
+tar xvfz asteriskathome-1.5.tar.gz<br>
+./install.sh<br>
+reboot<br>
+3. Must now Asterisk from source:<br>
+cd /usr/src/<br>
+./rebuildastsrc.sh<br>
+reboot<br>
+rebuild_zaptel<br>
+reboot<br>
+genzaptelconf ???Ǩ???v (-v is optional)<br>
+reboot<br>
+Note: At this point, if you have a Digium TDM11B, you should be able to dial out from ZAP/1 using ZAP/g0.<br>
+4. install-pdf, netconfig, etc.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2060">
+
+			<div id="comment-2060">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e7fb287adc07c6957503f8ebef6b07cfcd1b92692b76eff0ed44146f379ab776?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e7fb287adc07c6957503f8ebef6b07cfcd1b92692b76eff0ed44146f379ab776?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Randy</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/backups-and-redundancy-with-asterisk/#comment-2060">Monday, October 23, 2006 at 8:20 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hello,</p>
+<p>How could I adjust this so that the second server is a hot backup trixbox server or a mirrored image of the first server?  The new Aastra firmware allows for a second reg server and this would give me tha ability to have a little redundancy.</p>
+<p>Thanks for the great articles!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2076">
+
+			<div id="comment-2076">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/8a6763fea11bdba380a7e7af4ee394cbe408be5ddc35d8470adbe314cab1aa28?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/8a6763fea11bdba380a7e7af4ee394cbe408be5ddc35d8470adbe314cab1aa28?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Steve</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/backups-and-redundancy-with-asterisk/#comment-2076">Friday, October 27, 2006 at 12:49 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi Randy,</p>
+<p>Just noticed your post you mention that there’s new Aastra firmware. I can’t find it anywhere on the ‘net. Could you email me details of where you found it, <a href="mailto:sthomas@oritorservices.com">sthomas@oritorservices.com</a>.</p>
+<p>Great site this !</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2524">
+
+			<div id="comment-2524">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/fd3e80887f5b07bb85a9f13e1c9d97327ee38b2d5f827003bfb375def9ae4ec6?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/fd3e80887f5b07bb85a9f13e1c9d97327ee38b2d5f827003bfb375def9ae4ec6?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Kim Callis</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/backups-and-redundancy-with-asterisk/#comment-2524">Thursday, March 1, 2007 at 7:37 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Besides all of the conf information, is there an easy to do a dump and restore of the mysql data?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/backups-and-redundancy-with-asterisk/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/backups-and-redundancy-with-asterisk/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/backups-and-redundancy-with-asterisk/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/backups-and-redundancy-with-asterisk/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/backups-and-redundancy-with-asterisk/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/backups-and-redundancy-with-asterisk/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjQ5NTgyNywid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

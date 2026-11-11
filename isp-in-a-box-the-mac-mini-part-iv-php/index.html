@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>ISP-In-A-Box: The $500 Mac mini (Part IV, PHP) – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/isp-in-a-box-the-mac-mini-part-iv-php/">
+<link rel="shortlink" href="/?p=27">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=5965F035DDC21394C75E57616797C07A');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=27">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-27 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/isp-in-a-box-the-mac-mini-part-iv-php/" title="Permalink to ISP-In-A-Box: The $500 Mac mini (Part IV, PHP)" rel="bookmark">ISP-In-A-Box: The $500 Mac mini (Part IV, PHP)</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Friday, February 4, 2005 at 11:00 pm</li>		<li class="category">in <a href="/category/technology/internetweb/" rel="category tag">Internet/Web</a>, <a href="/category/technology/" rel="category tag">Technology</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fisp-in-a-box-the-mac-mini-part-iv-php%2F&amp;text=ISP-In-A-Box%3A+The+%24500+Mac+mini+%28Part+IV%2C+PHP%29" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fisp-in-a-box-the-mac-mini-part-iv-php%2F&amp;t=ISP-In-A-Box%3A+The+%24500+Mac+mini+%28Part+IV%2C+PHP%29" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-27" class="clearfix post-27 post type-post status-publish format-standard hentry category-internetweb category-technology">
+
+		<div class="entry">
+
+			<p> <img decoding="async" src="http://blog.mundy.org/wp-images/php.jpg" alt="" align="left">We've been exploring the possibilities of the Mac mini for the past couple weeks with a <a href="http://mundy.org/blog/index.php?cat=18">series of articles</a> covering first what it would take to turn the Mac mini into a <a href="http://mundy.org/blog/index.php?p=14">Home Automation Server</a>. And then we built a <a href="http://mundy.org/blog/index.php?p=19">Computer Telephony Server</a>. This week we're using the Mac mini to build a full-featured <a href="http://mundy.org/blog/index.php?cat=16">Internet Hosting Server</a> a.k.a an <i><b>ISP-In-A-Box</b></i>. This is the fourth installment in our <a href="http://mundy.org/blog/index.php?cat=16">five-part ISP-In-A-Box series</a>. If you're just joining us, you might want to start at the beginning and read the articles from the bottom up using this <a href="http://mundy.org/blog/index.php?cat=16">link</a>. On the <a href="http://mundy.org/blog/index.php?p=23">first day</a>, we covered hardware requirements and installation and operation of the Apache Web Server. <a href="http://mundy.org/blog/index.php?p=25">Day Two</a> added mail services including  SMTP, POP3, and IMAP servers.  And <a href="http://mundy.org/blog/index.php?p=26">yesterday</a> we installed MySQL to handle all our data base chores. </p>
+<p>Today we'll cover installation of PHP, a pedal-to-the-metal scripting and programming language that you can  use to build <i>or run</i> web applications for just about anything.  As we mentioned yesterday, adding PHP to the server <i>with MySQL</i> gives you access to literally thousands of free, commercial-quality applications that already have been written by talented programmers all over the world.  Here's a partial <a href="http://freshmeat.net/browse/183/">list</a> from just one of dozens of <a href="http://www.php.net/links.php">web sites</a> that catalog these things. After we get PHP up and running, we'll install <i>phpMyAdmin</i>, your first PHP application. We'll use it to manage and create MySQL databases, and you can kiss the MySQL command prompt goodbye ... forever.</p>
+<p>For those of you who are programmers or wannabe's, one of the beauties of PHP is its extensibility. In addition to the functions provided in the basic language, others have added function libraries for PHP covering almost every programming discipline you can imagine including imaging, printing, emailing, data base integration with virtually every DBMS on the planet, XML, SOAP, PDF, compression technologies, date, time, calendaring, TCP, URL and socket functions ... and we've barely scratched the surface. The documentation alone (in over <a href="http://www.php.net/docs.php">two dozen</a> languages) runs well over 1,000 pages.  Assuming you decide to develop your own applications, if you've learned any other programming or scripting language including ASP or Visual Basic on the Microsoft platform or C on any platform, then you'll be right at home with PHP. If you're just getting started with programming, find a PHP course at your local community college or university.  They all love PHP! But, as we noted earlier, one of the real beauties of PHP is not having to write <i>any</i> applications unless you want to. If there's some web-based application you needed yesterday for a project, chances are someone already has written it for you using PHP.</p>
+<p>To simplify the installation process, we're going to use a PHP installation image (.dmg) file rather than a tarball just as we did with <i>MySQL</i>.  We're going to install PHP 4.3.10 for OS X v10.3.  Make sure you have applied the latest Apple patches to Panther <u>before</u> we begin. As already mentioned, PHP 5 is also available, but it is not yet in widespread use by ISP's, and many of the best PHP applications still require version 4.  Click on this <a href="http://www.entropy.ch/software/macosx/php/">link</a> for  documentation about this PHP build and for other installation images.  When you're ready to begin the actual download we'll be using, click <a href="http://www2.entropy.ch/download/Entropy-PHP-4.3.10-1.dmg">here</a>.  The download is 26MB so a modem is probably not the optimal approach. When the download completes, the image file should automatically mount on your Mac desktop. If not, double click on the  .dmg file to open the folder.  Now double-click on php-4.3.10.pkg.  Let it check the compatibility of your Mac. Then select your default drive, provide your admin password, and PHP will be installed.  When the installation completes, you can eject the image file from your desktop.</p>
+<p>[<b>Update</b>: On some machines, a minor adjustment in the Apache configuration file may be necessary to support PHP. Open a terminal window (Go to <i>Applications/Utilities</i> and double-click on <i>Terminal</i> icon). Type <i><b>sudo su</b></i> and press <i>enter</i> to switch to the root user.  Type <i><b>cd  /etc/httpd</b></i> and <i>enter</i> to move to the Apache config directory.  Type <i><b>pico httpd.conf</b></i> and <i>enter</i> to load the Pico editor and edit the Apache config file. Be careful here!  Press <i><b>Ctrl-W</b></i>, type <i><b>php4</b></i>, and press <i>enter</i> to search for the word "php4."  You should be positioned on a line which begins <i><b>#LoadModule php4_module</b> ...</i>. If there is a pound sign (<i>#</i>) at the beginning of the line, we need to remove it. Don't hit delete! If you did, just backspace over the weird characters. Position the cursor under the # sign and press <i><b>Ctrl-D</b></i>. Now press <i><b>Ctrl-W</b></i> and <i>enter</i> to find the next occurrence of php4. Do this a couple times until you get to a line that begins <i><b>#AddModule mod_php4.c</b></i>. If there is a pound sign (<i>#</i>) at the beginning of the line, delete it by positioning the cursor under the # sign and pressing <i><b>Ctrl-D</b></i>.  That's it for the changes. Now save the file by pressing <i><b>Ctrl-X</b></i>, then <i><b>Y</b></i>, then <i>enter</i>. Exit gracefully from the terminal window by typing <i><b>exit</b></i> and pressing <i>enter</i>, repeat it,  and then <i><b>Command-Q</b></i>. Now we need to stop and restart the Apache Web Server for the changes to take effect. Click on the <i><b>Apple</b></i> icon in the upper left corner of the screen and choose <i><b>System Preferences</b></i>. Double-click on the <i><b>Sharing</b></i> folder. Deselect <i>Personal Web Sharing</i> by clicking on the check mark beside this option. Wait for the web server to stop.  Then select <i>Personal Web Sharing</i> by clicking on the check mark box beside it again. Wait for the web server to start up again, and then close System Preferences by pressing <i><b>Command-Q</b></i>. ]</p>
+<p> <img decoding="async" src="http://blog.mundy.org/wp-images/phpinfo.jpg" alt="" align="left">Now let's be sure PHP installed properly. Make sure your Apache web server is running (consult the <a href="http://mundy.org/blog/index.php?p=23">previous column on Apache</a> if you need further assistance or a refresher course).  Now open TextEdit in your Applications folder.  Change the editor to plain text format by clicking Format, Make Plain Text.  Now type the three lines shown in the left inset ending each line with a carriage return.  Then save the file to your desktop as <b>test4u.php</b> in Unicode (UTF-8) format.  When prompted whether to append .txt to the file name, choose "Don't append."  Now use Finder and click on your local hard disk.  Then navigate to /Library/WebServer/Documents.  Now drag and drop <i>test4u.php</i> in this folder.  Using your web browser, type in this address: <i>http://localhost/test4u.php</i>. You should see a PHP-generated page displaying everything you ever wanted to know about your computer.  If not, recheck to make sure your web server is running and that you don't have a typo or missing semicolon in your <i>test4u.php</i> file. If all else fails, try reinstalling PHP or call your favorite Mac guru (not me!) for a little assistance. <i><b>[Update: Once you've tested your system, move the test4u.php file out of your web site folder to prevent misuse.]</b></i> Congratulations. You've just earned your first programming merit badge!</p>
+<p>Now it's time to install our first PHP application, phpMyAdmin. This is a complete web front-end for MySQL that let's you create, delete, modify, and do just about anything else to any and all MySQL databases. Here are a few warnings to get you started. As with any powerful tool, be careful. Don't muck around in the database called <i>mysql</i> or MySQL itself may come to a screeching halt.  If you want to experiment, then create your own database and play there. Leave databases connected to applications you need alone.  And, finally, here's a word about security.  We plugged a hole in MySQL to keep outsiders out yesterday. When you install phpMyAdmin, you're letting them right back in unless you complete all the steps outlined here.  You also will want to RTFM (read the manual) and decide for yourself whether additional security measures are warranted because of where your machine is placed.  If you are sitting in the middle of a fraternity house and half of your brothers belong to the 'Nerd of the Month' Club, all bets are off.  If you're in a private residence with fairly trustworthy relatives around, the security outlined here is probably enough to keep someone from hacking into your new Mac. End of Sermon.</p>
+<p>By now you should know the drill fairly well. First, make sure your Mac is running Mac OS X v10.3 and is up to date with Apple patches. Second, we need to download the <i>phpMyAdmin</i> software.   Go to the <a href="http://mac.sofotex.com/download-127044.html">Sofotex web site</a> and click <i>Download Now</i>. Be patient for a few seconds, and your download should begin automatically. If not, choose a mirror site from the list. This will deposit a <i>phpMyAdmin</i> tarball (.tar) on your desktop which should decompress into a folder named <i>phpMyAdmin-2.6.1</i>.  If not, double-click on the tarball to decompress it. Now let's open the folder by double-clicking on it.  Find the <i>config.inc.php</i> file and <i>Control-Click</i> on it and choose to open it with TextEdit.  When the file opens, choose File/Print and print just pages 1 through 4 of the file. While your file is printing, click on the Apple, choose System Preferences, click on the Sharing folder, and then click on the words "Personal Web Sharing." Be careful not to deselect the option or you'll shut down your web server.  Now look at the bottom of the display and write down the IP address that's shown after the words "View this computer's website at http://."  Press Command-Q to close your System Preferences window. Click in your TextEdit window and then press Command-Q to close it as well. Now close the <i>phpMyAdmin-2.6.1</i> folder.  Click once on the folder's file name and rename it to <i>php</i> and press <i>enter</i>.  Now we're going to drag the folder to its permanent home.  Open a Finder window, click on your local hard disk icon, and move to <i>/Library/WebServer/Documents</i>. Now drag and drop the <i>php</i> folder from your desktop into the Documents folder, which is as you'll recall the root folder for your computer's web server.  Open a web browser, and go to <a href="http://localhost/php/">http://localhost/php/</a>.  Assuming your Apache web server and your MySQL server are running, you should see a snazzy phpMyAdmin web page with at least the name of your <i>mysql</i> database in the left column and a bunch of nasty, red security messages at the bottom of the screen.  If not, check to be sure Apache and MySQL are both running.  As the red messages say, <b>YOUR SYSTEM IS NOT SECURE</b> at this point so don't be quitting just yet. Close the web browser, and let's plug the security hole.  You're gonna need those four pages you printed and the IP address you wrote down.</p>
+<p>We're going to secure your computer now so PAY ATTENTION!  We need to edit a few lines in the phpMyAdmin config file to tell it to only let you run the program. Otherwise, anyone with a web browser can type your IP address and then /php to do exactly what you just did. Not good!  Move back to  your Finder window which should be positioned in the /Library/WebServer/Documents folder. If not, move there again. Then double-click on the php folder to open it.  Find the <i>config.inc.php</i> file and Control-Click on it and choose to open it with TextEdit.  Now let's look at your printout and mark what needs to be changed. Then you can make the changes CAREFULLY with TextEdit and save the file (Alt -S).  First go to page 2.  At the top of page 2 should be a line that says <i>$cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;</i>. We want to change only the word FALSE to TRUE. Don't mess up the existing punctuation and quotes!  Now go to page 4. About two-thirds of the way down the page are several lines that look like the following. Be very careful in searching for these because there are two more sets of identical lines further down in the  configuration file. We don't want to change those.<br>
+<code><br>
+$cfg['Servers'][$i]['AllowRoot']     = TRUE;        // whether to allow root login<br>
+$cfg['Servers'][$i]['AllowDeny']['order']           // Host authentication order, leave blank to not use<br>
+                                     <b>= '';</b><br>
+$cfg['Servers'][$i]['AllowDeny']['rules']           // Host authentication rules, leave blank for defaults<br>
+                                     <b>= array();</b><br>
+</code></p>
+<p>Now, here's what it should look like after you fix it except you need to replace the IP number 192.168.0.112 with the number you wrote down on your piece of paper.<br>
+<code><br>
+$cfg['Servers'][$i]['AllowRoot']     = TRUE;        // whether to allow root login<br>
+$cfg['Servers'][$i]['AllowDeny']['order']           // Host authentication order, leave blank to not use<br>
+                                     <b>= 'deny,allow';</b><br>
+$cfg['Servers'][$i]['AllowDeny']['rules']           // Host authentication rules, leave blank for defaults<br>
+                                     <b>= array('deny root from all','allow root from localhost','allow root from 192.168.0.112',);</b><br>
+</code></p>
+<p>I'm not even going to tell you how important the correct punctuation is, but if you screw it up, you'll know shortly.  Once you save the changes, open a web browser, and go to <a href="http://localhost/php/">http://localhost/php/</a>.  If this didn't work, try <b>http://192.168.0.112/php/</b> using your own IP address, of course. Do you finally see the same lovely <i>phpMyAdmin</i>? If so, at least you can get in. If not and you see an <i>Access Denied</i> message, check for typos and make sure you put in the correct IP address. Once you can access phpMyAdmin successfully, then we need to make sure no one else can (from anywhere).  If you have another machine on your network, use a web browser to go to http://192.168.0.112/php/ substituting your IP address from your trusty sheet of paper again.  You should see the <i>phpMyAdmin</i> heading with an Access Denied message.  If you have no other machines on your network, visit a friend and try to access your <i>phpMyAdmin</i> site in the same way using your Internet IP address (if you have a firewall/router, you first need to configure it to pass port 80 traffic to your private IP address). You still will see a big red message saying you're using a root account for MySQL with no password. While this is true, it is only accessible while sitting in front of your Mac and NOT from elsewhere assuming you carefully followed the MySQL tutorial yesterday.  <i>phpMyAdmin</i> unfortunately isn't smart enough to know the difference. If you want to make this message go away (and that's all we're doing!), open <i>main.php</i> in the <i>/Library/WebServer/Documents/php</i> folder using TextEdit, search (Command-F) for the first occurrence of the word <i>root</i>, and replace it with <i>toot</i> (or any other word but root), and save the file (Command-S). Now close your web browser, reopen it, and go to <a href="http://localhost/php/">http://localhost/php/</a> or <b>http://192.168.0.112/php/</b> using your own IP address. Whew! Once again you've passed with flying colors.  </p>
+<p>That's it for today. In our next session, we'll tie up all the loose ends, do a little experimenting with phpMyAdmin, and I'll provide some sample code and point you to some  great books to get you started with your new PHP/MySQL programming career. And we'll share some great news about the future of our ISP-In-A-Box series. Thanks for visiting. Have a great weekend!</p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-27 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 8 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-69">
+
+			<div id="comment-69">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/08dcadbc53327a22a2b17b09f529d362a643763db9f07b85f527a79dd924072c?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/08dcadbc53327a22a2b17b09f529d362a643763db9f07b85f527a79dd924072c?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">llewdis</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-the-mac-mini-part-iv-php/#comment-69">Friday, February 4, 2005 at 2:39 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I had a couple of quirks with this install:<br>
+I neede to enable php in the /etc/httpd.conf file by changing the following line and remove the comment character (didn’t see this in the first installment)</p>
+<p>LoadModule php4_module libexec/httpd/libphp4.so<br>
+AddModule mod_php4.c</p>
+<p>Then later on when we changed the permissions for php, localhost no longer worked (resolves to 127.0.0.1) but my internal ethernet address did work.  So instead of <a href="http://localhost/php/" rel="nofollow ugc">http://localhost/php/</a>  I had to use <a href="http://192.168.1.111/php/" rel="nofollow ugc">http://192.168.1.111/php/</a></p>
+<p>That solved the problems, and I am now enjoying a much more intuitive interface to MySQL!</p>
+<p>Thanks!</p>
+<p><i>[WM: No, thank you for catching it! Version 1.0 articles have some similarities to Version 1.0 software. I’ve amended the main article to show what needs to be done. I just forgot I’d already done this on my machine.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-75">
+
+			<div id="comment-75">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/14df5c562c7f5e071969aedffc89421bf3f4af295394e47d9e5e4b98708d5823?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/14df5c562c7f5e071969aedffc89421bf3f4af295394e47d9e5e4b98708d5823?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn"><a href="http://www.concept79.co.uk/" class="url" rel="ugc external nofollow">Colin</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-the-mac-mini-part-iv-php/#comment-75">Saturday, February 5, 2005 at 5:41 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi, I think your articles on the mac-mini are fantastic, however can I point out one small thing: PHP is already installed on OS X all you need to do is start apache, and open a few options in the httpd.conf. You do not need to re-install it at all as its already there.. this is the same with ruby – another nice language. Anyway, keep up the good work!<br>
+<i>[WM: Colin and I spoke off-line about this so I’ll share our thoughts. There is an earlier version of PHP in the Panther distribution; however, you would have to compile it. I preferred a package build for simplicity sake, but either way obviously works.</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-110">
+
+			<div id="comment-110">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/9a190c25c5cc28cd73e17d152c701fd71aa3fcb8bf70cf60e06436ccfbeeb3e3?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/9a190c25c5cc28cd73e17d152c701fd71aa3fcb8bf70cf60e06436ccfbeeb3e3?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">Charley</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-the-mac-mini-part-iv-php/#comment-110">Sunday, February 27, 2005 at 4:47 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Newbie hiccup: I went to my sharing file and it says “View this computer???????Ǭ????Ǩ???ɂİ?Ǭ????Ǩ???ɂ???Ǭ?s website at <a href="http://localhost/" rel="nofollow ugc">http://localhost/</a>.” This can’t be what I’m looking for, can it? (For phpMyAdmin rewrite.) Thanks for this series, it is wonderful.</p>
+<p><i>[WM: Sounds like you’re not connected to a network. Click on the <b>Network</b> icon in <b>System Preferences</b> and then choose <b>Show: Network Status</b> and be sure you’re connected to a network.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-182">
+
+			<div id="comment-182">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/576c61d606854c6a5a7423d52f5b057a3b51798b195cf7138295b1bac6f9d66d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/576c61d606854c6a5a7423d52f5b057a3b51798b195cf7138295b1bac6f9d66d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Tom Brooke</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-the-mac-mini-part-iv-php/#comment-182">Sunday, May 8, 2005 at 7:11 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi,</p>
+<p>Thanks for instructions on getting Apache, MySQL and PHP installed. I just got stuck though…</p>
+<p>I tried to re-start Personal Web Sharing after deleting the two #’s in Terminal but it wont start. No error message or anything just sits there ‘starting up…’.</p>
+<p>I tried quitting SysPref but it cancels the operation. I even tried putting the #’s back in but it won’t start again.</p>
+<p>Any ideas? Please??</p>
+<p>Tom</p>
+<p><i>[WM: Tom, System Preferences doesn’t return errors so you need another way to see them. The easiest way is to install <a href="http://mundy.org/blog/index.php?m=20050207">WebMin</a> and then choose Servers-&gt;Apache and start and stop Apache from there. It will tell you what came unglued with a line number. Ctrl-C in Pico will tell you what line number you’re on  in the config file. Good luck!]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-185">
+
+			<div id="comment-185">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/576c61d606854c6a5a7423d52f5b057a3b51798b195cf7138295b1bac6f9d66d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/576c61d606854c6a5a7423d52f5b057a3b51798b195cf7138295b1bac6f9d66d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Tom Brooke</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-the-mac-mini-part-iv-php/#comment-185">Monday, May 9, 2005 at 8:17 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>It’s Tom again, I installed Webmin but because the Personal Web Sharing start up it won’t let me in to use it. Any ideas would be greatly appreciated…</p>
+<p><i>[WM: Tom, WebMin has its own web server on port 10000. So, if it won’t let you in at one of the three addresses mentioned in the WebMin article, you’ve got other problems on your machine other than Personal Web Sharing.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-495">
+
+			<div id="comment-495">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/1ca20221bc48e60623dec4e282a8f2e90a12be982d52348636cb0e066907d284?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/1ca20221bc48e60623dec4e282a8f2e90a12be982d52348636cb0e066907d284?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.paulstamatiou.com/" class="url" rel="ugc external nofollow">Paul Stamatiou</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-the-mac-mini-part-iv-php/#comment-495">Wednesday, August 31, 2005 at 6:49 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Is there any updated version of Entropy PHP I can upgrade easily to?  I just connected my computer to my school’s network (Georgia Tech) and it scans the computer for vulnerabilities before letting me connect to the internet, and it cited a PHP 4.3 flaw.  I was able to get online by turning the server off, letting it scan, then turning it back on.  However, I would like to fix this vulnerability… Would it be as simple as installing the *.dmg PHP installer? or would I have to uninstall my current PHP.</p>
+<p>Thanks!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-496">
+
+			<div id="comment-496">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/1ca20221bc48e60623dec4e282a8f2e90a12be982d52348636cb0e066907d284?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/1ca20221bc48e60623dec4e282a8f2e90a12be982d52348636cb0e066907d284?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.paulstamatiou.com/" class="url" rel="ugc external nofollow">Paul Stamatiou</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-the-mac-mini-part-iv-php/#comment-496">Wednesday, August 31, 2005 at 6:50 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Could I upgrade to PHP 5 without any issues with WordPress?</p>
+<p><i>[WM: Lots of issues. I wouldn’t do it.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-618">
+
+			<div id="comment-618">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/37674773a3e288e32163e44d9751510d9d22b1fad1b3a549fce2f2d5bab97c39?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/37674773a3e288e32163e44d9751510d9d22b1fad1b3a549fce2f2d5bab97c39?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Dayo Akanji</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-the-mac-mini-part-iv-php/#comment-618">Sunday, October 30, 2005 at 2:40 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hello, I have been following your instructions and thanks a mil for them.  I am about to download mysql and php and wanted to ask…you wrote that we should avoid version 5 of both but a few months later down the road, is this still the case?</p>
+<p>Just that when I went to the mysql site for instance, they recommend v5.</p>
+<p>Thanks for the great series!</p>
+<p><i>[WM: All of these tutorials are keyed to version 4 so, if you load a different version, a number of things may be different and some things may not work at all. For our purposes, the recommended versions do everything you’d ever need or want to do with your Mac mini.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/isp-in-a-box-the-mac-mini-part-iv-php/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/isp-in-a-box-the-mac-mini-part-iv-php/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/isp-in-a-box-the-mac-mini-part-iv-php/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/isp-in-a-box-the-mac-mini-part-iv-php/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/isp-in-a-box-the-mac-mini-part-iv-php/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/isp-in-a-box-the-mac-mini-part-iv-php/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjkyNDkxNiwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

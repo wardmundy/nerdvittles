@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>Finally … Installing Asterisk@Home on Your Windows PC for Free: Here’s How – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/finally-installing-asteriskhome-on-your-windows-pc/">
+<link rel="shortlink" href="/?p=116">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=6EAEE14F2139DEB6AC50EDCB709D64EC');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=116">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-116 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/finally-installing-asteriskhome-on-your-windows-pc/" title="Permalink to Finally … Installing Asterisk@Home on Your Windows PC for Free: Here’s How" rel="bookmark">Finally … Installing Asterisk@Home on Your Windows PC for Free: Here’s How</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Tuesday, February 7, 2006 at 1:00 am</li>		<li class="category">in <a href="/category/technology/microsoft-pcs/" rel="category tag">Microsoft &amp; PCs</a>, <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Ffinally-installing-asteriskhome-on-your-windows-pc%2F&amp;text=Finally+%26%238230%3B+Installing+Asterisk%40Home+on+Your+Windows+PC+for+Free%3A+Here%26%238217%3Bs+How" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Ffinally-installing-asteriskhome-on-your-windows-pc%2F&amp;t=Finally+%26%238230%3B+Installing+Asterisk%40Home+on+Your+Windows+PC+for+Free%3A+Here%26%238217%3Bs+How" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-116" class="clearfix post-116 post type-post status-publish format-standard hentry category-microsoft-pcs category-technology category-telephony">
+
+		<div class="entry">
+
+			<p><img decoding="async" src="/wp-images/vmware.jpg" alt="" hspace="9" align="left">For those wanting to experiment with an Asterisk® PBX, there is no better offering than Asterisk@Home 2.5. And you sure can't beat the price: <i>it's FREE</i>. The only drawback for Windows PC users has been that you needed a dedicated machine on which to install Asterisk@Home with its Linux operating system.  Well, that's no longer a problem.  Now you can run Asterisk@Home 2.5 with its built-in CentOS/4 Linux operating system as a virtual task on your Windows XP or Windows 2000 system.  And, you get an Apache web server with PHP, a SendMail server, the SugarCRM contact management system, and a MySQL database server all rolled into the package at no additional cost. Did I forget to mention: it's still <i>FREE</i>. Better yet, if you happen to have a 2GB USB flash drive, you can carry your new PBX and softphone with you wherever you go and run it on almost anyone's Windows PC.  </p>
+<p>The magic to make all of this work is the terrific <a href="http://www.vmware.com/products/player/">VMware Player</a> which also happens to be free. Just download and install the player from this <a href="http://download3.vmware.com/software/vmplayer/VMware-player-1.0.1-19317.exe">link</a> to get started.  You'll need a Windows PC with at least a 500 MHz processor with 256MB of RAM and about 2 gigs of disk space for this project. Once installed, the VMware Player runs virtual sessions on your Windows machine that look and feel just like any other Windows app... except, in this case, the application is CentOS/4 Linux running Asterisk@Home 2.5. VMware ranks right up there with Asterisk@Home and sliced bread as things you can't <i>and shouldn't</i> live without.</p>
+<p><b>Update: </b> This tutorial now has been updated to support the latest version of the TrixBox Asterisk server. Click <a href="/index.php?p=144">here</a> for details.</p>
+<p>The remaining piece you'll need to get started is Asterisk@Home 2.5 packaged as a VMware application. Lucky for all of us, the fine folks at <a href="http://www.vmwarez.com/2006/02/asteriskhome-virtual-machine-updated.html">vmwarez.com</a> have done all of that for you. Just download the 560MB ZIP file (587629051 bytes) from <a href="http://dl.vmwarez.com/virtual-machines/vmwarez.com-aah25.zip">here</a>, unzip it, and run VMware Player with the 1.5GB VMDK version of Asterisk@Home. Once it's running and <i>after you read the next paragraph to decipher the new root password</i>, follow along in our <a href="/index.php?p=112">Asterisk@Home 2.5 Tutorial</a> beginning at <b>Securing Your Passwords</b> and then moving on to <b>Basic System Configuration</b> to get Asterisk configured and working. The only difference from installing this natively using the AAH 2.5 ISO image is you don't have to endure the knuckle drill of installing Linux and WebMin, updating the OS, and compiling Asterisk. It's like getting a free <a href="http://voipspeak.net/index.php?/content/view/60/2/">SPA-9000</a> <i>with</i> voicemail. Yes, the vmwarez folks have done the heavy lifting for you.  Thanks, Jim! </p>
+<p>The first time you run Asterisk@Home 2.5 using the VMware Player you'll be notified that the image has been moved from its original location. Duh! Switch to keyboard input on the virtual terminal by clicking inside the VMware window or pressing Ctrl-G. Then simply tell VMware to create a new image application, and your CentOS/4 Linux server will start the boot process. Unless you have the same network card that the vmwarez folks use, you'll be advised that your network hardware has changed. Choose Yes to remove the existing network driver and, when CentOS finds your real network card, choose Yes to use it. Netconfig will load automatically to let you configure the IP address for your network adapter. Hit the space bar to tell CentOS to obtain an IP address from your DHCP server, then tab to OK and save your entry. See our <a href="/index.php?p=112">full tutorial</a> for how to protect this IP address on your router/firewall. Once CentOS completes the boot process, Asterisk@Home will be loaded, and you'll get the Linux command prompt. Login in with the username <i>root</i>. You will need to know a different password than the default AAH password to gain root access to the Linux console: it's <i>vmwarez</i>. You can obtain the IP address of your new Asterisk server by typing <i>ifconfig eth0</i>. To gain web access to Asterisk, switch back to Windows by pressing Ctrl-Alt, fire up a web browser and point it to the IP address of your new Asterisk server. Choose Asterisk Management Portal. To gain access, the username is <i>maint</i> and the default password is <i>vmwarez</i>. Is it as fast as running Asterisk@Home natively on a dedicated Linux machine? Damn close on my Windows XP machine, and it sure does make a great sandbox to see if Asterisk@Home is something you can't live without. Now head on over to our <a href="/index.php?p=112">Asterisk@Home 2.5 Tutorial</a> and enjoy the free ride!</p>
+<p>And the silver lining to this story ... download (258MB) and use <a href="http://download3.vmware.com/software/vmplayer/Browser-Appliance-1.0.0.zip">VMware's FireFox web browser application</a> (1GB) and never worry about AdWare, malicious ActiveX controls, and web site Trojans and viruses on your Windows PC again. And, yes, it's <i>FREE</i>!</p>
+<p><b>Downloading Tip:</b> For those that use BitTorrent (<i>highly recommended</i>), here's a <a href="http://linuxtracker.org/torrents-details.php?id=1427">link</a> to the file. To assist others, put a copy of the .torrent file in the same directory in which you download the zipped image.<br>
+<img decoding="async" src="http://mundy.org/the_end.gif" alt="" align="left"></p>
+<hr>
+<p><b>Some Recent Nerd Vittles Articles of Interest...</b></p>
+<p><iframe frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-116 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 41 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-953">
+
+			<div id="comment-953">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/328171978fe00cfad565b3c3bd82bff19869a4ba24ca300e20e9670cd99023d6?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/328171978fe00cfad565b3c3bd82bff19869a4ba24ca300e20e9670cd99023d6?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">Rob</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-953">Tuesday, February 7, 2006 at 2:51 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Will the VM Wares app let you use digium cards in your Win XP box?</p>
+<p><i>[WM: I was wondering the same thing myself. Being IP purists, we don’t have a board. See Jim’s #4 comment below.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-955">
+
+			<div id="comment-955">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/75ec5a0815d3eb3a53dcb8a892cce3ad0f563519781b66a1f8327d98d8f0f347?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/75ec5a0815d3eb3a53dcb8a892cce3ad0f563519781b66a1f8327d98d8f0f347?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">Davy Chan</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-955">Tuesday, February 7, 2006 at 6:10 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>This idea has been around for a long time and was written up by Kerry Garrison in Nov 2005:</p>
+<p><a href="http://voipspeak.net/index.php?option=com_content&amp;task=view&amp;id=45&amp;Itemid=28" rel="nofollow ugc">http://voipspeak.net/index.php?option=com_content&amp;task=view&amp;id=45&amp;Itemid=28</a></p>
+<p>His implementation is a lot smaller (download-wise) because you download the ISO Asterisk@Home image separate. This allows you to not be dependant on someone else to update your VM.</p>
+<p>See ya…</p>
+<p><i>[WM: To each his or her own. Our approach flattens the Linux learning curve. In fact, it all but eliminates it. You do a 30-minute download with a broadband connection, and you’re in business. And you get an out-of-the-box, functioning system which can be put on a flash drive and carried around easily. That’s new and better in my book. Kerry’s way (just over 2 months ago … but that certainly qualifies as a long time in the VoIP business) was very creative but considerably more complicated (particularly for non-Linux enthusiasts) and about a 2-3 hour installation project assuming no hiccups. Plus you still had to download the AAH image from somewhere which is the same 30 minutes that our project requires. You are correct though. There is more flexibility with Kerry’s approach although Jim released his AAH 2.5 image less than a week after AAH 2.5 hit the street. That’s fast enough for me to skip the installation headaches.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-957">
+
+			<div id="comment-957">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5716eafb99c1c6414eec7bebe9b754768981a588d9138e7bc774949405bf9602?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5716eafb99c1c6414eec7bebe9b754768981a588d9138e7bc774949405bf9602?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mike</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-957">Tuesday, February 7, 2006 at 8:18 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I have truly enjoyed your tutorials (I still think you are writing a book:-) But, Ward!! …Damn close on my Windows XP machine, and it sure does make a great sandbox …  I thought you were strictly a Mac/Linux guy.  Really hate hearing that you dabble on the darkside 🙂 🙂</p>
+<p><i>[WM: Started on the dark side, but I don’t go there often any more. Just trying to help out the poor unfortunate souls that still have to do Windows for a living.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-958">
+
+			<div id="comment-958">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/efedcfa93aad525d950ee69f53383572eaf39ca226a2db5bf4a524642e4bee17?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/efedcfa93aad525d950ee69f53383572eaf39ca226a2db5bf4a524642e4bee17?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.vmwarez.com/" class="url" rel="ugc external nofollow">Jim</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-958">Tuesday, February 7, 2006 at 8:51 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi Ward,  Thanks for the great article… And the bandwidth relief.  I just wanted to answer that first question about the digium boards.  That doesn’t work.  I am also a pure ip guy and it never dawned on me to specify.  I’ll add a note to my post.  Thanks again!</p>
+<p>Jim</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-959">
+
+			<div id="comment-959">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a0fc8e1bfbdc51ddef6b53541f34fa7d942d9ed6ab4dfc5bdcc92e68cad6772c?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a0fc8e1bfbdc51ddef6b53541f34fa7d942d9ed6ab4dfc5bdcc92e68cad6772c?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Rafael Cortes</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-959">Tuesday, February 7, 2006 at 11:48 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>You have a TYPO that confuses people who read only half of things (like myself 😉 :<br>
+Third paragraph it states:<br>
+Just download the 600K ZIP file<br>
+and later you state that it is a HUGE 600 megs (but people don’t always read to the end before downloading..<br>
+Just a thought though… Anyway thanks a lot for all the help you provide us. I have 3 asterisk implementations running right now thanks to your tutorials, with most of the whistles and bells!!! Keep it up!</p>
+<p><i>[WM: Thanks for catching it. That’s a doooozy! Maybe I was just wishing it was 600K.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-964">
+
+			<div id="comment-964">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/1fb7edaefa12357a561014f13d3ba0cbece7f2ee444ff2769743505bfa1bce30?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/1fb7edaefa12357a561014f13d3ba0cbece7f2ee444ff2769743505bfa1bce30?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Stephen Harrington</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-964">Tuesday, February 7, 2006 at 5:12 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Noobie here…</p>
+<p>So if the VMWare Version doesn’t work with the Digium hardware, does that mean I could use it with something like a Sipura 3000 or 2 as the FXO and FXS interfaces??</p>
+<p><i>[WM: Sure. The Sipuras just have IP addresses and sit out on your network so they’ll have no trouble talking to a VMware Asterisk server.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-970">
+
+			<div id="comment-970">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/f09b90174689d554cd2c47f31e2c8bd7a33799f40acbe0ec6489d540ba6b8319?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/f09b90174689d554cd2c47f31e2c8bd7a33799f40acbe0ec6489d540ba6b8319?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Williamts99</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-970">Thursday, February 9, 2006 at 1:25 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Just wanted to let you know, I created a torrent over at LinuxTracker.org  </p>
+<p><a href="http://linuxtracker.org/torrents-details.php?id=1427" rel="nofollow ugc">http://linuxtracker.org/torrents-details.php?id=1427</a></p>
+<p>Also, if you have already downloaded the file, you can still help share by downloading the torrent to the same location as you currently have the file.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-983">
+
+			<div id="comment-983">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/ce9be7653fec38c8802dcfefc29b587b120e7cb7d47c1525adfb73bfac35ec2e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/ce9be7653fec38c8802dcfefc29b587b120e7cb7d47c1525adfb73bfac35ec2e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Christopher Jost</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-983">Friday, February 10, 2006 at 10:12 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hello, your instructions in the 3rd para tell people to follow the tutorial link. That link says to use the password “password” from the normal default. That one doesn’t work because one should use the password “vmwarez” as noted in the <b> fourth </b> paragraph. Didn’t waste much time, but as a 20-year mac guy and command-line n00b, I need all the breaks I can get. Oh, I’m a comp &amp; rhet major which is part of the problem. Thanks for all your great work – this is going to be fun.</p>
+<p><i>[WM: Always good to have a few English majors around to keep us honest. Thanks.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-993">
+
+			<div id="comment-993">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/328171978fe00cfad565b3c3bd82bff19869a4ba24ca300e20e9670cd99023d6?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/328171978fe00cfad565b3c3bd82bff19869a4ba24ca300e20e9670cd99023d6?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Rob</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-993">Sunday, February 12, 2006 at 6:02 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Maybe a stupid question: Would this install work with the bluetooth apps?</p>
+<p><i>[WM: Probably not because Windows has control of the hardware. That’s why a Digium board won’t work, I think.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1021">
+
+			<div id="comment-1021">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/67847f52890bcd318f34bdf14d3b4040c77213333b151c075e2d0082df427b05?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/67847f52890bcd318f34bdf14d3b4040c77213333b151c075e2d0082df427b05?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Rocco</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1021">Thursday, February 16, 2006 at 11:36 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Is there an easy way to update A2Billing from the version that comes in VMWare to 3.0?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1034">
+
+			<div id="comment-1034">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/24a24c6e279f533fd010fffe1c4ece7186c7971e332d8040ef0760ae008ca224?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/24a24c6e279f533fd010fffe1c4ece7186c7971e332d8040ef0760ae008ca224?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jackie</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1034">Saturday, February 18, 2006 at 12:41 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>ultimate newbie question…..this is pretty much the first time i’ve been in Cent or AAH.  This vmware boots straight to the AAH logon. How to you get back and forth from AAH to the CENT GUI and then back into AAH? seriously, there should be a whole other word for how newbie i am to linux.</p>
+<p><i>[WM: Start by reading our tutorial. To get to the Asterisk Command Line interface, click in the VMware window, log in as root, and then: asterisk -r. To get back to CentOS, quit. Ctrl-Alt gets you out of the VMware window and back to Windows. The rest of Asterisk is managed by pointing a web browser to the IP address of your VMware version of Asterisk. Good luck!]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1037">
+
+			<div id="comment-1037">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/24a24c6e279f533fd010fffe1c4ece7186c7971e332d8040ef0760ae008ca224?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/24a24c6e279f533fd010fffe1c4ece7186c7971e332d8040ef0760ae008ca224?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jackie</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1037">Saturday, February 18, 2006 at 3:35 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>sorry. i guess i should have clarified that i’m running an XP box with VMWare Workstation on it.  THe AAH vmware boots straight into AAH instead of CENT.  I’m just not sure how to get out of AAH.  I can log out of AAH but it goes to the log in screen of AAH.  I have read several tutorials but none say how to get out of this prebuilt vmware from AAH to CEnt 4.2</p>
+<p><i>[WM: Once you type <b>quit</b> and press the Enter key, you’ll be at a CentOS command prompt.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1040">
+
+			<div id="comment-1040">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/51f6c656e8c66174253666eb04a4ec708ea8a51938f47b11114cf2bdd9c018ee?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/51f6c656e8c66174253666eb04a4ec708ea8a51938f47b11114cf2bdd9c018ee?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jackie</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1040">Saturday, February 18, 2006 at 5:23 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I hate to keep harping on this but in my vmware, cent boots and goes straight to askterisk1 login with no other options.  if i login to AAH and then type logout to get out of it, the next screen that i come to is the asterisk1 login screen again with no way to go anywhere else.  There is no where for me to type quit to be able to get to CentOS.  I’m looking to get into the GUI of CentOS on this VMware and then be able to come back to AAH when I need to.</p>
+<p><i>[WM: The login prompt is for CentOS, not Asterisk. There is no Asterisk login prompt. And, there is no GUI for CentOS in the AAH ISO image.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1056">
+
+			<div id="comment-1056">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/431dd21ea4a7f8ec4bb206ef1d54a39ae2c75434d98a3937c6cfeb46890e34cf?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/431dd21ea4a7f8ec4bb206ef1d54a39ae2c75434d98a3937c6cfeb46890e34cf?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">anon</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1056">Monday, February 20, 2006 at 4:23 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Everytime I try to call from any of my extensions to a pstn number I get “all circuits are busy” can someone help me out?</p>
+<p><i>[WM: Sounds like you don’t have an outbound trunk properly configured. Just follow along in our <a href="http://mundy.org/blog/index.php?p=112">Asterisk@Home 2.5 tutorial</a> and don’t skip any steps.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1058">
+
+			<div id="comment-1058">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/431dd21ea4a7f8ec4bb206ef1d54a39ae2c75434d98a3937c6cfeb46890e34cf?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/431dd21ea4a7f8ec4bb206ef1d54a39ae2c75434d98a3937c6cfeb46890e34cf?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">anon</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1058">Monday, February 20, 2006 at 5:48 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Right, but what if my carrier is Iconnecthere instead of Telasip, also, what is “Context=…” for?</p>
+<p><i>[WM: Can’t offer much help on Iconnecthere. We do have guides on a number of providers in <a href="http://mundy.org/blog/index.php?p=81">this list</a>. <b>Context=</b> tells Asterisk which context to use when it detects an incoming call.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1092">
+
+			<div id="comment-1092">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/594b5da2a0aeff530807a462c034b556d879016563e76f3580f85209817ccddc?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/594b5da2a0aeff530807a462c034b556d879016563e76f3580f85209817ccddc?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jay McGrath</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1092">Sunday, February 26, 2006 at 5:51 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I appear to have the VMware (with AAH) working fine (e.g., I can log in to AAH with root/vmwarez).  The problem I am having is getting my IE browser on the Windows part to open up the Asterisk Managment Portal.</p>
+<p>Typing in ‘ifconfig eth0’ in the VMware does not tell IP address.  However, only typing in ‘ifconfig’ tells me that the IP address is 127.0.0.1  (I can ping 127.0.0.1 from both VMware and Windows)</p>
+<p>I go to the Windows brower and type in “127.0.0.1” and I get a log-in window.  The user name part is automatically filled out as “127.0.0.1/maint”  I type in the default password “vmwarez”.  The browser then displays, “Page can not be found” (HTTP 500 – Internal Server Error).</p>
+<p>Any ideas?  thanks</p>
+<p>Jay</p>
+<p>(note: typing in ‘ipconfig/all’ in the DOS screen tells me I have other IP address for VMnet1 and VMnet8.)</p>
+<p><i>[WM: Sounds like Linux running under your VMware can’t find a network connection. Do you have a DHCP server to hand out IP addresses? 127.0.0.1 is the loopback address on every machine. Using a web browser pointed to this address will only access the machine on which you are typing it.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1096">
+
+			<div id="comment-1096">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/594b5da2a0aeff530807a462c034b556d879016563e76f3580f85209817ccddc?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/594b5da2a0aeff530807a462c034b556d879016563e76f3580f85209817ccddc?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jay McGrath</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1096">Monday, February 27, 2006 at 1:27 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>[ref # 17] Thanks Ward.<br>
+During the Linux/Asterisk scripts, “bring up inface eth0” fails.  This is on my laptop PC.  I tried both with wireless and wired.  The eth0 card is valid and goes to the Internet in Windows XP. My Windows ethernet card (wired or wireless) gets an IP address via DHCP from my router OK.  VMware just will not recongnize the eth0 card on this PC.  It goes to the Asterisk log-on OK but the reference IP is “HTTP://” (no numbers).  Is there a command to issue in the root prompt that will search for eth0?</p>
+<p>I did the same on another PC and all worked well.  I even tried uninstallling/reinstalling for the laptop … same results as described above.</p>
+<p><i>[WM: Hmmm. Time for a new laptop. Something on the laptop is obviously not PC-compatible … but you knew that. Sorry, but it sounds like a hardware incompatibility that you’re not going to be able to fix.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1106">
+
+			<div id="comment-1106">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/f9b9fec56f6c4130873b2f87dd8408367a0008d513e5b1f05add8cb36b2337c8?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/f9b9fec56f6c4130873b2f87dd8408367a0008d513e5b1f05add8cb36b2337c8?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Vanna</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1106">Tuesday, February 28, 2006 at 3:13 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>WOw… I did not know that that AAH 2.5 run on Windows Xp… I get to have this one as soon as I have another available pc. Question: Can this AAH on Windows install the H323 also?</p>
+<p>thanks;</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1112">
+
+			<div id="comment-1112">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/67847f52890bcd318f34bdf14d3b4040c77213333b151c075e2d0082df427b05?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/67847f52890bcd318f34bdf14d3b4040c77213333b151c075e2d0082df427b05?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Anon</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1112">Wednesday, March 1, 2006 at 3:56 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>OK, I give up! after a week of trying, my Asterisk box can successfuly place/receive calls from one extension to another, it traverses firewalls and the extensions seem to working fine. HOWEVER, I cannot make calls out to a SIP provider, nor can I receive calls from the SIP provider. Something I think is wrong with the trunk’s config or the config files. CAN SOMEONE PLEASE TAKE A LOOK AT MY AMP:</p>
+<p><a href="http://xxx.xxx.xxx.xxx/" rel="nofollow ugc">http://xxx.xxx.xxx.xxx</a><br>
+user: maint<br>
+pass: password</p>
+<p>Thank you very much! I will wait for your reply.</p>
+<p><i>[WM: Rather than giving folks unlimited access to your system, I’d recommend you run the Command Line Interface (CLI) on your machine (asterisk -r), set verbose 10, sip debug on. Then make a few calls and post the debug log and your trunk setup minus your real acctname and password on either Voxilla or SourceForge, and someone will be glad to troubleshoot the problems with you. It’s just not feasible in the blog format. Sorry.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1133">
+
+			<div id="comment-1133">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dfc56e8501bab20eff0f0269bd1df5a57b4cab75420057231a7d5acf57e0fddc?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dfc56e8501bab20eff0f0269bd1df5a57b4cab75420057231a7d5acf57e0fddc?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">marshall</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1133">Monday, March 6, 2006 at 2:24 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>please iam about to load the system on my laptop running windows XP.<br>
+My question is, can this asterisk destroy my window fuctionality, and my files, or i can go back and forth from asterisk to windows and vice versa?</p>
+<p>please i need to know very urgent, to know what to do next.</p>
+<p><i>[WM: I don’t give any warranties with Windows. Neither does Microsoft. If installed properly, this software shouldn’t affect proper operation of your PC.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1153">
+
+			<div id="comment-1153">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/6e9becf73d33db856413b798e5fb574369374f992c21cbddd5fb7aad185d72a9?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/6e9becf73d33db856413b798e5fb574369374f992c21cbddd5fb7aad185d72a9?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Alan</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1153">Thursday, March 9, 2006 at 11:12 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hmm. Just installed the vmware version. And I can’t login. It detects the moved file, and the different eth0 adaptor. No problem. At the ‘asterisk1 login:’ prompt I am entering root  but it does NOT accept vmwarez as a password…. any ideas?</p>
+<p><i>[WM: If it’s 2.6, the password is password. And, you’ll need to install all the yum updates. Otherwise, 2.5 is vmwarez.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1162">
+
+			<div id="comment-1162">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/709ecc02f7843026e8b9ffb62bc3107719fcfe3f817b38c759fe3d68fe5a881b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/709ecc02f7843026e8b9ffb62bc3107719fcfe3f817b38c759fe3d68fe5a881b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Delbert Benterud</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1162">Sunday, March 12, 2006 at 10:43 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I am running Asterisk@home 1.2 and have the codec set for G.729 so we can use the conference feature with about 10-25 connections. The quality of the Voice does not seem that good. If I increased the bandwith (presently on 2.5M down,1Meg UP on ADSL) and used G711 would that resolve the issue? Is G711 better quality of Voice than G729 if bandwidth was not a issue. What config would you use for this application.</p>
+<p>Delbert</p>
+<p><i>[WM: Post this on SourceForge or Voxilla and you’ll get a better answer.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1217">
+
+			<div id="comment-1217">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a45d05bbc8dab12d8eadcfa52add3f734b88541391efcd2a56e2737565cf3c45?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a45d05bbc8dab12d8eadcfa52add3f734b88541391efcd2a56e2737565cf3c45?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Michael</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1217">Saturday, March 18, 2006 at 9:32 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Can I configure asterisk to have multiple inbound numbers steup to ring specific extentions?</p>
+<p><i>[WM: Absolutely. Just follow along in the latest tutorial and repeat the steps for configuring an inbound trunk twice with different extension numbers.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1218">
+
+			<div id="comment-1218">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/49bd72a3d1ea797bdbb1c76697b5719a92dcb67c9b3851af7e765c8125c5ef19?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/49bd72a3d1ea797bdbb1c76697b5719a92dcb67c9b3851af7e765c8125c5ef19?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.micropter.se/" class="url" rel="ugc external nofollow">/z</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1218">Saturday, March 18, 2006 at 9:37 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Tried the wmvare player version of asterisk@home 2.7,<br>
+the clock is running a lot faster than it should, about 30min in a couple of hours.</p>
+<p>Anyone seen this, or even better anyone who have found a fix, or even have a temporary auto script that updates the clock regulary?</p>
+<p><i>[WM: Haven’t seen that. Try posting the same question as a comment on the <a href="http://www.vmwarez.com/2006/01/vmwarezcoms-pre-built-vms-for-player.html">vmwarez web site</a>. He’s the guru on VMware.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1277">
+
+			<div id="comment-1277">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/526ecb5e326625a08cb7360c114025b474c9318496e321d029ecdda97ea2d074?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/526ecb5e326625a08cb7360c114025b474c9318496e321d029ecdda97ea2d074?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Neil Hollingum</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1277">Sunday, March 26, 2006 at 6:24 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I think I have fixed this.  If you refer to the VMware Knowledge base at <a href="http://www.vmware.com/support/" rel="nofollow ugc">http://www.vmware.com/support/</a><br>
+and search for “clock running fast” you get to answer 1420</p>
+<p>The key part of the answer is that clock update interupts are  missed.  The work arround says:-</p>
+<p>–     –     –     –     –     –     –     –     –<br>
+There are two kernel options that help with the guest kernel’s over-correction for lost ticks: </p>
+<p>Add the clock=pit boot option to your guest’s kernel command line in the /etc/lilo.conf or /boot/grub/grub.conf file.<br>
+The following example shows the syntax for LILO: </p>
+<p>  image=/boot/vmlinuz<br>
+  label=”linux”<br>
+  root=/dev/hda1<br>
+  initrd=/boot/initrd.img<br>
+  append=”resume=/dev/hda6 splash=silent clock=pit”<br>
+  read-only</p>
+<p>(Remember to run /sbin/lilo after editing lilo.conf, so that your edits take effect.)<br>
+Here is an example of the syntax for GRUB: </p>
+<p>  title Fedora Core (2.6.9-1.667)<br>
+  root (hd0,0)<br>
+  kernel /vmlinuz-2.6.9-1.667 ro root=/dev/hda2 clock=pit</p>
+<p>Adding this boot option disables the kernel’s correction for lost ticks, so be sure to also install VMware Tools and turn on time synchronization. The latter prevents the guest clock from losing time over the long term due to lost ticks. </p>
+<p>For additional information about working with boot loaders, see your Linux distribution’s documentation.<br>
+–    –    –    –    –    –     –    –    –    –    –     –    –   </p>
+<p>I added clock=pit to my Grub loader configuration and it fixed the problem.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1423">
+
+			<div id="comment-1423">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0b83ab9814c34f34edfc5aac0dab2ec4087428861f1196720061d6c3a87dcc6b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0b83ab9814c34f34edfc5aac0dab2ec4087428861f1196720061d6c3a87dcc6b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Guy</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1423">Saturday, April 22, 2006 at 4:08 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>So I’ve read that you can basically run Asterisk@Home off of a 2GB USB key, if this is the case, if you have a wireless router with a built in USB port on the back, could you completely eliminate the need for a home computer to be running all day and still benefit from using AAH? If this cannot be done, can you somehow put the computer on a stand-by mode to save energy while AAH still handles your PBX? </p>
+<p>Thanks!</p>
+<p><i>[WM: Asterisk is a heavy-duty, processor intensive application. It needs a dedicated computer that’s not running in energy-saver mode. Remember, you’re converting analog voice to digital and vice versa to make and receive most phone calls. So this isn’t a task for a lightweight machine.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1426">
+
+			<div id="comment-1426">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0b83ab9814c34f34edfc5aac0dab2ec4087428861f1196720061d6c3a87dcc6b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0b83ab9814c34f34edfc5aac0dab2ec4087428861f1196720061d6c3a87dcc6b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Guy</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1426">Monday, April 24, 2006 at 11:04 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Thank you for quick response! I have been doing some further research on using the PC’s “Wake on WLAN or LAN” function in conjunction with AAH in order to bring a computer out of Hibernate or Standby Mode. If I were to set my computer to put itself in Standby mode after it has been idle for a defined period of time, would there be a way for me to call home and bring it out of that mode in order for AAH to call me back with a DISA dialtone so I can make calls from my cell phone? (I have an unlimited incoming calls plan!)</p>
+<p>If this is not possible, and I have access to webhosting services, would I be able to upload AAH 2.7 VM version to the web host’s server and have it run from there 24/7 instead of at home? I’m just trying to find the most economical and environmentally sustainable way to run AAH (and leverage the economies of scale available through the use of the web hosting I’m paying for now)!</p>
+<p>I appreciate any suggestions you have!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1481">
+
+			<div id="comment-1481">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5154d628fda7fa184f65d1d324c8b27fbd38f3f91bbe0bee8dded471d6e6d891?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5154d628fda7fa184f65d1d324c8b27fbd38f3f91bbe0bee8dded471d6e6d891?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Anthony</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1481">Monday, May 8, 2006 at 3:55 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I’ve attempted trolling google for this topic but I’m either blind or can’t read. Looking for a way to integrate AT&amp;T natural voices into Festival (if possible) for use in Asterisk@Home. Possibilities are endless if we can get a understandable robot reading dynamic content… definitely would make the weather reports better 😉</p>
+<p><i>[Stay tuned ’til later this week. We’re going to have a solution that I think will meet your needs. I’m writing it as we speak.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1482">
+
+			<div id="comment-1482">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/ed1388854f044b77df72a96bd2eabea15604c268671bd122d410233544cfa1d2?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/ed1388854f044b77df72a96bd2eabea15604c268671bd122d410233544cfa1d2?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Lee</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1482">Monday, May 8, 2006 at 8:07 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi, i have tried installing this version using VMPLAYER and also v.2.8 running on “Virtual Server2005 R2”, under both i can get the system to install correctly and can connect with my sip clients and setup my inbound/outbound routing.   Everything appears to work, but the quality of the sound is all warbled, for all calls, including sound recordings.  The host machine is running<br>
+windows server 2003<br>
+A64 3000+<br>
+2GB RAM</p>
+<p>Ive tried reading hundreds of forums on how to correct this, but so far come up empty, i dont see anybody mentioning it here, so is it just me?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1512">
+
+			<div id="comment-1512">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/51e689d5ca801fcd43c30c52364ec58beb93c05805dd7449845be070ae68b484?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/51e689d5ca801fcd43c30c52364ec58beb93c05805dd7449845be070ae68b484?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Craig</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1512">Wednesday, May 10, 2006 at 6:22 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I guess the only stupid question is the one unasked, so here goes.  I have been reading along all the different articles and been working with Asterisk for about a month now.  I chose Telasip as my provider.  From what I understand I have one account with Telasip and I have 4 DIDs.  So I have just one trunk.  I am using FreePBX Version 2.1beta3.  I followed the guide for 2.7.  I have setup an IVR for a main menu.  I have a personal extention of 6000 (instead of 200).  I setup the extentions_custom.conf as follows.</p>
+<p>exten =&gt; 3175221987,1,NoOp(Incoming call on TelaSIP #3175221987)<br>
+;exten =&gt; 3175221987,2,Goto(aa_1,s,1)<br>
+exten =&gt; 3175221987,2,Dial(local/6000@from-internal,20,m)<br>
+exten =&gt; 3175221987,3,VoiceMail(6000@default)<br>
+exten =&gt; 3175221987,4,Hangup    </p>
+<p>If I take this out then all my calls go to a TelaSip voicemail.  If I add these lines then everything goes to my extention.  I want it to go to the IVR Main menu.  I do not know how to acomplish this.  Any help would be greatly appreciated.  I dont want to pester Telasip too much and look like an idiot.  My next challange is to find out why my other 3 numbers just ring to a busy signal.  </p>
+<p>Thanks for reading this.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1604">
+
+			<div id="comment-1604">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/325bf125b68aa987631b124f733689dd1f59bd1ff836e0431e77d5c48cd5c651?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/325bf125b68aa987631b124f733689dd1f59bd1ff836e0431e77d5c48cd5c651?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Rami</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1604">Friday, June 9, 2006 at 1:25 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I wanted to make a note (which also answers comment #30), that if You run AAH/TrixBox in vmware you need to disable the cpu slowdown features such as the cool’n’quiet in AMD Athlon 64, having it enabled will make the automated voice become bad and not clear.</p>
+<p>a question:<br>
+is there absolutely no way to install the iso on a computer as dual boot? I have an old machine that use as a file/mail/driver server (driver server = plug devices that don’t work with my main WinX64 machine), and it has space for a second system.</p>
+<p>if I make a VM and connect it to the empty partition inside that vm install aah/trixbox, will it work to boot from outside the vm?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1729">
+
+			<div id="comment-1729">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a6b95f222736ae7630c3f1a7067c4535fdfbad9d6b6c20c9194b0f44299849fb?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a6b95f222736ae7630c3f1a7067c4535fdfbad9d6b6c20c9194b0f44299849fb?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Joe</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1729">Monday, July 10, 2006 at 10:14 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I’m VERY new to this stuff, so this may be a dumb question, but how do you install the VMWAREZ and/or TRIXBOX phone system onto a USB drive so that you can take it with you wherever you go? My goal for this is to simply be able to take the jumpdrive w/ me and adjust settings and/or test in in an environment outside of the office.</p>
+<p>Any advice/help would be greatly appreciated as I can’t find any information on this or Jim’s site.</p>
+<p><i>[WM: The way VMware installs itself into Windows would make this pretty near impossible.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1732">
+
+			<div id="comment-1732">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a6b95f222736ae7630c3f1a7067c4535fdfbad9d6b6c20c9194b0f44299849fb?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a6b95f222736ae7630c3f1a7067c4535fdfbad9d6b6c20c9194b0f44299849fb?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Joe</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1732">Tuesday, July 11, 2006 at 7:03 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>What does this mean in the article then:  </p>
+<p>“Did I forget to mention: it’s still FREE. Better yet, if you happen to have a 2GB USB flash drive, you can carry your new PBX and softphone with you wherever you go and run it on almost anyone’s Windows PC. ”</p>
+<p>I dont understand.</p>
+<p><i>[WM: You load the VMware image on the flash drive. Then you can install it on any PC, but it does have to be installed. You can’t just run VMware from the flash drive.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1734">
+
+			<div id="comment-1734">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/feb28c52963dd82d628768baf86585f1ed23260eca15f8649641f4b6247a776f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/feb28c52963dd82d628768baf86585f1ed23260eca15f8649641f4b6247a776f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">tphank</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1734">Tuesday, July 11, 2006 at 12:07 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Joe:<br>
+You can also copy the VMWare Player setup onto the flash drive, then install VMWare player on the PC that you want to use the VMWare Trixbox with…  This way, not only will you have the virtual machine handy, but also the setup for the VMWare player needed to run it.<br>
+HTH<br>
+tpHanK</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1918">
+
+			<div id="comment-1918">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/93b2c77a19547a90fef62643d77827d8ae602a81aacff379e1cb8858de1061ab?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/93b2c77a19547a90fef62643d77827d8ae602a81aacff379e1cb8858de1061ab?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Izzy</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-1918">Thursday, September 14, 2006 at 1:13 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>When I started up the VM trixbox1.0a, during the installation I glanced at my laptop for a moment and saw “[something something] eth0 – fails”. I am using an IBM Thinkpad T41, its difficult for me to imagine that there would be PC compatible problems with a fairly popular hardware platform. I typed: ifconfig eth0, and noticed a line that stated: inet6 addr: fe80::20c:29ff:fe45:ae8a/64 Scope:Link. I was baffled. I want to make sure my network card was detected and that I can start seeing the asterisk setup, by typing in the ip address into the web browser.</p>
+<p><i>[WM: You’ll get better result posting technical problems like this on the trixbox forum. Good luck!]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2201">
+
+			<div id="comment-2201">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/f465d3de3c09d25caf5b7781e6bf7bf274546525cffacaeb046ed0085c85d55d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/f465d3de3c09d25caf5b7781e6bf7bf274546525cffacaeb046ed0085c85d55d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Arthur</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-2201">Tuesday, November 28, 2006 at 11:19 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Is there anyway to load Asterisk onto a WiFi router?</p>
+<p><i>[WM: Take a look at <a href="http://forum.openwrt.org/viewtopic.php?id=1419&amp;p=2">this thread</a> for details.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2358">
+
+			<div id="comment-2358">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/db18314934f2ffa5bf658093ff9b2df579dae1fdcd20c245f310771bd369d436?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/db18314934f2ffa5bf658093ff9b2df579dae1fdcd20c245f310771bd369d436?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Frederick Bryan</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-2358">Monday, January 15, 2007 at 1:41 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>A much simpler way to dual-boot TrixBox/Asterisk@Home &amp; Windows is to build a boot floppy with GAG (Graphical Boot Manager – <a href="http://gag.sourceforge.net/" rel="nofollow ugc">http://gag.sourceforge.net</a>). Two physical disks would be required and configuration is relatively straightforward. And I figure that a boot CD can work but I have no such experience.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2455">
+
+			<div id="comment-2455">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dccee54e90440c496aef7e6d826275576cf19c239f014578d26cff858214a1b8?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dccee54e90440c496aef7e6d826275576cf19c239f014578d26cff858214a1b8?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">rad</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-2455">Monday, February 12, 2007 at 11:48 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I am a c# developer and want to use this language to control Asterisk server. Is it possible to get audio, video, write an IVR with speech recognition and speech synthesis (using ATT natural voices, Microsoft Speech server or other speech engines, call center and similar application. Is it true that Asterisk can only be compiled for Linux OS? If that is true can I still use c# to create applications I mentioned above?</p>
+<p>Thanks<br>
+Rad</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2638">
+
+			<div id="comment-2638">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/335adcf3736825fafab12bf563b855f96de834b2f4442f98f9a3fa7bf3b25922?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/335adcf3736825fafab12bf563b855f96de834b2f4442f98f9a3fa7bf3b25922?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Uzom</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-2638">Thursday, April 26, 2007 at 6:46 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>A big thanks to all of you out there! I need your help. I want to install version 3 of the plug and play pbx for windows on an external HDD. Do I need to install the VMWare and the PBX</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2765">
+
+			<div id="comment-2765">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a53a45c26c1e8c1008070a933c7c9697e7a459c64da20cbab55ac294f097b8d3?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a53a45c26c1e8c1008070a933c7c9697e7a459c64da20cbab55ac294f097b8d3?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">ZX</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-2765">Wednesday, July 11, 2007 at 1:53 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>can VMWare detect any TDM card? such X100P? if so how?<br>
+thanks</p>
+<p><i>[WM: VMware doesn’t support hardware cards. Sorry.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2893">
+
+			<div id="comment-2893">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/90e6891ad51aeece2f0f7eee6b92c0005cb6a0b3b1604be7ce7588dc14ac5571?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/90e6891ad51aeece2f0f7eee6b92c0005cb6a0b3b1604be7ce7588dc14ac5571?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Scovndrel</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/finally-installing-asteriskhome-on-your-windows-pc/#comment-2893">Sunday, October 14, 2007 at 2:37 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>OK, so I read the tutorial, and all of the comments. I still can’t get past the “asterisk1 login:” prompt. I see that with 2.5, the password was “vmwarez”, and with 2.6 it changed to “password”. Well, neither of them works. I’m using “root” for the login name.</p>
+<p>Here’s what I see on the screen:<br>
+CentOS release 4.4 (Final)<br>
+Kernel 2.6.9-34.0.2.EL on an i686</p>
+<p>asterisk1 login:</p>
+<p>I’m trying out Trixbox because AsteriskNow has frustrated the hell out of me. This isn’t a good start. </p>
+<p><i>[WM: Download the trixbox 1.2.3 VMware image from the top of the Nerd Vittles home page. Once installed, username is root and password is password.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/finally-installing-asteriskhome-on-your-windows-pc/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/finally-installing-asteriskhome-on-your-windows-pc/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/finally-installing-asteriskhome-on-your-windows-pc/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/finally-installing-asteriskhome-on-your-windows-pc/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/finally-installing-asteriskhome-on-your-windows-pc/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/finally-installing-asteriskhome-on-your-windows-pc/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjE0NDAyOCwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

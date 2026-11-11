@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>Introducing Version 2 of the Plug-And-Play Asterisk IP PBX for Windows – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/">
+<link rel="shortlink" href="/?p=148">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=817C62E3B4810A2D64868354C6D77632');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=148">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-148 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/" title="Permalink to Introducing Version 2 of the Plug-And-Play Asterisk IP PBX for Windows" rel="bookmark">Introducing Version 2 of the Plug-And-Play Asterisk IP PBX for Windows</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Sunday, October 15, 2006 at 1:00 am</li>		<li class="category">in <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fintroducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows%2F&amp;text=Introducing+Version+2+of+the+Plug-And-Play+Asterisk+IP+PBX+for+Windows" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fintroducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows%2F&amp;t=Introducing+Version+2+of+the+Plug-And-Play+Asterisk+IP+PBX+for+Windows" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-148" class="clearfix post-148 post type-post status-publish format-standard hentry category-technology category-telephony">
+
+		<div class="entry">
+
+			<p><img decoding="async" src="/wp-images/nv-trixbox.jpg" alt="" hspace="9" align="left"><b>NOTE</b>: <i>The system referenced in this article is no longer supported by Nerd Vittles as this version of Asterisk® has been phased out. For the latest and greatest, please consider our new <a href="/index.php?p=194">PBX in a Flash</a> offering.</i></p>
+<p>It's birthday week at Nerd Vittles, and today you get the party favor as we introduce the second generation of our <i>free</i> turnkey (aka preconfigured) Asterisk system: nv-TrixBox-1.1.2. As with the first version, it runs on the desktop of any Windows XP home or office computer. If you want a state-of-the-art phone system, look no further. Out of the box, it supports eight extensions and two lines with integrated voicemail and immediate email delivery of your incoming voicemail messages. To add additional extensions takes about 5 seconds. This PBX features the latest build of Asterisk (1.2.12.1) and is just the ticket for a small business or a school or even a fraternity or sorority house. It's also perfectly suited for your home. You get every imaginable PBX telephony feature including music on hold, call forwarding, and call transfer as well as a preconfigured AutoAttendant which lets your friends and colleagues direct an incoming call to any of your extensions or even your cellphone. For those with the magic password, you can even dial in and get dialtone to make five hours of free calls each week to dozens of countries around the world including all of the U.S. and Canada, most of Europe, South and Central America, Australia and all your Far East favorites including China, Taiwan, Russia, and Japan. And the total cost: about $12.50 for each three months of service. All incoming calls are free, and you even get your very own area code and phone number to pass out to your friends that are still chained to plain old telephones or cellphones. </p>
+<p>And, yes, all your favorite Nerd Vittles applications are preinstalled and ready to go including weather forecasts for 1,000 airports, MailCall for Asterisk to read you your email messages, NewsClips for Asterisk to read you the news, the AsteriDex robodialer complete with a web interface to place your outbound calls and to serve up customized CallerIDs for your incoming calls, and our new GabCast (podcasting) Player for Asterisk. Last but not least, you get all of the bundled TrixBox 1.1 applications including the latest upgrade of freePBX (2.1.2), SugarCRM, Samba for Windows networking, FTP and SSH support, WebMin, PHP, MySQL, Perl, Apache, SendMail,  integrated fax-to-email support, calling card billing, and more. And it all runs quite peacefully in a CentOS 4.3 Linux wrapper with the 2.6.9-34 Linux kernel which doesn't appear to have the timing problems that reared their ugly heads in CentOS 4.4 and TrixBox 1.2. We've used Andrew's trixbox numbering scheme to indicate that this build began with TrixBox 1.1 and includes the 1.1.1 updates as well as the latest versions of Asterisk and freePBX. Hence, version 1.1.2 is born. While it's not quite the latest and greatest everything that you'd find in TrixBox 1.2, it has one advantage running on almost all VMware Windows platforms: it works! And, to the Tinkerers of the World, a word of caution: don't attempt to run <i>yum update</i> or <i>trixbox-update.sh</i> on this build, or you'll break it. freePBX updates are safe using <i>Tools-&gt;ModuleAdmin-&gt;Connect to Online Repository</i>.</p>
+<p><b>Prerequisites.</b> To take advantage of all this magic, there are only three things you really need that aren't provided here. First, you'll want a desktop computer from a reputable manufacturer that is less than two years old. It should be running a fully-patched, current version of Windows XP with at least 384MB of RAM and 3 spare gigs of disk space. The more RAM the better, and 1GB is ideal if you'll be using your Windows desktop for other simultaneous tasks. Second, a broadband Internet connection with a network firewall/switch that hands out internal IP addresses using DHCP is required. Finally, you'll need to set up accounts with two Internet Telephony Hosting Providers (ITHPs). And we recommend you go for three! That's where the $12.50 comes in. Everything else you'll need can be downloaded at no cost using links in this article. So let's get started.</p>
+<p><b>Installing the VMware Player.</b> VMware is virtualization software which lets you run another operating system on your desktop. The TrixBox/Asterisk PBX application runs under CentOS Linux which is a RedHat Linux derivative. Your desktop is Windows XP, hence the need for VMware. The VMware Player software is free, and it lets you "play" the nv-trixbox-112 prebundled Linux application in a window on your Windows Desktop. On a current generation PC with plenty of RAM, this VMware application runs as fast as Asterisk on a dedicated Linux machine so don't worry too much about performance. Based upon our testing, it's a non-issue. We're going to provide the preconfigured application (all 658.29 megabytes of it!), but you'll first need to <a href="http://download3.vmware.com/software/vmplayer/VMware-player-1.0.2-29634.exe">download the free VMware Player</a> and install it on your Windows system.  Just follow the prompts and accept the defaults. Once the install completes, reboot your Windows machine.</p>
+<p><b>Today's Game Plan.</b> As was true in version 1 of nv-trixbox, what we've done is build a TrixBox 1.1 system from the ground up. Then we loaded all the Linux, TrixBox, and freePBX updates through version 1.1.1 in addition to the latest builds of Asterisk and freepBX. Then we added the dozens of enhancements which we write about each week. Finally we configured the system so that it's ready to go ... out of the box! Once you secure the system with your own passwords and plug in the account names and passwords provided by your ITHPs, you're all set.  We'll walk you through plugging in IP telephones, or regular cordless telephones such as our Vtech favorite (below) using a Sipura SPA-1001 (under $60 on <a href="http://froogle.google.com/froogle?&amp;rls=en&amp;q=spa-1001&amp;ie=UTF-8&amp;oe=UTF-8&amp;sa=N&amp;tab=wf">Froogle</a>), or downloading a free IP softphone. And, in about <i>15 minutes</i>, you're done! Phones ring, voicemail works, voicemail messages get delivered to your email account, and music on hold works. We've even provided a working Stealth AutoAttendant that we'll tell you about shortly. And, for all our Mac fans, not to worry. VMware will have a player for your shiny, new Intel-based Mac shortly. Sign up for the beta <a href="http://www.vmware.com/news/releases/mac.html">here</a>.</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="vtech i5871"></eminimall>
+<p></p></center>
+<p>While you're enjoying your new phone system, you can read all about TrixBox and Asterisk and freePBX using our <a href="/index.php?p=130">Quick Reference Guides</a>, and then you can reconfigure the system to your heart's content. If you happen to break something, simply start over by reinstalling the VMware image (which hopefully you will zip up and burn to a CD for safekeeping). In exchange, you'll avoid the all-day knuckle drill of getting everything set up again from scratch. For those that are already TrixBox addicts, you may want to install this version just to take a look at how we've integrated most of the tips and tricks we've written about this past year. And feel free to share your own enhancements as comments to this article. We'll update the VMware image from time to time to take advantage of everyone's suggestions. </p>
+<p>Let me also offer my usual apology to our foreign friends. This project necessarily required some assumptions in order to preconfigure everything. So here they are. We've assumed that you live in the United States, and that you place calls by dialing a 1 + a 3-digit area code + a 7-digit number or by dialing a 3-digit area code and a 7-digit number. Our out-of-the box configuration can be easily changed to support other telephone systems and dialplans around the world. Ninety per cent of our readers are in the United States so the system was built with that in mind. We've also left international calling out of the dialplan. It, too, can be added easily. The reason we left international calling out was to minimize the risk of abuse and associated financial problems.  While many international calls are free or almost free with the providers we are recommending, there are numerous locations (including most countries surrounded by water not to mention cruise ships circling the globe) where telephone calls are still VERY expensive. Our recommendation is to adjust your dialplan to accommodate international calls where you know what the cost of the calls will be and you're willing to absorb those costs. One other cautionary note, and we'll get started. As configured, this system does not support 911 calls. Some ITHPs support 911, but the ones we're going to be talking about today do not. So plan accordingly NOW!</p>
+<p>Finally, a word about bandwidth. This application is huge. The download weighs in at over 700MB. Don't even try it with a modem! Bandwidth to cover downloads costs money. We've sprung for a terabyte of bandwidth each month just to support downloads of this application ... which is and always will be <i>free</i>. Funding for this bandwidth was provided by some generous readers of our past columns. Thank you! If there are sufficient future donations during the coming months, we'll buy additional bandwidth. Otherwise, the application will vanish when the terabyte of bandwidth is exhausted. It will be available again on the 11th day of the coming month until the terabyte is once again exhausted. So, as they say, the early bird ... </p>
+<p><b>Installing nv-TrixBox 1.1.2a.</b> After you have the VMware Player installed, you're ready to download today's application. If you know how to use BitTorrent, please grab the torrent file from <a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/vmware/nv-trixbox-112a.torrent">here</a> and save our precious bandwidth. Otherwise, our good friends at VMwarez.com and MojoMonster.com have agreed to host this download. So just click <a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/vmwarez112.php">here</a> or <a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/mojomonster112.php">BubbaPCguy's mirror</a>,  and download the file. If, for some reason, those sites are down, you can download the image from our site by clicking <a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/dreamhost112.php">here</a>. Then save the zipped file to your Windows Desktop. </p>
+<p>Once the download finishes, click on the <i>nv-trixbox-112a.zip</i> file on your Desktop. Choose extract all files. When prompted for the destination to unarchive the files, type <i>C:trixbox</i> and press Enter. Have a cup of coffee while the archive decompresses. When it's finished, run the VMware Player. Accept the license agreement and then browse to the <i>trixbox</i> folder on Drive C and select <i>trixbox.vmx</i>. If you get an error about a missing IDE drive, just tell VMware not to look for it again and continue. When prompted whether to create a new identifier, choose <i>Create</i> and click <i>OK</i>. The Linux Kudzu Configuration Utility may load advising you that it can't find <i>my network card</i> in <i>your computer</i>. Move your cursor to the VMware Player window and click once to give it focus. Then press <i>Enter</i> to run the utility. With <i>Remove Configuration</i> highlighted for the network card, press <i>Enter</i> again. When <i>Configure</i> your network card is highlighted, press <i>Enter</i> again. Finally, when the <i>Configure TCP/IP</i> screen appears, press the <i>Space Bar</i> to select <i>Use Dynamic IP Configuration</i>. Then tab to the <i>OK</i> button and press <i>Enter</i>.  Linux will whir away for a minute or two and boot your TrixBox system. </p>
+<p>At the Linux login prompt, type <i>root</i> for your username and press <i>Enter</i>. Then type <i>password</i> for your password and press <i>Enter</i> again. We're not going to remind you to press Enter any more. After entering commands in Linux, you press <i>Enter</i> to execute them. Now you're an expert! Once you're logged in, your TrixBox server will tell you the private IP address for your system (to access it with a web browser). Write it down! Now issue the command <i>ifconfig</i> and write down the MAC address of your network card: <i>HWaddr</i>. We'll need them both in a minute.</p>
+<p><i>NOTE</i>: If, for some reason, you get an error about a mismatched IP and MAC address when trixbox-112a loads or if no IP address is shown once you log in as root, it means you've lost Internet connectivity. You can restore it easily once you're logged into your system as root. Just issue the following commands:<br>
+<code><br>
+cd /root<br>
+./fixmacaddr<br>
+</code></p>
+<p><b>Securing Your TrixBox System.</b> You don't leave your keys in your car at a shopping center, and you don't run a Linux system with a root password of <i>password</i>. There are numerous passwords on this system. If you're going to be the one and only administrator, we recommend setting them all to the same, secure password. Don't forget it, or you go back to Go! Now enter the following commands to reset the passwords:<br>
+<code><br>
+passwd<br>
+passwd admin<br>
+passwd-maint<br>
+passwd-amp<br>
+passwd-meetme<br>
+</code><br>
+We don't recommend exposing your Asterisk system to the public Internet unless you are an expert in all things Internet ... especially security. This is even more true with this TrixBox system. There are lots of applications running that crackers love to attack: SendMail, FTP, Windows Networking, Apache Web Server, PHP, and even Asterisk. As delivered, this system includes a Windows share of the entire TrixBox system which is wide open and requires no password to access it. This makes it easy for you to copy stuff to your new system from any Windows, Mac, or Linux machine. It also makes it incredibly easy for an outsider to totally destroy your system. That's why you made a backup CD of the nv-trixbox-112.zip file. Right?</p>
+<p><b>Securing and Activating A2Billing</b>. This web-based application allows you to generate and issue calling cards to individuals so that they can place calls remotely through your Asterisk server. If you've always wanted to be just like AT&amp;T, here's your Big Chance! There's very little that you can do with an AT&amp;T calling card that can't be done as well or better by you using  A2Billing. And, it won't take an M.B.A. to undercut AT&amp;T's calling card rates and still make buckets of money. All you need now are a few customers.  But first, a word of caution. Assuming your Asterisk server has web exposure on the Internet, you need to secure the admin and root passwords in this application <i>whether you use it or not</i>.  To access the application, go to <i>http://trixboxIPaddress/a2billing/</i> using the actual internal IP address of your Asterisk server which you wrote down. Log in as <i>root</i> with a password of <i>myroot</i>.  Click on the <i>ADMINISTRATOR</i> tab in the left column and then click <i>Show Administrator</i>. Now click on the <i>Edit</i> button beside each of the two administrator accounts and change the passwords to something secure.  If you really would like to learn more about it, documentation for the application is available <a href="http://www.areski.net/a2billing/index.php?s=7">here</a>. And, if you decide to use the application, you'll need to uncomment six actual dialplan lines in extensions_trixbox.conf and reload Asterisk. But we'll save that for another day.</p>
+<p><b>Securing SugarCRM Contact Management</b>. TrixBox includes the best open source contact management application on the planet, SugarCRM. You access the application with a web browser: <i>http://trixboxIPaddress/crm/</i> substituting the private IP address of your Asterisk box, of course.  Specify <i>admin</i> for your username and <i>password</i> for your password.  Whether you use the application or not, change the admin password.  It's easy. Just click the <i>Administrator</i> link under Welcome admin. Then click the <i>Change Password</i> button. Complete documentation for the application is available <a href="http://www.sugarforge.org/frs/?group_id=20&amp;release_id=253">here</a>. If contact management is your thing, knock yourself out, and we'll talk to you next spring when you finish getting everything set up to run your business. It's a great product, but be prepared to invest lots of time in the project if you expect to use it productively.</p>
+<p><b>Reserving An IP Address in Your Router.</b> Your PBX has to consistently boot up with the same IP address or your phones (and calls) won't be able to find the Mother Ship. Since we're using DHCP to initially obtain the IP address, we need to tell your router to always hand out this same address to your TrixBox system. Almost all routers make it easy to preassign DHCP addresses.  Use a web browser to access your router's configuration screens. What we're looking for is generally under the tab for LAN IP Setup or DHCP Configuration and is usually called something like Reserved IP table. Just add an entry and call it Asterisk PBX and specify the IP address and MAC address that you wrote down above.  Now each time you reboot your Asterisk server, your router will assign it this same IP addreess. </p>
+<p><b>Linux 101.</b> If you're new to Linux and/or Asterisk, here are a few commands you'll need from time to time. And, if you didn't already know, you don't just pull the plug on a Linux system ... even if it's running in a window on your Windows Desktop. Linux caches lots of stuff to speed up processing. So always shut things down gracefully if your data matters.<br>
+<code><br>
+<b>df -h</b> ... Free disk space remaining on your Linux system. Be sure you always have the required 3GB of Windows space for this app!<br>
+<b>logout</b> ... Logs you out of the Linux system.<br>
+<b>Ctrl-Alt</b> ... Gives your Windows cursor back and lets you run other Windows apps until you click again in the nv-TrixBox window.<br>
+<b>asterisk -r</b> ... Runs the Asterisk Command Line Interface (CLI) after you've logged in as root.<br>
+<b>quit</b> ... Exits gracefully from the Asterisk CLI<br>
+<b>amportal restart</b> ... Restarts Asterisk.<br>
+<b>/etc/webmin/start</b> ... Starts up WebMin, the Swiss Army Knife of Linux. Access it with a web browser: <i>https://TrixBoxIPaddress:10000/</i><br>
+<b>shutdown -h now</b> ... Shut down your Linux system right now. Wait for VMware Player window to close!<br>
+<b>shutdown -r now</b> ... Reboot your Linux system right now.<br>
+<b>nano -w filename</b> ... Edit any file in your Linux system. <i>Ctrl-X, Y, then Enter</i> saves your changes.<br>
+<b>cd dirname</b> ... Changes to another directory below current directory.<br>
+<b>cd /dirname</b> ... Changes to another directory below the root directory.<br>
+<b>ls</b> ... The Linux equivalent of <i>dir</i> to get a directory listing.<br>
+<b>cd /var/www/html</b> ... Home of the TrixBox web server files accessed at <i>http://TrixBoxIPaddress/</i> or <i>https://TrixBoxIPaddress/</i><br>
+<b>cd /var/lib/asterisk/agi-bin</b> ... Home of the TrixBox and Asterisk scripts for Asterisk apps.<br>
+<b>cd /var/lib/asterisk/sounds</b> ... Home of Allison and all the voices prompts that make up the Asterisk system.<br>
+<b>cd /etc/asterisk</b> ... Home of all the Asterisk, TrixBox, and freePBX configuration files.<br>
+</code></p>
+<p><b>Adding Plain Old Phones.</b> Before your new PBX will be of much use, you're going to need something to make and receive calls, i.e. a telephone. For today, you've got three choices. Option #1 and the best home solution is to use a Plain Old Telephone or your favorite cordless phone set (with 8-10 extensions) if you <a href="http://froogle.google.com/froogle?&amp;rls=en&amp;q=spa-1001&amp;ie=UTF-8&amp;oe=UTF-8&amp;sa=N&amp;tab=wf">purchase a little device</a> (the size of a pack if cigs) known as a Sipura SPA-1001. It's under $60. Be sure you specify that you want an <i>unlocked</i> device, meaning it doesn't force you to use a particular service provider. Once you get it, plug the SPA-1001 into your LAN, and then plug your phone instrument into the SPA-1001. Your router will hand out a private IP address for the SPA-1001 to talk on your network. You'll need the IP address of the SPA-1001 in order to configure it to work with Asterisk. After you connect the device to your network and a phone to the device, pick up the phone and dial <i>****</i>. At the voice prompt, dial <i>110#</i>. The Sipura will tell you its DHCP-assigned IP address. Write it down and then access the configuration utility by pointing your web browser to that IP address. </p>
+<p>Once the configuration utility displays in your web browser, click <i>Admin Login</i> and then <i>Advanced</i> in the upper right corner of the web page. When the page reloads, click the <i>Line1</i> tab. Scroll down the screen to the <i>Proxy</i> field in the <i>Proxy and Registration</i> section of the form. Type in the private IP address of your Asterisk system which you wrote down previously. Be sure the <i>Register</i> field is set to <i>Yes</i> and then move to the <i>Subscriber Information</i> section of the form. The preconfigured extensions are set up as 500 through 508 with voicemail activated for extension 500 presently. To keep things simple, enter <i>House Phone</i> as the <i>Display Name</i>. Enter <i>500</i> as the <i>User ID</i>. Enter <i>1234</i> as the <i>Password</i>, and set <i>Use Auth ID</i> to <i>No</i>. Click the <i>Submit All Changes</i> button and wait for your Sipura to reset. In the <i>Line 1 Status</i> section of the <i>Info</i> tab, your device should show that it's <i>Registered</i>. You're done. Pick up the phone and dial 611 to get a current weather report or dial 511 to get today's news headlines.</p>
+<p><b>Using an IP Softphone.</b> If you're like us, you've gone to all this trouble downloading your fancy new PBX, and you sure as hell don't want to wait a week for your Sipura 1001 to arrive before trying it out. So here's the quick and dirty solution. There's software that will run on your Windows, Mac, or Linux desktop that acts like a telephone. You obviously need speakers and a  microphone on your system for this to work. Assuming you have those, go to CounterPath's web site and <a href="http://www.xten.com/index.php?menu=download">download X-Lite</a> for your favorite OS. There's a manual there, too, but you probably won't need it. Once the download completes, click on it to start the install. Accept the obnoxious license agreement and install the software in the default directory. Unless you want X-Lite to load every time you restart your machine, uncheck the <i>Launch on Startup</i> checkbox. Reboot your system and, if it's also running your TrixBox system, restart it first. Then run the X-Lite application. Click <i>No</i> to turn off X-Lite's spyware. When the "SIP Accounts" window opens, click the <i>Add</i> button and fill in the following data:<br>
+<code><br>
+<b>Display Name</b> ... House Phone<br>
+<b>User name</b> ... 500<br>
+<b>Password</b> ... 1234<br>
+<b>Auth. User Name</b> ... 500<br>
+<b>Domain</b> ... the IP address of your TrixBox system<br>
+</code><br>
+Leave the other defaults and click on the <i>Check Voicemail</i> tab. For the <i>Number to Dial to Check Voicemail</i>, enter <i>*97</i>. Then click <i>OK</i> and <i>Close</i>. If your Windows Firewall is doing what it's supposed to, it will probably block the connection to your Asterisk system. When prompted, tell it to allow future connections. If this happens and X-Lite does not register with your Asterisk system, click the Down Arrow at the top of the softphone (Show Menu). Click <i>SIP Account Settings</i>, <i>Properties</i>, <i>OK</i>, and <i>Close</i> again. You now should be registered. Dial 611 and get your first weather report. To exit from X-Lite, click the Down Arrow and then Exit.</p>
+<p><b>Using a SIP Phone with Your System.</b> There's loads of SIP Phone hardware in the marketplace, some better than others. We've written about some of them on Nerd Vittles, and you can use Google or the Asterisk forums to get a good feel for which ones work and which ones are a waste of money. If you want the bleeding edge phone that supports virtually every feature that Asterisk has to offer, then the GrandStream GXP-2000 is the phone for you. We use one and love it. Some of my colleagues think it is better suited for the non-business environment. In any case, it's a great phone to learn about Asterisk. With careful shopping, you can find one for about $80. Don't buy support or an extended warranty. They're both a waste of money. You configure the phone almost identically to softphone shown above. For home use, we still think the SPA-1001 and a good 5.8 GHz cordless phone system with multiple handsets is the way to go.</p>
+<p><b>Adding Internet Telephony Hosting Providers.</b> Just as you need an account with an Internet Service Provider to reach Google or Yahoo or <a href="http://members.dslextreme.com/users/cubensis/images/SA/aolcancellationeditfinal.mp3">Dreadful AOL</a>, if you want to make phone calls to folks with Plain Old Telephones outside your Asterisk system, then you've got to have telephone trunks to carry conversations from you to them and back again. For the default system today, we've preconfigured it to support an outbound trunk from <a href="/index.php?p=127">VoipDiscount.com</a> and an inbound and outbound trunk from <a href="/index.php?p=118#stanaphone">StanaPhone.com</a>. Before you sign up for anything, read our two articles about these providers by clicking on the links in this paragraph. In a nutshell, VoipDiscount.com provides incredibly cheap outbound calling to a number of countries. However, you have to cough up about $12.50 every three months to keep your account "current." They're also a little slick in that they frequently change calling rates and calling locations which are free. Having said all that, it's still the best calling deal on the planet. You just need to understand the ground rules and the slippery slope issues so you don't get blind-sided. StanaPhone provides free DID numbers in a New York area code and free incoming calls for those with an account. Even their charges for outbound calls are quite reasonable. To get your system working, you'll need to go to each of these providers' web sites using Internet Explorer on a Windows PC, sign up for an account, and download their softphones. That's the only way you can figure out what your account name and password are. We also recommend you put $10 in your StanaPhone account. Then, based upon reports from lots of users, you'll never have to worry about them disconnecting your free incoming service or your free phone number. Again, read our two articles which will tell you everything you need to know. Don't worry about all the settings, we've taken care of all of that for you. The objective is to get your free phone number and your account names and passwords. Then we'll plug those into your Asterisk system so you can start enjoying free incoming calls and mostly free outbound calls. Once you get your account numbers and passwords, move on to the next step, and we'll show you how to plug them into your Asterisk system and begin making and receiving calls.</p>
+<p>There are others who want a local phone number and more reliable service. For them, we continue to recommend <a href="http://www.telasip.com/index.html?PARTNER=NerdVittles">TelaSIP</a>. $14.95 a month gets you unlimited calling in the U.S. and a local phone number in your choice of area code. If you want to start out on a pay-as-you-go plan, $5.95 a month gets you a local phone number and 2¢ per minute calls in the U.S. They don't provide a lot of hand-holding, but their service is rock-solid reliable. For a list of all our service provider reviews, go <a href="/index.php?p=130#reviews">here</a>. Or just read our <a href="/index.php?p=71">Internet Telephony Provider Shootout</a> to see why TelaSIP remains our top pick. If you decide to go with TelaSIP, our <a href="/index.php?p=140">Newbie's Guide to TrixBox</a> will show you how to configure it.</p>
+<p><b>Configuring Your TrixBox System.</b> This should take you less than five minutes! We've eliminated most of the configuration hassles with your new Asterisk system by preconfiguring almost <i>everything</i>. About all that you'll need to do to get a fully-functioning system is to plug in your account names and passwords for your two ITHPs and enter your email address for delivery of your voicemails and faxes. Here's how.  </p>
+<p>Using a web browser, point it to the IP address of your new TrixBox system.  When the TrixBox Main Menu appears, click <i>System Administration</i>. When prompted for your username, enter <i>maint</i> followed by the password you configured for your system above. When the Configuration and Administration Menu appears, click <i>freePBX</i>. freePBX is another open source project that puts an incredibly simple but complete web interface on your Asterisk PBX. When the freePBX Main Menu displays, click <i>Setup</i>. Now click <i>Trunks</i> in the left column of the display. On the Trunks setup screen in the right column, you'll see that we've preconfigured two trunks: one for voipdiscount and one for stanaphone. Click on <i>SIP/voipdiscoun</i> to display the voipdiscount setup screen. Scroll down to the <i>PEER Details</i> section. Replace <i>yourname</i> with your account name in three places: authuser, fromuser, and username. Replace <i>yourpassword</i> with your password in the line which reads <i>secret=yourpassword</i>. Now scroll to the <i>Registration</i>section at the bottom of the screen. Replace <i>yourname:yourpassword@sip.sipdiscount.com</i> with your actual account name and password. Leave everything else as it is. When you finish, click the <i>Submit Changes</i> button and then the <i>Red Bar</i> to reload Asterisk. </p>
+<p>We're going to make similar changes in the Stanaphone trunk settings. Click on  <i>SIP/stanaphone</i> to display the StanaPhone setup screen. In the <i>Outbound Caller ID</i> field, enter the 10-digit phone number you were assigned by Stanaphone. In the <i>Peer Details</i> section, replace <i>youraccountnumber</i> in <i>username=youracctnumber</i> with your assigned account number, not your phone number!  Replace <i>yourpassword</i> in <i>secret=yourpassword</i> with your assigned password. Repeat the drill in the <i>User Details</i> section on the form. Then, in the Registration String, carefully plug in your account number, then a colon, then your password, then <i>@sip.stanaphone.com/</i>, then your assigned 10-digit phone number. Leave everything else as it is. When you finish, click the <i>Submit Changes</i> button and then the <i>Red Bar</i> to reload Asterisk. </p>
+<p>If you want voicemails delivered to you by email, you'll need to plug in your email address. Click on <i>Extensions</i> in the left column of freePBX. Then click <i>Home - 500</i> in the right column to display the settings for extension 500. Scroll down to the <i>VoiceMail and Directory</i> section of the form, and enter your email address in the <i>email address</i> field. Then change the <i>Email Attachment</i> field to <i>Yes</i>. If you'd like the system to automatically delete your voicemails after emailing them to you (with the message), change the <i>Delete Vmail</i> option to <i>Yes</i>. When you finish, click the <i>Submit Changes</i> button and then the <i>Red Bar</i> to reload Asterisk. Your system now is fully operational. </p>
+<p>If you'd like to add support for transferring calls to your cellphone, click <i>Misc Destinations</i> in the left column of freePBX, and then click <i>Cellphone</i> in the right column. Enter your 10-digit cellphone number in the <i>Dial</i> field. When you finish, click the <i>Submit Changes</i> button and then the <i>Red Bar</i> to reload Asterisk.</p>
+<p>If you'd like to add fax support so that incoming faxes to your Stanaphone number get emailed to you, click on <i>General Settings</i> in the left column. Scroll down to <i>Email address to have faxes emailed to</i> and plug in your email address. Do NOT change the origination email address, or you won't receive anything. When you finish, click the <i>Submit Changes</i> button and then the <i>Red Bar</i> to reload Asterisk. </p>
+<p><b>Setting the Default Time Zone.</b> Your TrixBox system is set to use Eastern daylight or standard time (depending upon the time of the year) as the default time zone. This matters when you're scheduling reminders and wake up calls. If it's not correct for your location, the easiest way to change the time zone is using WebMin. Log into your server as root and issue the following command to start WebMin: <i>/etc/webmin/start</i>. Then, using a web browser, go to: <i>https://TrixBoxIPaddress:10000/</i>. Log into WebMin with the username <i>root</i> and the password you assigned to your root account. At the WebMin Main Menu, click <i>Hardware</i> then <i>System Time</i>. Scroll down to the TimeZone section and use the pull-down menu to select the desired time zone. Then click the <i>Save</i> button immediately below the Time Zone field. When you restart your TrixBox system, the time zone will be correct, and WebMin will automatically be shut down.</p>
+<p><b>Taking Your TrixBox For A Spin.</b> For a list of Feature Codes supported by your new system, click on <i>Feature Codes</i> in freePBX and print the list. Pick up a phone and dial any one of them. To make an outgoing call, take a phone off-hook and dial either a 10-digit number in the U.S. or 1+10-digit number. Then, using a cellphone or someone else's POTS phone, dial your Stanaphone number to be sure it's working. You should get a welcome message, and then your phone or softphone will ring.</p>
+<p>We call the welcome message a Stealth AutoAttendant. What that means is that, while the message is playing, you can do some other things with your system. For example, by pressing 1, your call will immediately ring extension 500 on your system. Pressing 2 will ring extension 501. Pressing 3 will ring your cellphone. Pressing 8 and entering 56789# will give you dial tone to make a long distance call through your PBX. Pressing nothing will cause all of the extensions on your system to ring two seconds after the message completes.</p>
+<p><b>DISA Security.</b> Getting remote dialtone can be a dangerous thing in the wrong hands so let's put your own password (of any length) on the DISA function that is triggered by pressing 8 above. Click <i>DISA</i> in the left column of freePBX and then <i>DialTone</i> in the right column. Now enter a PIN that will let you sleep well at night ... knowing that you are paying for all outbound DISA calls. When you finish, click the <i>Submit Changes</i> button and then the <i>Red Bar</i> to reload Asterisk. </p>
+<p><b>What Time Is It?</b> On some computers (mostly high end ones as it happens), VMware has a hard time keeping the correct time. Since many telephony applications are time sensitive, you'll want to monitor this for a few days and see if your system is having problems.  Logging in to your server and typing <i>date</i> will display what time your computer thinks it is. We've added a cron job to this application that updates the time using NTP every 10 minutes. That should resolve the problem. If not, post a comment and let us know. </p>
+<p><b>The Nerd Vittles Collection.</b> We'll wrap it up for this week by pointing you to some tutorials for the Nerd Vittles applications that are preloaded in this TrixBox build. AsteriDex and  MailCall require some quick configuration so take a look at the tutorials. You also may want to change the Telephone Reminders default password of 123 in line 28 of <i>/etc/asterisk/extensions_trixbox.conf</i>. If you do, remember to restart Asterisk for the change to take effect.  </p>
+<p><a href="/index.php?p=143">AsteriDex</a>  - The Poor Man's Rolodex (http://TrixBoxIPaddress/asteridex/)</p>
+<p><a href="/index.php?p=142">NewsClips for Asterisk</a> - Get the News By Telephone (Dial 511)</p>
+<p><a href="/index.php?p=141">MailCall for Asterisk</a> - Get Your Email By Telephone (Dial 555)</p>
+<p><a href="/index.php?p=136">Weather Reports by Airport Code</a> - Get the Latest Weather Forecasts for 1,000 U.S. Cities (Dial 611)</p>
+<p><a href="/index.php?p=117">Telephone Reminders for Asterisk</a> - Appointment Reminders By Telephone (Dial 123)</p>
+<p><a href="/index.php?p=146">GabCast Studio for Asterisk</a> - Create and Play PodCasts Using Your Phone (Dial *422 and 422)</p>
+<p><b>Where To Go From Here.</b> If you're new to the Asterisk world, you have lots of fun (and learning) ahead of you. The best place to start is our <a href="/index.php?p=140">Newbie's Tutorial</a>. We've already done most of the work for you. It's an easy read which covers many topics that we didn't get to today. So start there. You'll also want to get plugged into the <a href="http://trixbox.info/">TrixBox Forums</a>. That's the place to ask questions after you do some reading. Posting support questions on Nerd Vittles just doesn't work because of the cumbersome blog format. Don't email me questions either! We only accept thank you notes. Finally, take a look at our <a href="/index.php?p=130">catalog</a> of articles, projects, and Asterisk resource links. You'll find just about everything you'll ever need there. Enjoy!</p>
+<p><b>Nerd's Corner.</b> If you've been following TrixBox developments recently, you know that there were some technical problems with TrixBox 1.2 on some platforms, especially VMware builds such as our bundle. We don't work under the hood of our car, and we're not especially comfortable under the hood of Linux or Asterisk either. So, it's been a difficult couple of weeks trying to come up with a mix of products that provides the latest Asterisk and frePBX builds as well as a stable operating environment. Thanks to Rob of freePBX fame and Bubba, one of the very best troubleshooters in the TrixBox business, we've come up with a compromise package that works great with VMware and the Nerd Vittles goodies, <strike>but could still use a little debugging for anyone that wants to run it on a standalone Linux machine. Why? Because we got everything to work reliably except zaptel which never would compile on our VMware platform. Our solution was pretty simple. We just disabled it in /etc/asterisk/modules.conf because zaptel isn't supported under VMware anyway. And, no, Asterisk doesn't use it for timing any longer so the missing zaptel module shouldn't cause you any headaches. If one of the geniuses gets it working again, we'll post an update in a comment to this article. But, as we said, zaptel is an academic exercise in the VMware world anyway so ... not to worry!</strike> Zaptel has been fixed in the version 2a image which is now available for download.</p>
+<hr>
+<p class="postmetadata alt"><small><a href="http://technorati.com/cosmos/search.html?url=/index.php?p=148" title="See this page in Technorati"><img decoding="async" src="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/images/technorati.gif" alt="See this page in Technorati">Cosmos</a><a href="http://slashdot.org/submit.pl" title="Submit Free Asterisk IP PBX for Windows to Slashdot.com" target="_blank"><img decoding="async" src="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/images/slashdot.gif" alt="Free Asterisk IP PBX for Windows to Slashdot.com">Slashdot</a><a href="http://www.digg.com/submit" title="Submit Free Asterisk IP PBX for Windows to Digg.com" target="_blank"><img decoding="async" src="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/images/digg.gif" alt="Submit Free Asterisk IP PBX for Windows to Digg.com">Digg</a><a href="http://boingboing.net/suggest.html" title="Submit Free Asterisk IP PBX for Windows to BoingBoing.net" target="_blank"><img decoding="async" src="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/images/boingboing.gif" alt="Submit Free Asterisk IP PBX for Windows to BoingBoing.net">BoingBoing</a><a href="http://www.furl.net/storeIt.jsp?title=Free%20Asterisk%20IP%20PBX%20for%20Windows&amp;url=/index.php?p=148" title="Bookmark Free Asterisk IP PBX for Windows in Furl"><img decoding="async" src="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/images/furl.gif" alt="Bookmark Free Asterisk IP PBX for Windows in Furl">Furl</a><a href="http://www.spurl.net/spurl.php?title=Free%20Asterisk%20IP%20PBX%20for%20Windows&amp;url=/index.php?p=148" title="Bookmark Free Asterisk IP PBX for Windows in Spurl"><img decoding="async" src="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/images/spurl.gif" alt="Bookmark Free Asterisk IP PBX for Windows in Spurl">Spurl</a></small></p>
+<hr>
+<p><a href="http://www.frappr.com/nerdvittles"><img decoding="async" src="/wp-images/nvmap2.jpg" alt="" hspace="9" align="left"><img decoding="async" src="/wp-images/stanaphone.gif" alt="" hspace="9" align="left"><b><a name="sample"><font color="blue">Nerd Vittles Demo Hot Line.</font></a></b> You now can take a number of Nerd Vittles projects for a test drive... by phone! The current demos include </a><a href="/index.php?p=142"><b><i>NewsClips for Asterisk</i></b></a> (latest news headlines in dozens of categories),  <a href="/index.php?p=141"><b><i>MailCall for Asterisk</i></b></a> with password 1111 (retrieve your email by phone), and <a href="/index.php?p=136"><b><i>Nerd Vittles Weather Forecasts by U.S. Airport Code</i></b></a>. Just call our number (shown in the left margin) and take any or all of them for a spin. The sound quality may not be perfect due to performance limitations of our ancient Intel 386 demo machine. But the price is right.</p>
+<p><b>Nerd Vittles Fan Club Map.</b> Thanks for visiting! We hope you'll take a second and add yourself to our <a href="http://www.frappr.com/nerdvittles">Frappr World Map</a> compliments of Google. In making your entry, you can choose an icon: guy, gal, nerd, or geek. For those that don't know the difference in the last two, here's the <a href="http://www.google.com/url?sa=X&amp;start=2&amp;oi=define&amp;ei=-dsjRO7-I86GswGWjtHpBw&amp;sig2=k5uEX30_RqM_kNJlARWRcw&amp;q=http://www.scotsmist.co.uk/glossary_n.html">best definition</a> we've found: <i>"a nerd is very similar to a geek, but with more RAM and a faster modem."</i>  We're always looking for the best BBQ joints on the planet. So, if you know of one, add it to the map while you're visiting as well. </p>
+<p><b><a href="http://www.bluehost.com/track/nerdvittles/mayday">Hosting Provider Special.</a></b> Just an FYI that the Nerd Vittles hosting provider, <a href="http://www.bluehost.com/track/nerdvittles/mayday">BlueHost</a>, has raised the bar again on hosting services. For $6.95 a month, you can host up to 6 domains with 30GB of disk storage and 750GB of monthly bandwidth. Free domain registration is included for as long as you have an account. That almost doubles last month's deal, and it really doesn't get any better than that.  Their hosting services are flawless! We oughta know. We've tried the best of them. If you haven't tried a web hosting provider, there's never been a better time. Just use our <a href="http://www.bluehost.com/track/nerdvittles/mayday">link</a>. You get a terrific hosting service, and we get a little  lunch money.</p>
+<hr>
+<p><b>Some Recent Nerd Vittles Articles of Interest...</b></p>
+<p><iframe frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-148 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 32 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-1968">
+
+			<div id="comment-1968">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a0fc8e1bfbdc51ddef6b53541f34fa7d942d9ed6ab4dfc5bdcc92e68cad6772c?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a0fc8e1bfbdc51ddef6b53541f34fa7d942d9ed6ab4dfc5bdcc92e68cad6772c?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn"><a href="http://www.asteriskpbxs.com/" class="url" rel="ugc external nofollow">Rafael Cortes</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1968">Friday, September 29, 2006 at 7:41 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>…and Uncle Ward figured out a way to give us a new version, without the ugly stuff of CentOS4, and it was good! </p>
+<p>Ward, is there any chance that we may get an article on ClarkConnect with FreePBX? I’ve been playing with it since I read a comment that mentioned it… installation was easy, but configuration has been a pain! </p>
+<p>Also, some of us are still hoping for a script to install all of the NV goodies to our Dedicated Machine Trixbox…</p>
+<p>Thanks again for your hard work and support, not only here, but in most of the forums we visit Uncle Ward is there to help!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1969">
+
+			<div id="comment-1969">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/75244c4eba2ea621d98bffa06e39f347c83bbb16b81c1b7d46e3d751a9c77acd?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/75244c4eba2ea621d98bffa06e39f347c83bbb16b81c1b7d46e3d751a9c77acd?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">PCH</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1969">Friday, September 29, 2006 at 8:03 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I notice this version has the same problem as building trixbox1.2 manually on VMware has – choppy and broken sounds (receptionist / etc).</p>
+<p>I’ve had to go back to 1.1 to fix it (and dont run trixbox-update).</p>
+<p><i>[WM: What kind of box? You also might want to take a look at Rob Thomas’ article: <a href="http://www.freepbx.org/2006/09/28/un-trixbox-your-trixbox/">Un-TrixBox your trixbox</a> for some other workaround tips.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1974">
+
+			<div id="comment-1974">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/47928bd1fb236b56f3731cfc5cc752b045c19c4539cb15f4a9a8a6430e581dc9?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/47928bd1fb236b56f3731cfc5cc752b045c19c4539cb15f4a9a8a6430e581dc9?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jim.D</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1974">Saturday, September 30, 2006 at 10:11 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>For some reason this VM doesn’t work for me.  I don’t get the Kudzu utility, when I login it just says “http://” ifconfig shows my IP as 127.0.0.1 and a MAC address is no where to be seen. Any ideas?</p>
+<p><i>[WM: We put it in the article, but here’s a replay. Log in as root. Then issue the following commands: cd /root  and then ./fixmacaddr ]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1977">
+
+			<div id="comment-1977">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/c2b04b622389814e6d0877f7fe2ef85a30131b34654aa68afd95b495933e3447?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/c2b04b622389814e6d0877f7fe2ef85a30131b34654aa68afd95b495933e3447?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">JP Spokane</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1977">Sunday, October 1, 2006 at 4:12 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Wow. Your column just gets better and better. </p>
+<p>Will your Teleyapper work as-is with this new build of Trixbox? It refers to Asterisk versions, and I don’t know how they map to Trixbox vesions. Thanks!</p>
+<p><i>[WM: Rumor has it that it works just fine.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1978">
+
+			<div id="comment-1978">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0f7e9dc95f26f83884c27d0921eec53b9cb3f168c7877b29664caa20b1bc9e99?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0f7e9dc95f26f83884c27d0921eec53b9cb3f168c7877b29664caa20b1bc9e99?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Derek</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1978">Sunday, October 1, 2006 at 5:05 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I have just done the installation and am getting a strange problem from my eyebeam phone. When i try to dial another extension or voicemail i get a voice saying “The person you are calling is unavailable, please try again”</p>
+<p>This is only on sip extensions, i have created an iax2 extension and that works fine. Also i have tried using the snom softphone.</p>
+<p>in the asterisk cli the error message when i try to dial is:-</p>
+<p>— Got SIP response 503 “service unavailable: cli is wrong, check your configuration, switch to 08 number” back from 204.147.183.18</p>
+<p><i>[WM: Sounds like a bad account name and/or password.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1979">
+
+			<div id="comment-1979">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0f7e9dc95f26f83884c27d0921eec53b9cb3f168c7877b29664caa20b1bc9e99?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0f7e9dc95f26f83884c27d0921eec53b9cb3f168c7877b29664caa20b1bc9e99?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Derek</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1979">Sunday, October 1, 2006 at 6:15 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I have checked that, the phone registers ok, i also tried creating another extension 5004 which also registers ok but i get the ssame issue. If i close down the virtual server then i get registration error 408 – Request timed out. I have disabled the windows firewall. I will try moving them VM to another physical machine.</p>
+<p><i>[WM: Before you do that, use trixbox-&gt;System Administration-&gt;Asterisk Info with your web browser to check whether your SIP account is getting registered. That will tell you whether it’s an internal problem or a registration problem with the provider.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1981">
+
+			<div id="comment-1981">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dfc7e21ae5d8590a2463e6f18aec2cb2faf78aa758894227a2587f892cbfdd1d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dfc7e21ae5d8590a2463e6f18aec2cb2faf78aa758894227a2587f892cbfdd1d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.freepbx.org/" class="url" rel="ugc external nofollow">Rob Thomas</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1981">Monday, October 2, 2006 at 12:08 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, FYI, Zaptel is required for MeetMe conferencing – it’s not just for timing. app_conference doesn’t require it, but I’m not sure if trixbox is using that. I’ll see if I can build you some zaptel modules that work properly under VMWare. –Rob</p>
+<p><i>[WM: So I’ve heard. Bubba’s already put together a zaptel build that I just haven’t had time to try yet. Give me one more day before you waste any time on this…. We’ve got zaptel working as well as some other minor fixes including repairs to the 1,000-airport weather application. So a new download should be ready shortly.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1989">
+
+			<div id="comment-1989">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/f43c622c6ddae2f1d4494f493d5898f99ad811cefb6210da1b0db03f3006c8b4?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/f43c622c6ddae2f1d4494f493d5898f99ad811cefb6210da1b0db03f3006c8b4?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Alfred</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1989">Monday, October 2, 2006 at 9:22 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>So what does this version have that the previous did not?  What new features?</p>
+<p><i>[WM: New version of Asterisk. New version of freePBX. And, in a few hours, full zaptel support (important if you move this to a dedicated machine), working weather reports for 1,000 U.S. cities), and loads of bug fixes.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1990">
+
+			<div id="comment-1990">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4c31fe78746ba4f21660c0c4e6c9b3f2afc920ee9ca9fd6bc9f93d8f5b4788aa?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4c31fe78746ba4f21660c0c4e6c9b3f2afc920ee9ca9fd6bc9f93d8f5b4788aa?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">UncleWard</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1990">Monday, October 2, 2006 at 1:20 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>As luck would have it, there were some bugs in the original version 2 build including the lack of zaptel support which also broke MeetMe conferencing. Then there was the missing database for the 611 Weather System. And there were a few other rough edges. In any case, we’ve fixed them all with tons of help from Bubba and Rob. At your convenience, you may want to replace your 1.1.2 copy if you downloaded the image between last Friday and now. The new filename is nv-trixbox-112a.zip. Our apologies.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1992">
+
+			<div id="comment-1992">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/c59f23961e6b8071317a37be0ff201c38f2c16b32abe30a5d889baf64507bbab?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/c59f23961e6b8071317a37be0ff201c38f2c16b32abe30a5d889baf64507bbab?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://thebside.org/" class="url" rel="ugc external nofollow">Andy</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1992">Monday, October 2, 2006 at 11:08 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I don’t get it.  Unless you need all those whiz-bang extras, why not just go with Vonage and get 911 support?  TelaSIP is the same price as the Vonage basic service.  I’m very intrigued and might just spend the time to see if I can get this up and running…but am having a hard time justifying it.</p>
+<p><i>[WM: Andy, do a little reading. If not here, somewhere. Then you’ll get it.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1994">
+
+			<div id="comment-1994">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e96ddc341323e6cb9b31419cc7e15200157e899b038b0a9b8f1917941ae37c1f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e96ddc341323e6cb9b31419cc7e15200157e899b038b0a9b8f1917941ae37c1f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.squirrelvoip.info/" class="url" rel="ugc external nofollow">chad</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1994">Tuesday, October 3, 2006 at 7:09 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi, I love your software, I do not know if it is me or not, but when I try to record via dialing a ext. It says it cannot find the file, I have tried 2 different “installs” if the file, when I do a full iso install, it works without any problems and it works on your first version 1.1.1, any thoughts? I also notice that it is not keeping my sip registered like it should, might be me, but, again, on other installs it is working fine. THnaks, keep up the good work guys!!!!!</p>
+<p><i>[WM: Doesn’t sound like such good work to me. The symptoms you are describing are similar to the problems which have been raised with TrixBox 1.2. Assuming you haven’t done any trixbox or yum updates on the image after installing it, then it’s starting to sound like there may be a problem in the latest Asterisk build as well as the latest CentOS version (4.4).  Please confirm that you didn’t make any changes or install any updates before seeing this behavior. Then briefly describe the type of system you are running and the version of Windows including the service pack version. Hopefully, that will be helpful in finding the problem. Suffice it to say, it only rears its ugly head on certain types of machines. The only problem is that we don’t know which types… yet. nv-trixbox-112a solved the problems on our HP test machines running Windows XP Pro while a VMware version of trixbox 1.2 had all of the problems you’ve described and more. Thanks for your note.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1995">
+
+			<div id="comment-1995">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e96ddc341323e6cb9b31419cc7e15200157e899b038b0a9b8f1917941ae37c1f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e96ddc341323e6cb9b31419cc7e15200157e899b038b0a9b8f1917941ae37c1f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.squirrelvoip.info/" class="url" rel="ugc external nofollow">chad</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1995">Tuesday, October 3, 2006 at 9:15 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi Ward, I have it on a p4 2.4 ghz, windows media sp2, I have done NO updates what so ever. I did have a question about a update, is there a reason that freepbx was left at 2.1.2? Thought of upgrading that but I did not. It actually says cannot write file, and I did double check to make sure I typed in the right ext. I hope asterisk or centos gets the bugs worked out soon. THanks, anything else just let me know.</p>
+<p><i>[WM: If you didn’t download the image from our site, you might try that just to rule out the corruption problem.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1996">
+
+			<div id="comment-1996">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e96ddc341323e6cb9b31419cc7e15200157e899b038b0a9b8f1917941ae37c1f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e96ddc341323e6cb9b31419cc7e15200157e899b038b0a9b8f1917941ae37c1f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.squirrelvoip.info/" class="url" rel="ugc external nofollow">chad</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1996">Tuesday, October 3, 2006 at 11:58 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, you don’t have to print this, if you don’t want to, but I did some testing, installed it on my other computer (athlon64x2) and it did the same thing, I copied the error and here it is: “Unable to add /var/lib/asterisk/sounds/custom/test.wav – Can not read file!” Hope this helps on that issue. Thanks!</p>
+<p><i>[WM: If it can’t read a file during the install, then there’s definitely a bad image or a defective CD. Be sure to take a look at this <a href="http://www.trixbox.org/modules/newbb/viewtopic.php?topic_id=769&amp;forum=1#forumpost17436">link</a>.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1999">
+
+			<div id="comment-1999">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e96ddc341323e6cb9b31419cc7e15200157e899b038b0a9b8f1917941ae37c1f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e96ddc341323e6cb9b31419cc7e15200157e899b038b0a9b8f1917941ae37c1f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">chad</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-1999">Wednesday, October 4, 2006 at 9:37 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, it installed fine, I downloaded it from the direct link with no problems, it shows that error in freepbx when you go to record using your sip phone. Backed down to 1.1.1 everything is fine.</p>
+<p><i>[WM: If you’re getting a read error, there IS a disk problem somewhere. Either the hard disk has a bad place, the VMware image has exhausted its space, or there’s a bad CD during the install. Glad 1.1.1 works, but 1.1.2a should as well.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2000">
+
+			<div id="comment-2000">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/98a3cf0cff07593e3cfc40d19cb9928157ef0bcbfc2854383cdbb0a70728bc1b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/98a3cf0cff07593e3cfc40d19cb9928157ef0bcbfc2854383cdbb0a70728bc1b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Chris</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2000">Wednesday, October 4, 2006 at 7:08 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I downloaded the vmware file and use vmware importer to import into my esx 3.0.1 server.  Now the problem is that when I go to boot it gives me a kernel panic.  The picture to the error is here.<br>
+<a href="http://cmuench.com/kernel.jpg" rel="nofollow ugc">http://cmuench.com/kernel.jpg</a></p>
+<p><i>[WM: Drop back to 1.1.1 and see if that helps.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2003">
+
+			<div id="comment-2003">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/98a3cf0cff07593e3cfc40d19cb9928157ef0bcbfc2854383cdbb0a70728bc1b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/98a3cf0cff07593e3cfc40d19cb9928157ef0bcbfc2854383cdbb0a70728bc1b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Chris</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2003">Thursday, October 5, 2006 at 4:34 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Dropping back to 1.1.1 did not help.  And I’m on esx 3.0.1</p>
+<p><i>[WM: Sorry. That about exhausts my bag of tricks. Andrew has promised a new 1.2 VMware Build in a week or so. Perhaps you’ll have better luck with that one.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2006">
+
+			<div id="comment-2006">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/44645ede89a3adff9ecb9c8e90928c911a6ca849581df5558c8d5d959cf4edf0?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/44645ede89a3adff9ecb9c8e90928c911a6ca849581df5558c8d5d959cf4edf0?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">RUss</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2006">Friday, October 6, 2006 at 1:07 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Any way to do an easy upgrade from 1.1.1 to 1.1.2a?</p>
+<p>[WM: ‘fraid not.]</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2008">
+
+			<div id="comment-2008">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7d7d94af66e6b9613d615789e252abcacb36a107527178aa8776ec2449988756?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7d7d94af66e6b9613d615789e252abcacb36a107527178aa8776ec2449988756?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Lee</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2008">Friday, October 6, 2006 at 4:07 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>A few when ago, when I discovered your site, docs, and Trixbox distro I was enthralled. I couldn’t stop or sleep until I got Asterisk making calls for me, (had problems, until I learned to disable Hamachi which seemed to conflict with the DHCP the Trixbox expects). v1.1.1.<br>Just wanted to add I use voipcheap.com, and easily swapped out the rules for voipdiscount.com, and smiled as it all worked. Voipdiscount is free to most 1st tier contries’ landlines, and otherwise quite good rates. 10 euros buys credit that will expire in 6 months; so that’s the bottom cost. Oh, 300 min. of free calls a week, max; and every 60 minutes it automatically disconnects. Still, that’s a lot of nearly free international calls. <br>…And the Trixbox, oh I just love it. Now I’m lusting for a SMC7908VoWBRB voip/router to go with it!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2018">
+
+			<div id="comment-2018">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/760ff79a18bb17cae66773b231150d3b5bcf18cea66483e4604aa053490e1170?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/760ff79a18bb17cae66773b231150d3b5bcf18cea66483e4604aa053490e1170?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">James</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2018">Tuesday, October 10, 2006 at 9:05 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I have installed the latest version of VMWare and downloaded your trixbox build. When I start up VMWare and run the image, VMWare tells me that something is wrong with the image and it needs to fix it. That goes fine, then during the linux boot, it stops and and asks me for a runtime level. I have tried 1 through 5 with no results. It completely stops at that point.</p>
+<p>I have installed Trixbox on a regular computer and know what it should like and never had any problems. This has just stumped me… Any ideas?</p>
+<p><i>[WM: The VMware image is corrupted. Try another source.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2021">
+
+			<div id="comment-2021">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2b06df40bba265feacbbe4dc45c03141aeb1aadbdc41c86a7f5e292f39cc9415?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2b06df40bba265feacbbe4dc45c03141aeb1aadbdc41c86a7f5e292f39cc9415?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Martin</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2021">Wednesday, October 11, 2006 at 4:02 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward,<br>
+This is really great.  I am thinking of maybe using it in my small office.  I would want the ability to go out through PSTN at least at the beginning.  I searched your instructions and did not find anything about that.  I found some docs from Australia, but it was quite cumbersome.  You are great at making procedures straight-forward.  Do you have any docs for making this work with PSTN lines?</p>
+<p><i>[WM: What you need is an SPA-3000. Here’s the <a href="/index.php?p=65#spa3000">link</a> to show you how to set it up.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2023">
+
+			<div id="comment-2023">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/1ef409b1b1dbb92583e6b8f8152da5ab4d86b87a4c7a55d9aaf157a0a5642f7b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/1ef409b1b1dbb92583e6b8f8152da5ab4d86b87a4c7a55d9aaf157a0a5642f7b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ash</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2023">Wednesday, October 11, 2006 at 9:50 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Great Articles. I was able to setup the system painlessly. The only problem I am having is with voicemails. When I try to retrieve the voicemail using the IP_ADDRESS/recordings webpage, it throws the following errors:</p>
+<p>Warning: file(/var/spool/asterisk/voicemail/default/21/INBOX/msg0000.txt): failed to open stream: Permission denied in /var/www/html/recordings/modules/voicemail.module on line 525</p>
+<p>Warning: file(/var/spool/asterisk/voicemail/default/21/INBOX/msg0000.txt): failed to open stream: Permission denied in /var/www/html/recordings/modules/voicemail.module on line 525</p>
+<p>Warning: file(/var/spool/asterisk/voicemail/default/21/INBOX/msg0000.txt): failed to open stream: Permission denied in /var/www/html/recordings/modules/voicemail.module on line 770</p>
+<p>On checking the directory, the files are created with id root.root and permission 600. Obviously the the httpd daemon running as user asterisk will not be able to read these files. I dont know which process creates these files. Could you please help on this issue.</p>
+<p><i>[WM: Go to the file /etc/rc.d/init.d/asterisk and uncomment the following line and then reboot:</i></p>
+<p>AST_USER=”asterisk”</p>
+<p>That should fix it. For more info, click <a href="http://www.trixbox.org/modules/newbb/viewtopic.php?viewmode=flat&amp;topic_id=4967&amp;forum=2">here</a>.]</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2032">
+
+			<div id="comment-2032">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a5d4ac1da9f27bb29190ad7d49a992d3d2677f6392d0473117c807e1bcb9df6f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a5d4ac1da9f27bb29190ad7d49a992d3d2677f6392d0473117c807e1bcb9df6f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.itelework.com/" class="url" rel="ugc external nofollow">Bradley</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2032">Friday, October 13, 2006 at 10:43 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Awesome work WM!<br>
+We are busy playing with the latest VM image of Trixbox and love it.</p>
+<p>We seem to be running out of disk space due to some log files growing large, which we use to help verify that our system is working good.</p>
+<p>How would you suggest we increase the space available?</p>
+<p>We thought that the VMware virtual disk could grow as it needed or is it fixed at a maximum size?</p>
+<p>Any help would be greatly appreciated.</p>
+<p><i>[WM: See Comments #24 and #25 below for some ideas.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2039">
+
+			<div id="comment-2039">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/9676283f13e0c1c2f72c0a675d368c62b4cf7a64981457e6471c6841b4eb2bbb?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/9676283f13e0c1c2f72c0a675d368c62b4cf7a64981457e6471c6841b4eb2bbb?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://m.rtijn.info/" class="url" rel="ugc external nofollow">Martijn</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2039">Sunday, October 15, 2006 at 4:19 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Awesome! I had my voipbuster.com DIDs working in no time to accept incoming calls. I live in Europe and since I do not make any calls to the US I need to figure a way to dial out.</p>
+<p>In europe, people dial 00+countrycode+rest of phone number for international calls so I added an outbound route for 00X. and added 00X. to each trunk.</p>
+<p>Every time I call I get the “number called + number not found in our database, goodbye” message and then the call is disconnected. </p>
+<p>What am I doing wrong here? I tried every setting in freepbx to fix this.</p>
+<p>Kind regards, Martijn</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2042">
+
+			<div id="comment-2042">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/8fefcdf48d32f2234e992d7136a72d0413f0733b506324c268f3ec058b8db567?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/8fefcdf48d32f2234e992d7136a72d0413f0733b506324c268f3ec058b8db567?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">bwells</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2042">Sunday, October 15, 2006 at 11:00 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>If you are running out of disk space another option would be to switch to add a new disk using vmware.  If you are using Vmware Player you’ll need to use one of the free utilities on the web to create the file.  If you are using Vmware Server just edit the virtual machine and add another drive that is identical to the original one except make it whatever size you desire.  Once you’ve got the new drive just format it, create whatever directories you want for log, monitor, or voicemail directories.  Move you files over and create the symbolic links.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2043">
+
+			<div id="comment-2043">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a5d4ac1da9f27bb29190ad7d49a992d3d2677f6392d0473117c807e1bcb9df6f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a5d4ac1da9f27bb29190ad7d49a992d3d2677f6392d0473117c807e1bcb9df6f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.itelework.com/" class="url" rel="ugc external nofollow">Bradley</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2043">Sunday, October 15, 2006 at 11:00 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>We did some testing on letting the Virtual disk grow to 4GB, but it would not grow past 2.3GB. We dug around and found that the linux-swap partition was blocking its growth, at least that is what we thought. So we booted up our virtual machine with the gparted LiveCD, and moved the linux-swap partition to the far right portion of the disk, and resized the trixbox partition to the maximum size. BTW, if you want to increase the overall size of the virtual disk, use the command line tool from vmware, vmware-vdiskmanager.exe (just use the demo version of vm workstation to get a copy).</p>
+<p>Worked quite nicely, and may help someone else out who needs a bit more space.</p>
+<p>Thanks again WM, nice work on the VMware edition of Trixbox!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2049">
+
+			<div id="comment-2049">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/054d4b4460dc5bbcde7c221d980ce4423c3369414566b1196be7ef8b2efa987e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/054d4b4460dc5bbcde7c221d980ce4423c3369414566b1196be7ef8b2efa987e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Alejandro</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2049">Thursday, October 19, 2006 at 11:50 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Outstanding site!  Incredible tutorials! thumbs up for you guys!.</p>
+<p>One question if I may.  I’d like to install your ‘all bells and whistles’ version of tribox, but on a P1 machine.. no windows or VM. Do you have an ISO image?  or which would be the best image to install a Trixbox..   your recommendation?</p>
+<p><i>[WM: At the moment, the all-you-can-eat version only runs as a VMware image, but we’re working on it. See <a href="/index.php?p=150">today’s column</a> for more details.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2056">
+
+			<div id="comment-2056">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7d93c43e8cfad6e3d49df772489e92621715bd30e88ec2a4b868a21e5ea9dbc2?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7d93c43e8cfad6e3d49df772489e92621715bd30e88ec2a4b868a21e5ea9dbc2?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Pradeep</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2056">Sunday, October 22, 2006 at 6:29 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>The nerdvittles guides to configuring asterisk looks pretty good, I downloaded the latest version nv-trixbox-112a.zip it boots directly to Centos and takes to Asterisk prompt asking you to input the userid/password. This is where i got struck and couldn’t proceed….and had to shut down the system. </p>
+<p>Please provide the userid/password.</p>
+<p><i>[WM: Username is root. Password is password. It’s in the article.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2072">
+
+			<div id="comment-2072">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7f2b0aa3554b2a8655544dc7f22071344b0803848c50ebcd231048bcbeeb8928?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7f2b0aa3554b2a8655544dc7f22071344b0803848c50ebcd231048bcbeeb8928?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Brian</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2072">Wednesday, October 25, 2006 at 12:35 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Regarding the VMWare time stuff, it’s a little tricky–but once everything’s correct, it’ll keep time, just fine.  You need to do this:</p>
+<p>1) Install VMWare-tools.   Very important.<br>
+2) Disable NTPD completely.  NTPD and vmware-tools will both fight to add ticks to the system interrupt timer to compensate for VMWare’s time slicing.  If you run both, the result will be a fast-running clock.<br>
+3) In your .vmx file,  add the line: tools.syncTime = “TRUE”<br>
+4) In your VM, edit /boot/grub/grub.conf and add “clock=pit” to the kernel boot line.</p>
+<p>Doing all the above will fix your time issues, and VMWare will keep it in sync to the host almost perfectly.</p>
+<p><i>[WM: Thanks, Brian. I’ll try it on our test machine and report back how it goes. If anyone uses this, you probably will need to disable the cron job we have running using WebMin (under Hardware, Time).]</i></p>
+<p><i>[Update on VMware Timekeeping Disparity: I actually decided to first try a less complicated tip from the <a href="http://www.trixbox.org/modules/newbb/viewtopic.php?viewmode=flat&amp;topic_id=4856&amp;forum=2">TrixBox Forum</a> that appears to work equally well. I skipped recommendations 1, 2, and 3 above and replaced the kernel boot line (line 16) in /boot/grub/grub.conf (nano -w /boot/grub/grub.conf) with the following. Then I started WebMin and disabled our cron timesetting job in WebMin-&gt;Hardware-&gt;System Time-&gt;Synchronize on Schedule=no, and rebooted. VMware has been keeping perfect time ever since.]</i><br>
+<code><br>
+kernel /vmlinuz-2.6.9-34.0.2.EL ro root=LABEL=/ acpi=off noapic nosmp nolapic clock=pit<br>
+</code></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2156">
+
+			<div id="comment-2156">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/1ddc9965f35500bd186bca5e6a4ad7b36c2e48fccd9d1ee51bb10cc9e30467fb?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/1ddc9965f35500bd186bca5e6a4ad7b36c2e48fccd9d1ee51bb10cc9e30467fb?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">LW</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2156">Thursday, November 16, 2006 at 11:53 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hey guys, thank’s for your contribution.  I’ve only encountered on problem so far.  I’m able to check the voicemail through the web interface, but whenever i try to access it from *67 is says password incorrect.  Any ideas?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2480">
+
+			<div id="comment-2480">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a2946b0ae30dec4eafb44d36466e6ce2d3dd45f0cffa91e459c0c47390bf95f4?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a2946b0ae30dec4eafb44d36466e6ce2d3dd45f0cffa91e459c0c47390bf95f4?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Arnold</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2480">Friday, February 16, 2007 at 6:07 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Does tribox 2.0 play well with all the Nervittles scripts? If not, what is the recomended version?</p>
+<p><i>[WM: We haven’t yet tested trixbox 2.0 fully. TrixBox 1.2.3 works perfectly fine with all of our applications, and the PBX-in-a-Flash utility will preconfigure almost all of them.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2558">
+
+			<div id="comment-2558">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/84f4754f608d71aa192a545e1034b6fed8e227a107526c18b922ed4e6a635a45?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/84f4754f608d71aa192a545e1034b6fed8e227a107526c18b922ed4e6a635a45?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Danny</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-2558">Thursday, March 15, 2007 at 12:01 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Can’t find any torrent seeds for nv-TrixBox-1.1.2 , tried all the above links?<br>
+Dan</p>
+<p><i>[WM: TrixBox 1.2.3 is the only version we’d stake our phone system on. There’s a link to the articles at the top of the Nerd Vittles page.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9544">
+
+			<div id="comment-9544">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4e9510c214dd983fa90fa1a755d9325ff70392f632524534acfe29e0cee189a0?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4e9510c214dd983fa90fa1a755d9325ff70392f632524534acfe29e0cee189a0?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Miguel Montoya</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/#comment-9544">Tuesday, July 14, 2009 at 7:26 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Well thenks for all your help first of all</p>
+<p>I’m wondering if there is a way to run trixbox under virtual machine with all pci card capabilities so it could work properly. A few weeks ago, I mounted trixbox on vmware and I culdn’t set up the E1 on pci cards. Is there any additional driver to use?  </p>
+<p>thanks again uncle Ward</p>
+<p><i>[WM: Sorry. You can’t use PCI cards with VMware.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/introducing-version-2-of-the-plug-and-play-asterisk-pbx-for-windows/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjgzNTg4NSwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

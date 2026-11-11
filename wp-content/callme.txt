@@ -1,0 +1,51 @@
+<?php
+// (c) Copyright Ward Mundy, 2005. All rights reserved.
+// This script will only work with Asterisk@Home ver. 1.3 or higher
+// Syntax: http://asterisk.dyndns.org/callme.php?number=sip/bv/4045551212
+// where asterisk.dyndns.org is the fully-qualified domain name of your Asterisk server
+// and 4045551212 is the number to be called immediately to provide dialtone
+
+// This script will not work without adding [callout] context to extensions_custom.conf. See below.
+// Change 24681234 below to a very secure PIN number that the user will be prompted for when call is made.
+
+// [callout]
+// exten => s,1,Authenticate(24681234)
+// exten => s,2,DISA(no-password|from-internal)
+
+// For additional documentation, visit Nerd Vittles blog at
+// http://mundy.org/blog/index.php?p=63
+
+// No changes should be made below this line
+// For BroadVoice, dial strings should look like this: SIP/bv/14045551212
+// To call a local extension with SIP, use the syntax: SIP/200 where 200 is the extension number
+// MAKE ALL EXISTING ACCOUNTS SECURE BEFORE OPENING ASTERISK WEB SERVER TO BIG, BAD INTERNET!!!
+$number=strtolower($_REQUEST['number']);
+$pos=strpos ($number,"local");
+if ($number == null) :
+ exit() ;
+endif ;
+if ($pos===false) :
+$errno=0 ;
+$errstr=0 ;
+$fp = fsockopen ("localhost", 5038, &$errno, &$errstr, 20);
+ if (!$fp) {
+  echo "$errstr ($errno)<br>\n"; 
+} else {
+ fputs ($fp, "Action: login\r\n");
+ fputs ($fp, "Username: phpagi\r\n");
+ fputs ($fp, "Secret: phpagi\r\n");
+ fputs ($fp, "Events: off\r\n\r\n");
+sleep(1) ;
+ fputs ($fp, "Action: Originate\r\n");
+ fputs ($fp, "Channel: $number\r\n");
+ fputs ($fp, "Context: callout\r\n");
+ fputs ($fp, "Extension: s\r\n");
+ fputs ($fp, "Priority: 1\r\n\r\n");
+sleep(2) ;
+ fclose ($fp);
+ } 
+echo "Extension $number should be ringing now." ;
+else :
+ exit() ;
+endif ;
+?>

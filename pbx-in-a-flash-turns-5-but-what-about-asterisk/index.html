@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>Asterisk 1.6: Dinosaur or Ostrich… It Really Doesn’t Matter – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/">
+<link rel="shortlink" href="/?p=211">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=B4DFCAC0E1C13FD93042BA920529C7E5');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=211">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-211 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/" title="Permalink to Asterisk 1.6: Dinosaur or Ostrich… It Really Doesn’t Matter" rel="bookmark">Asterisk 1.6: Dinosaur or Ostrich… It Really Doesn’t Matter</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Tuesday, April 15, 2008 at 6:00 am</li>		<li class="category">in <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fpbx-in-a-flash-turns-5-but-what-about-asterisk%2F&amp;text=Asterisk+1.6%3A+Dinosaur+or+Ostrich%26%238230%3B+It+Really+Doesn%26%238217%3Bt+Matter" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fpbx-in-a-flash-turns-5-but-what-about-asterisk%2F&amp;t=Asterisk+1.6%3A+Dinosaur+or+Ostrich%26%238230%3B+It+Really+Doesn%26%238217%3Bt+Matter" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-211" class="clearfix post-211 post type-post status-publish format-standard hentry category-technology category-telephony">
+
+		<div class="entry">
+
+			<p><img decoding="async" src="/wp-images/asterost.jpg" alt="" hspace="9" align="left">In our <a href="/index.php?p=210">last column</a>, we lamented the fact that Asterisk® 1.6 development seemed to be on a collision course with the dinosaurs because of developer insistence on deprecating and removing commands from the application programming interface (API) in the name of technology enhancement. The problem this poses is that applications and dialplans written for previous versions of Asterisk no longer function even though the code is barely a year old. In the corporate and government sectors, this would mean major, costly (annual) rewrites of code just to keep a functioning phone system. And, as we noted, these organizations buy phone systems to last a decade so such a development strategy would all but rule out use of Asterisk in the Fortune 500, medical, and government sectors. </p>
+<p>Today we want to share the Digium® response and address some of the new issues that have been raised. For those of you that haven't met him, Jared Smith, who co-authored the terrific <i><a href="http://downloads.oreilly.com/books/9780596510480.pdf">Asterisk: The Future of Telephony</a></i> books, now serves as Digium's Community Relations Manager. Jared sent us a thought-provoking response which you can read in its entirety <a href="/wp-content/jared-response.pdf">here</a>. For ease of understanding, we're going to quote a number of sections of Jared's response and address them below so that you get the full picture of how dangerous the Digium development approach is to the future of the Asterisk project. We've been concerned in the past with Fonality's decision to keep trixbox ce on the bleeding edge while reserving a more stable Asterisk product for paying customers. Now it appears Digium has decided to do much the same thing with the open source version of Asterisk. That's unfortunate for all of us that care about the future of the project.</p>
+<p><i><b>Jared Smith</b>: "I think we can both agree that the feature set is an important part of any PBX system.  Or, as you put it, "It's the Feature Set, Stupid!" There are two major reasons for moving from Asterisk 1.4 to the upcoming Asterisk 1.6 release at all, and the first one is features.  Asterisk 1.6 brings a lot of new features to the table over what was available in Asterisk 1.4 and Asterisk 1.2.  (The other big change in Asterisk 1.6 is that a lot of its internal plumbing got re-worked, so that it should be more efficient, more stable, and better able to handle larger call volumes.) Unfortunately, your article doesn't differentiate between features of Asterisk and features that third-parties (yourself included) have bolted on to Asterisk.  To use the same analogy that I gave when I met you in Charleston, we here at Digium want Asterisk to be the best engine in the world.  Whether you make that engine into a Formula One race car or a big brown delivery truck is up to you -- we're simply building the best engine we can.  Now, we've gone and built a newer version of the engine ("More horsepower!  Higher torque!  Faster zero-to-sixty speed!"), and suddenly everyone complains that the starter motor doesn't fit in the same place that it used to.  I know it's not a perfect analogy, but hopefully you get my point... "</i></p>
+<p><b>Uncle Ward</b>: We obviously applaud enhancements which make Asterisk "more efficient, more stable, and better able to handle larger call volumes." It's the rest of the paragraph that highlights the fundamental problem with the current Asterisk development strategy. The point is that, for Asterisk to survive, the developers need to appreciate that they're not building a mousetrap in a vacuum. Asterisk without a dialplan is worthless. Asterisk without application code has little value particularly in vertical markets. To carry Jared's engine analogy one step further, the concern is not about Digium's repositioning the starter motor. It's about eliminating fundamental components that businesses rely upon to keep their communications engine running. It does little good to develop "the best engine in the world" if this year's version requires kerosene while last year's version ran on gasoline and next year's version requires hydrogen. Such changes force a complete reworking of the infrastructure that organizations rely upon to keep their cars <i>and their phone systems</i> functioning.</p>
+<p><i><b>Jared Smith</b>: "APIs change when major versions of the software are released. (APIs are Application Programming Interfaces -- think of them as building blocks inside of the Asterisk code that both Asterisk and third-party programs can use to do various things.)  The problem is, when we make Asterisk better, we often have to change those APIs to do so... I'd challenge you to find any major project that provides source-level API compatibility as a *guarantee* between major release versions.  (Look at Apache 2.0 - 2.2, PHP 4 - 5, MySQL 4 - 5, PostgreSQL 7 - 8.  They all have the same thing -- Major changes almost always require API changes.)  When the Asterisk APIs stop changing from major release to major release, then Asterisk *WILL* be as dead as the dinosaurs are. "</i></p>
+<p><b>Uncle Ward</b>: We defy anyone to explain why "making Asterisk better" required breaking every dialplan on the planet because some developer thought  <i>Set(TIMEOUT(digit)=timeout)</i> was a code improvement in Asterisk 1.4 over <i>DigitTimeout(timeout)</i>. No one wants to stand in the way of progress. But moving forward is quite different than throwing the baby out with the bath water. Supporting both syntaxes would have required one extra line of code in the API. In the alternative, Digium could have released a source code translation application which would automatically convert existing code to the new syntax. This almost always has been done with major changes in programming languages. We would hasten to add that most of  the developer-inspired changes with which we have been concerned have little or nothing to do with making Asterisk a "better engine." It's just a different engine. And therein lies the problem!</p>
+<p><i><b>Jared Smith</b>: "Luckily, Asterisk is an open-source project, which means that when Asterisk does evolve, that the changes aren't made in secret.  Any third-party developer who wants to make sure his code remains compatible with the latest version of Asterisk can do so at any time.  He doesn't have to wait until 1.6.0 is released to find out that his code will have to be changed to fit the new APIs.  The Asterisk code is always available to test, play with, qualify against, etc. so that the developer can update their code to be compatible, so that when the time comes that real users want to use it, their applications will be ready."</i></p>
+<p><b>Uncle Ward</b>:  The concern here isn't that third-party developers can't make changes to accommodate future Asterisk API changes. The problem is that businesses that stake their livelihood on a phone system that is Asterisk-based expect it to keep working year after year after year. Third-party developers come and go. So, if a company purchases an Asterisk-based system which includes fax and text-to-speech telephony support, those companies have a right to expect that their applications will work next year with the currently supported version of Asterisk. Jared's response sent me looking for the image to accompany this week's article: an ostrich burying his head in the sand. Third party developers move on or die, Jared. You can't pretend that folks never used their code because you're too focused on future enhancements to your race car engine to worry about preserving the necessary infrastructure to support applications <i>that already work</i>. As we put it last week, "You break it, you fix it. I break it, I fix it." That's a really simple design concept that should be fundamental to any API development changes. This in no way impedes the design goal of "making things better." Just don't make other things worse in the process.</p>
+<p><i><b>Jared Smith</b>: "The next point I'd like to address is that of responsibility.  Your article somehow assumes that it's the responsibility of the Asterisk developers to somehow know about all these third-party apps, and make sure they never break due to API changes.  I can see three flaws with that argument -- first of all, there's no way the Asterisk developers could possibly know of every third-party application, it's state of affairs, and so forth...  The second flaw is this -- even assuming for a moment that we could keep track of all the third-party apps and try to keep them up to date (which we both know isn't possible), licensing concerns would keep the Digium-paid Asterisk developers from doing so...  The third flaw to that argument is the point I made earlier... if Asterisk *were* to guarantee source-code API compatibility between major releases, there's no way possible that Asterisk could continue to grow, evolve, and adapt to the changing telephony market.  "</i></p>
+<p><b>Uncle Ward</b>:  I'm reminded of the Venus and Mars book about the differences in perspective between men and women. Are you really saying that Asterisk developers had no idea that folks were using dialplans and text-to-speech applications with Asterisk after Digium just worked with Cepstral to produce an Allison voice?? Come on, Jared. This isn't about whether it is Digium's responsibility to fix third-party developer code. This is about whether corporations and government organizations are going to invest in a telephony system when the business philosophy of the engine manufacturer is that they could care less whether they break existing telephony applications with each new product release.  As I read Jared's response, Asterisk developers can't and won't be responsible for making sure they don't break existing applications and dialplan code, and Digium won't do anything to migrate existing code to new platforms. I'm not sure I understand how development of a piece of <i>migration application code</i> requires a knowledge of every third-party application in the universe. Presumably, the Asterisk development team does know when it changes the syntax of some command in the existing API. Why then would it be so difficult to provide <u>another application</u> that translated the "old code" into the "new syntax?" That doesn't require that any third-party apps be reviewed. And it doesn't stymie future development. Just provide the tool to fix stuff <i>that you broke</i>!</p>
+<p><i><b>Jared Smith</b>: "Last but not least, let's talk directly about your bug report.  In it, you claim that 'Lack of native support for either Flite or Cepstral TTS breaks thousands of existing text-to-speech Asterisk applications.' Asterisk has never had native support for either Cepstral or Flite for text-to-speech, so I'm not sure how not having it in Asterisk 1.6 breaks anything.  I'm afraid that if I were to follow your logic to its logical conclusion, it would be better to write that as 'Since the developer that wrote app_swift won't update the code for Asterisk 1.6, it's Digium's responsibility to do so.'  Again, I've got to point out that Flite and app_swift are totally outside the control of the Asterisk development team."</i></p>
+<p><b>Uncle Ward</b>:  Wrong again. What the Asterisk developers can control is making sure that, when a change is made to the API, they either support the new <i>and old</i> syntax or, in the alternative, that the developers provide a separate tool to convert existing source code to the newly-created syntax. That's what any responsible developer would do. This isn't a problem with a third-party application developer refusing to update his or her code. Many of these developers are no longer available or reachable. So it behooves the proponent of changes that impact the operation of existing telephony systems to provide a migration vehicle to the new platform. It's as simple as that. Give it some more thought, Jared. There's a lot more than either of us may appreciate riding on the outcome of our discussion.</p>
+<hr>
+<p> </p>
+<h3>Special Thanks to Our Generous Sponsors</h3>
+<p><br>
+FULL DISCLOSURE: <a href="/?p=32167" target="_new">ClearlyIP</a>, <a href="https://skyetel.com/" target="_new">Skyetel</a>, Vitelity, <a href="https://m.do.co/c/f8725e13f303" target="_new">DigitalOcean</a>, <a href="http://www.vultr.com/?ref=6918611-3B" target="_new">Vultr</a>, <a href="https://voip.ms/en/code/nerdvittles" target="_new">VoIP.ms</a>, 3CX, Sangoma, TelecomsXchange and VitalPBX have provided financial support to Nerd Vittles and our open source projects through advertising, referral revenue, and/or merchandise. As an Amazon Associate and Best Buy Affiliate, we also earn from qualifying purchases. We’ve chosen these providers not the other way around. Our decisions are based upon their corporate reputation and the quality of their offerings and pricing. Our recommendations regarding technology are reached without regard to financial compensation except in situations in which comparable products at comparable pricing are available from multiple sources. In this limited case, we support our sponsors because our sponsors support us.<br>
+<br>
+<a href="/?p=27123" target="_new"><img decoding="async" src="/vitelity/skyetel-bottom.png" alt="" hspace="9" width="250" height="163" align="left"></a><b>BOGO Bonaza:</b> Enjoy state-of-the-art VoIP service with a $10 credit and half-price SIP service on up to $500 of Skyetel trunking with free number porting when you fund your Skyetel account. No limits on number of simultaneous calls. Quadruple data center redundancy. $25 monthly minimum spend required. <a href="/?p=27123" target="_new">Tutorial and sign up details are here</a>.<br>
+<br>
+<a href="https://incrediblepbx.clearlyip.com/" target="_new"><img decoding="async" src="/vitelity/clearlyip.png" alt="" hspace="9" width="250" height="163" align="left"></a>The lynchpin of Incredible PBX 2020 and beyond is ClearlyIP components which bring management of FreePBX modules and SIP phone integration to a level never before available with any other Asterisk distribution. And now you can configure and reconfigure your new Incredible PBX phones from the convenience of the Incredible PBX GUI.<br>
+<br>
+<a href="https://vitalpbx.org/en/" target="_new"><img decoding="async" src="/vitelity/vitalpbx.gif" alt="" hspace="9" width="250" height="163" align="left"><b>VitalPBX</b></a> is perhaps the fastest-growing PBX offering based upon Asterisk with an installed presence in more than 100 countries worldwide. VitalPBX has generously provided a customized White Label version of Incredible PBX tailored for use with all Incredible PBX and VitalPBX custom applications. <a href="/?p=30854" target="_new">Follow this link</a> for a free test drive!<br>
+ <br>
+<br>
+<img loading="lazy" decoding="async" src="/vitelity/vitelity.png" alt="" hspace="9" width="250" height="163" align="left"><b>Special Thanks to Vitelity.</b> Vitelity is now Voyant Communications and has halted new registrations for the time being. Our special thanks to Vitelity for their unwavering financial support over many years and to the many Nerd Vittles readers who continue to enjoy the benefits of their service offerings. We will keep everyone posted on further developments.<br>
+ </p>
+<hr>
+<p><b>Some Recent <a href="/?p=2" rel="author me">Nerd Vittles</a> Articles of Interest...</b></p>
+<p><iframe loading="lazy" frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-211 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 36 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-3253">
+
+			<div id="comment-3253">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3fc0d009613e57fe2920a2aec83e959a075612c07d1899786769aecde3bc9ed1?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3fc0d009613e57fe2920a2aec83e959a075612c07d1899786769aecde3bc9ed1?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Newbie</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3253">Tuesday, April 15, 2008 at 11:31 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I am sure I must be missing something here.. Why not just continue using the old engine? What new features does 1.6 possess that we can’t live without?</p>
+<p><i>[WM: For the short term (about a year), version 1.4 will continue to be supported. After that, probably not which translates into no security patches which translates into a mess.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3254">
+
+			<div id="comment-3254">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/695e83decd5959eb9aac7f2982fdc865d54845b6c29d3a6f27889aec85504305?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/695e83decd5959eb9aac7f2982fdc865d54845b6c29d3a6f27889aec85504305?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mike</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3254">Tuesday, April 15, 2008 at 11:41 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I have to agree completely. In doing conversions of my dialplan from 1.2 to 1.4, I had to scratch my head when some of my dialplan no longer worked. I thought to myself, why on earth do I have to specify something like how to play background tones with a new command, what the heck was wrong with the old one? And how to set callerid changed? Why on earth would that be changed and deprecated? Why can’t both be supported? Your point about an application that Digium would provide that you could run your old dialplan through to identify deprecated code would be extremely helpful. As a corporate user, we are still on 1.2. Love to get to the features of 1.4 but not happening for a while!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3255">
+
+			<div id="comment-3255">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3edc5a594cdd66dcbd24a2a304a2043844e6f4ef895e1b1160bec95a764fc64f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3edc5a594cdd66dcbd24a2a304a2043844e6f4ef895e1b1160bec95a764fc64f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Darren Sessions</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3255">Tuesday, April 15, 2008 at 12:25 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p><a href="http://lists.digium.com/pipermail/asterisk-users/2008-April/209688.html" rel="nofollow ugc">http://lists.digium.com/pipermail/asterisk-users/2008-April/209688.html</a></p>
+<p>You gave me the inspiration to patch up app_swift to work with 1.6.x codebase.</p>
+<p><i>[WM: THANKS!! We’ve updated our <a href="/index.php?p=202">Cepstral tutorial</a> to reflect your addition.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3258">
+
+			<div id="comment-3258">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4c31fe78746ba4f21660c0c4e6c9b3f2afc920ee9ca9fd6bc9f93d8f5b4788aa?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4c31fe78746ba4f21660c0c4e6c9b3f2afc920ee9ca9fd6bc9f93d8f5b4788aa?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">ward</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3258">Tuesday, April 15, 2008 at 2:51 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>And see <a href="http://pbxinaflash.com/forum/showthread.php?t=1180">this thread</a> for many additional comments.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3259">
+
+			<div id="comment-3259">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/6f9175be960fa83160ff059684b9f8381dde8e1a8d16f68a0153d758e1c5915b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/6f9175be960fa83160ff059684b9f8381dde8e1a8d16f68a0153d758e1c5915b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">jim carter</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3259">Tuesday, April 15, 2008 at 3:29 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I only have one system of 40+ peers, that I work with;  currently with 1.2 installed, planning for upgrade to 1.4 in the near future.  I have stopped updating because I am concerned that updates may cause downtime.  To insulate myself from this problem, I am building a second machine to run the upgrade on, before attacking my production machine.  Given the current status of asterisk development;  I am currently re-evaluating any upgrade/update.  I may ultimately elect to hold at 1.2 and make no changes to my “working perfect system”.  If I were considering selling and setting up asterisk systems for a living;  I would definitely investigate other open software options, as it appears to me that Asterisk is attempting to narrow the field of players, sort of like the razor companies change blade styles every year to create demand for more expensive blades and eliminate third party commodity pricing.  As an end-user;  I see this strategy as a dead end for the consumer, that reduces the number of sellers in the distribution chain, minimizes competition, while increasing margins for the razor manufacturers.  Proprietary sip system vendors to some degree protect their existing customers and their authorized dealers, by making tools available to “convert” one outdated system to the latest and greatest, thus welding existing customers to the vendor.  Viewing this whole discussion gives me pause, about my decision to adopt asterisk in the first place for personal use.  And to my thoughts of encouraging one of my sons to sell and install asterisk systems.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3261">
+
+			<div id="comment-3261">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a623257ba40f8c54d6aae59245f89325ea57e2fd7a9959df949dc3c8fa00ff88?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a623257ba40f8c54d6aae59245f89325ea57e2fd7a9959df949dc3c8fa00ff88?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Leif Madsen</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3261">Tuesday, April 15, 2008 at 5:44 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Commenting on what Jim Carter said: “I have stopped updating because I am concerned that updates may cause downtime. To insulate myself from this problem, I am building a second machine to run the upgrade on, before attacking my production machine.”</p>
+<p>Not testing on a sandbox and directly updating your production system is destined for failure. You should *never* update your production system without first testing on a development server, and running through your test plan (you have a test plan right?) to try and catch as many issues as possible. Test plans are extremely important in an upgrade situation, especially when it comes to your phone system.</p>
+<p>Way too many times have I seen people upgrade their production systems blindly, with no backups, and having never tested the system, or even read the CHANGES log to figure why in the heck they upgraded in the first place.</p>
+<p>And in regards to people moving from 1.2 to 1.4, and 1.4 to 1.6 (which btw isn’t even released as anything but at beta at this point… why are you trying to use 1.6 in a production environment already?), the transition from 1.4 to 1.6 will be relatively painless (unless of course you’re using third party applications, but this is a major version upgrade, sorry, not all third party apps are going to work out of the box as Jared has already commented on, even if you don’t agree with him). The amount of dialplan changes has certainly been quite a bit more minimal in terms of fundamental changes.</p>
+<p>And I know it’s going to be a bit painful at first to go from 1.2 to 1.4/1.6 syntax, but believe me, you’re going to LOVE dialplan functions, do to the power and flexibility it gives you. At least from my viewpoint doing clustered systems, database integration (all hail func_odbc), and delivering calls to Queue members via the Local channel, the dialplan functions have made the impossible in 1.2, possible in 1.4.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3262">
+
+			<div id="comment-3262">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/64f8de71a3b3cff3bb65dfd8fe58c63d2ee89926baa35e6633bda0530d9393f5?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/64f8de71a3b3cff3bb65dfd8fe58c63d2ee89926baa35e6633bda0530d9393f5?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bob</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3262">Tuesday, April 15, 2008 at 10:32 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I used the link in the Cepstral install instructions that you have recently changed, and it is not backwards compatible to 1.4 now. Please put the link back up to the app_swift that works with 1.4. I did some searching around and found it, but your instructions are for a 1.4 install and a 1.6 app_swift and it does not compile, because the API has changed. Of course.</p>
+<p><i>[WM: Huh? There’s a section in <a href="/index.php?p=202">the article</a> to install app_swift with Asterisk 1.4 and a new section to install app_swift with Asterisk 1.6. You simply pick the install that matches your version of Asterisk. The Asterisk 1.4 installation section was not removed.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3263">
+
+			<div id="comment-3263">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/c8e236e3693eba09e71c1d90106b375f732e2da44041620563092c1c0676b7cc?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/c8e236e3693eba09e71c1d90106b375f732e2da44041620563092c1c0676b7cc?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jeff Whiteside</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3263">Tuesday, April 15, 2008 at 10:46 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I see this more from Digium’s perspective, but perhaps that’s because I’ve been in telephony for over a dozen years.  If you look at the “closed source” platforms (e.g. Cisco, Avaya), you find the same upgrade obstacles with 3rd party integrations and even their own “in house” products when considering major version upgrades.  For example, one adjunct version might not be compatible with another, custom applications/integrations can break, and sometimes things work differently than they did before.</p>
+<p>These companies are still going strong and “fortune 500, medical, and government sectors” still use them.  I think it’s a bit premature to think that Asterisk will fall flat on it’s face for making some radical changes that might result in incompatibilities.</p>
+<p>With open source, the issue of inter-compatibility becomes magnified by the rapid development cycles and the wide array of “bolt on” 3rd party integrations that result from popular applications.  I completely agree with Jared that it’s the 3rd party developer’s responsibility to keep in lockstep with the growth of the original application.</p>
+<p>I do find validity with the argument that Digium could provide a tool to update things, like the dialplan code, automatically.  It’s called an “upgrade path” and is an essential consideration that must be taken when proposing a new version to a customer base.  The nature of Asterisk’s free-form configuration makes this very challenging, but it’s the one suggestion that I felt could really make a difference.</p>
+<p>Interesting article &amp; analysis…thanks!</p>
+<p><i>[WM: Thanks for your comments. Of course, the Cisco’s and Avaya’s of the world don’t release major version upgrades annually thereby throwing all of their customers into tailspins. And they do provide upgrade tools. The major companies also don’t drop support for their prior releases within a year or two of initial release. Finally, take a look at /usr/src/asterisk/UPGRADE.txt on your 1.4 system and give an honest answer as to how many of these so-called “engine enhancements” more closely resemble developer quirks. Changing API grammar and syntax doesn’t usually result in much of a performance improvement except for the fact that all the old third-party code no longer works so there’s less “stress” on the race car.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3264">
+
+			<div id="comment-3264">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/bcddbd006f0c080e86c70c53a09d269531e962d9d3ddbcc5fea140d681ca230e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/bcddbd006f0c080e86c70c53a09d269531e962d9d3ddbcc5fea140d681ca230e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ed Sweazy</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3264">Wednesday, April 16, 2008 at 12:13 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I strongly agree with Ward and the nerd vittles community. It is reckless to change the API’s in such a manner. It would essentially break third party applications ! A graceful non-evasive approach should always be considered as a first option. We all want to drive a Ferrari but for the vast majority including the business community, having a stable 1.4 system and the ability to transition these applications seamlessly to the next software release is of the highest importance. Having 10+ years background supporting software upgrades and applications for the telephony industry, there is a graceful way to approach it. As a general rule, breaking third party apps would never fly in the real world business environment. Consideration for applicable patches for the prevention of breaking these APPS is the responsibility of any Vendor, “at least responsible ones.”  </p>
+<p>Would Digium create code that would render their interface cards useless in future release ? I don’t think so! Just ask our friends at MS. They know a thing or two about ‘THAT’!</p>
+<p>Hope that consideration for the  greater Asterisk community is considered. No one likes to have ideology or ‘BAD CODE’ crammed down their throat.<br>
+Regards,<br>
+-Ed</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3265">
+
+			<div id="comment-3265">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7f51e8d9b7da01ed7bc917b8da0ac755f94387ee051ca2e76cfc779dfe3b9fb8?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7f51e8d9b7da01ed7bc917b8da0ac755f94387ee051ca2e76cfc779dfe3b9fb8?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">F.D.Castel</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3265">Wednesday, April 16, 2008 at 2:24 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I’m trying to understand how Digium (and Jared) could write a response completely OFF THE POINT like this. They appear to be living in a FANTASY world, forgetting thousands of developers that work FOR REAL with their product. DIGIUM! WAKE UP AND *READ* WHAT WARD IS TALKING ABOUT instead of giving childish replies like this. BTW, Ward: The picture of the ostrich is just PERFECT to Digium’s behavior.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3267">
+
+			<div id="comment-3267">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/472f565c4de8c9ddcd88318e38378af549cc983a1c8828cbea5282f2f49bec24?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/472f565c4de8c9ddcd88318e38378af549cc983a1c8828cbea5282f2f49bec24?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jonas</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3267">Wednesday, April 16, 2008 at 8:47 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Digium’s point of view is a very dangerous one. The thing is that Asterisk is pretty crappy software (pieces mysteriously break than start working again in the next release, it’s happened to me a few times) but the third party service and software ecosystem around it are better than anything else. Digium has to realize this and do anything to keep third party developers and maintainers happy. If not, they won’t stand a chance in future competition from big brands above as well as from smaller projects such as freeswitch below.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3269">
+
+			<div id="comment-3269">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3923f4b40f98f7aeaf45dbdf5d5d1cf28436c45bc3ee243b702a00dd83a8c684?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3923f4b40f98f7aeaf45dbdf5d5d1cf28436c45bc3ee243b702a00dd83a8c684?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">J. Sisk</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3269">Wednesday, April 16, 2008 at 4:21 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hey Thanks for these updates on Asterisk.  I’ve been reading the Nerd Vittles site for a year now and have implemented several of the useful tutorials including switching to the awesome PBXIAF.  I’m still in high school but have my own computer and web consulting business for which I use PBXIAF for calls.  As a student I can’t afford a lot so PBXIAF in its open source state is excellent.  These changes in the code concern me because when it comes to my personal and business interests, I can’t afford to lose time and money when an upgrade comes out.  It really seems trivial to implement some of the things you said – ie either stop deprecating code or introduce a translator.  I’ll be watching the Nerd Vittles site quite closely to see how things turn out.  Thanks for the great work and for the care you show toward your readers and users of Asterisk!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3270">
+
+			<div id="comment-3270">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a623257ba40f8c54d6aae59245f89325ea57e2fd7a9959df949dc3c8fa00ff88?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a623257ba40f8c54d6aae59245f89325ea57e2fd7a9959df949dc3c8fa00ff88?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.leifmadsen.com/" class="url" rel="ugc external nofollow">Leif Madsen</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3270">Wednesday, April 16, 2008 at 4:40 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Quick comment:  this isn’t just a “Digium thing” in the way upgrades work; this is typically how software development goes in all organizations. Major version number changes mean API changes. That’s just how the world works. If you couldn’t change an API, then you wouldn’t be able to grow and expand the feature set in the software, or sometimes even fix bugs, or increase reliability and scalability.</p>
+<p>I have not heard about any fixed date or time frame for EOL’ing Asterisk 1.4. Since a lot of people are still running 1.2, I would imagine 1.4 will be with us for a long time yet (certainly more than a year).</p>
+<p>The 1.6 branch has come out, is in beta mode, and I’m not sure what all the hubbub is about in third party incompatibilities. All major version upgrades are going to have things change in them that you couldn’t otherwise do, and thus third party applications are going to need to keep pace — and it’s not like you HAVE to run 1.6 in production (in fact, you shouldn’t… it’s not even out of beta yet).</p>
+<p>In addition, the 1.6 branch is going to use a different release methodology, which is really the main reason a 1.6 beta is even out in the first place. This does not indicate 1.4 is going EOL anytime soon. Digium’s Business Edition C.1.x software was only released around January, and I doubt there is any rush to deprecate that piece of work.</p>
+<p>You’re probably going to have 1.4 and 1.6 in lockstep for quite some time. The difference between 1.4 and 1.6 is quite a bit less than the difference between 1.2 and 1.4.  The reason for 1.6 is that since you CAN’T just release software every year and EOL the existing software, then that means you have to wait 2+ years before you can even start using the new features. Some people can’t wait that long, so you have two paths available to you now. 1.6 will allow new features to go in at each minor version release (this means 1.6.x, where ‘x’ is the minor version, and 6 is the major version — this is significant). So now we have two different methodologies. </p>
+<p>A branch that only receives bug fixes and security fixes (1.4), and a branch that receives bug fixes, security fixes, and is allowed to implement new features (this follows the same time of release strategy as the Linux kernel — this is not a new concept). Digium has now also started using release candidates before creating a new release (as per the communities request), so you have the ability to test for any bugs that may have been introduced before the full released is put out for public consumption.</p>
+<p>If you need to run 1.4, then go ahead, nothing is going to stop you from doing that, and it’s not going away anytime soon. If you need the latest and greatest, or there is some new feature you absolutely must run in production, then you can run a 1.6 machine (when it stabilizes and comes out of beta and release candidate status) with just the feature you absolutely need in a stripped down version, or after extensive testing, then you could put it into production.</p>
+<p>I personally think Digium is doing the “Right Thing(tm)” here and giving us choice, and isn’t that what this is all about?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3271">
+
+			<div id="comment-3271">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7f2f4aeeebb49b0453acbba6d9646d48af185ce2253da725c41093e458f05750?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7f2f4aeeebb49b0453acbba6d9646d48af185ce2253da725c41093e458f05750?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.inteldesignsny.com/" class="url" rel="ugc external nofollow">paul</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3271">Wednesday, April 16, 2008 at 8:47 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Was not one of the reasons that Microsoft was so successful was because they catered to developers? Ignoring developers and technical people will lead to [problems] for Digium because it is they who often decide what gets used in the corporate environment.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3272">
+
+			<div id="comment-3272">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/8261fc2509901e48ee6793a36167fbd0fa7acf143ed1700ac72cc41263c210c4?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/8261fc2509901e48ee6793a36167fbd0fa7acf143ed1700ac72cc41263c210c4?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">KodaK</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3272">Wednesday, April 16, 2008 at 9:56 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>You can’t have it both ways.  If you want the slow release cycles of, say, an Avaya, where feature sets may stagnate for half a decade: buy an Avaya.  The same thing that makes the cool Nerd Vittles stuff even possible in the first place is the flexibility inherent in a FOSS package like Asterisk that has a fast paced feature uptake.  Given enough beer, you could probably entice a programmer to add any feature you’d like to the * code base.  Try doing that with an Avaya engineer.  Try talking to an Avaya coder without first being a paying customer in the tens or hundreds of thousands of dollars range.</p>
+<p>That being said, I do think that Digium should probably give a bit more effort in providing migration tools (actual tools, not just documentation) and also make more of an effort to not be quite so much of a moving target.  I realize that sometimes it’s just impossible to do that, but if the choice exists, even if it takes a bit of extra work, then the decision should be made for as much backwards compatibility as possible.  I’m not saying they don’t do this in the first place, but there’s always room for improvement.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3273">
+
+			<div id="comment-3273">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/ac366e905e92b71d42b4be3402a73f975ca4835766583eac658b9159f4e76705?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/ac366e905e92b71d42b4be3402a73f975ca4835766583eac658b9159f4e76705?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://asterisk.drunkcoder.com/" class="url" rel="ugc external nofollow">Tilghman Lesher</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3273">Wednesday, April 16, 2008 at 11:00 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>You’re missing one major point in API transition; that is, during the 1.2 series, DigitTimeout(5) was deprecated in favor of Set(TIMEOUT(digit)=5).  A whole release cycle of something like 18 months, and you can’t be bothered to read the deprecation notices?  And then you complain when 1.4 removed it?  Why aren’t third party developers responsible for reading deprecation notices, when Digium provided a clear upgrade path?</p>
+<p><i>[WM: Just wondering how long it would take you to chime in, Tilghman. This isn’t about notice. You kinda missed the point of the articles. Big surprise there.]</i> </p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3274">
+
+			<div id="comment-3274">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4456b39056a7bd4bc9972d4ede2c89c50accaeb85046328bd5f0410b54ca2c05?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4456b39056a7bd4bc9972d4ede2c89c50accaeb85046328bd5f0410b54ca2c05?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Vittles Reader</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3274">Wednesday, April 16, 2008 at 11:59 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I am curious to what extent the API has changed and how difficult it would be for someone in the open source community to release a source code translation app.  I saw the same example in the last two articles, so I am just curious as to how expansive the actual changes are.</p>
+<p>Dont get me wrong – I know this is not the point.  I run a software development business, and my software (not telephony related) is used by my customers in conjunction with other software.  I am fully aware that changes to our code can have a dramatic and widespread impact, so we do not keep the blinders on and simply do whatever we want.  I do not want to go out of business anytime soon, and over the last 10 years I have found that one simple question keeps me competitive and loved by my customers: Can we do better?  Before we release ANYTHING, I ask my team this question, and inevitably we discover things that may require more work, but make for a better solution.  I can certainly say that if I were leading the 1.6 development team and asked this question, someone would have brought the issue up.  Furthermore, in the event that we did overlook something so crucial, I would be certain to rectify it and take advantage of still being in a beta state to do so.</p>
+<p>Still, I’d like an answer to my first question if anyone even knows.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3275">
+
+			<div id="comment-3275">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/b88b324d906dc483a1731d5e127396e96cb5e3699225f83a0be4df2fe43a9688?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/b88b324d906dc483a1731d5e127396e96cb5e3699225f83a0be4df2fe43a9688?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://edvina.net/" class="url" rel="ugc external nofollow">Olle E. Johansson</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3275">Thursday, April 17, 2008 at 3:41 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Please also do remember that there are developers that don’t work for Digium. To keep saying Digium when you refer to decisions made by the developers is not correct. </p>
+<p>I was part of the decision and made the code to update the manager interface. There was a lot of discussion about pro’s and con’s on the mailing list before we touched it, and code in a branch to test. I would have appreciated your feedback then. The changes to manager were carefully documented and constructed in a way to help developers recognize the AMI version, which wasn’t possible before. Previously, things changed but not the version number.</p>
+<p><i>[WM: Thanks for your comments, Olle. Digium does still own the Asterisk code so… the buck stops there in our book.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3276">
+
+			<div id="comment-3276">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/623d0b80df182237a04360b66e06e55a13daf5ad0f8e97b8131bf92d342b5751?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/623d0b80df182237a04360b66e06e55a13daf5ad0f8e97b8131bf92d342b5751?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">stavros</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3276">Thursday, April 17, 2008 at 8:59 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Despite the extra work it creates,  I’m with Digium on this.  It’s often impossible to add flexibility or improve performance whilst maintaining API compatibility.  The reason for the majority of API changes is to address short-sighted decisions in the original design;  backwards compatibilty enforces perpetuation of the poor choice and a clean break must be made at some point.  The re-plumbing work to which Jared refers is long overdue and,  as he intimates,  is necessary to provide the enterprise-grade platform for which you are all clamouring.</p>
+<p>Whilst a simple upgrade tool for syntax in extensions.{conf|ael} might save a few folks a few minutes,  I don’t think that’s where the bulk of this problem lies.   We’d all love to have tool to automatically fix all the AGI/AMI code out there,  written in PHP,  Perl,  C,  etc,  but it’s impossible to do algorithmically.  That said,  I believe it would be possible to add a compatibility shim to PHPAGI, for instance,  to allow most if not all existing PHP AGI scripts to run without modification.</p>
+<p>The suggestion that Digium are responsible for fixing everyone else’s code is simply ludicrous.  As Jared explained,  many of the devs can’t legally touch much of the code that will need to be fixed.  Even if they could I doubt they’d want to;  fixing code with which you’re not familiar is fraught with difficulties.  It’s even less appealing when you consider that much AGI code is crufty nonsense written by amateurs.  The logical conclusion of this argument is that Microsoft must be similarly charged with fixing every third-party application broken by a service pack, and the Linux/glibc folks must cease scheduled development and spend the rest of eternity fixing all the userspace regressions just assigned to them by downstream!</p>
+<p>I’m not sure how you reached your conclusion that Digium have their head in the sand based on Jared’s response.  You had the opportunity to shape the development of the areas of v1.6 which displease you.  I’m afraid it was you with your head in the sand,  ignorant of all the work happening in public view for all to see,  discuss and even influence.  If Digium’s track-record with Asterisk v1.2 is anything to go by,  you’ve a long time yet before v1.4 will be unmaintained.  There’s plenty of time to adapt and to test before you <i>need</i> to look at using v1.6 in production.</p>
+<p>Please stop criticising the Asterisk devs for doing <i>necessary work</i>.  You may not see it, but they do have our best interests in mind.  The benefits of a more maintainable,  better architected and more consistent Asterisk codebase far outweigh any short-term heartache during the transition.</p>
+<p><i>[WM: There’s a significant difference in saying that “Digium [is] responsible for fixing everyone else’s code” and saying that “Digium has responsibility for not breaking everyone else’s code.” If you reread the article, I think you’ll find that I suggested the latter. As for a conversion utility saving a few folks a few minutes, I’ve spent the better part of six months cleaning up the carnage in dozens of applications that was directly caused by the needless syntax obsolescence imposed in Asterisk 1.4. And for what? I provided a good example in the article that broke virtually every dialplan. Suggesting that such changes were necessary to “improve the engine” is pure B.S. Funny you’d mention Microsoft. I wrote a shareware database management system (<a href="http://www.google.com/search?q=wampum+shareware">WAMPUM</a>) in 1985 for DOS that still runs just fine under Windows XP and Vista. In fact, I regularly hear from folks that still are using it… almost two decades later! Maybe that’s the reason Microsoft is still around while Lotus 1-2-3 (that owned 95% of the spreadsheet market at one point) is now just a blip in the history books. If you recall, Lotus developers came up with the brilliant idea to change much of 1-2-3’s  spreadsheet syntax. It gave everyone the perfect opportunity to switch to Excel.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3278">
+
+			<div id="comment-3278">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/9d2104e6551744b06eb6809622a1c5cff498ac613abb51efb13262759109bec3?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/9d2104e6551744b06eb6809622a1c5cff498ac613abb51efb13262759109bec3?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Steve Edwards</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3278">Thursday, April 17, 2008 at 1:19 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I’m still using 1.2 because 1.4 doesn’t offer a compelling reason to me except “you’ll get left behind.”</p>
+<p>I understand some of the dialplan changes made the “language” more consistent and extensible and I’m all for that.</p>
+<p>I don’t understand the attitude some (most?) of the developer’s display. For instance, look at the agent/queue/callback nonsense. The attitude of the developer’s was received as “it wasn’t implemented well so we’re just going to remove it rather than fix it — besides, you can probably cobble up something similar with a bunch of dialplan stuff anyway.” I could probably cobble up something to replace voicemail or sort or saynumber with a bunch of dialplan statements, but isn’t the whole idea of applications to bundle complexity and make it easy to use? Maybe we should cobble up a replacement for Asterisk with a bunch of tin cans and string using carrier pigeons for signaling… (SIP = Slow Incoming Pigeon?, PSTN  = Please Stop Tugging Now?)</p>
+<p>Who thought prefacing some of the CLI “verbs” with “core” was a good idea? What’s the logic in deciding which verbs require core and which ones don’t? Why should I have to retrain my fingers based on somebody’s arbitrary decision to make a bad CLI even worse?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3279">
+
+			<div id="comment-3279">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a623257ba40f8c54d6aae59245f89325ea57e2fd7a9959df949dc3c8fa00ff88?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a623257ba40f8c54d6aae59245f89325ea57e2fd7a9959df949dc3c8fa00ff88?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.leifmadsen.com/" class="url" rel="ugc external nofollow">Leif Madsen</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3279">Thursday, April 17, 2008 at 1:48 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Re: CLI changes</p>
+<p>In order to make the CLI consistent, it was changed to a ‘module’ ‘verb’ ‘argument’ syntax. In 1.4 unfortunately it is inconsistent, but myself, and mvanbaak on IRC went through the entire CLI command set a couple of times to make it consistent with that approach. This makes grouping the CLI commands together much more obvious rather than having a couple of different methodologies doled up together.</p>
+<p>You can view the work we did on this in the bug tracker here: <a href="http://bugs.digium.com/view.php?id=8925" rel="nofollow ugc">http://bugs.digium.com/view.php?id=8925</a> which contains the tree structure of the command set while we were doing the audit.</p>
+<p>The reason for the ‘core’ is because that is essentially the module name — core functions which are more closely associated with the CLI appear here, e.g. core show channels, where ‘core’ is the ‘module’, ‘show’ is the ‘verb’, and ‘channels’ is the ‘argument’.</p>
+<p>This is now done throughout the CLI, and is implemented in 1.6-beta and beyond.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3280">
+
+			<div id="comment-3280">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/f9cda89d4d71c6ed8d6e2bbe7eaa6752f7abae055b9a76d6deccffa012402210?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/f9cda89d4d71c6ed8d6e2bbe7eaa6752f7abae055b9a76d6deccffa012402210?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Gerrit</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3280">Thursday, April 17, 2008 at 8:13 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Developers that don’t know how or don’t try to provide compatibile interfaces should go back to school. As pointed out several times, there are many ways to provide backward compatible support in API’s, Microsoft struggled with this for years with DLL’s and eventually solved it. That is why interfaces/API’s have versions (or should have). Marking things as deprecated is fine (hidden of course in the overly verbose spew of stuff going into the log) but the previous version of the API should work at least across one major release. This might be called professional programming and design. I’m sure the changes for 1.6 are for the better but, unless Digium is thinking of the changes as potential support and upgrade income, then it is a mistake to drop compatibility for the previous major version.</p>
+<p>An alternative is upgrade tools. Again Microsoft examples of this support exist. For Visual Studio, you can import VB6 projects years after that version was no longer for sale. A bit of creative thought from the Digium developers would find a graceful solution.</p>
+<p>Welcome to the big world of non-toy software. I love Asterisk for what it provides. Please don’t make us look elsewhere…..</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3283">
+
+			<div id="comment-3283">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a528aa5095ee4c1e776a670f14af64bdf46c7b2759251b3b6e1871dc938dfea0?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a528aa5095ee4c1e776a670f14af64bdf46c7b2759251b3b6e1871dc938dfea0?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ajay</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3283">Friday, April 18, 2008 at 11:37 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Wow, application interface compatibility is that hard? How about interfaces like IA32 (the x86 instruction set), that started with 8086 in 1978 and even today’s superscalar, out-of-order, speculative multi-core, multiprocessing monsters can run code written for the oldest machine. Asterisk developers, please don’t insult peoples’ intelligence by claiming that managing interface versioning is an unsolvable problem, because it has been solved.</p>
+<p>How about that for not breaking interfaces? And I don’t think Intel or AMD hire a bunch of folks to keep track of what behaviors of what instructions, applications are relying on.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3285">
+
+			<div id="comment-3285">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/41836009fc61763337e0b8081028e3e47c4ebc3662aa2e94916b6ea9744dd68d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/41836009fc61763337e0b8081028e3e47c4ebc3662aa2e94916b6ea9744dd68d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">bubba</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3285">Saturday, April 19, 2008 at 6:04 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Asterisk = Beta<br>
+As always.<br>
+I have been using Asterisk for almost 10 years now I think.<br>
+It has always been “beta” software to me.<br>
+The changes going now from 1.2 to 1.6 are big and will be a pain in behind for many, but it will not stop digium from moving on.</p>
+<p>We all know that for Asterisk to move up, they need to solve a few things with the core engine, and in doing so things will break.</p>
+<p>Which is why I build lean boxes with little adding third party app’s installed on the box.</p>
+<p>Asterisk can be used well after the EOL and if you lock it down and do not expose the box to the outside world then you may be running the 1.2 / 1.4 branch for YEARS to come.</p>
+<p>I have two boxes still in play running AMP 1.x, they have not seen an update in YEARS yet rock on.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3287">
+
+			<div id="comment-3287">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2c69c001fe3f5ee73f0ef5203d6e2a1ae1ca5ddf64ebd6d7089ac9d70633225b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2c69c001fe3f5ee73f0ef5203d6e2a1ae1ca5ddf64ebd6d7089ac9d70633225b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="https://www.xing.com/profile/Jens_Wiswede" class="url" rel="ugc external nofollow">Jens Wiswede</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3287">Sunday, April 20, 2008 at 1:38 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi,<br>
+it seems for me like a philosophical debate which role a company will play in the future. Digium is now big enough to set the condition and all others have to follow. But it can as well very fast be the end of such an arrogant company (there are some examples in the history and also in this days).</p>
+<p>As Ward said, it’s not that a company can’t create new features with new API’s and, of course, it is the right of Digium to change the syntax if they want to bring in a new methodology (Leif, you are right).</p>
+<p>But it has to comply with the tradition that such big, fundamental API changes should only happen over a big time period. But it seems just the opposite: Digium changes its API structure every time, so there is no reliability / trustworthiness.</p>
+<p>If Digium feels they are strong enough to give up the support of a community, well – they can do it. But why they should do it? It makes no sense to destroy a good idea. And this is what the community and – I believe – Digium itself want: a fruitful Future for both!! sides.</p>
+<p>There is plenty of time to create a codex of trustworthiness, which Digium could discuss with its partners (not only this community, but with all 3rd party developer or even bigger companies), because THEY are the key base for Digium and any similar company which is mainly based on communities.</p>
+<p>Please have a look to the changing world in the music business – the inflexible dinosaur will die if they do not focus on the new customer behavior and their special needs! There is a similar problem in the discussion here – nothing else!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3291">
+
+			<div id="comment-3291">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/472450575dd9766bc766279f7da221e34976b43f7e8ae4c279d9273cfc83995a?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/472450575dd9766bc766279f7da221e34976b43f7e8ae4c279d9273cfc83995a?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://justinhamade.blogspot.com/" class="url" rel="ugc external nofollow">Justin Hamade</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3291">Monday, April 21, 2008 at 1:09 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, I completely agree with you, and it looks like most of the commenters do as well.  I have worked with asterisk since the early betas like many others and updating dial plans and scripts after ever major release is frustrating and unecessary.  I don’t think that any analogy or comparison is really required for this issue.  I think that the asterisk development team should hold itself to a higher standard than that of apache, mysql, php, cico, avaya etc.  Just because others makes syntax and API changes doesn’t mean that its OK.  There is no good reason for syntax to change and there is no good reason for different ways to do the same thing.  For example, look at python’s mantra … “There should be one—and preferably only one—obvious way to do it”.</p>
+<p>I agree with bubba’s comment that Asterisk = beta.  It is unfortunate that releases are never really stable until the next release is in beta making for a very short life cycle.  And also no concrete upgrade path.</p>
+<p>I am very interested in what Mark would have to say about this.  I think when long term support and a solid upgrade path are established, no one will be able to compete with asterisk.  Let’s just hope that day is sooner rather than later.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3294">
+
+			<div id="comment-3294">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/557dadca4840ab7929841346f15a7639a4949fe4f8e208a26c18f892bb3092f5?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/557dadca4840ab7929841346f15a7639a4949fe4f8e208a26c18f892bb3092f5?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Simon Hobson</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3294">Monday, April 21, 2008 at 3:22 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I’m mostly in agreement with Ward on this. One of the long standing complaints about the whole Unix/Linux environment is the instability in some areas – anyone else remember the old joke about “what’s the print command called today ?”<br>
+Of course the API needs to adapt as things develop, but there’s a balancing act to be followed between wholesale changes that break everything, and doing it in a more user &amp; developer friendly way. It would be interesting if the Asterisk developers could come up with a list of more than one or two commands that could NOT be retained in their original form as a means of backwards compatibility.</p>
+<p>But I think I can come up with a better car analogy. The one I have is that they’ve improved the engine and decided for no particular reason to redesign the bolt pattern where it mates to the gearbox. Thus every manufacturer has to redesign their gearbox before the car will work with the new engine. There is a standard method where you want to fit a different engine to a gearbox – and that’s to fit an adapter, or in software terms a slice of compatibility middleware.<br>
+If the Asterisk developers really had the projects and users best interests at heart, they would include the compatibility layer as standard (ie retain the calls but mark them as deprecated) so the cars will still work and the gearboxes can be sorted out over time.</p>
+<p>Their current approach seems to be exactly what we criticise the non-free software industry for !</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3299">
+
+			<div id="comment-3299">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2ec04261af48505884f62ab12150cc9d6d5659fcfd254831d2e03fa0f4127469?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2ec04261af48505884f62ab12150cc9d6d5659fcfd254831d2e03fa0f4127469?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">steven ketelsen</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3299">Tuesday, April 22, 2008 at 10:44 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>You make good points; however, i think you might be missing mark on something here.  One thing any codebase has to worry about is feature creep.  If the Asterisk project is continually worrying about backwards-compatibility with the products of dozens of third-party open source and closed source developers’ projects by maintaining support an obsolete API, each party may find that security flaws are harder to patch up, and that the codebase grows to the point of unmaintainability.  I don’t believe it is an unalienable right of a company or individual that uses an open-source solution implemented by a third-party developer (using god-knows what code) to demand of a company that released software with no warranty whatsoever (isn’t asterisk gpl’d?) that they support any particular feature or line of code at all.  Microsoft may have become successful in part because of catering to vendors, but they have a bloated, crappy, and permanently buggy codebase precisely because they attempted to provide support for y^x features</p>
+<p>That said, it would be irresponsible of Digium not to manage changes in a way that would minimize impact on the user base, and a poor job of managing expectations between major releases will only hurt the business side of their business in the long run.</p>
+<p><i>[WM: Thanks for sharing your perspective. Micro$oft, of course, has no monopoly on buggy software. There’s plenty from others to go around. For the most part, many of these syntax changes have absolutely nothing to do with engine enhancement much less securing the codebase. Many are little more than developer-inspired, developer-driven quirks and program language fetishes.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3302">
+
+			<div id="comment-3302">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/6495d54344a9990419183850e6fc80deda1fbb15e9398bbcd733e079ccb3e2ea?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/6495d54344a9990419183850e6fc80deda1fbb15e9398bbcd733e079ccb3e2ea?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bruce Atherton</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3302">Tuesday, April 22, 2008 at 2:17 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>“Name an open source project that maintains source-level API compatibility as a guarantee between major releases?” OK. How about Apache Ant. Code written 8 years ago that relies on the public APIs and that continues to work on the latest checkout.</p>
+<p>This works because API backwards compatibility is accepted as a core value by the developers. No change that would result in breaking backwards compatibility is allowed. This is needed because people used to use Ant for XML configuration of dependency injection before Spring was available.</p>
+<p>Now, I am not of the opinion that APIs should never be broken between major releases for most projects. But I do believe that they should not be NEEDLESSLY broken. If you can maintain backwards compatibility while introducing new functionality, you should do so. To do otherwise is to show contempt for the efforts of your community in trying to enhance your product. You have to assign zero value to the time it will take them to rework their applications in order to make changes without at least trying to maintain backwards compatibility. Now, if there are tradeoffs that need to be made in order to make the application better, you can still respect the effort required by others but decide the benefits are worth it. But you had better make it clear to everyone that you tried hard not to break the API, and explain the reasons why it was necessary in each case.</p>
+<p>A completely separate issue is breaking dialplans. These are not APIs. These are not used only by third party developers. They are the scripting language that is exposed to end-users. The considerations and justifications that go into breaking your end-user scripting language should be several orders of magnitude higher than for APIs. In fact, I have never encountered a situation which would justify breaking it across a single major release. You might want to move to a new scripting language. You might want to sundown your existing one. But such an action should occur over several years with lots of lead time for everyone to move over to the new language.</p>
+<p>Which wouldn’t hurt for the APIs either. Ever heard of documenting APIs as deprecated, Digium, and removing them later? Apparently not.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3314">
+
+			<div id="comment-3314">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/b62f0a94f5e43e76ed0fa8c3e1030b9f48bbce2498fbc268e1a504927b764f28?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/b62f0a94f5e43e76ed0fa8c3e1030b9f48bbce2498fbc268e1a504927b764f28?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Michael Mullen</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3314">Tuesday, April 29, 2008 at 4:38 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p><a href="http://www.python.org/dev/peps/pep-3108/" rel="nofollow ugc">http://www.python.org/dev/peps/pep-3108/</a><br>
+Here’s an example of “the right way” to depricate (in this case python modules, but can be applied to API commands).</p>
+<p>The best quote from the page is:<br>
+“Each module to be removed needs to have a justification as to why it should no longer be distributed with Python.”</p>
+<p>Basically they described IN ONE PAGE every command/module that will change.  They divide it up into two categories: “Modules to Remove” (Previously Deprecated, Platform Specific, Hardly Used and Obsolete) and “Modules to Rename”.</p>
+<p>Next to each module they described their reasoning for removing that module (e.g. this code hasn’t been updated in 15 years, also there is a better command that follows the new standard, etc. etc.)</p>
+<p>Digium realized they had language consistency issues and began the noble task of cleaning up the code.<br>
+Unfortunately they introduced the new language then decided to roll up the entire complex deprication/obsoletion process into the same .x release without providing any justification or conversation to the development community.</p>
+<p>But it was their heavy-handed approach to developers that may prove most damaging.</p>
+<p>I agree that new commands must be introduced for an API to move forward, but the old ones must also be kept around while they are still considered useful by the dev community.  If a new command really is better, the dev community will recognize that and the old command will die gracefully.  Then it can be removed (after 10 years).</p>
+<p>Once upon a time, there was a bank that invented ATMs.  They realized the great potential of the ATMs at once so they installed the ATMs in all their branches and killed all their tellers.  The people cried “we know the ATMs are better but we still want tellers because it’s what we’re used to”.  But the bank insisted it was smarter than the people and they should just accept it.  So the people went elsewhere.  The bank eventually closed.<br>
+The End</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3325">
+
+			<div id="comment-3325">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/cc64e37cd1550d2a5c04afc947f17c048fbe2dd7ab7e82a1a108622973d9eeee?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/cc64e37cd1550d2a5c04afc947f17c048fbe2dd7ab7e82a1a108622973d9eeee?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Don</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3325">Friday, May 2, 2008 at 10:29 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>In Response to Comment by Jeff Whiteside: “These companies are still going strong and fortune 500, medical, and government sectors still use them. I think it’s a bit premature to think that Asterisk will fall flat on it’s face for making some radical changes that might result in incompatibilities.”</p>
+<p>That’s a terrible example. You’re speaking of companies that already have this in place and have spent a lot of money to get the system where it is. They, of course, are going to continue to weather the changes and issues of broken applications. They have no choice in the matter.</p>
+<p>But new companies looking at Asterisk as a viable platform do have a choice. When they talk to Joe Schmo Inc and he says asterisk just changed everything and all the custom additions they paid to have made to their system don’t work anymore with new asterisk code…The prospective company is going to say screw that…let’s stay the hell away from that. What is the point of having a free PBX that we now have to spend thousands on everytime they decide to (make their engine better)</p>
+<p>And why the hell does it seem that the more they make changes the longer the commands get to achieve the same results?</p>
+<p>This is why I still use 1.2.x.</p>
+<p>But FreeSwitch is starting to look pretty good now.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3337">
+
+			<div id="comment-3337">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/b62f0a94f5e43e76ed0fa8c3e1030b9f48bbce2498fbc268e1a504927b764f28?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/b62f0a94f5e43e76ed0fa8c3e1030b9f48bbce2498fbc268e1a504927b764f28?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Michael Mullen</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3337">Tuesday, May 13, 2008 at 8:08 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p><a href="http://www.venturevoip.com/news.php?rssid=1997" rel="nofollow ugc">http://www.venturevoip.com/news.php?rssid=1997</a></p>
+<p>It looks like they may finally be listening.  Too bad much of the damage has already been done.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3435">
+
+			<div id="comment-3435">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/d2fd3e35bd6b48e21ce6d45ca2c305f925f57e976e0a9a0704a064cb59f8847d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/d2fd3e35bd6b48e21ce6d45ca2c305f925f57e976e0a9a0704a064cb59f8847d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">olivier1010</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-3435">Wednesday, July 9, 2008 at 6:07 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>All the comments here are from great interest.</p>
+<p>I will just add that designing and programming a telephony software is not like writing a database or an HTML engine. It’s a totaly different world.</p>
+<p>Telephony switchs are often kept during 10 years in a company. In europe it is more often 15 or 20 years.</p>
+<p>In this regard, it is very important to keep compatibility during at least 2 or 3 versions, to allow for clients to have a good migration path for evolutions. Digium program Asterisk like a game. More, it’s like they were playing with it.</p>
+<p>So please Digium, stop to program Asterisk like a data software or a game. Telephony is more than that, it needs a lot more design smartness, a lot more reliability and serious, and a lot more compatibilty through versioning.</p>
+<p>I would prefer to have an asterisk 1.6 with three times less new functions, but perfectly reliable and with all the basic functions we really have and need on a traditionnal PABX, instead of having chat, voice recognition, and advanced stuff only necessary for advertising and marketers. Asterisk is not yet reliable enough neither powerfull enough to target big telephone switch replacement. So let’s give him the basic functions and the reliabilty it does need to really become the futur of telephony : the telephony we need and we can find inside 90% of the companies.<br>
+The linux kernel have some very interesting improvement in recent version 2.6.x. regarding multitasking and near realtime. Asterisk seems to totaly ignore them and concentrate almost only on new telephony functions even if some efforts have been made.</p>
+<p>If the world telephony network is today working, this is because big standards have been accepted by all major telcom providers.</p>
+<p>Asterisk need to follow this road or it will dye.</p>
+<p>I’m still using asterisk 1.2 on production systems because later versions are like a moving target, it is very time consumming to learn, test and implement them on a production system. For example they broke very usefull functions we have inside FreePBX and it is not permisible. Who is using in the real world asterisk alone ? Most users are using it with FreePBX through Trixbox or other similar distributions.<br>
+Dispite their efforts, the FreePBX team didn’t success in fully adapting Asterisk 1.4 after one year, for advanced dialplan functions. We still have issues. This is not good for such a big project, with all the support and bug report it does receive from experts from all around the world.</p>
+<p>I realy think that Digium should listen them a bit more, or really open the project instead of saying “we are the best and because of this we can decide wich modifications are needed when they are needed”.</p>
+<p>I will give an exemple of a very bad code change :</p>
+<p>Inside asterisk 1.4.21, a new milliwatt application has appeared. It is now 1004 Hz instead of 1000 Hz, and the audio level is now 10 dB lower. How many of you were informed of this change ?</p>
+<p>This is now the default milliwatt application.  </p>
+<p>First, the 1004 Hz frequency produce a lot of distorsion because the sampling is 8 KHz. Second, using a new reference audio level break all audio test applications relying on the old reference level.</p>
+<p>In my test lab, watching our spetral analyser, i was very surprised to see such a low level and such a high distorsion on a G711 link called from a good POTS line. I thought at  first that our VoIP provider had changed their setup and droped down their quality level !! Calling our Asterisk server from another provider did show the same signal, so i finally discovered the Asterisk milliwatt change !</p>
+<p>This is a perfect sample of a bad evolution. Changing milliwatt is a very very dangerous option for all providers and users using this application to control links. Imagine a Lab doing certification tests, having to connect to different providers with different milliwatt applications… What a disaster in their results…<br>
+There should be at least a big warning in the install process, and the older milliwatt should be compiled by default, not the new one.</p>
+<p>This been said, let’s make a new telephony world all together with Asterisk or a forked project if needed (Asterisk 1.6 could be a good start template), and please let’s help to remove progressively all the old traditional telephony stuf and providers who are causing lots of headache and interconnection problems. Asterisk, Full IP, and ENUM is the futur of Telephony ! Not Asterisk alone.</p>
+<p>Olivier</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-10482">
+
+			<div id="comment-10482">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5e896ef7cc6ad44bbbdd97809d7116aab9a2d7531952ec3841d91a099fe7bc66?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5e896ef7cc6ad44bbbdd97809d7116aab9a2d7531952ec3841d91a099fe7bc66?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Baylink</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-10482">Monday, January 18, 2010 at 4:04 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I do feel the need to correct everyone on one point here.</p>
+<p>There are long-known, time-honored semantics for version numbering, and going from 1.2 to 1.4 being called a “major version upgrade” is not one of them.</p>
+<p>1.4 to 2.0, yes.</p>
+<p>That said, I concur with Ward’s point of view, which is, approximately “it is, indeed, incumbent on Digium not to break the programmatic interfaces to Asterisk without exceptionally good reason, and that’s standard Release Configuration Management best practice, and they should know this.  IE: Mark and Jared are wrong, and Ward’s right.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-10483">
+
+			<div id="comment-10483">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5e896ef7cc6ad44bbbdd97809d7116aab9a2d7531952ec3841d91a099fe7bc66?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5e896ef7cc6ad44bbbdd97809d7116aab9a2d7531952ec3841d91a099fe7bc66?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Baylink</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-10483">Monday, January 18, 2010 at 4:08 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>And, a followup I meant to include but forgot seems quite on point here as well:</p>
+<p>Asterisk is not a PBX.</p>
+<p>You heard me.  </p>
+<p>It’s a *toolkit* for building PBXes.</p>
+<p>Just like XML is a *toolkit* for building data-transport-wrapper languages (note; *not* -storage 🙂</p>
+<p>If you’re going to be a toolset, you have a much different and more stringent set of rules to follow, and these are the rules that Ward’s complaining about Digium breaking.</p>
+<p>I’ve danced this exact same dance with a DBMS vendor intermittently for the last 20 years, with the same justifications on their side and results on mine.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-10485">
+
+			<div id="comment-10485">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5e896ef7cc6ad44bbbdd97809d7116aab9a2d7531952ec3841d91a099fe7bc66?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5e896ef7cc6ad44bbbdd97809d7116aab9a2d7531952ec3841d91a099fe7bc66?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Baylink</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/#comment-10485">Monday, January 18, 2010 at 4:44 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>And one final observation, about milliwatt.</p>
+<p>If they changed it *to* 1004hz at 0dbm/600ohms, then on that particular point I have to grant them absolution (though yes, making the old version available would probably be nice…)</p>
+<p>1004hz at 0dbm has been the standard milliwatt test tone since Mark Spencer’s *parents* were in diapers.</p>
+<p>An 1940 IRE publication is the first reference I can find to milliwatt tone, but I can’t confirm it specifies 1004, and based on my memory of *why they picked 1004*, it wouldn’t.</p>
+<p>I’m trying to source it now, but as I recall it was to put it *far enough away* from a submultiple of the digital sampling frequency that early, wobbly, PCM circuits would be less likely to screw it up.</p>
+<p>[…]</p>
+<p>Apparently, the problem was that when Bell deployed the D-1 PCM channelbank in the early 60s, they discovered that digitally generated 1khz tones would translate to a pattern on the PCM side that looked too much like the framing pattern, and dumped the digital link.</p>
+<p>Digital Telephony by Bellamy appears to have a citation on this, but Scribd is predictably worthless, and Amazon wants me to log in.  I have a copy at home; I’ll dig up a citation tonight.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/pbx-in-a-flash-turns-5-but-what-about-asterisk/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjg3NTY4NSwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

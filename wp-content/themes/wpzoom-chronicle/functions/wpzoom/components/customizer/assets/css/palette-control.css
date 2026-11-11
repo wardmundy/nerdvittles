@@ -1,0 +1,110 @@
+/**
+ * Visual Palette Selector Control Styles
+ *
+ * @package Inspiro
+ * @since Inspiro 2.2.0
+ */
+
+.wpzoom-palette-control-wrapper {
+	margin-top: 12px;
+}
+
+.wpzoom-palette-options {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 12px;
+	margin-top: 8px;
+}
+
+.wpzoom-palette-option {
+	background: #fff;
+	border: 2px solid #ddd;
+	border-radius: 8px;
+	padding: 12px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	position: relative;
+}
+
+.wpzoom-palette-option:hover {
+	border-color: var(--wp-admin-theme-color);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	transform: translateY(-2px);
+}
+
+.wpzoom-palette-option.selected {
+	border-color: var(--wp-admin-theme-color);
+	border-width: 3px;
+	box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
+}
+
+.wpzoom-palette-option.selected::after {
+	content: "✓";
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	background: var(--wp-admin-theme-color);
+	color: #fff;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	-js-display: flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.wpzoom-palette-header {
+	margin-bottom: 10px;
+}
+
+.wpzoom-palette-label {
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+	display: block;
+}
+
+.wpzoom-palette-colors {
+	-js-display: flex;
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 15px;
+}
+
+.wpzoom-palette-color {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease;
+	cursor: pointer;
+	margin-left: -15px;
+}
+
+.wpzoom-palette-color:hover {
+	transform: scale(1.15);
+	box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 782px) {
+	.wpzoom-palette-options {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Single column layout for smaller customizer panels */
+@media (max-width: 640px) {
+	.wpzoom-palette-colors {
+		justify-content: flex-start;
+	}
+
+	.wpzoom-palette-color {
+		width: 28px;
+		height: 28px;
+	}
+}

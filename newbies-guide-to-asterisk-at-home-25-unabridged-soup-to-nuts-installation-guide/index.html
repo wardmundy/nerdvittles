@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>Newbie’s Guide to Asterisk@Home 2.5: Unabridged Soup-to-Nuts Installation Guide – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/">
+<link rel="shortlink" href="/?p=112">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=BF719198917C3A14B1D69CCAAAEB8F24');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=112">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-112 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/" title="Permalink to Newbie’s Guide to Asterisk@Home 2.5: Unabridged Soup-to-Nuts Installation Guide" rel="bookmark">Newbie’s Guide to Asterisk@Home 2.5: Unabridged Soup-to-Nuts Installation Guide</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Friday, February 3, 2006 at 1:00 am</li>		<li class="category">in <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fnewbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide%2F&amp;text=Newbie%26%238217%3Bs+Guide+to+Asterisk%40Home+2.5%3A+Unabridged+Soup-to-Nuts+Installation+Guide" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fnewbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide%2F&amp;t=Newbie%26%238217%3Bs+Guide+to+Asterisk%40Home+2.5%3A+Unabridged+Soup-to-Nuts+Installation+Guide" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-112" class="clearfix post-112 post type-post status-publish format-standard hentry category-technology category-telephony">
+
+		<div class="entry">
+
+			<p><img decoding="async" src="/wp-images/aah_logo.png" alt="" hspace="9" align="left">Want a rock-solid PBX at a rock-bottom price: <i>free</i>! Well, it's been two days since our tutorial on AAH 2.4 but here we go again!  Asterisk@Home 2.5 has hit the street because of another serious bug-fix release of Asterisk®.  Now you get version 1.2.4 of Asterisk, and you also get the latest and greatest version of Linux, CentOS 4.2; the latest Festival Speech Engine (1.96); the latest version of the Asterisk Management Portal (1.10.010); the Flash Operator Panel (version 0.24); Open A2Billing; Digium card auto-configuration; NVfaxdetect support; loads of AGI scripts including weather forecasts and wakeup calls; xPL support; the SugarCRM Contact Management System with the Cisco XML Services interface and Click-to-Dial support; plus lots more. And, yes, it still fits on a single CD! <i>NOTE: Virtually nothing has changed between version 2.4 and 2.5 except a new release of Asterisk minus memory leaks. If you waded through the 2.4 install with us, much of what follows will be very familiar. Our apologies! We're as tired of doing this every week as you are. Hopefully, this will be IT for a while.</i> </p>
+<p><b>Effective March 13, 2006, this article has been superceded by our new <a href="/index.php?p=123">Soup-to-Nuts Guide for Asterisk@Home 2.7</a>.</b></p>
+<p>The installation process is pretty straightforward. You need a dedicated machine for this install although, for Windows users, here's another <a href="/index.php?p=116">option</a> that doesn't require a dedicated machine. To begin, download the 2.5 ISO image from <a href="http://prdownloads.sourceforge.net/asteriskathome/asteriskathome-2.5.iso?download">here</a>, burn a CD (click <a href="/index.php?p=62">here</a> if you need a refresher course), use an old clunker PC or a $200 <a href="http://www.walmart.com/catalog/product.do?product_id=3762911">WalMart special</a> (see inset), insert the CD you made, plug your machine into the Internet and turn it on. Then watch while Asterisk@Home loads CentOS/4.2 and all the Asterisk and Linux goodies imaginable: Apache, SendMail, Comedian Mail, SugarCRM, MySQL, PHP, phpMyAdmin, SSH, Bluetooth, the Asterisk Management Portal, the Flash Operator Panel, Call Detail Reporting, and on and on. We've covered how to use most of the Linux products in our Mac HOW-TO's (see sidebar), and they work exactly the same way with Asterisk@Home so keep reading. And, yes, this install will reformat (aka ERASE) your hard disk before it begins, but it now warns you first. </p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="apple imac intel"></eminimall>
+<p></p></center>
+<p><b>Loading CentOS/4 and Asterisk 1.2.4</b>. Here's how the 2.5 install went for us, and we'll walk you through getting everything set up  so that it can be used as a production server.  Once the install begins, you can expect to eat up about 25 minutes with the CentOS 4.2 install.  The install CD then will eject itself, reboot the system, and begin the Asterisk compile and installation.  That takes about 25 more minutes to complete. </p>
+<p><b>Securing Your Passwords</b>. When it's finished and reboots, log in as root with password as your password. Type <i>help-aah</i> for a listing of the five  passwords that need to be changed. Change them all NOW!<br>
+<code><br>
+passwd<br>
+passwd admin<br>
+passwd-maint<br>
+passwd-amp<br>
+passwd-meetme<br>
+</code></p>
+<p><b>Getting the Latest CentOS Updates</b>. Once your system is secure, load all of the application updates for CentOS 4.2. There now are over 50 updates and installs so be patient.  The update command to issue is <i>yum -y update</i>.  </p>
+<p><b>Activating Bluetooth Support</b>. Once the updates are completed, activate Bluetooth support if you plan to use it with our <a href="/index.php?p=78">Follow-Me Phoning</a> proximity detection application.  Run <i>setup</i>, down arrow to <i>System Services</i>, press ENTER, down arrow to <i>bluetooth</i> and press the space bar, tab to OK, press ENTER, tab twice to Quit and press ENTER.  </p>
+<p><b>Rebuilding Zaptel</b>. First, reboot your system: <i>shutdown -r now</i>.  Because a new version of the kernel is installed as part of the yum update, you'll need to rebuild support for ZAP devices. Log in as root and type the following command: <i>rebuild_zaptel</i>. Then reboot your system: <i>shutdown -r now</i>. Now log in as root again and type <i>genzaptelconf</i>. Reboot once more and you're all set to go: <i>shutdown -r now</i>. You only need to rebuild Zaptel when there is a kernel update as there was with this yum update.</p>
+<p><b>Simplifying SSH</b>. If you're going to be connecting to other servers from your new Asterisk@Home 2.5 system using SSH or SCP, then build your new RSA key pair now.  This lets you use SSH and SCP (secure copy) without having to enter a password each time. You can also automate backups and proximity detection scripts as we've explained previously <a href="/index.php?p=80">here</a>. Log in to your new Asterisk@Home 2.5 server as root.  From the command prompt, issue the following command: <i>ssh-keygen -t rsa</i>. Press the <i>enter</i> key three times. You should see something similar to the following. The file name and location in bold below is the information we need:<br>
+<code><br>
+Generating public/private rsa key pair.<br>
+Enter file in which to save the key (/root/.ssh/id_rsa):<br>
+Enter passphrase (empty for no passphrase):<br>
+Enter same passphrase again:<br>
+Your identification has been saved in /root/.ssh/id_rsa.<br>
+Your public key has been saved in <b>/root/.ssh/id_rsa.pub</b>.<br>
+The key fingerprint is:<br>
+1d:3c:14:23:d8:7b:57:d2:cd:18:70:80:0f:9b:b5:92 root@asterisk1.local<br>
+</code><br>
+Now copy the file in bold above to your other Asterisk servers, Linux machines, and Macs. There's probably a way on PCs as well, but I've given up on that platform particularly after Sony's latest security stunt so you're on your own there. From your Asterisk@Home 2.5 server using SCP, the command should look like the following (except use the private IP address of each of your other Asterisk or Linux servers instead of 192.168.0.104). Provide the root password to your other servers (one at a time) when prompted to do so.<br>
+<code><br>
+scp /root/.ssh/id_rsa.pub root@192.168.0.104:/root/.ssh/authorized_keys<br>
+</code><br>
+On a Mac running Mac OS X, the command would look like this (using your username and your Mac's IP address, of course):<br>
+<code><br>
+<i>For user access only: </i>scp /root/.ssh/id_rsa.pub wardmundy@192.168.0.104:/Users/wardmundy/.ssh/authorized_keys<br>
+<i>For full root access: </i>scp /root/.ssh/id_rsa.pub root@192.168.0.104:/var/root/.ssh/authorized_keys<br>
+</code></p>
+<p>Once the file has been copied to each server, try to log in to your other server from your Asterisk@Home 2.5 server with the following command using the correct destination IP address, of course:<br>
+<code><br>
+ssh root@192.168.0.104<br>
+</code><br>
+You should be admitted without entering a password.  If not, repeat the drill or read the <a href="http://new.linuxjournal.com/article/8600">complete article</a> and find where you made a mistake. Now log out of the other server by typing <i>exit</i>.</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="palm treo 650"></eminimall>
+<p></p></center>
+<p><b>Installing WebMin</b>. We don't build Linux systems without installing WebMin, the Swiss Army knife of the Linux World.  You can use it to start and stop services, check logs, adjust startup scripts, manage cron jobs, babysit your SendMail server, and many, many other tasks that are downright painful without it. If you ever need help from others, WebMin is a great tool for letting others help you.</p>
+<p>There are lots of ways to install WebMin. We prefer the easy way which is to issue the following commands at a Linux prompt after logging in as root.  Note: WebMin updates come out all the time. If you want to be sure you start with the latest and greatest version, go to their <a href="http://www.webmin.com/download.html">web site</a> first and write down the number of the current version. Then substitute it below when issuing these commands. Note that there is a new version of WebMin since our previous article on Asterisk@Home 2.2 was published.<br>
+<code><br>
+<b>cd /root<br>
+mkdir webmin<br>
+cd webmin<br>
+wget http://internap.dl.sourceforge.net/sourceforge/webadmin/webmin-1.260-1.noarch.rpm<br>
+rpm -Uvh webmin*<br>
+</b><br>
+</code><br>
+WebMin runs its own web server on port 10000. To start WebMin, issue this command: <i>/etc/webmin/start</i>. You access it with a web browser pointed to the IP address of your Asterisk box at that port address, e.g. <i>http://192.168.0.108:10000</i>. The login name is <i>root</i>. Then type in your root password and press enter. The main WebMin screen will display.  We really don't want the WebMin server starting up each time the OS reboots so do the following. Once you're logged in to WebMin, choose System-&gt;Bootup and Shutdown and then click on webmin. Click the No button beside Start at boot time, and then click the Save button. Before we forget, we need to also make one change to the new Asterisk@Home configuration to avoid problems down the road. The default RTP listening ports for Asterisk@Home are set to 10000 to 20000 so there's a conflict on port 10000 with WebMin. Log in as root and, using an editor, call up the rtp.conf file: <i>nano /etc/asterisk/rtp.conf</i>. Now change the <i>rtpstart</i> port from 10000 to 10001 and save the change: <i> Ctrl-W, Y, and press Enter</i>. Then restart Asterisk: <i>amportal restart</i>. Finally, to stop WebMin when you're finished using it, issue this command: <i>/etc/webmin/stop</i>. You can start it any time you need it, and then use a web browser to access it. But there's no need to consume processing resources running a second web server when you're not using it.</p>
+<p><b><a name="ip">IP Configuration for Asterisk</a></b>.  We need a consistent IP address or domain name both on your internal network and externally if you expect to receive incoming calls reliably. There are three pieces to the IP configuration: (1) setting the internal IP address of your Asterisk server, (2) configuring an external qualified domain name which will always point to your router/firewall, and (3) configuring your router to transfer incoming Asterisk packets to your Asterisk server. Log into your server as <i>root</i> using your new password. Now type <i>ifconfig eth0</i> (that's "e-t-h-zero") then <i>enter</i>, and write down both your <i>inet addr</i> and your <i>HWaddr</i> on the Ethernet 0 interface, eth0.  Inet addr is the internal IP address of your Asterisk box assigned by your DHCP server (i.e. your router/firewall). HWAddr is the MAC address of your Asterisk server's eth0 network card. To assure a consistent internal IP address, you can either configure your router/DHCP server to make certain that it always hands out this same address to your Asterisk machine, or you can manually configure an IP address for this machine which is not in the range of addresses used by your DHCP server. Almost all routers now make it easy to preassign DHCP addresses so we prefer option 1.  It's generally under the tab for LAN IP Setup and is generally called something like Reserved IP table. Just add an entry and call it Asterisk PBX and specify the IP address and MAC address that you wrote down above.  Now each time you reboot your Asterisk server, your router will assign it this same IP addreess. To assure a consistent external address is a little trickier. Unless you have a static (fixed) IP address, you'll want to use a Dynamic DNS service such as dyndns.org and configure your router to always advertise its external IP address to dyndns.org.  DynDNS.org will take care of revising the IP address associated with your domain name when your ISP changes your dynamic IP address. Then you can configure your VoIP provider account using your fully-qualified dyndns.org domain name, e.g. windswept.dyndns.org provides access to our beach house network even though Time Warner cable hands out dynamic IP addresses which change from time to time. Finally, you'll need to log into your router and redirect certain incoming packets to the internal IP address of your Asterisk machine.  If you want external access to the Apache web server on your Asterisk machine, then map TCP port 80 to the internal IP address of your Asterisk system.  For WebMin external access, map TCP port 10000 to your Asterisk system. If you want remote access to your Asterisk system via SSH, then map TCP port 22 to the internal IP address of your Asterisk system. If you want external IP phones or other Asterisk servers to be able to communicate with your Asterisk system, then map the following UDP port ranges to the internal IP address of your Asterisk system:<br>
+<code><br>
+SIP 5004-5082<br>
+RTP 10001-20000<br>
+IAX 4569<br>
+</code><br>
+For more details, read our <a href="/index.php?p=32">article</a> on the subject. </p>
+<p><b>Basic System Configuration</b>. To get a basic Asterisk system up and running, you only need to do a few things. First, you need an Outbound Trunk to actually deliver your outbound calls to Plain Old Telephones (POTS). Second, you need to configure an Outbound Route to tell Asterisk which trunk to use to deliver your outbound calls to the intended recipients. Third, you need to configure at least one extension so that you can plug in some sort of telephone instrument to place and receive calls using your new Asterisk server. The phone can be a hardware device such as an IP telephone or a POTS phone, or it can be a software device such as a free IP softphone. The advantage of IP telephones and softphones is that they require no additional hardware besides your Asterisk server.  A POTS phone or our favorite, a 5.8GHz wireless phone system with up to 10 extensions, both require an additional piece of hardware although some of the newer IP wireless phones give you the best of all worlds (see inset). To use a POTS phone, the hardware required is either a circuit board with an FXS port or an external black box (ATA device) such as a Sipura SPA-1001.  If you also want to connect your Ma Bell phone line to your Asterisk server, then you need a circuit board with an FXO port or an external black box (ATA device) such as a Sipura SPA-3000. Our favorite is the SPA-3000 because it has both FXO and FXS ports in a box the size of a pack of cigarettes for under $100. </p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="RIM BlackBerry 7250"></eminimall>
+<p></p></center>
+<p><b>Setting Up An Outbound Trunk</b>. You configure an outbound trunk using your web browser and the Asterisk Management Portal (AMP).  But first, you have to have an account with a service provider.  This is the company that carries your calls from your Asterisk server to plain old phones in your neighbor's house or Aunt Betty's in California. With VoIP, it's a good idea to have two providers, but today let's start with one.  We'll save you some time and lots of money.  Unless you make substantial international calls regularly, use <a href="http://www.telasip.com/index.html?PARTNER=NerdVittles">TelaSIP/VoipExpress</a>. If you want to know why, read the full article <a href="/index.php?p=71">here</a>.  Or just try a <a href="/index.php?p=73#freecall">free call</a> for yourself using our server. Basically, $5.95 a month gets you a local number in your choice of area code with free incoming calls, and 2¢ per minute for outbound calls to anywhere in the U.S. $9.95 a month buys you all of that plus free outbound calls in the area code of the phone number you select. $14.95 a month gets you a number in the area code of your choice with unlimited incoming calls and unlimited outbound calls to anywhere in the U.S. There are no sneaky add-on fees and no obnoxious terms of service. Just be sure to tell them to configure your account for use with Asterisk. They also have very reasonable business plans. If, on the other hand, you'd prefer to try another provider, take a look at our easy setup guides for most of the major VoIP providers <a href="/index.php?p=81">here</a>.</p>
+<p>Once you have your account name and password, point your web browser to the IP address of your new Asterisk@Home 2.5 server and log in as <i>maint</i> with the password you selected. Then choose <i>AMP-&gt;Setup-&gt;Trunks-&gt;Add SIP Trunk</i> assuming you're using TelaSIP. NOTE to existing users: if you already have an Asterisk server using your TelaSIP account, don't use the same account at the same time on your new Asterisk@Home 2.5 server!  Plug in the CallerID number you were assigned for your account. Set Maximum Channels to 2. For the Dial Rules, use the following (substituting your local area code for 404 below):<br>
+<code><br>
+1|NXXNXXXXXX<br>
+NXXNXXXXXX<br>
+404+NXXXXXX<br>
+</code><br>
+In the Outgoing Settings section, name your trunk <i>telasip-gw</i>.  Then enter the following for the Peer Details using your own account name for username and fromuser and using your own  assigned password for secret. Be sure to enter the correct <i>host</i> that was assigned to your account:<br>
+<code><br>
+context=telasip-in<br>
+dtmfmode=rfc2833<br>
+fromuser=youraccountname<br>
+host=gw4.telasip.com<br>
+insecure=very<br>
+secret=yourpassword<br>
+type=peer<br>
+username=youraccountname<br>
+</code><br>
+Leave the Incoming Settings section blank, and in the Registration String, enter the following using your account name and password:<br>
+<code><br>
+youraccountname:yourpassword@gw4.telasip.com<br>
+</code><br>
+Click the Submit Changes button, and then click the red bar to reload Asterisk. Now we need to add the context which will actually process the incoming calls from TelaSIP. Choose <i>AMP-&gt;Maintenance-&gt;Config Edit-&gt;extensions_custom.conf</i> and add the following code at the bottom of the file substituting your new phone number for 4041234567. Save the file and reload Asterisk to finish the setup. See the Comments to this post for a more versatile approach which will let you use your TelaSIP line for Ring Groups.<br>
+<code><br>
+[telasip-in]<br>
+exten =&gt; 4041234567,1,NoOp(Incoming call on TelaSIP #4041234567)<br>
+exten =&gt; 4041234567,2,Dial(local/200@from-internal,20,m)<br>
+exten =&gt; 4041234567,3,VoiceMail(200@default)<br>
+exten =&gt; 4041234567,4,Hangup<br>
+</code></p>
+<p><b>Configuring an Outbound Route</b>.  Now we need to tell Asterisk where to send our outbound calls when we dial them.  To get started, we'll just send everything to the TelaSIP trunk we just configured.  Choose <i>AMP-&gt;Setup-&gt;Outbound Routing-&gt;Add Route</i>. For Route Name, use <i>Outside</i>. Leave the password blank.  For Dial Patterns, enter the following:<br>
+<code><br>
+NXXXXXX<br>
+NXXNXXXXXX<br>
+1NXXNXXXXXX<br>
+</code><br>
+For the Trunk Sequence, choose SIP-&gt;telasip-gw from the drop-down list.  Then click Submit Changes. Be sure you also delete the sample outbound route that came with the install, or your outbound calls may go nowhere.  Finally, click the red bar to save your new Outbound Routing setup.</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="voip wifi phone"></eminimall>
+<p></p></center>
+<p><b>Configuring an Extension</b>.  You have to have an extension to make and receive calls with Asterisk@Home so let's build one.  Choose <i>AMP-&gt;Setup-&gt;Extensions-&gt;SIP</i> to begin. For the Extension Number, let's use 200 to keep things simple. For the Display Name, make up something that tells where this phone will be located, e.g. Kitchen. For the Outbound CID, use 200. For secret, make up a password for this extension.  For Voicemail and Directory, choose Enabled.  Plug in your password again. Type in your email address, and, if you want to also be paged when you get a new voicemail, type in a pager email address. Click the Yes button beside Email Attachment, and leave the other settings alone.  Now click the Submit button and then click the red bar to save your changes and reload Asterisk.</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="uniden uip cordless ip phone"></eminimall>
+<p></p></center>
+<p><b>Downloading a Free Softphone to Test Asterisk</b>. Unless you already have an IP phone, the easiest way to get started and make sure everything is working is to install an IP softphone. You can download a softphone for Windows, Mac, or Linux from <a href="http://www.xten.com/index.php?menu=download">CounterPath</a>. Or download the <a href="http://www.freeworlddialup.com/communicator/">pulver.Communicator</a>. Here's a new IAX softphone for all platforms that's great, too, and it requires no installation: <a href="http://www.asteriskguru.com/tools/idefisk_beta.php">Idefisk</a>. All are free! Just install and then configure with the IP address of your Asterisk@Home 2.5 server. For username and password, use your extension number and password from above. Once you make a few test calls, don't waste any more time. Buy a decent SIP telephone.  We think the best value in the marketplace with excellent build quality and feature set is the under $100 <a href="http://store.voxilla.com/customer/product.php?productid=16174&amp;cat=254&amp;page=1">GrandStream GXP-2000</a>. It has support for four lines, speaks CallerID numbers, has a lighted display, and can be configured for autoanswer with a great speakerphone. Short of paying three times as much, that's as good as desktop phones get.  If you want to use Asterisk throughout your home, buy  a good 5.8GHz wireless phone system with plenty of extensions (our two favorites are shown in the insets below) and then purchase an <a href="http://store.voxilla.com/customer/product.php?productid=16144&amp;cat=248&amp;page=1">SPA-3000</a> to connect up both your home phone line and all your cordless phones. Our <a href="/index.php?p=65">tutorial</a> will show you how. The final option is to use a wireless IP phone which is the best of both worlds, a cordless phone that talks IP telephony without an ATA blackbox such as the Uniden UIP1868 (see also insets above).</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="uniden 8866"></eminimall>
+<p></p></center>
+<p><b>Activating Email Delivery of VoiceMail Messages</b>. When you're out and someone leaves you a voicemail message, Asterisk@Home will let you forward that voicemail message to your email address as a .wav file which can be played within most email client software. Or you can have Asterisk@Home send an instant message to your cell phone or pager telling you who called, what their phone number was, and how long a voicemail message the person left for you.  Or you can do both.  In addition, you can tell Asterisk@Home whether to delete the voicemail from your Asterisk server after sending it to your email account.  In short, you now can manage all of your incoming email and voicemail from a single place, your email client. In order to send out emails from your Asterisk@Home server, you'll need to make a few changes. First, make this adjustment to the /etc/hosts file on the server.  Since anonymous emails are blocked by most ISPs, you'll need a fully-qualified domain name for your server. If you don't have your own domain, the easiest alternative is to use the fully-qualified domain name that your ISP assigns to the IP address for your broadband connection. Don't forget to update it when your ISP changes your IP address! To find out what your fully-qualified domain name is, go to a command prompt on  your Asterisk server and type: <i>nslookup 123.456.789.001</i> substituting your public IP address for the preceding numbers. Then write down the name entry without the trailing period. Now edit the hosts file: <i>nano /etc/hosts</i>.  Move the cursor to the second line which reads <i>127.0.0.1 asterisk1.local </i>, and then move the cursor over the first letter of the first domain name shown, usually <i>asterisk1.local</i>. Now type in the fully-qualified domain name you previously wrote down and add a space after your entry. Don't erase the existing entry! Save your settings: <i>Ctrl-X, y, enter</i>. Now restart network services on your Asterisk machine: <i>service network restart</i>.  Next, you need to modify the email message which delivers your voicemails so that it includes your fully-qualified domain name. Don't do this in AMP, or you'll mess up the formatting of the email message. You can download a fresh copy <a href="/vm_email.inc">here</a> if you need it. Instead, use nano: <i>nano -w /etc/asterisk/vm_email.inc</i>. Press <i>Ctrl-W</i>, type <i>/cgi</i>, and press the enter key. You're now positioned where you need to type either the fully-qualified domain name for your Asterisk server or the private IP address if you only want to read your emails from behind your firewall. When you start typing, the text display is going to jump all over the place because of word wrap. Don't freak out. You haven't messed anything up. Once you complete your entry, don't erase or change anything else. Save the file: <i>Ctrl-X,Y, then enter</i>. Now go into AMP-&gt;Maintenance-&gt;Config Edit-&gt;vm_general.inc with a web browser. Change the <i>serveremail</i> entry to an email name at the fully qualified domain you used in your /etc/hosts file above. Then save your configuration and restart Asterisk. If you continue with this setup and still don't receive emails, here's another configuration change that is sometimes necessary. On the Asterisk terminal, log in as root. Switch to the directory where the SendMail configuration file is stored: <i>cd /etc/mail</i>. Make a backup of the config file: <i>cp  sendmail.cf sendmail.cf.bak</i>. Then issue the following command: <i>echo CGasterisk.dyndns.org &gt;&gt; sendmail.cf</i>. Substitute the actual domain name of your Asterisk server for asterisk.dyndns.org, but be sure it's preceded by CG with no intervening spaces.Then reboot your server and try again: <i>shutdown -r now</i>. Finally, if your ISP doesn't permit downstream mail servers (that's you), then take a look at this <a href="http://sourceforge.net/forum/forum.php?thread_id=1405190&amp;forum_id=420324">link</a> which will show you how to designate your ISP as your SMTP smart host using SendMail.</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="vtech i5871"></eminimall>
+<p></p></center>
+<p>To configure the voice mail forwarding options, go into the Setup tab of the Asterisk Management Portal using a web browser. Click on Extensions and then click on an extension you already have configured. In the Voicemail and Directory section of the form, enter either (or both) your email address and your pager or cellphone's text messaging address. To email the voicemails as attachments, just click Yes beside Email Attachment.  To delete the voicemail message from your voicemail inbox after sending it to your email address (not recommended until you first get it working correctly), click Yes beside Delete Vmail. For those using a dynamic IP address with phones at remote locations connecting to your Asterisk server, we'll show you how to automate the process of changing your Asterisk server's IP address in a future column.</p>
+<p><b>Call Recording Fixed</b>.  This update fixes inbound and outbound call recording which now works reliably. You can set your preferences for call recording when you set up each extension. The recordings are stored in <i>/var/spool/asterisk/monitor</i> unless you set other preferences in <i>agents.conf</i>.</p>
+<p><b>Paging Fixed</b>. If you want to use paging with your Asterisk system, the <a href="http://sourceforge.net/forum/message.php?msg_id=3390253">sound card problems</a> in Asterisk@Home 2.1 and Asterisk 1.2 have been resolved.  Review this <a href="http://sourceforge.net/forum/forum.php?thread_id=1396336&amp;forum_id=420324">posting</a> on SourceForge for additional details. It now works with full <i>and</i> half-duplex sound cards. Thanks, <a href="http://ycic.net/">Tracy</a>!</p>
+<p><b>Wakeup Calls Good News &amp; Bad News</b>. The good news is that Asterisk@Home 2.5 includes a new version of the Wakeup Call program, and the default setup works. The bad news is that the "annoy" option which is supposed to force the user to key in a number to prove they're awake still doesn't work. And, the wakeup call application now uses a different method of scheduling wakeup calls which broke our TeleYapper and Telephone Reminder applications. Mental note for would-be developers, don't rely on someone else's code to keep your code working reliably. This is especially true in the open source marketplace.  Everyone is full of new ideas, and they don't necessarily stop to think of the impact the <i>improvements</i> will have on other folks' applications. We'll have new versions of our applications ... soon. </p>
+<p><b>Adjusting Call Parking Extensions</b>.  Traditionally, pressing the pound key (#) and dialing extension 700 parked a call on Asterisk@Home systems and notified you of the parked extension. The call then could be picked up by dialing the parked extension in the range of 701 to 799 from any extension on your system. The new setup is to press # and dial 70 to park a call and 71-79 to pick it up. If you prefer the old setup, you'll need adjust the settings in features.conf.  Go to <i>AMP-&gt;Maintenance-&gt;Config Edit-&gt;features.conf</i> and make it look like this:<br>
+<code><br>
+[general]<br>
+parkext =&gt; 700                          ; What ext. to dial to park<br>
+parkpos =&gt; 701-799                      ; What extensions to park calls on<br>
+context =&gt; parkedcalls                  ; Which context parked calls are in<br>
+</code></p>
+<p><b>Directory Lookup Fixed</b>. Pressing the pound key (#) from any phone connected to your Asterisk server now calls up a directory lookup function using the Asterisk Management Portal (AMP).</p>
+<p><b>Max Channels Bug Remains</b>. A bug has been reported because of a deprecated command that makes Asterisk@Home's calculation of maximum channels invalid. To fix it, goto <i>AMP-&gt;Maintenance-&gt;Config Edit-&gt;extensions.conf-&gt;macro-dialout-trunk</i> and comment out line s,7 so that it looks like this:<br>
+<code><br>
+;exten =&gt; s,7,CheckGroup(${OUTMAXCHANS_${ARG1}})<br>
+</code><br>
+Then insert a new line s,7 just below it which looks like this:<br>
+<code><br>
+exten =&gt; s,7,GotoIf($[ ${GROUP_COUNT()} &gt; ${OUTMAXCHANS_${ARG1}} ]?108)<br>
+</code><br>
+Then click the Update button and reload Asterisk to activate the change.</p>
+<p><b>Syntax Error in extensions.conf Causes Failed Incoming Calls</b>. One of our readers has discovered a nasty little bug in extensions.conf that will cause some incoming calls to fail. Edit <i>extensions.conf-&gt;macro-dial</i> and change <i>line s,22</i> as follows. Then reload Asterisk.<br>
+<u>Before</u>:<br>
+<code><br>
+exten =&gt; s,22,GotoIf($[$[${HuntMembers} &gt;= 1]?30 )<br>
+</code><br>
+<u>After</u>:<br>
+<code><br>
+exten =&gt; s,22,GotoIf($[$[${HuntMembers}] &gt;= 1]?30 )<br>
+</code></p>
+<p>[<i>Feb. 5 update</i>] <b>Adding Cellphone Extensions.</b> There was a typo in the <i>After:</i> code above when this article was first published so check your entry against the one shown now. Once you make the above change, it's really easy to add "extensions" which dial directly to your cellphones or phones in remote locations. Just create a new Ring Group, give it a Group Number that matches the extension number you want to dial to complete the call (e.g. 244), choose <i>hunt</i> for the Ring Strategy, enter your cellphone number in the extension field with a # on the end using a dial string that matches your outbound trunk requirements (e.g. 16781234567# if your provider requires a 1-areacode-number format), choose a ring time in seconds, and a destination if no answer. If you want to have Asterisk track you down, enter several different phone numbers in the extension list. If you change <i>hunt</i> to <i>ringall</i> then all of the numbers will be called simultaneously instead of sequentially. Save your Ring Group entry, click the Red bar to reload Asterisk, and then dial the Ring Group extension number from any phone on your system. Presto!</p>
+<p><b>Tweaking SIP.conf</b>.  There are a few changes we recommend you make in the [general] context of the sip.conf file. Using the Asterisk Management Portal, go to <i>AMP-&gt;Maintenance-&gt;Config Edit-&gt;sip.conf</i>. It's a good idea to include your actual CallerID number of your default outbound trunk here instead of Default. We also recommend that you add <i>allow=gsm</i> just below the existing <i>allow=alaw</i> line in the file. You may also want to include <i>progressinband=yes</i> which assures that callers will hear ring tones when placing calls even if your provider doesn't provide them. This is a fairly common complaint with BroadVoice in particular. Don't forget to reload Asterisk once you make these changes: <i>AMP-&gt;Setup-&gt;Incoming Calls-&gt;Submit Changes</i> and then click the Red bar. </p>
+<p><b>Connecting Remote Extensions or a Remote Asterisk Server</b>. If you plan to connect remote extensions to your Asterisk server, then add the following entries to sip.conf above using your own fully-qualified domain name and the first three octets of the private IP address of your Asterisk server:<br>
+<code><br>
+externip = myasteriskbox.dyndns.org<br>
+localnet=192.168.0.0/255.255.255.0<br>
+nat=yes<br>
+</code><br>
+You'll also either need to define your Asterisk server as a DMZ device in your firewall setup, or you can open the following UDP ports and map all of them to the private IP address of your Asterisk box: 4569, 5004-5082, and 10000-20000. If you only hear half of a conversation with a remote extension, it's usually a NAT problem meaning you probably forgot to do the port mapping drill. We plan to cover remote extensions and interconnecting Asterisk servers in more detail in a future column so stay tuned. In the meantime, if you have a dynamic DNS connection that changes your IP address regularly and you don't want to wrestle with manually updating your Asterisk server each time there's a change, just download chandave's <a href="/wp-content/sip_reload.sh">sip reload script</a> and copy it to your /etc/asterisk directory. Then execute the following commands while logged in as root:<br>
+<code><br>
+chown asterisk:asterisk /etc/asterisk/sip_reload.sh<br>
+export EDITOR=nano<br>
+crontab -e<br>
+00,05,10,15,20,25,30,35,40,45,50,55 * * * * root /bin/sh /etc/asterisk/sip_reload.sh &gt;/dev/null 2&gt;&amp;1<br>
+</code><br>
+Save your crontab addition in the usual nano way, and you're all set: <i>Ctrl-X, y, then enter.</i> This clever little script will make sure your Asterisk server always knows its own IP address regardless of how often your ISP changes it.  And you'll never lose inbound connectivity from remote extensions or servers for over 5 minutes.  If you'd like to read the full discussion, visit <a href="http://voxilla.com/index.php?name=PNphpBB2&amp;file=viewtopic&amp;t=6307&amp;postdays=0&amp;postorder=asc&amp;highlight=sipreload&amp;start=15">this link</a> on the Voxilla forum.</p>
+<p><b>Managing Incoming Calls</b>.  For long time readers of this column, you already know that our recommended strategy for handling incoming calls is to set up a simple Stealth AutoAttendant. Basically, this is a welcome message that greets your callers and then transfers them to an extension or ring group of your choice. The advantage of this approach is that it also lets callers like you press buttons to navigate through various options on your Asterisk system without advertising them to the public at large. If you're just getting started with Asterisk, you can read all about setting up a Stealth AutoAttendant <a href="/index.php?p=66#stealth">here</a>. If you'd prefer to manage your incoming calls with AMP, you'll still need to fix the [from-sip-external] context in the extensions.conf file, or all your incoming SIP and IAX calls will ring busy. To fix it, choose <i>AMP-&gt;Maintenance-&gt;Config Edit-&gt;extensions.conf-&gt;from-sip-external</i>. Comment out all the lines in the existing file by adding a semicolon at the beginning of each line. Then add the following line, save your changes, and reload Asterisk.<br>
+<code><br>
+exten =&gt; _X.,1,Goto(from-pstn-timecheck,s,1)<br>
+</code></p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="cisco ip phone"></eminimall>
+<p></p></center>
+<p><b>New Custom Speed Dialing</b>. Asterisk@Home 2.5 has a built-in speed dialing utility. The reserved speed dial numbers are 300 to 399.  Adding a number to your speed dial list is easy. Just pick up an extension and dial 300-3xx-6781234567 where 3xx is the speed dial code you want to create and 6781234567 is the phone number you want dialed when you enter the speed dial code. Just make sure you enter the number to be called in a format that is supported by your Asterisk dialplan, i.e. if outside calls need to be preceded by a 1 or a 9, then the number should be entered in a matching format. You can look up speed dial numbers by dialing an asterisk followed by the 3-digit speed dial code, e.g. *301 would tell you the number stored in speed dial 301. If you need additional flexibility with both web browser and phone access as well as 1 to 5-digit speed dial codes, download our free <a href="/index.php?p=83">AsteriDex</a> robodialer.</p>
+<p><b>Fixed A2Billing: Asterisk Calling Card Platform</b>. This web-based application allows you to generate and issue calling cards to individuals so that they can place calls remotely through your Asterisk server. If you've always wanted to be just like AT&amp;T, here's your Big Chance! There's very little that you can do with an AT&amp;T calling card that can't be done as well or better by you using  A2Billing. And, it won't take an M.B.A. to undercut AT&amp;T's calling card rates and still make buckets of money. All you need now are a few customers. Heck, I'll sign up with you. I sign up for everything. But first, a word of caution. Assuming your Asterisk server has web exposure on the Internet, you need to secure the admin and root passwords in this application <i>whether you use it or not</i>.  To access the application, go to <i>http://192.168.0.104/a2billing/</i> using the actual internal IP address of your Asterisk server. Log in as <i>root</i> with a password of <i>myroot</i>.  Click on the <i>ADMINISTRATOR</i> tab in the left column and then click <i>Show Administrator</i>. Now click on the <i>Edit</i> button beside each of the two administrator accounts and change the passwords to something secure.  If you really would like to learn more about it, documentation for the application is available <a href="http://www.areski.net/a2billing/index.php?s=7">here</a>. And, if you decide to use the application, you'll need to uncomment the 6 actual dialplan lines in extensions_custom.conf and reload Asterisk:<br>
+<code><br>
+;[custom-callingcard]<br>
+;exten =&gt; s,1,Answer<br>
+;exten =&gt; s,2,Wait,2<br>
+;exten =&gt; s,3,DeadAGI,a2billing.php<br>
+;exten =&gt; s,4,Wait,2<br>
+;exten =&gt; s,5,Hangup<br>
+</code><br>
+Footnote: The missing A2Billing code from Asterisk@Home 2.1 has been added. You can read all about the problem <a href="http://sourceforge.net/forum/forum.php?thread_id=1396155&amp;forum_id=420324">here</a>. There's also a pretty good step-by-step setup guide for Asterisk@Home <a href="http://sourceforge.net/forum/forum.php?thread_id=1398290&amp;forum_id=420324">here</a>.</p>
+<p><b>SugarCRM Contact Management</b>. Asterisk@Home includes the best open source contact management application on the planet, SugarCRM. You access the application with a web browser: <i>http://192.168.0.104/crm/</i> substituting the private IP address of your Asterisk box, of course.  Specify admin for your username and password for your password.  Whether you use the application or not, change the admin password.  It's easy. Just click the <i>Administrator</i> link under Welcome admin. Then click the <i>Change Password</i> button. Complete documentation for the application is available <a href="http://www.sugarforge.org/frs/?group_id=20&amp;release_id=253">here</a>. If contact management is your thing, knock yourself out, and we'll talk to you next spring when you finish getting everything set up to run your business. It's a great product, but be prepared to invest lots of time in the project if you expect to use it productively.</p>
+<p><b>Conflict Between ZAP cards and Fax Modules</b>. For those using ZAP cards, be aware that there is a reported conflict with the fax modules.  See this <a href="http://sourceforge.net/forum/forum.php?thread_id=1433624&amp;forum_id=420324">link</a> for details and updates.</p>
+<p><b>Incoming Fax Support</b>. The <a href="/index.php?p=88">NVfaxdetect software</a> that we showcased back in December, 2005, now is included in Asterisk@Home 2.5. The major advantage of NVfaxdetect is that it works with SIP and IAX trunks as well as ZAP lines. Unfortunately, you'll still need to manually configure the Asterisk Management Portal to use it. Thanks to <a href="http://forums.whirlpool.net.au/forum-replies.cfm?t=465217">Thunderbird in Australia</a>, it's pretty easy to make the necessary changes. First, enable faxing support. Go to <i>AMP-&gt;Setup-&gt;General Settings</i> and set Extension of Fax Machine to <i>system</i>. Then fill in your email address. Click the Submit Changes button to save your changes. This sets the default route for incoming faxes.  If you want to specify different fax destinations for different DID trunks, then set up Inbound Routing using AMP and define the fax extension as system (instead of default) with an email address for delivery of the fax for each particular DID. You'll also need to make sure you have outbound email functioning on your Asterisk server (see above), or none of the rest of this matters. NVfaxdetect converts your incoming faxes to PDF documents and then emails them to you. So the next step is to get that conversion functionality working. Log in to your Asterisk server as root and type the following command: <i>install-pdf</i>. Now make a backup copy of your extensions.conf file: <i>cp /etc/asterisk/extensions.conf /etc/asterisk/extensions.conf.bak</i>. We're going to do some heavy editing of the extensions.conf file so be careful with your cutting-and-pasting: <i>nano -w /etc/extensions.conf</i>. When you're finished, save your changes and restart Asterisk: <i>amportal restart</i>.</p>
+<p>Find and delete the entire [from-pstn-reghours] context. Replace it with the following:<br>
+<code><br>
+[from-pstn-reghours]<br>
+exten =&gt; s,1,GotoIf($[${FAX_RX} = disabled]?from-pstn-reghours-nofax,s,1:2) ; if fax detection is disabled, then jump to from-pstn-nofax - else continue<br>
+exten =&gt; s,2,Answer<br>
+exten =&gt; s,3,Playtones(ring) ; play fake ring so caller doesn't wonder what's going on<br>
+exten =&gt; s,4,NVFaxDetect(4) ; detect faxes while playing ring sound - goes to "fax" extension if detected<br>
+exten =&gt; s,5,SetVar(intype=${INCOMING})<br>
+exten =&gt; s,6,Cut(intype=intype,-,1)<br>
+exten =&gt; s,7,GotoIf($[${intype} = EXT]?8:9) ; If INCOMING starts with EXT, then assume its an extension<br>
+exten =&gt; s,8,Goto(ext-local,${INCOMING:4},1)<br>
+exten =&gt; s,9,GotoIf($[${intype} = GRP]?10:11) ; If INCOMING starts with GRP, then assume its a ring group<br>
+exten =&gt; s,10,Goto(ext-group,${INCOMING:4},1)<br>
+exten =&gt; s,11,GotoIf($[${intype} = QUE]?12:13)<br>
+exten =&gt; s,12,Goto(ext-queues,${INCOMING:4},1)<br>
+exten =&gt; s,13,Goto(${INCOMING},s,1) ; not EXT or GR1 - it's an auto attendant<br>
+exten =&gt; fax,1,Goto(ext-fax,in_fax,1)<br>
+exten =&gt; h,1,Hangup<br>
+</code> </p>
+<p>Find and delete the entire [from-pstn-afthours] context. Replace it with the following:<br>
+<code><br>
+[from-pstn-afthours]<br>
+exten =&gt; s,1,GotoIf($[${FAX_RX} = disabled]?from-pstn-afthours-nofax,s,1:2) ; if fax detection is disabled, then jump to from-pstn-nofax - else continue<br>
+exten =&gt; s,2,Answer<br>
+exten =&gt; s,3,Playtones(ring) ; play fake ring so caller doesn't wonder what's going on<br>
+exten =&gt; s,4,NVFaxDetect(4) ; detect faxes while playing ring sound - goes to "fax" extension if detected<br>
+exten =&gt; s,5,SetVar(intype=${AFTER_INCOMING})<br>
+exten =&gt; s,6,Cut(intype=intype,-,1)<br>
+exten =&gt; s,7,GotoIf($[${intype} = EXT]?8:9) ; If INCOMING starts with EXT, then assume its an extension<br>
+exten =&gt; s,8,Goto(ext-local,${AFTER_INCOMING:4},1)<br>
+exten =&gt; s,9,GotoIf($[${intype} = GRP]?10:11) ; If INCOMING starts with GRP, then assume its a ring group<br>
+exten =&gt; s,10,Goto(ext-group,${AFTER_INCOMING:4},1)<br>
+exten =&gt; s,11,GotoIf($[${intype} = QUE]?12:13)<br>
+exten =&gt; s,12,Goto(ext-queues,${AFTER_INCOMING:4},1)<br>
+exten =&gt; s,13,Goto(${AFTER_INCOMING},s,1) ; not EXT or GR1 - it's an auto attendant<br>
+exten =&gt; fax,1,Goto(ext-fax,in_fax,1)<br>
+exten =&gt; h,1,Hangup<br>
+</code></p>
+<p>Find and delete the entire [ext-fax] context. Replace it with the following:<br>
+<code><br>
+[ext-fax]<br>
+exten =&gt; s,1,Answer<br>
+exten =&gt; s,2,Goto(in_fax,1)<br>
+exten =&gt; in_fax,1,StopPlaytones ; you must do this or it will play ring sounds over your fax<br>
+exten =&gt; in_fax,2,GotoIf($[${FAX_RX} = system]?3:analog_fax,1)<br>
+exten =&gt; in_fax,3,Macro(faxreceive)<br>
+exten =&gt; in_fax,4,Hangup<br>
+exten =&gt; analog_fax,1,GotoIf($[${FAX_RX} = disabled]?3:2) ;if fax is disabled, just hang up<br>
+exten =&gt; analog_fax,2,DBGet(DIAL=DEVICE/${FAX_RX}/dial);<br>
+exten =&gt; analog_fax,3,Dial(${DIAL},20,d)<br>
+exten =&gt; analog_fax,4,Hangup<br>
+exten =&gt; out_fax,1,txfax(${TXFAX_NAME}|caller)<br>
+exten =&gt; out_fax,2,Hangup<br>
+exten =&gt; h,1,system(tiff2ps -2eaz ${FAXFILE} | ps2pdf - ${FAXFILE}.pdf)<br>
+exten =&gt; h,2,system(mime-construct --to ${EMAILADDR} --subject "Fax from ${CALLERIDNUM} ${CALLERIDNAME}" --attachment ${CALLERIDNUM}.pdf --type application/pdf --file ${FAXFILE}.pdf)<br>
+exten =&gt; h,3,system(rm ${FAXFILE} ${FAXFILE}.pdf)<br>
+exten =&gt; h,4,Hangup()<br>
+</code><br>
+Be aware that NVfaxdetect can be a bit quirky. You may need to fine tune the timing mechanism in the actual NVfaxdetect(4) lines above. If 4 is too long or too short a delay to detect a fax call, try 10 or nothing at all. 10 works for us. 4 works in Australia apparently. If you need more details, read our <a href="/index.php?p=88">original article</a> on this topic. It also explains how to get all of this working with the Nerd Vittles Stealth AutoAttendant if you're using it.</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="ceiva digital picture frame"></eminimall>
+<p></p></center>
+<p><b>Asterisk Recording Interface</b>. A new web-based utility for managing your voicemail now is included in AMP and can be accessed by clicking <i>Voicemail &amp; Recordings</i> on the initial AMP screen at the IP address of your Asterisk system. It also can be accessed at <i>http://Asterisk-IP-address/recordings/</i>. To log in to the Asterisk Recording Interface (ARI), just enter an extension number on your Asterisk system and the password for that extension. From the web interface, you can manage your voicemail messages including playing them back, you can review the call log to this extension, and you can set your voicemail password as well as your desired setup for recording calls by setting the call monitor defaults for this extension. Very cool! </p>
+<p><b>Other Out-of-the-Box Utilities</b>. Asterisk@Home 2.5 comes bundled with a number of additional utilities.  Here are some of them. You can retrieve the current time by dialing *60. If the time is wrong, you can reset your default time zone by logging into your server as root and typing <i>config</i>.  A current weather report for New York is available by dialing *61. You can change the city by following our previous tutorial which is available <a href="/index.php?p=63#weather">here</a>. Something has come unglued in the festival script, however, because there is a noticable 10-second delay between each line of text that is read now. To set up a wakeup call from any extension, dial *62. To determine the phone number of any extension, just dial *65. You can use the default MeetMe conferencing system from any or all of your extensions by dialing 8 plus the number of an existing extension. Additional conference rooms can be added by editing meetme_additional.conf. Finally, you can record customized voice prompts for your system by dialing 5678 from any extension. Before this will work, edit the extensions_custom.conf file (<i>AMP-&gt;Maintenance-&gt;Config Edit-&gt;extensions_custom.conf</i>) and uncomment the seven lines shown below which are located at the bottom of the file. Just remove the leading semicolons. You'll also need to uncomment the following line near the top of file at the beginning of the [from-internal-custom] context: <i>;include =&gt; custom-recordme</i>.<br>
+<code><br>
+;[custom-recordme]<br>
+;exten =&gt; 5678,1,Wait(2)<br>
+;exten =&gt; 5678,2,Record(/tmp/asterisk-recording:gsm)<br>
+;exten =&gt; 5678,3,Wait(2)<br>
+;exten =&gt; 5678,4,Playback(/tmp/asterisk-recording)<br>
+;exten =&gt; 5678,5,Wait(2)<br>
+;exten =&gt; 5678,6,Hangup<br>
+</code><br>
+Once you make a recording, it needs to be moved to /var/lib/asterisk/sounds/custom with a new <i>filename.gsm</i>, e.g. <i>mv /tmp/asterisk-recording.gsm /var/lib/asterisk/sounds/custom/hihoney.gsm</i>. Then change the ownership of  the file: <i>chown asterisk:asterisk /var/lib/asterisk/sounds/custom/hihoney.gsm</i>. You then can play the recording with a line like this in your dialplan: <i>exten=&gt;s,1,Playback(custom/hihoney)</i> where <i>hihoney</i> is the name you assigned to the recording <i>without its .gsm extension</i>.</p>
+<p><img decoding="async" src="/wp-images/aahgui3.jpg" alt="" hspace="9" align="left"><b>AAH Web Facelift.</b> Last, but not least, the folks at KennonSoft have posted a new self-configuring AAH web interface (see inset).  It automatically chooses icons to match the applications installed on your system. If you like it, here's how to install it.  Log into your server as root and issue the following commands:<br>
+<code><br>
+cd /var/www/html<br>
+wget http://www.kennonsoft.org/projects/asterisk/admin-ui.tar<br>
+tar -xvf admin-ui.tar<br>
+rm -f admin-ui.tar<br>
+mv index.html index2.html<br>
+</code></p>
+<p>NOTE: It's been reported that there may be a display formatting bug with IE 6. Line 2 of the code above should begin with <i>wget</i>. </p>
+<p>In order for the bottom row of buttons to appear, you must install WebMin (installation instructions above), AsteriDex, and Phone Reminders 2.5. If you'd like to use our <a href="/index.php?p=83">AsteriDex RoboDialer</a>, install it from the link in this sentence and the icon will then appear. If you've moved your AsteriDex application to a directory different than <i>/var/www/html/asteridex</i>, make the necessary adjustment to ./asteridex in line 15 of the index.php file. To download and install the Telephone Reminders software, read our <a href="/index.php?p=117">Telephone Reminders 2.5 update tutorial</a>. Once its installed, the Telephone Reminders icon will appear when you access the main web page on your Asterisk server.</p>
+<p><a href="http://www.411metro.com/"><img decoding="async" src="/wp-images/411metro.jpg" alt="1-800-411-METRO" hspace="9" align="left"></a><b>Free Directory Assistance Service</b>. For those in the U.S. that just can't live without Directory Assistance, write this number down or add it to your Asterisk dialplan for free directory assistance calls in the United States: 1-800-411-6387. It's also a free VoIP call with the providers listed below once you set up an account with one of them. You can read our reviews of these providers <a href="/index.php?p=81">here</a>. Assuming you have an account, just add ONE of the following sets (that match the provider with whom you have set up an account) to the [from-internal-custom] context in extensions_custom.conf:</p>
+<p><code><br>
+exten =&gt; 411,1,Dial(IAX2/goiax/18004116387)   ; GoIAX Free Call<br>
+exten =&gt; _1NXX5551212,1,Dial(IAX2/goiax/18004116387)<br>
+exten =&gt; _NXX5551212,1,Dial(IAX2/goiax/18004116387)</code></p>
+<p>exten =&gt; 411,1,Dial(IAX2/fwd/*18004116387)    ; FWD Free Call<br>
+exten =&gt; _1NXX5551212,1,Dial(IAX2/fwd/*18004116387)<br>
+exten =&gt; _NXX5551212,1,Dial(IAX2/fwd/*18004116387)</p>
+<p>exten =&gt; 411,1,Dial(IAX2/teliax/18004116387)  ; Teliax Free Call<br>
+exten =&gt; _1NXX5551212,1,Dial(IAX2/teliax/18004116387)<br>
+exten =&gt; _NXX5551212,1,Dial(IAX2/teliax/18004116387)<br>
+</p>
+<hr>
+<p><b>Some Recent Nerd Vittles Articles of Interest...</b></p>
+<p><iframe frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-112 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 45 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-927">
+
+			<div id="comment-927">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/b52c2d5449df0ec2eed35d26d2c8c480ade9d038df9ddb41ec794694462459de?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/b52c2d5449df0ec2eed35d26d2c8c480ade9d038df9ddb41ec794694462459de?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">Mimmus</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-927">Friday, February 3, 2006 at 6:53 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Instead of _. as catch-all extension, it’s better to use always _X. because there is some chance that AAH logs ‘h’ in the CDR instead of real extension.</p>
+<p><i>[WM: Excellent point. I fixed it. Thanks. We all learn something every day!]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-928">
+
+			<div id="comment-928">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5b947686925cdc66e39e02e988333e8b9708b2d5ff1e8e6e328bb18e0a9ab6d2?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5b947686925cdc66e39e02e988333e8b9708b2d5ff1e8e6e328bb18e0a9ab6d2?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">Thunderbird 1</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-928">Friday, February 3, 2006 at 7:32 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward – regarding the amended contexts for faxing, I have just noticed that that there are unexpected spaces in some of the priorities which I have listed below (spaces included). Unfortunately, at times the formatting of posts on the “Whirlpool” forums creates unpredictable results.</p>
+<p>I thought I would bring these to your attention to avoid creating any unnecessary heartache for your readers. You might like to double check in case I have missed anything.</p>
+<p>[from-pstn-reghours]<br>
+exten =&gt; s,1,GotoIf($[${FAX_RX} = disabled]?from-pstn-reghours-nofax ,s,1:2)<br>
+exten =&gt; s,10,Goto(ext-group,${INCOMING:4}, 1)<br>
+exten =&gt; s,12,Goto(ext-queues,${INCOMING:4} ,1)</p>
+<p>[from-pstn-afthours]<br>
+exten =&gt; s,1,GotoIf($[${FAX_RX} = disabled]?from-pstn-afthours-nofax ,s,1:2)<br>
+exten =&gt; s,5,SetVar(intype=${AFTER_INCOMING })<br>
+exten =&gt; s,8,Goto(ext-local,${AFTER_INCOMIN G:4},1)<br>
+exten =&gt; s,10,Goto(ext-group,${AFTER_INCOMI NG:4},1)<br>
+exten =&gt; s,12,Goto(ext-queues,${AFTER_INCOM ING:4},1)</p>
+<p>[ext-fax]<br>
+exten =&gt; analog_fax,2,DBGet(DIAL=DEVICE/${F AX_RX}/dial)</p>
+<p><i>[WM: I had noticed a couple of these, but thanks.I’ve cleaned them up.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-929">
+
+			<div id="comment-929">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/b012749129b9aae1e943ec2bb52ef9997d31e273501cc44c06d0af7c17cf775f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/b012749129b9aae1e943ec2bb52ef9997d31e273501cc44c06d0af7c17cf775f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Francesco</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-929">Friday, February 3, 2006 at 8:23 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I think that the right correction for extensions.conf is:<br>
+exten =&gt; s,22,GotoIf($[$[${HuntMembers}] &gt;= 1]?30 )</p>
+<p><i>[WM: Right you are. I’ve updated the article. Thanks.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-930">
+
+			<div id="comment-930">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e5fb73ba4c05f24b27291a51fa78e10cfbfaa29df1281242a6a1ea7070da51ee?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e5fb73ba4c05f24b27291a51fa78e10cfbfaa29df1281242a6a1ea7070da51ee?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://blarneyphone.com/" class="url" rel="ugc external nofollow">David Lear</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-930">Friday, February 3, 2006 at 8:35 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Would it not be wonderful to simply have a sip extension hotdial a channel directly and get internal dial tone directly ! any takesrs ? (yes I believe the IAX between two boxes may support this as DISA)</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-932">
+
+			<div id="comment-932">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e1e6061d324c6599ac15f6945df7f27ec9394bb00833a6439bfa9a74351a5edf?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e1e6061d324c6599ac15f6945df7f27ec9394bb00833a6439bfa9a74351a5edf?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Eric Ortega</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-932">Friday, February 3, 2006 at 12:10 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, thanks for all the help your site provides. It has helped me tremendously. </p>
+<p>Question: Is it possible to take a backup from a 2.4 system and restore it to a 2.5 system? Since the versions are so close that might work as opposed to having to reconfigure everything.</p>
+<p><i>[WM: You might try backing up /etc/asterisk and restoring it. That should get just about everything.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-934">
+
+			<div id="comment-934">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/c86755e334c4a9860cceea2dac4b7c7674ce86fa0972c83d70d37d3513144217?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/c86755e334c4a9860cceea2dac4b7c7674ce86fa0972c83d70d37d3513144217?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Steve Kayner</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-934">Friday, February 3, 2006 at 3:53 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>A chart of prerequisites would be very helpful. Like, “if you want to do this, you’ll need this and this and this…” IP phone, fixed IP address, VOIP acct., etc.</p>
+<p><i>[WM: Good idea, but it would be a very long list of if-then-this suggestions. I may take your suggestion and do a separate article on Asterisk Prerequisites: What You Need To Do Whatever.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-935">
+
+			<div id="comment-935">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/115d8e61b173c687fabef4acbb87c0a8a93ead57710e0896386e4632995c22d7?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/115d8e61b173c687fabef4acbb87c0a8a93ead57710e0896386e4632995c22d7?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Joni</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-935">Friday, February 3, 2006 at 5:23 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Does anyone else have the problem with AAH 2.5 that prevents from from deleting the default ZAP/g0 trunk and the default outbound 0 route1? I get a PHP warning when I try to remove the route and the trunk persists when I delete it, and apply changes.</p>
+<p><i>[WM: Add a new trunk and route before you delete the defaults.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-937">
+
+			<div id="comment-937">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/415fe8c8b1d9b05e66520317dfa122cdab052a9bbe2ac3184c189c02f5ada432?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/415fe8c8b1d9b05e66520317dfa122cdab052a9bbe2ac3184c189c02f5ada432?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jim cox</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-937">Saturday, February 4, 2006 at 1:42 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Thanks again, Ward, for the update on installing AAH 2.5. Unfortunatly, I’m getting to memorize the install routine with AAH by heart. Perhaps I should look for a job as a “Professional AAH Reinstaller”. I really shouldn’t complain as I didn’t contribute to all of this code; I just wish I could let this version roll for at least a few months before I have to do it again. Once again, thanks; Nerd Vittles rules!</p>
+<p><i>[WM: I’m sympathetic to say the least. Writing about the same thing over and over gets tedious as well … even with cut-and-paste. I think I could do an install blindfolded at this point. Hopefully, this release will do it for a while.  The bottom line is that Asterisk 1.2 was akin to beta code when it was released, and it’s taken four iterations to get most of the kinks out. I’m not sure that’s much worse than Windows  95, 98, or XP when all is said and done.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-938">
+
+			<div id="comment-938">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e9dc7b84f7cd2c82c1adbbd4575caa37c329beb4c712ccbc81d2cf3943c9a825?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e9dc7b84f7cd2c82c1adbbd4575caa37c329beb4c712ccbc81d2cf3943c9a825?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mathew</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-938">Saturday, February 4, 2006 at 9:51 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I think a thanks word would never express all that i want to say, but i promise i am going to learn as i am doing now and, in few months, i’ll be helping the others just like you do.<br>
+my best regards and deep respect, Nerd Vittles</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-943">
+
+			<div id="comment-943">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/d12915614c5bfcfd3b43a56fd7ca9ac106f7f446b08901a83f293b51a2e319b4?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/d12915614c5bfcfd3b43a56fd7ca9ac106f7f446b08901a83f293b51a2e319b4?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ismet Kursunoglu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-943">Saturday, February 4, 2006 at 10:47 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I updated our system using /var/aah_load/asterisk-update.sh<br>
+This was from a running and configured AAH 2.2 system. </p>
+<p>Are there better ways or other scripts to accomplish this so that is will take along the AAH changes as well?  Is what I did “kosher”? </p>
+<p>Thank you for all of your amazing work!</p>
+<p>Ismet</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-944">
+
+			<div id="comment-944">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/b27a0314eb65efccefa34dd95bc42c3eb614aefe24f71426c2733b18720a4e6f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/b27a0314eb65efccefa34dd95bc42c3eb614aefe24f71426c2733b18720a4e6f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ronny</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-944">Sunday, February 5, 2006 at 3:26 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I think there’s a typo in “If you want remote access to your Asterisk system via SSH, then map TCP port 143…”</p>
+<p>The default SSH port is 22. TCP port 143 is normally used by IMAP.</p>
+<p><i>[WM: Bad night at the track. You’re correct. Thanks.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-945">
+
+			<div id="comment-945">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3c79b30be0f4c4877755c9904f0650a497ed40ec078b038e5ccf5bdbf412664d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3c79b30be0f4c4877755c9904f0650a497ed40ec078b038e5ccf5bdbf412664d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://cindyandgreg.com/" class="url" rel="ugc external nofollow">Greg</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-945">Sunday, February 5, 2006 at 7:52 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>First and foremost…LOVE your site..very helpful.</p>
+<p>Just a quick correction, the SugarCRM version included in A@H is 3.5, but the latest release is 4.01. I wish we could find a way to upgrade to 4.x and still have the dialing abilities.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-946">
+
+			<div id="comment-946">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dfbf2645b0ab5a56f87f120c09944fb0271e8cc8e707510dba74d49319e3cbd9?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dfbf2645b0ab5a56f87f120c09944fb0271e8cc8e707510dba74d49319e3cbd9?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Claude T.</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-946">Sunday, February 5, 2006 at 3:02 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward. Thanks for your efforts. Truly appreciated!</p>
+<p>I just wanted to mentionned a little problem w/ Telasip config. section above:</p>
+<p>Setting Up An Outbound Trunk</p>
+<p>host=gw3.telasip.com</p>
+<p>youraccountname:yourpassword@gw3.telasip.com</p>
+<p>I think they have changed their server from gw3.telasip.com to gw4.telasip.com  (plzzz noticed the numeric value)</p>
+<p>Not sure if someone already mentionned it but I thought I’d let you know:<br>
+Changing the server URL to gw4.telasip.com corrects the problem.<br>
+I was sometimes getting All circuits are busy now error msg..and my A@H won’t even register at all.</p>
+<p>Thanks again for your time and have a great one!</p>
+<p>Claude</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-948">
+
+			<div id="comment-948">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/f4758a0646bf3a3d6f1b89118d8a606fe46114796e898b54ab22309a935e0993?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/f4758a0646bf3a3d6f1b89118d8a606fe46114796e898b54ab22309a935e0993?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ron</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-948">Monday, February 6, 2006 at 12:23 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>OK, I’m missing something basic. I burned the ISO to CD, let it do its thing and was not prompted for any input until I got the “asterisk1 login” prompt. So, since I didn’t provide a password for root, what is “your password” in the above how-to?</p>
+<p>Comments about my stupidity welcomed in advance…</p>
+<p><i>[WM: It’s <b>password</b>. See the tutorial.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-949">
+
+			<div id="comment-949">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5bc4a25c4d32b920543cbdd61736819972274488c5b4730f46d75da65db461cb?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5bc4a25c4d32b920543cbdd61736819972274488c5b4730f46d75da65db461cb?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jason SJOBECK</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-949">Monday, February 6, 2006 at 1:20 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>please do not recommend anything from WalMart.</p>
+<p>That company, those who support it, and that entire way of thinking, is ruining this country, possibly even this planet. Sound melodramtic? Perhaps. Just keep it up &amp; see if it is true.</p>
+<p>Thank you.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-963">
+
+			<div id="comment-963">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/774bb1122bf2fb4f928a8a21ca711450a3d6f97246d5b2260492e901999c991b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/774bb1122bf2fb4f928a8a21ca711450a3d6f97246d5b2260492e901999c991b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">JustSomeDude</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-963">Tuesday, February 7, 2006 at 1:56 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I agree with some of the commentary on walmart. I would suggest using <a href="http://www.pricewatch.com/" rel="nofollow ugc">http://www.pricewatch.com/</a> rather than recommending a specific store.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-965">
+
+			<div id="comment-965">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/edbc43b592a0392fa9f9bc9d0121e6fdb49bfc50769c42e38a97719032ed8bf9?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/edbc43b592a0392fa9f9bc9d0121e6fdb49bfc50769c42e38a97719032ed8bf9?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">neil</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-965">Tuesday, February 7, 2006 at 7:43 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>aswsome guide as usual!  The only *slight* addition I would make would be to modify the instructions on port forwarding to forward only 10001 to 20000 as doing 10000 to 20000 opens up webmin to the outside world.  Which is, by itself fine, but if you’re not using it remotely an un needed possible security risk.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-967">
+
+			<div id="comment-967">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/81557782de89f90033d16687bd3bc6d46b30866157a02b23654dfa6ddaa7bb54?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/81557782de89f90033d16687bd3bc6d46b30866157a02b23654dfa6ddaa7bb54?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Chris</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-967">Wednesday, February 8, 2006 at 11:47 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, I wonder if you can have Kennonsoft make an icon for Asteridex.  I had a link to it on the old .html page, but it does not look good now without an icon.  I would like to use it in replacement of the SugarCRM or the Forums icon.  I wouldn’t mind donating again for this cause.</p>
+<p><i>[WM: Good idea. I sent a note and got a quick response from Tony Vincent with not one but two new icons. Take another look at the amended article. Detailed instructions and the new icons have been added. Thanks again for the suggestion. That’s what makes Asterisk so special!]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-968">
+
+			<div id="comment-968">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/d31aee309121e983c9d9be2630be54a4c96841ae48867f71ffcaacd44c1c67d5?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/d31aee309121e983c9d9be2630be54a4c96841ae48867f71ffcaacd44c1c67d5?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">David Josephson</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-968">Wednesday, February 8, 2006 at 11:10 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Great guide, one tweak to make. Basic for people who have built Linux boxes before, but not everyone. If you want to run yum updates etc. from the start and you’re on a fixed IP, you need to set up eth0, default route and nameservers first.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-974">
+
+			<div id="comment-974">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/07c6731201399f3ddd01fc16bd33155e4d495dc6a54472d525f0892670d9484f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/07c6731201399f3ddd01fc16bd33155e4d495dc6a54472d525f0892670d9484f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Adrian</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-974">Thursday, February 9, 2006 at 2:35 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Can we upgrade from version 1.5 or is there no path? We have a very large system built, but love the look of 2.5, a fresh build will take sometime.</p>
+<p>Great TUT’s help us out a lot in the past!</p>
+<p><i>[WM: Short answer: NO. Long answer: Almost everything in AAH 2.5 is different including the Linux kernel, the Asterisk Management Panel, etc. In short, moving your existing config files would permanently damage AAH 2.5. You can take screenshots of existing information in your AMP setup screens, and then type it in again.  You can export your MySQL data and then import it into the new system. Also some of your AGI scripts will still work, but we’d recommend you backup the new stuff first. Better yet, start over. We’ve done it about a hundred times now. It’s fun!]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-977">
+
+			<div id="comment-977">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/edbc43b592a0392fa9f9bc9d0121e6fdb49bfc50769c42e38a97719032ed8bf9?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/edbc43b592a0392fa9f9bc9d0121e6fdb49bfc50769c42e38a97719032ed8bf9?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">neil</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-977">Thursday, February 9, 2006 at 11:28 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>question:  should we be using gw4 as the outgoing server and gw3 in the register string?</p>
+<p><i>[WM: Probably not. Thanks.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-986">
+
+			<div id="comment-986">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/140427bff76e49c5d71796e0dfe3bb955724b6e3788857f774df35bedb8bda5a?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/140427bff76e49c5d71796e0dfe3bb955724b6e3788857f774df35bedb8bda5a?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">charles</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-986">Saturday, February 11, 2006 at 10:08 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Great tutorial, love your site. I wonder if you know of a good tutorial on configuring asterisk realtime, for example add/deleting iax extensions, etc. The information on the web is always pieces here, pieces there. There is never a complete write up or example in one place. Thanks.</p>
+<p><i>[WM: Give me a little better hint, and we’ll work on it.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-988">
+
+			<div id="comment-988">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/140427bff76e49c5d71796e0dfe3bb955724b6e3788857f774df35bedb8bda5a?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/140427bff76e49c5d71796e0dfe3bb955724b6e3788857f774df35bedb8bda5a?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">charles</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-988">Saturday, February 11, 2006 at 12:19 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>We have an internal company portal where a new user can be added. User information is kept in a mysql database. We also want to use that portal to add asterisk extensions for a user. I would add couple lines in my portal application to write the extension to the mysql on asterisk server after I write into the portal mysql. So I don’t have to add a new user through my portal and use AMP to create the extension. I am using Asterisk@Home 2.5, and we are using IAX clients.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-991">
+
+			<div id="comment-991">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3d18ed718fb456e2e041521bb5a0d6266b1dd4dea275362f70949241f3a181bb?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3d18ed718fb456e2e041521bb5a0d6266b1dd4dea275362f70949241f3a181bb?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Elijah</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-991">Sunday, February 12, 2006 at 7:49 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I have enjoyed your articles. Let me ask one intriguing question. Can one use Asterisk for a community phone project wired and or wireless for about 5000 people to give them a cheap way to talk? I will appreciate your comments.</p>
+<p><i>[WM: Absolutely. Many are doing just that.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-995">
+
+			<div id="comment-995">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/328171978fe00cfad565b3c3bd82bff19869a4ba24ca300e20e9670cd99023d6?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/328171978fe00cfad565b3c3bd82bff19869a4ba24ca300e20e9670cd99023d6?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Rob</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-995">Sunday, February 12, 2006 at 9:01 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Are Yapper and Reminder fixed for 2.5?</p>
+<p><i>[WM: Not yet. TeleYapper 2.5 will be released on Tuesday, Feb. 14. The Telephone Reminder System still is in the hands of the programming department, moi.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-996">
+
+			<div id="comment-996">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/115d8e61b173c687fabef4acbb87c0a8a93ead57710e0896386e4632995c22d7?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/115d8e61b173c687fabef4acbb87c0a8a93ead57710e0896386e4632995c22d7?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Joni</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-996">Monday, February 13, 2006 at 12:57 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>My AAH install is in jeopardy! My fiance just tried to call her parents house (local to us though I have all outgoing calls going through Telasip instead of the PSTN line) and it rang 3 or so times and then the phone went dead – no dial tone, no busy signal, nothing! I dialed my cell phone (also local to us) just to test and it went through just fine. We then tried her parent’s number again and we got the same dead phone several more times before I unplugged the Sipura3000 from the PSTN and gave her a “real” phone. I haven’t done anything to disable calls to her parents (I swear!) and am at a loss as it what’s going on. I’m no expert but nothing looked out of the ordinary in the logs and my install is pretty much a stock 2.5 install from this site with Telasip and a Sipura3000. If I can’t resolve this I’m sure my fiance will force me to 86 my newly installed AAH setup – help!</p>
+<p><i>[WM: Check the logs and turn on debugging in the CLI to see what’s going on. This isn’t a good forum for solving problems like this. Head on over to <a href="http://voxilla.com/PNphpBB2-viewforum-f-17-sid-83a49889a62bdd10d6de80dd344743ef.html">Voxilla</a> and post your question once you have some better detail about the problem.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-999">
+
+			<div id="comment-999">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/77e17fbf6ccdb09276022ec0416f498f7086ca659e5a7da6b36ce9f3e985a902?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/77e17fbf6ccdb09276022ec0416f498f7086ca659e5a7da6b36ce9f3e985a902?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://voipspeak.net/" class="url" rel="ugc external nofollow">Kerry</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-999">Monday, February 13, 2006 at 11:36 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, any luck with phone paging in 2.5? I have tried it with 3 different installs and on all 3 systems the phones just ring and never pick up. Worked fine in AAH 2.1. The soundcard paging that you mentioned works fine (assuming you know how to turn the sound up on your sound card).</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1000">
+
+			<div id="comment-1000">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7102e6efa13c9fb169696ae36dfb6269fa1b7cafbfab12876516202ae1b58a60?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7102e6efa13c9fb169696ae36dfb6269fa1b7cafbfab12876516202ae1b58a60?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Anon</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1000">Monday, February 13, 2006 at 12:43 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I just finished setting up Asterisk (one afternoon, wao! the Linux learning curve dropped to zero). I am a newcomer and these are my questions: </p>
+<p>1) Why can’t everything be managed from AMP?<br>
+2) I guess the opposite to AMP is to manually tweak the config files. In such case which one has precedence?<br>
+3) Am I totally lost?</p>
+<p>Thank you for your answers and keep up the good work!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1004">
+
+			<div id="comment-1004">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0f82e99f671793c22e33af2ef6cc867284abbd691b1118df5122d4a50d78a8ee?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0f82e99f671793c22e33af2ef6cc867284abbd691b1118df5122d4a50d78a8ee?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Gunner</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1004">Monday, February 13, 2006 at 6:31 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Because I seem to be good at finding problems, I’ll answer the question above me first. Parts of Extensions.conf does not get written to, if you tweak it, the tweaks change. If you mess up something that amp needed to be able to make it function (E.G. a reference to a variable set in extensions_additional.conf) then it will be broken and you will have to replace the file or find where you broke it and fix it. Extensions_additional.conf is pretty much stored entierly in a mysql database, and whenever you change things through amp, it updates the database and rewrites the file. Extensions_custom.conf is for you to play with, and AMP doesn’t need anything it it to make its system funciton. Other file sets have a simmilar pattern going on.</p>
+<p>On to the problems… I was checking our logs today and noticed another syntax error being called out by the system (we had to reboot because of a memory leak, btw, and we’ll see if this somehow had anything to do with it) but I traced it out and found this line in..</p>
+<p>    [macro-rg-group]<br>
+    …<br>
+    exten =&gt; s,2,GotoIf($[${CALLERIDNAME:0:${LEN(${RGPREFIX})}} != ${RGPREFIX}]?4:3)  ; check for old prefix </p>
+<p>And I also had to trace down the meaning of TOK_NE (it’s not equal token, btw) and figured out that there is a missing close bracket in the expression jut before the !=. So the line SHOULD look like this…</p>
+<p>    exten =&gt; s,2,GotoIf($[${CALLERIDNAME:0:${LEN(${RGPREFIX})}}] != ${RGPREFIX}]?4:3)  ; check for old prefix</p>
+<p>Thanks, Great job with the site btw. And regarding someone’s table of requirements, The idea poped into my head of developing a web site that asks a series of questions about the requirements on thier side and it will return a sheet of requirements for a server to match… I might start work on that after tomorrow even.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1008">
+
+			<div id="comment-1008">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0f82e99f671793c22e33af2ef6cc867284abbd691b1118df5122d4a50d78a8ee?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0f82e99f671793c22e33af2ef6cc867284abbd691b1118df5122d4a50d78a8ee?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Gunner</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1008">Tuesday, February 14, 2006 at 11:14 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>It looks like I was wrong, btw… on the previous comment. I missed the close bracket after the !=. I’m having trouble decifering what is going on with that line. </p>
+<p>A workaround… I removed that line and the line after it. It seems to work fine. </p>
+<p>If someone can help me figure out what’s going on there, i’d be very appriciative.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1015">
+
+			<div id="comment-1015">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/ab67ad10ade35762749e7fa155a6e686e02ae564bea671f5f61ebe86a1d7d35f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/ab67ad10ade35762749e7fa155a6e686e02ae564bea671f5f61ebe86a1d7d35f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mike</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1015">Wednesday, February 15, 2006 at 8:51 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Wow!  This is a great site.  I have been playing with Asterisk@home and am looking at installing it in our office.  Everything is working great but I can’t get call recording to work.  I can set recording to always in the extention set up and everything is great.  What I can’t do is on demand recording.  I have the AAH 2.5 installed and have added the ‘w’ and ‘W’ to dialing options and also added [globals]<br>
+ DYNAMIC_FEATURES =&gt; automon to extentions.conf but no joy in Muddville.  Any help would be greatly appreciated.</p>
+<p><i>[WM: Have you added <b>automon =&gt; *1 </b> to the featuremap context of features.conf?]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1017">
+
+			<div id="comment-1017">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5983f69f353f77f56cbc41f8c64f4e4f1a97ffac536a6193b22bcebd23761c2e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5983f69f353f77f56cbc41f8c64f4e4f1a97ffac536a6193b22bcebd23761c2e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://revision3.com/" class="url" rel="ugc external nofollow">My name is Daniyl</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1017">Wednesday, February 15, 2006 at 8:21 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Now, why can’t I have this article in a PDF? or maybe in a printable form? Without the comments…<br>
+This is GOLD man!<br>
+Oh, and I haven’t installed A@H yet. AND… Is there a way that I can use my existing (home) phone(s) seeing that I do not have an IP, SIP phone yet?<br>
+Without you, I think I would be lost. Thanx<br>
+Daniyl</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1029">
+
+			<div id="comment-1029">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/f54c787501d2d7dcc277a1bd465e55de49b5ddd80e1d85bceee86c36b4b85411?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/f54c787501d2d7dcc277a1bd465e55de49b5ddd80e1d85bceee86c36b4b85411?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.sirkels.com/" class="url" rel="ugc external nofollow">Kristopher E.J.</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1029">Friday, February 17, 2006 at 9:27 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>With regards to the NVFaxDetect… THANKS!!  That was a very easy change to impliment and is working great with my IAX trunks.</p>
+<p>There was one thing I did end up adding however, as I noticed it would not detect incoming faxes to DIDs (Or Incoming Routing as it’s now refered to)</p>
+<p>I edited the webpage that adds the DID’s to asterisk’s configs and implimented your changes there.  AMP now has the option to answer immidiately and wait for a given amount of time – so instead of having it answer() and wait(x), it now will answer(), Playtones(ring), and NVFaxDetect(x).  Here’s how:</p>
+<p>Edit the file: /var/www/html/admin/did.php</p>
+<p>Find the following section:</p>
+<p>if ($answer == “1”) {<br>
+$addarray[] = array(‘ext-did’,$account,$i++,’Answer’,”,”,’0′);<br>
+$addarray[] = array(‘ext-did’,$account,$i++,’Wait’,$wait,”,’0′);<br>
+}</p>
+<p>and change it to:</p>
+<p>if ($answer == “1”) {<br>
+$addarray[] = array(‘ext-did’,$account,$i++,’Answer’,”,”,’0′);<br>
+$addarray[] = array(‘ext-did’,$account,$i++,’Playtones’,’ring’,”,’0′);<br>
+$addarray[] = array(‘ext-did’,$account,$i++,’NVFaxDetect’,$wait,”,’0′);<br>
+}</p>
+<p>Now not only can you have incoming DID’s accept faxes, but also have them emailed to different email addresses based on the fax handling options you specify in the AMP Incoming Route screen.</p>
+<p>Keep up the great work, and thanks for all the help you’ve been!!</p>
+<p>-Kris</p>
+<p><i>[WM: Great suggestion. Thank you.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1036">
+
+			<div id="comment-1036">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/6dbc8d6a1fe63946ddfbf86db52116ca0ca90a9fddcff25f8b4120574e85e0dc?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/6dbc8d6a1fe63946ddfbf86db52116ca0ca90a9fddcff25f8b4120574e85e0dc?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.efreestylin.com/" class="url" rel="ugc external nofollow">Blake</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1036">Saturday, February 18, 2006 at 3:04 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, think you could request a couple more icons for the a2billing and a2customer links? I love the blog, great work as always! I’m hoping to start working on the Asteridex and getting that setup in my environment.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1046">
+
+			<div id="comment-1046">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/80f13038729cd8ea746376e663ee60059be9d1ed3acd2e90fe09d4548b80a865?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/80f13038729cd8ea746376e663ee60059be9d1ed3acd2e90fe09d4548b80a865?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Reginald</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1046">Sunday, February 19, 2006 at 6:23 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>You’ve recommended using Phlink boxes in your Mac section and have  gone into great detail about Asterisk on controlling phone  communications in Nerd Vittles. I’m wondering which would be better  for a person or small business.</p>
+<p> I’m more into Macs than Windows/Linux, but am familiar enough with computers to have no problem either way in implementing such a  system. My first computer was an Apple II+ back in 1979 and I’ve  worked at three Apple dealers and four schools/school boards in my  time doing tech support work. While I can fix most any old Mac (OS9 and under) I’m still getting used to OSX and use the computers as  computers not toys.</p>
+<p> My business has three lines on a rotary setup, an individual phone line used by the company that is also indicated as being with an  associated company, a single dedicated fax line for receiving faxes  and a single line that we use for computer equipment to dial out  (Western Union terminal, POS terminal, etc.). The last line of the  three line rotary is also used for a second Western Union terminal  dial-out line. I am contemplating replacing the DOS box Western Union  terminals with either small XP boxes or Macs capable of running  Windows and having them connect via the internet, but need to assure<br>
+ myself of the security of doing so.</p>
+<p> I’ve been thinking of getting a VOIP line for cheaper long distance  capabilities, having a Skype line for incoming calls as well as calls  to other Skype people and possibly other VOIP lines if needed for  specific VOIP features that might be available inexpensively  depending on what our primary Canadian VOIP might offer.</p>
+<p> I’d like to be able to build a system whereby callerID would identify  who was calling and be able to populate a screen saying who was  calling, potentially record the details of certain calls, provide IVR  capability for those who call here seeking information on what we do,  etc.</p>
+<p> I keep tossing between Asterisk and using Phlink or Phone Valet  running on Macs. Each has their good and bad points, costs and being  able to tie everything together to make it as seamless as possible.  And since Asterisk has an OSX port, is it possible to do a Mac with  Asterisk and Phlink/Phone Valet in combination to get the best of  both worlds? Phlink/Phone Valet for land lines and Asterisk for  VOIP/Skype/etc.? (since Asterisk on the Mac doesn’t seem to support  the Digium cards to connect land lines, or am I missing something?)</p>
+<p> Thanks for your input or suggestions on where to go for further info.  Some days there are too many options to choose from and I am working  on too many other projects to do proper service to these decisions as  well.</p>
+<p><i>[WM: For what you’re talking about, it’s Asterisk hands-down. If you don’t want to go the Linux route, you might want to hold off a few weeks and try the new <a href="http://voipspeak.net/index.php?/content/view/60/2/">SPA-9000</a> which is a preconfigured Asterisk system minus voicemail. But frankly, based on your experience, it sounds like Asterisk on Linux would be a walk in the park for you.  Any $500 PC with an IDE drive works. If I were running my business on it, I’d probably want a spare as well. Read our articles. It’ll reduce the learning curve by about 99%. If you want to get something up and running on a Windows PC just to try, you can’t beat the new <a href="http://mundy.org/blog/index.php?p=116">VMware solution</a>. I wouldn’t run my business on it, but it’ll quickly give you a good idea of what Asterisk can do. Best of luck.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1075">
+
+			<div id="comment-1075">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/33a5da1100f452a38b12fc95dc9706e5154426cd582202f766f19acd05d1dc4b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/33a5da1100f452a38b12fc95dc9706e5154426cd582202f766f19acd05d1dc4b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">sean courtney</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1075">Wednesday, February 22, 2006 at 2:05 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>i have asterisk 2.4, vonage analog lines, and vonage soft phone lines. i having issues with incoming calls. it appears that dtmf is not working for incoming calls on both vonage analog and soft phone accounts. i have tested the pbx using ext 7777 and everything is fine. </p>
+<p>the vonage analog lines are connected using a digium card.  </p>
+<p>i have tried just about everything i can think of. is there a trick in getting vonage to send dtmf signals cleanly to my pbx, or is this a know issue? </p>
+<p>has anyone out there run into the same issue and resolved it? everything would be perfect if this issue could be resolved. any help would be greatly appreciated. </p>
+<p>thanks,<br>
+sean</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1091">
+
+			<div id="comment-1091">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/09ddf7afc1083dd88244130413f3b1cb4d8ea28929dbca2c70b3b76920f6f443?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/09ddf7afc1083dd88244130413f3b1cb4d8ea28929dbca2c70b3b76920f6f443?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Desmond</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1091">Sunday, February 26, 2006 at 3:52 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi,<br>
+Great articles!!!  I am still experiencing memory leak with Asterisk 2.5.  Is this a known issue or is it just me?</p>
+<p><i>[WM: Memory leak means things get worse and worse until your system ultimately crashes. Are you seeing crashes? Linux is designed to use all the memory it can get its hands on. So, just because your system shows less free resources on Day 2 than it did on Day 1 doesn’t necessarily mean there’s a memory leak. It may just be Linux caching more data to speed processing up. Tell us more.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1099">
+
+			<div id="comment-1099">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/1e70fdccc21cbaf6047328a3c9d5f8982b888dc18b1126da1a392b894b7ffb1c?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/1e70fdccc21cbaf6047328a3c9d5f8982b888dc18b1126da1a392b894b7ffb1c?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">AJ</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1099">Monday, February 27, 2006 at 5:59 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Anyone know how make different incoming trunks do different options?? It seems that no matter what config files I modify, ALL my incoming calls go to the incoming calls setting specified in AMP. Its as if something is overriding my DID incoming calls settings.  Anybody have an idea for me?</p>
+<p>Thanks</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1124">
+
+			<div id="comment-1124">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3862aa3e390d318de7f78317fad6aa7c453ab2659acbaae4888fdd923039685d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3862aa3e390d318de7f78317fad6aa7c453ab2659acbaae4888fdd923039685d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">RareSanity</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1124">Friday, March 3, 2006 at 2:34 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>First of all, this article is top notch! Followed to the ‘T’ and now have a system up and running. Two questions though, is it normal to have large delays in festival transacation (like the default weather)? Also, in testing with a softphone, and dialing a different extension, I get “The person at extension” sound, but no actual number, and then it just hangs up, anyone else seen this?</p>
+<p><i>[WM: Haven’t seen the second problem you mentioned. But we have the same issue with long Festival delays which we didn’t see at all in AAH 1.5. I’ve mentioned to Andrew, but he doesn’t see it. It may be a low memory, slow processor issue in my case. What type PC are you running?]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1129">
+
+			<div id="comment-1129">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/56b7e39aab1095c961defe80b710bfcc3753c62be08b37b6b78c18fb6f83cc00?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/56b7e39aab1095c961defe80b710bfcc3753c62be08b37b6b78c18fb6f83cc00?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.bostig.com/" class="url" rel="ugc external nofollow">Jim</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1129">Saturday, March 4, 2006 at 1:54 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>THANK YOU!!  Your articles and blogging are so helpful! I’ve successfully setup my AAH and saved loads of time thanks to you. Keep up the great work!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1131">
+
+			<div id="comment-1131">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7ba290ba8cafaa6d74a244193995c2d3a434e00876200bd0c4a7c570bfc0b9e9?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7ba290ba8cafaa6d74a244193995c2d3a434e00876200bd0c4a7c570bfc0b9e9?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">TimC</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1131">Sunday, March 5, 2006 at 9:39 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I know this isn’t the Tech support site for Asterisk, but I have 1 question no one seems to be able to answer, Is there anything I can do to make call-waiting active on all extensions by default? It’s driving me insane.</p>
+<p><i>[WM: The problem is that you have to set a flag to set call waiting OFF with Asterisk. Here’s a <a href="http://voxilla.com/index.php?name=PNphpBB2&amp;file=viewtopic&amp;t=7021&amp;highlight=call+waiting&amp;sid=8c89b6dd7d6335df9f4f46fb014cbbec">thread on Voxilla</a> that will show you how to do it quickly without picking up each phone.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1142">
+
+			<div id="comment-1142">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/70e12a9884c4267c69bc769abeb8bd6406e0353fd22e2e6f1dc3f76059c0cf49?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/70e12a9884c4267c69bc769abeb8bd6406e0353fd22e2e6f1dc3f76059c0cf49?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Uwe Burger</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1142">Tuesday, March 7, 2006 at 10:39 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Important Tip for Call-Forward-On-Busy</p>
+<p>Insert the following Code into extensions.conf just above<br>
+; cancels call forward on busy for calling extension<br>
+exten =&gt; *91,1,Macro(user-callerid)</p>
+<p>—% *90,1,Answer<br>
+exten =&gt; *90,2,Wait(1)<br>
+exten =&gt; *90,3,BackGround(please-enter-your)<br>
+exten =&gt; *90,4,Playback(extension)<br>
+exten =&gt; *90,5,Read(fromext,then-press-pound)<br>
+exten =&gt; *90,6,Wait(1)<br>
+exten =&gt; *90,7,BackGround(ent-target-attendant)<br>
+exten =&gt; *90,8,Read(toext,then-press-pound)<br>
+exten =&gt; *90,9,Wait(1)<br>
+exten =&gt; *90,10,DBput(CFB/${fromext}=${toext})<br>
+exten =&gt; *90,11,Playback(call-fwd-on-busy)<br>
+exten =&gt; *90,12,Playback(for)<br>
+exten =&gt; *90,13,Playback(extension)<br>
+exten =&gt; *90,14,SayDigits(${fromext})<br>
+exten =&gt; *90,15,Playback(is-set-to)<br>
+exten =&gt; *90,16,SayDigits(${toext})<br>
+exten =&gt; *90,17,Macro(hangupcall)<br>
+—–%
+</p></div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1143">
+
+			<div id="comment-1143">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4377d10ddde5743c3638f46330a0cfdfc95275ff28356b30868db6f4bafa5ce7?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4377d10ddde5743c3638f46330a0cfdfc95275ff28356b30868db6f4bafa5ce7?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">therock</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1143">Tuesday, March 7, 2006 at 10:58 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Fantastic article. Ever since I stepped into the voip telephony world, Ward and family have become my new best friends. Thank you for taking the time to write these articles, you are simply fantastic.</p>
+<p>I have setup a nice Asterisk @home system, I got a stealth autoattendant going. I have implemented the ivr which says press 1 to continue which then gets forwarded to a ring group which rings all extensions and then gets dumped to an extensions vmail. If 1 is not received from the caller, then it is assumed this could be a telemarketer and a Zapateller sit tone is sent out, I am plagued with telemarketers!! My problem is, when the caller presses 1, i want them to hear music while all the phones ring, but i am not able to get the music on. Any ideas?</p>
+<p>my extensions_additional.conf ivr code:</p>
+<p>[aa_1]<br>
+include =&gt; aa_1-custom<br>
+exten =&gt; 1,1,Goto(ext-group,1,1)	; jump<br>
+exten =&gt; fax,1,Goto(ext-fax,in_fax,1)<br>
+exten =&gt; h,1,Hangup<br>
+exten =&gt; hang,1,Playback(vm-goodbye)<br>
+exten =&gt; hang,2,Hangup<br>
+exten =&gt; i,1,Playback(invalid)<br>
+exten =&gt; i,2,Goto(s,7)<br>
+include =&gt; ext-local<br>
+include =&gt; app-messagecenter<br>
+include =&gt; app-directory<br>
+exten =&gt; s,1,GotoIf($[${DIALSTATUS} = ANSWER]?4)<br>
+exten =&gt; s,2,Answer<br>
+exten =&gt; s,3,Wait(1)<br>
+exten =&gt; s,4,SetVar(LOOPED=1)<br>
+exten =&gt; s,5,GotoIf($[${LOOPED} &gt; 2]?hang,1)<br>
+exten =&gt; s,6,SetVar(DIR-CONTEXT=default)<br>
+exten =&gt; s,7,DigitTimeout(3)	; Bell-Inbound<br>
+exten =&gt; s,8,ResponseTimeout(7)<br>
+exten =&gt; s,9,Background(custom/aa_1)	; Stealth Auto-Attendant<br>
+exten =&gt; t,1,Zapateller	; jump<br>
+exten =&gt; t,2,Wait(2)<br>
+exten =&gt; t,3,Zapateller<br>
+exten =&gt; t,4,Wait(1)<br>
+exten =&gt; t,5,Zapateller<br>
+exten =&gt; t,6,Hangup</p>
+<p>[ext-group]<br>
+include =&gt; ext-group-custom<br>
+exten =&gt; 1,1,SetMusicOnHold(default)<br>
+exten =&gt; 1,2,Macro(rg-group,ringall,20,,250-260-280-290-261)<br>
+exten =&gt; 1,3,Macro(vm,250)	; jump</p>
+<p>P.S.I have a incoming bell (pstn) line connected to a tdm card with 1 FXO and 1 FXS and sipura fxs device and some ip phones.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1662">
+
+			<div id="comment-1662">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/bb1ed0c6a0ccebfc041152db546aece7f2b8dd44bcff2db05741fd247774815a?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/bb1ed0c6a0ccebfc041152db546aece7f2b8dd44bcff2db05741fd247774815a?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.pscom360.com/" class="url" rel="ugc external nofollow">Craig</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1662">Monday, June 19, 2006 at 8:19 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I can’t get X-Lite to register with my Asterisk Server.  The internal IP address for Asterisk.  Everything works fine when I put the internal IP address with X-Lite; however, when I attempt to use my external static IP address, X-Lite will not work.  What am I doing wrong?</p>
+<p>Thanks,<br>
+Craig</p>
+<p><i>[WM: You can’t get to your own external IP address from inside with most NAT-based routers.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1733">
+
+			<div id="comment-1733">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/353dce5efc6a2b6ed0c0f0522a6e9ab81a8ea515f6ea5e4b60d1dfc3d24ec55f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/353dce5efc6a2b6ed0c0f0522a6e9ab81a8ea515f6ea5e4b60d1dfc3d24ec55f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Matthew</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/#comment-1733">Tuesday, July 11, 2006 at 11:06 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>This site is one-of-a-kind! I have never come across any site better than this. What are the odds of adding IM (Instant Messaging) to it? </p>
+<p>Again..Well Done!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/newbies-guide-to-asterisk-at-home-25-unabridged-soup-to-nuts-installation-guide/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjU3MTc1NSwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>Newbie’s Guide to TrixBox 1.0 and FreePBX 2.1.1, Part I – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/newbies-guide-to-trixbox-10-and-freepbx-part-i/">
+<link rel="shortlink" href="/?p=137">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=1DAD8336B83CD46B41FB95E57CE65AD4');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=137">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-137 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/newbies-guide-to-trixbox-10-and-freepbx-part-i/" title="Permalink to Newbie’s Guide to TrixBox 1.0 and FreePBX 2.1.1, Part I" rel="bookmark">Newbie’s Guide to TrixBox 1.0 and FreePBX 2.1.1, Part I</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Wednesday, June 7, 2006 at 1:00 am</li>		<li class="category">in <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fnewbies-guide-to-trixbox-10-and-freepbx-part-i%2F&amp;text=Newbie%26%238217%3Bs+Guide+to+TrixBox+1.0+and+FreePBX+2.1.1%2C+Part+I" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fnewbies-guide-to-trixbox-10-and-freepbx-part-i%2F&amp;t=Newbie%26%238217%3Bs+Guide+to+TrixBox+1.0+and+FreePBX+2.1.1%2C+Part+I" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-137" class="clearfix post-137 post type-post status-publish format-standard hentry category-technology category-telephony">
+
+		<div class="entry">
+
+			<p><b>NOTE</b>: <i>The system referenced in this article is no longer supported by Nerd Vittles as this version of Asterisk has been phased out. For the latest and greatest, please consider our new <a href="/index.php?p=194">PBX in a Flash</a> offering.</i></p>
+<p><img decoding="async" src="/wp-images/trixbox.png" alt="" hspace="9" align="left">Well, the Nerd Vittles staff move is complete, and today we're back in the saddle. So, hello from Charleston, South Carolina! And now there's a brand-new Asterisk@Home: TrixBox 1.0 with a brand-new Asterisk Management Portal: freePBX 2.1.1.  So we've got a lot of new ground to cover. These new Asterisk products are designed to support the casual home or home office user's PBX needs as well as gigantic call centers processing millions of calls a month.  Everything is free except the hardware on which to run your new system. That can be a <a href="http://www.surpluscomputers.com/store/main.aspx?p=ItemDetail&amp;item=COM10676">$139 refurbished PC</a> or a multi-processor RAID box with mainframe horsepower. For home use, we've had great luck with older <a href="http://www.surpluscomputers.com/store/main.aspx?p=CATEGORYBody&amp;c=DC">refurb units</a> for under $150 each. And, no, we're not on commission. How much commission could there be on this stuff? <i>[Note: Updated TrixBox 1.2.3 tutorial available <a href="/index.php?p=151">here</a>.]</i></p>
+<p><img decoding="async" src="/wp-images/freepbx.png" alt="" hspace="9" align="left">What freePBX brings to  the table is an incredibly simple yet powerful, <i>upgradeable</i> web-based GUI to totally manage your PBX. And TrixBox adds all of the Asterisk bells and whistles you could ever ask for in an integrated PBX: full-featured database management, simple hooks to high-level application development tools such as PHP and Perl, an Apache web server, integrated voicemail and fax-to-email support, contact management, calling card billing, hardware autoconfiguration for Digium and Cisco phone hardware, Microsoft networking support, an integrated text-to-speech system, and loads of <a href="/index.php?p=81">free utility software applications for Asterisk</a> compliments of Nerd Vittles. And, yes, TrixBox 1.0 still fits on a single CD! For those new to Nerd Vittles, be aware that we make slipstream changes to articles as users discover things we've missed. Yes, we're human! So check for <a href="/index.php?p=137#comments">Comments</a> before you begin or subscribe to our <a href="/wp-commentsrss2.php">Comments RSS Feed</a>. And, last but not least,  be sure to add yourself to the <a href="http://www.frappr.com/nerdvittles">Nerd Vittles Fan Club Map</a>.</p>
+<p><b>The Game Plan.</b> Because of WordPress article length limitations and our own limited attention span, we're going to divide this Guide into several parts.  Today, we'll get your new system running so that you can make your first call.  In Part II, we'll cover a number of the bells and whistles that make TrixBox and freePBX such a great combination. Then, in Part III, we'll add some more tips and tricks to help you impress your friends whenever the need arises. And, no we haven't forgotten the other installments in our <a href="/index.php?p=135">weather report series</a>. Our updated <a href="/index.php?p=140">tutorial for TrixBox 1.1</a> is now available.</p>
+<p></p><center><!--adsense--></center>
+<p><b><a name="hardware">Hardware Setup.</a></b> You have two choices for hardware to run this new system. The first is to dedicate a machine to TrixBox and download the <a href="http://prdownloads.sourceforge.net/asteriskathome/trixbox-1.0.iso?download">TrixBox ISO image</a> to burn a bootable CD. Once you create the TrixBox CD, you simply boot your dedicated PC with the new CD. It will erase and reformat your hard disk for use with Linux and the included Linux and Asterisk applications. If you just want to experiment with TrixBox and don't plan to put the system into production other than for one or two simultaneous calls from home, then you may prefer to download the <a href="http://prdownloads.sourceforge.net/asteriskathome/trixbox_1.0_vmware.exe?download">VMware version of TrixBox</a> or <a href="http://www.vmwarez.com/2006/06/new-asteriskhome-trixbox-10-virtual.html">VMwarez's enhanced version</a>. With this approach, you install VMware on your existing Windows XP or Windows 2000 system. Then you run Linux and the TrixBox application in a window on your Windows PC. It does not require a dedicated machine. We've found the performance to be virtually identical to running TrixBox on a dedicated PC provided your Windows machine has at least 512MB to 1GB of RAM. See our <a href="/index.php?p=116">previous article</a> for step-by-step instructions on the VMware installation process. </p>
+<p>For now, however, we're assuming you've opted for the dedicated machine install: pure Linux on a clean machine.  So begin by downloading the TrixBox ISO image from <a href="http://prdownloads.sourceforge.net/asteriskathome/trixbox-1.0.iso?download">here</a> and burn a CD (click <a href="/index.php?p=62">here</a> if you need a refresher course). Using your dedicated PC, insert the CD you made, <i>plug your machine into the Internet</i>, and turn it on. Then watch while TrixBox loads CentOS/4.3 and all the Asterisk and Linux goodies imaginable: Apache, SendMail, Asterisk Mail, SugarCRM, MySQL, PHP, phpMyAdmin, SSH, Bluetooth, freePBX, the Flash Operator Panel, Call Detail Reporting, and on and on. We've covered how to use most of the Linux products in our Mac HOW-TO's (see sidebar), and they work exactly the same way with TrixBox so keep reading. And, yes, this install will reformat (aka ERASE) your hard disk before it begins, but it now warns you first. When you're prompted to create your root user password, type in something you can remember ... or write it down!</p>
+<p><b><a name="upgrading">Upgrading TrixBox from a Prior Version of Asterisk@Home.</a></b> In a nutshell, YOU CAN'T.  But there is a way to put most of Humpty back together again once you've installed the new system. <i>Before you begin, understand that you are doing this AT YOUR OWN RISK. NO GUARANTEES. If that bothers you, don't do it!</i> The real  trick is to do a little printing and copying of your old data <u>before</u> you insert that TrixBox installation disk. Step 1 is to make a full backup of your old system to a different server before you begin. If you don't know how, read our step-by-step instructions on the subject <a href="/index.php?p=89">here</a>. Step 2 is to make another copy of some of the critical files in your system. Duplicates of all of these will also be part of your backup. We typically build directories on a separate server which match the ones we'll be copying over from the old Asterisk system.  Here are the directories (<i>including all the subdirectories therein</i>) that we always duplicate. Before you just blindly copy our list, stop and think whether there are special things you do on your existing Asterisk system or special apps that you run. Then find those files and make copies of all of them, too. The important piece in making a successful copy of some of these files is to shut down Asterisk (<i>amportal stop</i>) and MySQL (<i>/etc/init.d/mysqld stop</i>) before you begin. NOTE to CRM users: There's a new version of CRM in TrixBox so it's unlikely that you can restore the databases. Check your current version of AAH (help-aah) and see if there is an option (bundle-crm) to pack up CRM to move it to another machine. If so, do it and follow the instructions. We don't use Sugar so we haven't tested this upgrade option. Here are the directories you'll want to back up:<br>
+<code><br>
+/var/lib/asterisk/agi-bin<br>
+/var/www/html<br>
+/var/lib/asterisk/sounds/custom<br>
+/var/lib/mysql<br>
+/root<br>
+/etc/asterisk<br>
+</code><br>
+Then there are a couple of individual files that you'll also want to preserve:<br>
+<code><br>
+/etc/hosts<br>
+/etc/crontab<br>
+</code><br>
+The third step is to take screenshots of every screen you've built using the Asterisk Management Portal (AMP) or a prior version of freePBX. Start in the Setup tab and go right down the list of features. For each option in which you have multiple entries (e.g. Extensions and Trunks), call up each entry and print out the full page.  Be especially careful in printing the Trunks entries and make sure you write down every line in the PEER Details and USER Details because those which are out of view will not get printed using a screen print. You'll need to manually fill in the ones that aren't displayed. The same goes for Registration Strings which often scroll out of view on the screen.  Finally, using CLI (<i>asterisk -r</i>), make a copy of all your Asterisk database entries: <i>database show</i>. Now save all this information in a safe place until we finish the new install.</p>
+<p></p><center><!--adsense--></center>
+<p><b><a name="install">Loading CentOS/4 and TrixBox 1.0.</a></b> Here's how the install went for us, and we'll walk you through getting everything set up  so that it can be used as a production server.  There is a wrinkle in the installation process because of a Linux kernel upgrade which triggers a bug in Asterisk which triggers a missing component in TrixBox, but we'll get all that fixed up in short order. Once the install begins, you can expect to eat up about 25 minutes with the CentOS 4.3 install.  Just be sure to create your new root user password before you walk away, or it will still be sitting there waiting when you return. Once Linux is installed, the TrixBox CD will eject itself, reboot the system, and begin the Asterisk compile and installation.  That takes about 25 more minutes to complete. </p>
+<p><b><a name="passwords">Securing Your Passwords.</a></b> When it's finished and reboots, log in as root with the password you assigned. Type <i>help-trixbox</i> for a listing of the other four passwords that need to be changed. Change them all NOW!<br>
+<code><br>
+passwd admin<br>
+passwd-maint<br>
+passwd-amp<br>
+passwd-meetme<br>
+</code></p>
+<p><b><a name="yum">Getting the Latest CentOS Updates.</a></b> Once your system is secure, load all of the application updates for CentOS 4.3. There now are lots of updates plus a new kernel install so be patient.  If you have zaptel cards, read <a href="http://www.trixbox.org/modules/newbb/viewtopic.php?topic_id=49&amp;forum=1#forumpost709">this thread</a>.  The command to issue to begin the update process is <i>yum -y update</i>.  </p>
+<p><b><a name="zaptel">Rebuilding Zaptel.</a></b> Every time there is a kernel update with yum (which is the case here), ZAP device support needs to be rebuilt using the new kernel. Unfortunately, a RedHat bug caused the rebuilding process to fail.  Here's the fix. Log into your new server as root and issue the following commands to determine which new kernel was loaded on your system:<br>
+<code><br>
+cd /usr/src/kernels<br>
+ls<br>
+</code><br>
+You should see the original kernel 2.6.9-34.EL-<i>something</i> and the new one: 2.6.9-34.0.1.EL-<i>something</i>. Depending upon the processor in your system, the <i>something</i> may be different than our machine. Write down the name of the new kernel directory and substitute it below for <i>2.6.9-34.0.1.EL-i686</i>. Now issue these commands:<br>
+<code><br>
+cd /usr/src/kernels/2.6.9-34.0.1.EL-i686/include/linux<br>
+mv spinlock.h spinlock.h.old<br>
+wget /trixbox/spinlock.h<br>
+shutdown -r now<br>
+</code><br>
+In a perfect world, once the reboot completes, you should have been ready to rebuild ZAP device support. But Andrew inadvertently left out the source code. So here's what you need to do next. Log into your new system as root again and issue the following commands:<br>
+<code><br>
+cd /usr/src<br>
+wget http://ftp.digium.com/pub/zaptel/releases/zaptel-1.2.5.tar.gz<br>
+tar -zxvf zaptel-1.2.5.tar.gz<br>
+mv zaptel-1.2.5 zaptel<br>
+cd /usr/src/zaptel<br>
+make clean<br>
+make install<br>
+shutdown -r now<br>
+</code><br>
+Now we can rebuild support for your ZAP devices or ztdummy if you have no ZAP devices. Log in as root again and type the following command: <i>rebuild_zaptel</i>. Then reboot your system: <i>shutdown -r now</i>. Now log in as root again and type <i>amportal stop</i> and then <i>genzaptelconf</i>. Now, here's one final housekeeping chore. Log in as root again and issue these commands:<br>
+<code><br>
+touch /etc/fxotune.conf<br>
+/usr/sbin/fxotune -s<br>
+shutdown -r now<br>
+</code></p>
+<p></p><center><!--adsense--></center>
+<p><b><a name="asteriskupgrade">Upgrading to Asterisk 1.2.9.1.</a></b> Because of a serious security vulnerability in Asterisk, we are modifying this article on June 17 to show how to load the Asterisk upgrade for those that followed this initial tutorial. Log into your server as root and issue the following commands in order:<br>
+<code><br>
+rpm -del zaptel-modules-2.6.9-34.EL<br>
+rpm -del zaptel-modules-2.6.9-35.EL<br>
+trixbox-update.sh<br>
+trixbox-update.sh update<br>
+reboot<br>
+rebuild_zaptel<br>
+modprobe wcfxo [if you have zaptel hardware]<br>
+genzaptelconf<br>
+reboot<br>
+</code><br>
+Now you should be good to go on the software front. Whew!</p>
+<p><b><a name="bluetooth">Activating Bluetooth Support.</a></b> Once the updates are completed, activate Bluetooth support if you plan to use it with our <a href="/index.php?p=78">Follow-Me Phoning</a> proximity detection application.  Run <i>setup</i>, down arrow to <i>System Services</i>, press ENTER, down arrow to <i>bluetooth</i> and press the space bar, tab to OK, press ENTER, tab twice to Quit and press ENTER.  </p>
+<p><b><a name="https">Activating Apache HTTPS Support.</a></b> If you want secure Internet web access to your server, log into your system as root and issue these commands. Once https support is installed, you can access freePBX securely: https://AsteriskServerIPaddress.<br>
+<code><br>
+yum -y install mod_ssl<br>
+shutdown -r now<br>
+</code></p>
+<p><b><a name="asteriskinfo">Restoring Asterisk Info Application.</a></b> One of the nice applications that previously was bundled in Asterisk@Home was Asterisk Info. It gave a detailed summary of many critical components in Asterisk including a listing of active SIP and IAX peers and registry entries. This is especially helpful when you're setting up new providers and want to see whether you're getting connected successfully. To restore the application, log into your server as root and issue these commands:<br>
+<code><br>
+cd /var/www/html/maint<br>
+wget /trixbox/asterisk_info.zip<br>
+unzip asterisk_info.zip<br>
+rm -f asterisk_info.zip<br>
+</code><br>
+Now you can run the application using a web browser pointed to the correct IP address of your server: <i>http://192.168.0.108/maint/asterisk_info.php</i></p>
+<p><b><a name="ssh">Simplifying SSH Access.</a></b> If you're going to be connecting to other servers from your new TrixBox system using SSH or SCP, then build your new RSA key pair now.  This lets you use SSH and SCP (secure copy) without having to enter a password each time. You can also automate backups and proximity detection scripts as we've explained previously <a href="/index.php?p=80">here</a>. Log in to your new TrixBox server as root.  From the command prompt, issue the following command: <i>ssh-keygen -t rsa</i>. Press the <i>enter</i> key three times. You should see something similar to the following. The file name and location in bold below is the information we need:<br>
+<code><br>
+Generating public/private rsa key pair.<br>
+Enter file in which to save the key (/root/.ssh/id_rsa):<br>
+Enter passphrase (empty for no passphrase):<br>
+Enter same passphrase again:<br>
+Your identification has been saved in /root/.ssh/id_rsa.<br>
+Your public key has been saved in <b>/root/.ssh/id_rsa.pub</b>.<br>
+The key fingerprint is:<br>
+1d:3c:14:23:d8:7b:57:d2:cd:18:70:80:0f:9b:b5:92 root@asterisk1.local<br>
+</code><br>
+Now copy the file in bold above to your other Asterisk servers, Linux machines, and Macs. There's probably a way on PCs as well, but we've all but given up on that platform where security matters so you're on your own there. From your TrixBox server using SCP, the command should look like the following (except use the private IP address of each of your other Asterisk or Linux servers instead of 192.168.0.104). Provide the root password to your other servers (one at a time) when prompted to do so.<br>
+<code><br>
+scp /root/.ssh/id_rsa.pub root@192.168.0.104:/root/.ssh/authorized_keys<br>
+</code><br>
+On a Mac running Mac OS X, the command would look like this (using your username and your Mac's IP address, of course):<br>
+<code><br>
+<i>For user access only: </i>scp /root/.ssh/id_rsa.pub wardmundy@192.168.0.104:/Users/wardmundy/.ssh/authorized_keys<br>
+<i>For full root access: </i>scp /root/.ssh/id_rsa.pub root@192.168.0.104:/var/root/.ssh/authorized_keys<br>
+</code></p>
+<p>Once the file has been copied to each server, try to log in to your other server from your new TrixBox server with the following command using the correct destination IP address, of course:<br>
+<code><br>
+ssh root@192.168.0.104<br>
+</code><br>
+You should be admitted without entering a password.  If not, repeat the drill or read the <a href="http://new.linuxjournal.com/article/8600">complete article</a> and find where you made a mistake. Now log out of the other server by typing <i>exit</i>.</p>
+<p></p><center><!--adsense--></center>
+<p><b><a name="webmin">Installing WebMin.</a></b> We don't build Linux systems without installing WebMin, the Swiss Army knife of the Linux World.  You can use it to start and stop services, check logs, adjust startup scripts, manage cron jobs, babysit your SendMail server, and many, many other tasks that are downright painful without it. If you ever need help from others, WebMin is a great tool for letting others help you.</p>
+<p>There are lots of ways to install WebMin. WebMin now is part of the TrixBox yum repository so, after logging in as root, just issue the following command: <i>yum -y install webmin</i>.  </p>
+<p>WebMin runs its own web server on port 10000. To start WebMin, issue this command: <i>/etc/webmin/start</i>. You access it with a web browser pointed to the IP address of your Asterisk box (i.e. replace 192.168.0.108) at the correct port address, e.g. <i>http://192.168.0.108:10000</i>. Note, https support won't work on port 10000 without a bit of additional tweaking! The login name is <i>root</i>. Then type in your root password and press enter. The main WebMin screen will display.  We really don't want the WebMin server starting up each time the OS reboots so do the following. Once you're logged in to WebMin, choose System-&gt;Bootup and Shutdown and then click on webmin. Click the No button beside Start at boot time, and then click the Save button. To stop WebMin when you're finished using it, issue this command: <i>/etc/webmin/stop</i>. You can restart it any time you need it, and then use a web browser to access it. But there's no need to waste  processing resources. For complete WebMin documentation, click <a href="http://www.webmin.com/index2.html">here</a>.</p>
+<p>If you're going to be accessing WebMin from outside your firewall, you really don't want to be logging in as root over an unencrypted connection so let's enable https support for WebMin. While still logged into WebMin, click <i>WebMin-&gt;WebMin Config-&gt;SSL Encryption</i>. Now click <i>Install Net::SSLeay Perl Module</i>. Once the module is downloaded, click the <i>Continue With Install</i> button. The make and make install process will take a minute or two. Once you get the completed sucessfully message, click <i>Return to WebMin</i>. Choose <i>WebMin-&gt;WebMin Config-&gt;SSL Encryption</i> again. At the bottom of the form, click the <i>Create Now</i> button to create your SSL key. Click <i>Return to WebMin</i> again. Then choose <i>WebMin-&gt;WebMin Config-&gt;SSL Encryption</i> once more. Change the <i>Enable SSL if available</i> option to <i>Yes</i>, leave the other defaults, and save your changes. Henceforth, you can log into your server using HTTPS: <i>https://TrixBoxIPaddress:10000/</i>.</p>
+<p><b><a name="ip">IP Configuration for Asterisk</a></b>.  We need a consistent IP address or domain name both on your internal network and externally if you expect to receive incoming calls reliably. There are three pieces to the IP configuration: (1) setting the internal IP address of your Asterisk server, (2) configuring a fully-qualified (external) domain name for your new server which will always point to your router/firewall, and (3) configuring your router to transfer incoming Asterisk packets to your Asterisk server. Here's how.</p>
+<p>First, log into your server as <i>root</i> using your new password. Now type <i>ifconfig eth0</i> (that's "e-t-h-zero") then <i>enter</i>, and write down both your <i>inet addr</i> and your <i>HWaddr</i> on the Ethernet 0 interface, eth0.  Inet addr is the internal IP address of your Asterisk box assigned by your DHCP server (i.e. your router/firewall). HWAddr is the MAC address of your Asterisk server's eth0 network card. To assure a consistent internal IP address, you can either configure your router/DHCP server to make certain that it always hands out this same address to your Asterisk machine, or you can manually configure an IP address for this machine which is not in the range of addresses used by your DHCP server. Almost all routers now make it easy to preassign DHCP addresses so we prefer option 1.  It's generally under the tab for LAN IP Setup or DHCP Configuration and is generally called something like Reserved IP table. Just add an entry and call it Asterisk PBX and specify the IP address and MAC address that you wrote down above.  Now each time you reboot your Asterisk server, your router will assign it this same IP addreess. </p>
+<p>To assure a consistent external address is a little trickier. Unless you have a static (fixed) IP address, you'll want to use a Dynamic DNS service such as dyndns.org and configure your router to always advertise its external IP address to dyndns.org.  DynDNS.org will take care of revising the IP address associated with your domain name when your ISP changes your dynamic IP address. Then you can configure your VoIP provider account using your fully-qualified dyndns.org domain name, e.g. windswept.dyndns.org provides access to our beach house network even though Time Warner cable hands out dynamic IP addresses which change from time to time. </p>
+<p>Now you'll need to log into your router and redirect certain incoming UDP packets to the internal IP address of your Asterisk machine.  If you want external access to the Apache web server on your Asterisk machine, then map TCP port 80 to the internal IP address of your Asterisk system.  For WebMin external access, map TCP port 10000 to your Asterisk system. If you want remote access to your Asterisk system via SSH, then map TCP port 22 to the internal IP address of your Asterisk system. If you want external IP phones or other Asterisk servers to be able to communicate with your Asterisk system, then map the following UDP port ranges to the internal IP address of your Asterisk system:<br>
+<code><br>
+SIP 5004-5082<br>
+RTP 10001-20000<br>
+IAX 4569<br>
+</code><br>
+For more details, read our <a href="/index.php?p=32">full article</a> on the subject. </p>
+<p>Finally, you'll need to tell Asterisk about some of this. Edit the sip.conf file (<i>nano -w /etc/asterisk/sip.conf</i>) and add the following entries in the [general] section of the file using your fully-qualified domain name for your server and the private IP address range used behind your router/firewall (typically 192.168.0.0 or 192.168.1.0 with most home routers):<br>
+<code><br>
+externhost = yourdomainname.dyndns.org<br>
+localnet=192.168.0.0/255.255.255.0<br>
+nat=yes<br>
+</code></p>
+<p></p><center><!--adsense--></center>
+<p><b><a name="design">Designing Your PBX System.</a></b> For those new to the Asterisk world, we'll be using a web-based GUI to configure Asterisk to meet your needs. Step 1 is to get away from your computer and sit down with a piece of paper. Now lay out how you'd like your new system to operate. How many phones will you have? Will they be software-based phones or good old phones you can put on a desktop? Will they be POTS phones (plain old touchtone phones), cordless POTS phones, SIP phones, IAX phones, or cordless SIP phones? How will you make and receive calls? Are you going to use an existing Ma Bell phone line or VoIP trunk lines from one or more VoIP providers?  What should happen when incoming calls arrive? Do you want the caller to get an AutoAttendant message ("Hi. You've reached the Mundy's. Press 1 for Mary, 2 for Ward, or 3 to leave a message.") or do you just want all of your phones to start ringing? What should happen when no one answers or the line is busy? Do you want the calls transferred to a cell phone, another POTS phone, or just sent to voicemail? Which voicemail account? Should all busy phones send callers to the same voicemail account, or do you want one for each phone? What should happen once voicemail arrives? Do you want the phone to ring once a minute? Do you want the message waiting indicator to illuminate? Do you want the voicemail message to be emailed to you? Do you also want it preserved so that you can retrieve it from a touchtone phone? Do you want to be paged with the number of the person that called you? </p>
+<p><b><a name="alert">ATTN: "Type A" Males.</a></b> With apologies to our female readers, let me chat privately for a moment with the guys. If you have a wife (and want to keep her) or if you have teenage daughters (and want to avoid being killed in your sleep), you'd better get most of this PBX design right if you plan to use Asterisk to replace your existing home phone system. Otherwise, the day after you install your new system, a typical discussion with your spouse will begin with something like this: "What was wrong with our old phones that just rang when someone called and I could actually hear what they were saying when I answered?" With that caveat in mind, let's jump right in to freePBX.</p>
+<p><b><a name="objective">Today's Objective.</a></b> Keeping in mind that there are a million ways to configure and customize a PBX, we're going to walk you through a very simple setup today. Our objective is to get Asterisk and freePBX configured so that you can make a call and receive a call. In our next article, we'll start adding all the bells and whistles.  But, for today, we'll show you how to set up an incoming and an outgoing VoIP trunk so you can make and receive free calls (at least in the U.S.) using a free softphone. When no one answers, the call will be sent to voicemail. And, when a voicemail message is left, the message will be emailed to you. We'll leave integration of existing POTS phones and phone lines for another day.</p>
+<p><b><a name="providers">Choosing VoIP Providers.</a></b> As you will quickly learn, choosing VoIP providers is an art, not a science. And it can be a slippery slope. A provider that is great one day can turn into an absolute nightmare the next. Take BroadVoice, for example. They used to be one of our favorites. Then the CEO left, and the company's business practices, uh,  <i>changed</i> to put it charitably. You can read all about it on this <a href="http://voxilla.com/PNphpBB2-viewforum-f-37.html">forum</a> or at the <a href="http://www.bosbbb.org/reports/reliability_report.asp?FirmId=0000096312">Better Business Bureau's site</a>. All it takes is a change in leadership or direction at the company headquarters to go from first to worst overnight. So the best advice we can offer about choosing providers is this. Stay Flexible! Don't put all your eggs in one basket. And don't be in a hurry to disconnect your Ma Bell line and transfer your number until you are pretty confident about your provider. Six months is an absolute minimum, and a year is probably better. VoIP providers come and go at about the same pace as fast food restaurants in a new community.</p>
+<p>Having said all of that, we have some providers we really like and some that we don't. YMMV! The basic idea in switching to Voice Over IP technology was to save money... not just for the provider, but for you, too. So PRICE MATTERS. There are typically three types of VoIP service: all-you-can-eat at a fixed monthly price, pay-as-you-go at a per minute (or part of a minute) rate, and free. Some providers only offer outbound service, and others offer incoming and outgoing calls. To receive calls, you've got to have an account with a provider that will give you a phone number unless you want to only get calls from other users of that provider's service, e.g. Skype. You don't have to use the same provider for inbound and outbound calls, and you are better off with backup providers for BOTH inbound and outbound calls. </p>
+<p>If you select an all-you-can-eat plan, you basically get the right to make (or receive) ONE phone call at a time to a certain geographic area. This may be a state, an area code, or a country depending upon where you live and which provider you choose. The best of these in the U.S. is <a href="http://www.telasip.com/index.html?PARTNER=NerdVittles">TelaSIP</a> at $14.95 a month for unlimited U.S. calling. The runner-up is <a href="http://www.shareasale.com/r.cfm?b=43772&amp;u=146518&amp;m=8798&amp;urllink=&amp;afftrack=">Axvoice</a> which has a broader variety of plans including an unlimited international calling plan at $22.99 a month. Be aware of the fine print with all-you-can-eat providers. Some such as <a href="http://www.teliax.com/?a=64254429">Teliax</a> don't really offer unlimited calling even tough they call it that. What they offer is unlimited calling <i>up to</i> some monthly cap of minutes. For example, with Teliax, up to 1500 minutes a month are "free" and then you pay 2¢ per minute thereafter. They're not really free because you've paid a $24.99 monthly fee for the initial 1,500 minutes. Then there's our old favorite BroadVoice which now offers unlimited calling with a little asterisk. After you drill down to the third level in their web pages, you'll see this in the fine print: "* Significant restrictions apply to Unlimited Plans." If you violate their undefined "normal residential usage patterns", you agree in advance to let them retroactively charge you 5¢ per minute for every call you've made since you signed up... plus $300/hour in in-house legal fees for successful collection. I wonder if they pay their staff attorneys that much? Their terms of use give them unfettered discretion in defining what's appropriate and inappropriate use. And, arguably, even having multiple people in your household use your "unlimited plan" violates their <a href="http://www.broadvoice.com/terms.html">terms of service</a>. So, unless you've recently won the lottery or just enjoy litigation, here's our best advice on BroadVoice: JUST SAY NO!</p>
+<p>With pay-as-you-go providers, there typically are no simultaneous call limitations because you're paying by the minute per call. Some of these providers charge in whole minute increments while others round calls to as little as six second billing increments. Some leave their rates the same for six months or more. Others change their rates almost daily. You don't want to have to visit a web site each time your phone rings to determine what it will cost to pick up the phone. So be alert in choosing a pay-as-you-go provider. The best of the bunch in our opinion is <a href="http://voxee.com/">Voxee.com</a> at about a penny a minute for U.S. calls and only slightly more for calls to many international destinations.</p>
+<p>And then there are the free providers. Here's a good rule of thumb. Enjoy it while it lasts. Don't expect free to last forever. And, most importantly, READ THE FINE PRINT. It costs the provider something to offer the service and, if they're giving the service away, there IS a catch. You just have to be smart enough to figure out what it is. The best freebies at the moment are <a href="/index.php?p=127">VoipDiscount.com</a> for free outbound calls to numerous countries including the U.S. at least today, <a href="/index.php?p=125#freedigits">FreeDigits.com</a> for free incoming DIDs, free incoming calls, and free incoming fax service, and <a href="/index.php?p=118#stanaphone">Stanaphone.com</a> for free incoming DIDs and free incoming calls. See our complete list of <a href="/index.php?p=130#reviews">VoIP Provider reviews</a> for additional information and setup instructions.</p>
+<p>If you just want to experiment with your new system and don't want to cough up much money, here's a good way to get your feet wet. Sign up for a free incoming DID number and free incoming calls with Stanaphone's Stana-IN service and sign up with VoIPDiscount.com for free outbound calls. You'll need a Windows machine to initially sign up for both of these services. See our <a href="/index.php?p=130#reviews">tutorials</a> for details. You won't have a phone number in your local area code, but folks will be able to call you. If you want a number in your local area code and you live in the U.S., sign up for <a href="http://www.telasip.com/index.html?PARTNER=NerdVittles">TelaSIP's basic service</a> at $5.95 a month which gets you a local phone number and free unlimited incoming calls ... one at a time. Outbound calls in the U.S. are 2¢ a minute which gives you a good backup to your free VoIPDiscount outbound calling service. There are no obnoxious terms of service or hidden fees with TelaSIP. Just use the service for residential calling.</p>
+<p><b><a name="softphones">Downloading a Free Softphone.</a></b> Unless you already have an IP phone, the easiest way to get started and make sure everything is working is to install an IP softphone. You can download a softphone for Windows, Mac, or Linux from <a href="http://www.xten.com/index.php?menu=download">CounterPath</a>. Or download the <a href="http://www.freeworlddialup.com/communicator/">pulver.Communicator</a> or the <a href="http://www.snom.com/snom360softphone.html">snom 360 Softphone</a> which is a replica of perhaps the best IP phone on the planet. Here's a new IAX softphone for all platforms that's great, too, and it requires no installation: <a href="http://www.asteriskguru.com/idefisk/free/">Idefisk</a>. All are free! Just install and then configure with the IP address of your TrixBox server. For username and password, use the extension number and password which we'll set up shortly with freePBX. Once you make a few test calls, don't waste any more time. Buy a decent SIP telephone.  We think the best value in the marketplace with excellent build quality and feature set is the $85 <a href="http://voipstore.atacomm.com/shops/ViewItem.aspx/27934028032-43410781952.htm">GrandStream GXP-2000</a>. It has support for four lines, speaks CallerID numbers, has a lighted display, and can be configured for autoanswer with a great speakerphone. Short of paying over double for the <a href="http://voipstore.atacomm.com/shops/ViewItem.aspx/27934028032-41917244928.htm">snom 360</a>, that's as good as desktop phones get.  If you want to use Asterisk throughout your home, buy  a good 5.8GHz wireless phone system with plenty of extensions such as the Uniden 8866 which we use (see ad below) and then purchase an <a href="http://store.voxilla.com/customer/product.php?productid=16144&amp;cat=248&amp;page=1">SPA-3000</a> to connect up both your home phone line and all your cordless phones. Our <a href="/index.php?p=65">tutorial</a> will show you how.<br>
+</p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="uniden 8866"></eminimall>
+<p></p></center>
+<p><b><a name="freepbx">Initial Setup of freePBX.</a></b> You still access freePBX just as you accessed the Asterisk Management Portal (AMP), by pointing a web browser to the internal IP address of your new Asterisk system. The username is still <i>maint</i>. Just enter the password you assigned to freePBX/AMP when you configured your system. In the old days, AMP came preconfigured with everything they thought you'd need to use it. With the new freePBX architecture, you first have to install and enable the modules you want to use. And now others can write modules to expand the capabilities of freePBX without futzing around in the basic source code. You get to these modules by clicking the <i>freePBX</i> option from the TrixBox main menu. Then choose <i>Tools-&gt;Module Admin</i> from the main freePBX menu. Unlike some applications, there's really no reason not to activate all of the available modules since they won't slow down Asterisk. The only performance hit is when you click the Red Bar to reload freePBX. The more modules you've activated, the longer it will take to reload freePBX since it queries each module to see if changes need to be applied. So, in the Module Administration screen, click <i>Connect to Online Module Repository</i> to first download all of the available modules. Then select all of the Disabled Modules and Enable them. Click Submit and then the Red Bar to save your updates. From time to time, you need to revisit this page to upgrade the modules as bug fixes are released.</p>
+<p>As you can see, there are two types of Modules: Local Modules and Online Modules. Local Modules are the pieces that make freePBX work on your local machine. Online Modules provides access to modules which are available for download over the Internet. And Online Modules tells you which ones are newer than the ones currently on your system.  Before too long, we wouldn't be surprised to see an option to email you notices when new modules are released or older ones are updated. This is nothing short of fantastic for the Asterisk community if we do say so.</p>
+<p>Last but not least, for each Module, there now is online documentation. You can read about all the Module pieces by clicking <a href="http://www.aussievoip.com.au/wiki/index.php?page=freePBX-Modules">here</a>. Once you complete the above steps, you're ready to set up your new system.</p>
+<p><b><a name="trunks">Configuring freePBX Trunks.</a></b> When you click the <i>Setup</i> tab in freePBX, the first thing you'll notice is there are a lot more options.  Start by adding your Trunks. This works pretty much like it always has. Choose ZAP, IAX2, SIP, or <a href="http://www.geek-pages.com/articles/asterisk/setting_up_enum_for_outbound_calls_on_asterisk_at_home.html">ENUM</a> for each trunk and proceed accordingly. Down the road, the grand plan is to have sample settings for each provider on line <a href="http://www.aussievoip.com.au/wiki/index.php?page=freePBX-VSP">here</a>. Very cool!</p>
+<p>For our sample setup today, we'll configure SIP trunks for Stanaphone, TelaSIP, and VoipDiscount. For each provider, click on the <i>Setup-&gt;Trunks</i> tab in freePBX. Then click <i>Add SIP Trunk</i>. After you complete the entries for each provider, click <i>Submit Changes</i> and then the Red Bar.</p>
+<p><b><a name="stanaphone">StanaPhone Trunk Setup.</a></b> Here are the entries for the Stanaphone SIP trunk. For <i>Outbound CallerID</i>, enter the phone number assigned to you by StanaPhone. For <i>Maximum Channels</i>, enter 1. Leave the <i>Dial Rules</i> and <i>Dial Prefix</i> blank for the time being. </p>
+<p>For <i>Outgoing Settings</i>, enter a <i>Trunk Name</i> of stanaphone. For <i>Peer Details</i>, enter the following using your assigned username and password. Be very careful to match the upper and lower case settings in your assigned password.<br>
+<code><br>
+host=sip.stanaphone.com<br>
+insecure=very<br>
+nat=yes<br>
+secret=yourpassword<br>
+type=peer<br>
+username=yourusername<br>
+</code></p>
+<p>For <i>Incoming Settings</i>, enter a <i>USER Context</i> of <i>from-pstn</i>. This tells Asterisk to process incoming calls through this context in your dialplan. For <i>USER Details</i>, enter the following using your assigned username and password:<br>
+<code><br>
+canreinvite=no<br>
+dtmfmode=rfc2833<br>
+host=sip.stanaphone.com<br>
+insecure=very<br>
+nat=yes<br>
+secret=yourpassword<br>
+type=peer<br>
+username=yourusername<br>
+</code></p>
+<p>For the <i>Registration String</i>, enter the following using your assigned username, password, and 347 phone number:<br>
+<code><br>
+yourusername:yourpassword@sip.stanaphone.com/3471234567<br>
+</code></p>
+<p>Click the <i>Submit Changes</i> button and then click on the <i>Red Bar</i> to save your trunk settings and reload Asterisk. To be sure you have properly registered with Stanaphone, run the Asterisk_Info application which we installed above using your correct IP address: <i>http://192.168.0.108/maint/asterisk_info.php</i>. Under SIP Peers, you should see an entry for sip.stanaphone.com showing a state of Registered. If not, check your username and password entries for typos.</p>
+<p></p><center><!--adsense--></center>
+<p><b><a name="telasip">TelaSIP Trunk Setup.</a></b> Here are the entries for the TelaSIP SIP trunk. For your <i>Outbound Caller ID</i>, fill in the local phone number provided by Telasip. For <i>Maximum Channels</i>, enter 1. For <i>Dial Rules</i>, enter the following:<br>
+<code><br>
+1|NXXNXXXXXX<br>
+NXXNXXXXXX<br>
+</code><br>
+In the Outgoing Settings section, name your trunk <i>telasip-gw</i> and then enter the following <i>PEER details</i> using your TelaSIP-assigned username and password:<br>
+<code><br>
+context=from-pstn  (if that doesn't work use: from-trunk)<br>
+dtmfmode=rfc2833<br>
+host=gw3.telasip.com<br>
+insecure=very<br>
+secret=yourpassword<br>
+type=peer<br>
+username=yourusername<br>
+</code><br>
+Leave the Incoming Settings <i>User Context</i> and <i>User Details</i> blank. For your <i>Registration string</i>, enter the following: <i>yourusername:yourpassword@gw3.telasip.com</i> using your actual username and password assigned by TelaSIP. Click <i>Submit Changes</i> and then the red bar to restart Asterisk. Use Asterisk_Info as we did with Stanaphone to be sure you are registering successfully with TelaSIP.</p>
+<p><b><a name="telasip">VoipDiscount Trunk Setup.</a></b> Here are the entries for the VoipDiscount SIP trunk. Create a SIP trunk for the service with a Trunk Name of <i>voipdiscount</i>. VoipDiscount doesn't support an outbound CallerID number so leave it blank. The Outgoing Dialing Rules in the U.S. should look like this:<br>
+<code><br>
+001+NXXNXXXXXX<br>
+00+1NXXNXXXXXX<br>
+</code></p>
+<p>Add the following PEER Details in Outgoing Settings using your own <i>username</i> (in three places!) and <i>password</i>. Leave the Incoming Settings blank.<br>
+<code><br>
+allow=ulaw&amp;alaw<br>
+authuser=yourusername<br>
+disallow=all<br>
+fromdomain=sipdiscount.com<br>
+fromuser=yourusername<br>
+host=sip.sipdiscount.com<br>
+insecure=very<br>
+nat=yes<br>
+qualify=yes<br>
+secret=yourpassword<br>
+sendrpid=yes<br>
+type=peer<br>
+username=yourusername<br>
+</code></p>
+<p>For the Registration String, enter the following using your own <i>username</i> and <i>password</i>:<br>
+<code><br>
+yourusername:yourpassword@sip.sipdiscount.com<br>
+</code><br>
+Click the Submit Changes button and click the Red Bar to update Asterisk. Use Asterisk_Info as we did with Stanaphone to be sure you are registering successfully with VoipDiscount.</p>
+<p>When you have your Trunks set up, you'll need a way to call out (Outbound Routes), to call in (Inbound Routes), and to process incoming calls: a Digital Receptionist, a Call Queue, a Custom Application, DISA, or a phone to ring (Extensions). For today, we'll get the phones to ring. Then we'll tackle the other options in Parts II and III.  </p>
+<p></p><center><!--adsense--></center>
+<p><b><a name="outbound">Configuring Outbound Routes.</a></b> Outbound routes are the rules that determine how calls that are dialed from an extension on your system get processed. The idea here is that you set up a list of priorities. Then, based upon the number dialed, the outbound rules figure out how to route the call. We're going to start with a simple Outbound Route called <i>Everything</i> which will process all calls that are not handled by another Outbound Route. Click <i>Setup-&gt;Outbound Routes-&gt;Add Route</i> and enter the following:<br>
+<code><br>
+<b>Route Name</b> ... Everything<br>
+<b>Route Password</b> ... [leave it blank]<br>
+<b>Pin Set</b> ... [leave it blank]<br>
+<b>Emergency Dialing</b> ... [leave it blank]<br>
+<b>Dial Patterns</b>:  (adjust these if you wish to permit international calls!)<br>
+1NXXNXXXXXX<br>
+NXXNXXXXXX<br>
+<b>Trunk Sequence</b>:<br>
+0 sip/voipdiscount<br>
+1  sip/telasip-gw<br>
+</code><br>
+Once you've made all the entries, click the <i>Submit Changes</i> button and then the <i>Red Bar</i> to reload Asterisk. You will be able to place calls by dialing either an area code and phone number or 1 plus an area code and phone number. For international callers, our previous articles will walk you through configuring the dial strings to support various countries. Now you should see two Outbound Routes in your route list. We want to delete the other route so just click on it and then choose <i>Delete Route</i> and click the Red Bar to save your changes. Now there should be only the <i>Everything</i> route in your Outbound Routes list. We'll leave it like that for today, but down the road, we'll add options for emergency calls, toll-free calls, in-state calls, and international calls. After we make those additions, the Everything route will be used as our lowest priority catch-all for calls that don't qualify for processing by another route.</p>
+<p><b><a name="extensions">Setting Up Extensions.</a></b> To add a new extension and voicemail account to your system, click <i>Setup-&gt;Extensions-&gt;Add SIP Extension</i> and enter the following:<br>
+<code><br>
+<b>Extension Number</b> ... 500<br>
+<b>Display Name</b> ... Office<br>
+<b>Extension Options</b><br>
+<b>Direct DID</b> ... [your 10-digit TelaSIP phone number if you have one; otherwise, leave blank]<br>
+<b>DID Alert Info</b> ... [leave blank]<br>
+<b>Outbound CID</b> ... [your 10-digit TelaSIP phone number if you have one; otherwise, leave blank]<br>
+<b>Emergency CID</b> ... [your 10-digit TelaSIP phone number if you have one; otherwise, leave blank]<br>
+<b>Record Incoming</b> ... On Demand<br>
+<b>Record Outgoing</b> ... On Demand<br>
+<b>Device Options</b><br>
+<b>secret</b> ... 1234<br>
+<b>dtmfmode</b> ... rfc2833<br>
+<b>Voicemail &amp; Directory</b> ... Enabled<br>
+<b>voicemail password</b> ... 1234<br>
+<b>email address</b> ... yourname@yourdomain.com [if you want voicemail messages emailed to you]<br>
+<b>pager email address</b> ... yourname@yourdomain.com [if you want to be paged when voicemail messages arrive]<br>
+<b>email attachment</b> ... yes [if you want the voicemail message included in the email message]<br>
+<b>play CID</b> ... yes [if you want the CallerID played when you retrieve a message]<br>
+<b>play envelope</b> ... yes [if you want the date/time of the message played before the message is read to you]<br>
+<b>delete Vmail</b> ... yes [if you want the voicemail message deleted after it's emailed to you]<br>
+<b>vm options</b> ... callback=from-internal [to enable automatic callbacks by pressing 3,2 after playing a voicemail message]<br>
+<b>vm context</b> ... default<br>
+</code></p>
+<p></p><center><!--adsense--></center>
+<p><b><a name="inbound">Configuring Inbound Routes.</a></b> Just as we had to tell Asterisk how to process outbound calls, you also have to define what to do with incoming calls from each of your inbound trunks. Be aware that different service providers have implemented SIP and IAX differently. One of the best providers for proper SIP implementation is TelaSIP because you can route incoming calls based upon the DID numbers associated with each trunk. So you could have one incoming trunk from TelaSIP with multiple DID numbers (for each of your children, for example). Each DID then could be routed to a specific extension, and each extension could have its own CallerID number for outbound calls ... even though you might only have one TelaSIP trunk line. So, to outside callers, it would appear that each individual had his or her own phone line even though everyone might be sharing one or two trunks.</p>
+<p>For today, we'll get a default inbound route established, and we'll save the gee whiz stuff for the next chapter.  To create a Default Inbound Route for your calls, choose <i>Setup-&gt;Inbound Routes-&gt;Add Route</i>. Then enter the following:<br>
+<code><br>
+<b>DID Number</b> ... [leave blank]<br>
+<b>CallerID Number</b> ... [leave blank]<br>
+<b>Zaptel Channel</b> ... [leave blank]<br>
+<b>Fax Extension</b> ... disabled<br>
+<b>Fax Email</b> ... [leave blank]<br>
+<b>Fax Detection Type</b> ... none<br>
+<b>Pause After Answer</b> ... [leave blank]<br>
+<b>Privacy Manager</b> ... no<br>
+<b>Alert Info</b> ... [leave blank]<br>
+<b>Destination: </b> ... Core: Office 500<br>
+</code><br>
+Click Submit and then OK when you're warned that this will create a default incoming route for your calls. Down the road as you add additional incoming routes, the new routes will take precedence unless there's no matching DID in which case this default route will be used. </p>
+<p>If you want to create a separate incoming route for your Stanaphone calls just to see how it works, click Add Incoming Route and enter the following:<br>
+<code><br>
+<b>DID Number</b> ... [your 10-digit Stanaphone number]<br>
+<b>CallerID Number</b> ... [leave blank]<br>
+<b>Zaptel Channel</b> ... [leave blank]<br>
+<b>Fax Extension</b> ... freePBX default<br>
+<b>Fax Email</b> ... [leave blank]<br>
+<b>Fax Detection Type</b> ... NVfax<br>
+<b>Pause After Answer</b> ... 2<br>
+<b>Privacy Manager</b> ... no<br>
+<b>Alert Info</b> ... [leave blank]<br>
+<b>Destination: </b> ... Core: voice mailbox 500<br>
+</code><br>
+The trick to learn here is that if you want an incoming DID to go straight to voicemail, you need a slight pause to let Asterisk get properly set up for the call or the first couple seconds of your voicemail announcement will be cut off. By adding two seconds of fax detection, everything will work swimmingly.</p>
+<p><b>Allowing Anonymous Inbound SIP Calls.</b> One final step, and your incoming calls should start arriving without a "this number is not in service" message. Choose <i>Setup-&gt;General Settings</i> and scroll to the bottom of the page. Under Security Settings, change Allow Anonymous Inbound SIP Calls from No to Yes and click Submit Changes and then the Red Bar. Once this change is made, inbound calls from Stanaphone will work reliably.</p>
+<p><a name="email"><b>Activating Email Delivery of VoiceMail Messages</b></a>. When you're out and someone leaves you a voicemail message, TrixBox and freePBX will let you forward that voicemail message to your email address as a .wav file which can be played within most email client software. Or you can have the system send an instant message to your cell phone or pager telling you who called, what their phone number was, and how long a voicemail message the person left for you.  Or you can do both.  In addition, you can tell the system whether to delete the voicemail from your Asterisk server after sending it to your email account.  In short, you now can manage all of your incoming email and voicemail from a single place, your email client. In order to send out emails from your server, you'll need to make a few changes. </p>
+<p>First, make this adjustment to the /etc/hosts file on the server.  Since anonymous emails are blocked by most ISPs, you'll need a fully-qualified domain name for your server. If you don't have your own domain, the easiest alternative is to use the fully-qualified domain name that your ISP assigns to the IP address for your broadband connection. Don't forget to update it when your ISP changes your IP address! To find out what your fully-qualified domain name is, go to a command prompt on  your Asterisk server and type: <i>nslookup 123.456.789.001</i> substituting your public IP address for the preceding numbers. Then write down the name entry without the trailing period. Now edit the hosts file: <i>nano /etc/hosts</i>.  Move the cursor to the second line which reads <i>127.0.0.1 asterisk1.local </i>, and then move the cursor over the first letter of the first domain name shown, usually <i>asterisk1.local</i>. Now type in the fully-qualified domain name you previously wrote down and add a space after your entry. Don't erase the existing entry! Save your settings: <i>Ctrl-X, y, enter</i>. Now restart network services on your Asterisk machine: <i>service network restart</i>.  </p>
+<p>Next, you need to modify the email message which delivers your voicemails so that it includes your fully-qualified domain name. Don't do this in TrixBox, or you'll mess up the formatting of the email message. You can download a fresh copy <a href="/vm_email.inc">here</a> if you need it. Instead, use nano: <i>nano -w /etc/asterisk/vm_email.inc</i>. Press <i>Ctrl-W</i>, type <i>AMPWEBADDRESS</i>, and press the enter key. Delete the word AMPWEBADDRESS and then type either the fully-qualified domain name for your Asterisk server or the private IP address if you only want to read your emails from behind your firewall. When you start typing, the text display may jump all over the place because of word wrap. Don't freak out. You haven't messed anything up. Once you complete your entry, don't erase or change anything else. Save the file: <i>Ctrl-X,Y, then enter</i>. </p>
+<p>Now edit vm_general.inc: <i>nano -w /etc/asterisk/vm_general.inc</i>. Change the <i>serveremail</i> entry of vm@trixbox to an email name at the same fully qualified domain you used in your /etc/hosts file above. Then save your configuration and restart Asterisk: <i>amportal restart</i>. If you continue with this setup and still don't receive emails, here's another configuration change that is sometimes necessary. You'll also need to do it if you reloaded settings from an older version of Asterisk. On the Asterisk terminal, log in as root. Switch to the directory where the SendMail configuration file is stored: <i>cd /etc/mail</i>. Make a backup of the config file: <i>cp  sendmail.cf sendmail.cf.bak</i>. Then issue the following command: <i>echo CGasterisk.dyndns.org &gt;&gt; sendmail.cf</i>. Substitute the actual domain name of your Asterisk server for asterisk.dyndns.org, but be sure it's preceded by CG with no intervening spaces.Then restart SendMail on your server and try again: <i>/etc/rc.d/init.d/sendmail restart</i>. Finally, if your ISP doesn't permit downstream mail servers (that's you), then take a look at this <a href="http://sourceforge.net/forum/forum.php?thread_id=1405190&amp;forum_id=420324">link</a> which will show you how to designate your ISP as your SMTP smart host using SendMail.</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="vtech i5871"></eminimall>
+<p></p></center>
+<p><a name="weather"><b>Activating the Nerd Vittles Weather Forecasts in TrixBox</b></a>. TrixBox now includes the Flite text-to-speech engine as well as the Nerd Vittles weather forecasting system. To use it, just dial 611 from a phone on your system and enter a 3-character airport code to retrieve the weather forecast. We now support about 50 airports. In our next installment, that will be expanded to 1,000 so stay tuned. For complete instructions, read our <a href="/index.php?p=135">original article</a>. </p>
+<p><a name="wakeup"><b>Creating Wakeup Calls in TrixBox</b>.</a> To set up a wakeup call from any extension, dial *62 and enter a two-digit hour and two-digit minute for the wakeup call. </p>
+<p><a name="extension"><b>Determining the Extension Number of Any Phone on Your TrixBox System</b>.</a> To determine the extension number of any phone on your system, dial *65 from that extension.</p>
+<p><a name="voicemail"><b>Retrieving VoiceMail from Any Phone With TrixBox</b>.</a> To retrieve voicemail for any extension, dial *98 and enter the voicemail extension number. When prompted, enter the password for that account.  To retrieve voicemail for the extension from which you are calling, dial *97 and enter the password for the account when prompted. You can also set your voicemail defaults and record your voicemail greetings using these options.</p>
+<p></p><center><!--adsense--></center>
+<p><a name="functions"><b>Useful Functions on Your TrixBox System.</b></a> Here's the complete list of functions that will work out of the box from any extension on your TrixBox system:</p>
+<li><b>611</b>  <i>The Latest Weather Forecast</i></li>
+<li><b>*62</b>  <i>Schedule a Wakeup Call</i></li>
+<li><b>*65</b>  <i>Decipher Extension Number of Any Phone</i></li>
+<li><b>*70</b>  <i>Activate Call Waiting</i></li>
+<li><b>*71</b>  <i>Deactivate Call Waiting</i></li>
+<li><b>*72</b>  <i>Enable Call Forwarding</i> (include forwarding number to avoid prompt)</li>
+<li><b>*73</b>  <i>Disable Call Forwarding</i></li>
+<li><b>*90</b>  <i>Enable Call Forwarding on Busy</i> (include forwarding number to avoid prompt)</li>
+<li><b>*91</b>  <i>Disable Call Forwarding on Busy</i></li>
+<li><b>*78</b>  <i>Enable Do Not Disturb</i></li>
+<li><b>*79</b>  <i>Disable Do Not Disturb</i></li>
+<li><b>*97</b>  <i>Access Voicemail for Calling Extension</i></li>
+<li><b>*98</b>  <i>Access Voicemail with Prompt for Mailbox Number</i></li>
+<p>Well, that should get you started. We'll tackle the gee whiz features in TrixBox and freePBX in our next article so visit us again soon. In the meantime ...</p>
+<hr>
+<p><b>Hosting Provider Special.</b> Just an FYI that the Nerd Vittles hosting provider, <a href="http://www.bluehost.com/track/nerdvittles/mayday">BlueHost</a>, has continued their limited time special on hosting services. For $6.95 a month, you can host up to 6 domains with 15GB of disk storage and 400GB of monthly bandwidth. Free domain registration is included for as long as you have an account. It doesn't get any better than that, and their hosting services are flawless! We oughta know. We've tried the best of them. If you've never tried a web hosting provider, there's never been a better time. Just use this <a href="http://www.bluehost.com/track/nerdvittles/mayday">link</a>, and we'll all be happy. </p>
+<hr>
+<p><a href="http://www.frappr.com/nerdvittles"><img decoding="async" src="/wp-images/nvmap2.jpg" alt="" hspace="9" align="left"><b>Nerd Vittles Fan Club Map.</b></a> Thanks for visiting! We hope you'll take a second and add yourself to our <a href="http://www.frappr.com/nerdvittles">Frappr World Map</a> compliments of Google. In making your entry, you can choose an icon: guy, gal, nerd, or geek. For those that don't know the difference in the last two, here's the <a href="http://www.google.com/url?sa=X&amp;start=2&amp;oi=define&amp;ei=-dsjRO7-I86GswGWjtHpBw&amp;sig2=k5uEX30_RqM_kNJlARWRcw&amp;q=http://www.scotsmist.co.uk/glossary_n.html">best definition</a> we've found: <i>"a nerd is very similar to a geek, but with more RAM and a faster modem."</i>  We're always looking for the best BBQ joints on the planet. So, if you know of one, add it to the map while you're visiting as well. </p>
+<p></p><center><!--adsense--></center>
+<p><b>Want More Projects?</b> For a complete catalog of all our previous Asterisk projects, click <a href="/index.php?p=130">here</a>.  For the most recent articles, click <a href="/">here</a> and just scroll down the page. </p>
+<p><b>Headline News for the Busy Executive and the Lazy Loafer.</b> Get your Headline News the easy way: <a href="http://planetasterisk.org/">Planet Asterisk</a>, <a href="http://planetgadget.org/">Planet Gadget</a>, <a href="http://planetmac.org/">Planet Mac</a>, and <a href="http://planetdaily.org/">Planet Daily</a>. Quick read, no fluff.</p>
+<p><b>Got a PDA or Web-Enabled Smartphone?</b>  Check out our new <a href="http://pdaweather.org/">PDAweather.org</a> site and get the latest weather updates and forecasts from the National Weather Service perfectly formatted for quick download and display on your favorite web-enabled PDA, cellphone, or Internet Tablet. And, of course, it's all <i>FREE</i>!<br>
+<img decoding="async" src="http://mundy.org/the_end.gif" alt="" align="left"></p>
+<hr>
+<p><b>Some Recent Nerd Vittles Articles of Interest...</b></p>
+<p><iframe frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-137 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 52 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-2495">
+
+			<div id="comment-2495">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a0fc8e1bfbdc51ddef6b53541f34fa7d942d9ed6ab4dfc5bdcc92e68cad6772c?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a0fc8e1bfbdc51ddef6b53541f34fa7d942d9ed6ab4dfc5bdcc92e68cad6772c?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn"><a href="http://www.asteriskpbxs.com/" class="url" rel="ugc external nofollow">Rafael Cortes</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-trixbox-10-and-freepbx-part-i/comment-page-2/#comment-2495">Wednesday, February 21, 2007 at 4:25 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Gibran:<br>
+To support international calls you need to add the specific countries you wish to add in both your trunks and your routes, for example if you are accepting call to Spain you need to add:<br>
+TRUNK: 00+34XXXXXXXXX<br>
+Route: 34XXXXXXXXX<br>
+and so on, you can get a list of international dialing codes in: <a href="http://www.kropla.com/dialcode.htm" rel="nofollow ugc">http://www.kropla.com/dialcode.htm</a> </p>
+<p>Good Luck,<br>
+Rafael.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-11407">
+
+			<div id="comment-11407">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/006d703db920f4c342a4520393cce331895a9a92c97b284a9ba24f035e316854?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/006d703db920f4c342a4520393cce331895a9a92c97b284a9ba24f035e316854?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">Rizwan</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/newbies-guide-to-trixbox-10-and-freepbx-part-i/comment-page-2/#comment-11407">Thursday, July 1, 2010 at 8:42 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I am reading your article and feel that I can have a system set up at home for tracking my advertisements. </p>
+<p>Is there any way to not have softphones or physical phones attached in the system but just have 1 voip trunk forward to a auto attendant and then from there to the voicemail of the extensions where the caller can listen to a script and leave message which gets emailed to me.  It is meant for only incoming calls.</p>
+<p><i>[WM: Very possible.]</i></p>
+<p>And may be set another incoming voip number to another auto attendant and that to gives choice to enter a extension where there is a script and option to leave a message. </p>
+<p><i>[WM: Very possible and easy.]</i></p>
+<p>If you have any article that I can read to know on how to configure the system according my needs, it will be appreciated. </p>
+<p><i>[WM: We’ve got a web site full of them as well as dozens of tutorials. Have at it.]</i></p>
+<p>How and where are the recordings done for the autoattendant script and extension voicemail scripts.</p>
+<p><i>[WM: FreePBX, Setup, System Recordings.]</i></p>
+<p>I have installed the VMware version to test it yet.</p>
+<p>Thanks for your advise.</p>
+<p><i>[WM: Do some reading. 😉 ]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+			<div class="navigation">
+			<a class="prev page-numbers" href="/newbies-guide-to-trixbox-10-and-freepbx-part-i/comment-page-1/#comments"><span class="meta-nav">←</span> Older Comments</a>
+<a class="page-numbers" href="/newbies-guide-to-trixbox-10-and-freepbx-part-i/comment-page-1/#comments">1</a>
+<span aria-current="page" class="page-numbers current">2</span>		</div><!-- .navigation -->
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/newbies-guide-to-trixbox-10-and-freepbx-part-i/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/newbies-guide-to-trixbox-10-and-freepbx-part-i/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/newbies-guide-to-trixbox-10-and-freepbx-part-i/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/newbies-guide-to-trixbox-10-and-freepbx-part-i/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/newbies-guide-to-trixbox-10-and-freepbx-part-i/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/newbies-guide-to-trixbox-10-and-freepbx-part-i/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjczMjYwMCwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

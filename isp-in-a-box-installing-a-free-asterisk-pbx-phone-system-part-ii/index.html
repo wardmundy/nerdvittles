@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>ISP-In-A-Box: Installing a Free Asterisk PBX Phone System (Part II) – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/">
+<link rel="shortlink" href="/?p=62">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=45F74F0DBCE4C2850E8ED4DF06E53306');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=62">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-62 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/" title="Permalink to ISP-In-A-Box: Installing a Free Asterisk PBX Phone System (Part II)" rel="bookmark">ISP-In-A-Box: Installing a Free Asterisk PBX Phone System (Part II)</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Friday, August 19, 2005 at 11:00 am</li>		<li class="category">in <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fisp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii%2F&amp;text=ISP-In-A-Box%3A+Installing+a+Free+Asterisk+PBX+Phone+System+%28Part+II%29" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fisp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii%2F&amp;t=ISP-In-A-Box%3A+Installing+a+Free+Asterisk+PBX+Phone+System+%28Part+II%29" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-62" class="clearfix post-62 post type-post status-publish format-standard hentry category-technology category-telephony">
+
+		<div class="entry">
+
+			<p><img decoding="async" src="/wp-images/asterisk.jpg" alt="Asterisk" hspace="9" align="left">Last week we began our quest to install the free Asterisk® PBX.  We won’t repeat ourselves so read <a href="http://mundy.org/blog/index.php?p=61">Part I</a> before continuing here. We’re also assuming you’ve already signed up for a BYOD-Lite <a href="http://www.broadvoice.com/rateplans_byod.html?ReferredBy=4047952227">BroadVoice</a> account (using your free coupon from <a href="http://store.voxilla.com/customer/">Voxilla</a>). Be sure you’re signed up for a Generic SIP account to use with Asterisk. If not, call BroadVoice customer service and ask them (nicely) to change it. There’s no charge for this change. You also should have picked out your server hardware and have either procured an IP telephone set (we recommend the <a href="http://store.voxilla.com/customer/product.php?productid=16174&amp;cat=254&amp;page=1">GrandStream GXP-2000</a> for under $100) or a <a href="http://store.voxilla.com/customer/search.php?substring=sipura+spa-">Sipura VoIP adapter</a> to use plain old telephones, or you plan to use a software-based telephone with your Mac or PC. We’ll cover installation of the latter option shortly because we’re going to use a softphone to make sure Asterisk is set up correctly before adding additional extensions and other bells and whistles.</p>
+<p><b>Editor’s Note: This version of Asterisk@Home has been superceded. For the latest tutorial, click <a href="/">here</a>.</b></p>
+<p><b>Overview of Asterisk Installation Process</b>. Our installation procedure for today goes like this.  We’ll download Asterisk@Home, our favorite bundled Asterisk installation for new users.  Then we’ll burn an installation CD from the ISO image.  Next we’ll fire up our soon-to-be Asterisk server with the installation CD in place.   The installation process will erase your hard disk and then load Linux, Asterisk, Apache, PHP, SendMail, MySQL, and lots of other stuff without your lifting a finger (we hope).  For those that have been following our other <a href="http://mundy.org/blog/index.php?p=40">ISP-In-A-Box tutorials</a>, this process and the collection of open source application software should sound familiar. Once the install completes, we’ll reboot the server, configure Asterisk for use with your new BroadVoice account, download a softphone for testing, and make our first call. If all goes well, the whole process should take about an hour. We’ll then sketch out a deployment plan for Asterisk@Home depending upon how you plan to use it. For this week’s homework, we’ll let you continue building your Asterisk extensions and voicemail accounts. Then next week we’ll get to the fun part by adding an Auto Attendant, an Interactive Voice Response system, Music on Hold, and a few terrific surprises that you’d find it difficult to implement even with a $250,000 PBX install from one of the ‘Big Boys.’ “And what does all this cost,” you might be asking. Assuming you have a clunker PC lying around, next to nothing.  A 400MHz Pentium III with 128MB of RAM is more than adequate for a home or home office PBX. Your BroadVoice account comes with a 30-day money-back guarantee plus you get free setup and a month of free service if you purchase either a phone or VoIP adapter from Voxilla (either of which is under $100), and Asterisk@Home is free. If you want to use a softphone instead of an IP phone or VoIP adapter, then BroadVoice costs $9.95 for setup, and $8.45 a month for a phone number in almost any area code, unlimited incoming calls, and 100 minutes a month of outgoing within the U.S. So let’s get started. And why do you need a VoIP provider? Because outgoing calls to garden-variety telephones need to travel on the packet-switched voice network (PSTN), and that costs money.  As a practical matter, you also need a PSTN phone number if you want folks to be able to easily call you.</p>
+<p><b><a name="download">Downloading the Software</a></b>. First, we need to download an ISO image of Asterisk@Home. Version 1.5 is the latest and greatest, and it fixed some bugs so let’s use it.  Just find a <a href="http://prdownloads.sourceforge.net/asteriskathome/asteriskathome-1.5.iso?download">link</a> close to your home base and click on it to begin the download. If you’ve never burned a CD from an ISO image, here’s how.  For the Mac using Roxio Toast, choose Copy, click Image File,  and drag the ISO file you downloaded into the folder. Click Burn after inserting a blank CD. If you don’t own Toast for your Mac, go to the Applications-&gt;Utilities folder and run Disk Utility. Click on Images-&gt;Burn from the Title Bar and choose the ISO file you downloaded. Then click Burn to begin. For those in the PC World, you’ll need either Roxio Easy CD Creator or Nero to create a CD from an ISO image.  With Easy CD Creator, choose Create Data CD. Then in the File menu, select Create CD from Image, and choose your downloaded file. Now click burn to begin.  With Nero, go to Recorder from the top menu and choose Burn Image. Select your download file. Then from the Burn Compilation Window, choose Burn to begin.  When your CD is ready, insert it into your clunker PC, and reboot. Important: make sure this machine is connected to a network<i> behind a router/firewall</i> and can obtain a valid IP address from a DHCP server (i.e. the machine has working Internet access) before beginning this installation. The reason for this is that Asterisk@Home needs Internet access to properly configure the machine at the conclusion of the setup process.  And, remember, <i>everything on the hard disk of this machine will be erased</i> before the Asterisk@Home installation process begins. You’ve been warned. In case you haven’t already figured it out, Asterisk@Home out of the box is anything but secure on the Internet so don’t expose it with a direct network connection until we get it locked down.  Any time you can log on to a Linux system as root using password as your password, you have a system which will be hacked in a matter of minutes once it’s exposed to the big, bad Internet.  While you’re waiting on Asterisk@Home to install, let’s download our favorite softphone so you’ll have a way to test your new Asterisk PBX once the installation completes.  Free versions of <i>X-Lite 2.0</i> are available for Mac OS X, Windows, and Linux <a href="http://www.xten.com/index.php?menu=products&amp;smenu=xlite&amp;ssmenu=download">here</a>. So choose your favorite platform and install it on your desktop PC or Mac.0</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="microtel pc"></eminimall>
+<p></p></center>
+<p><b><a name="ip">IP Configuration of Asterisk</a></b>.  We need a consistent IP address or domain name both on your internal network and externally if you expect to receive incoming calls reliably. There are three pieces to IP configuration: (1) setting the internal IP address of your Asterisk server, (2) configuring an external qualified domain name which will always point to your router/firewall, and (3) configuring your router to transfer incoming Asterisk packets to your Asterisk server. Once the install completes, remove the CD, and reboot your new Asterisk@Home server.  When startup finishes, log in as <i>root</i> with <i>password</i> as your password. Now type <i>ifconfig eth0</i> (that’s “e-t-h-zero”) then <i>enter</i>, and write down both your <i>inet addr</i> and your <i>HWaddr</i> on the Ethernet 0 interface, eth0.  Inet addr is the internal IP address of your Asterisk box assigned by your DHCP server (i.e. your router/firewall). HWAddr is the MAC address of your Asterisk server’s eth0 network card. To assure a consistent internal IP address, you can either configure your router/DHCP server to make certain that it always hands out this same address to your Asterisk machine, or you can manually configure an IP address for this machine which is not in the range of addresses used by your DHCP server. Almost all routers now make it easy to preassign DHCP addresses so we prefer option 1.  It’s generally under the tab for LAN IP Setup and is generally called something like Reserved IP table. Just add an entry and call it Asterisk PBX and specify the IP address and MAC address that you wrote down above.  Now each time you reboot your Asterisk server, your router will assign it this same IP addreess. To assure a consistent external address is a little trickier. Unless you have a static (fixed) IP address, you’ll want to use a Dynamic DNS service such as dyndns.org and configure your router to always advertise its external IP address to dyndns.org.  DynDNS.org will take care of revising the IP address associated with your domain name when your ISP changes your dynamic IP address. Then you can configure your BroadVoice account using your fully-qualified dyndns.org domain name, e.g. windswept.dyndns.org provides access to our beach house network even though Time Warner cable hands out dynamic IP addresses which change from time to time. For more details, read our <a href="http://mundy.org/blog/index.php?p=32">article</a> on the subject. </p>
+<p><b><a name="amp">Basic Asterisk Configuration Using AMP</a></b>.  The crown jewel of Asterisk@Home is a web-based administration tool for Asterisk called the Asterisk Management Portal (AMP). Using your favorite web browser, call up AMP by typing in the internal IP address of your Asterisk server.  Now click on the Asterisk Management Portal. When prompted for a username, type admin. The default password is … you guessed it … password.  Click on the Setup tab to begin. Our first order of business is to set up Asterisk to work with your VoIP provider, BroadVoice.  In Asterisk-speak, this is known as a SIP Trunk.  So click on <i>Trunks</i>, and then choose <i>Add SIP Trunk</i>.  </p>
+<p>Under <i>General Settings</i>, enter your BroadVoice-chosen phone number for your <i>Outbound Caller ID</i> and enter 2 for <i>Maximum Channels</i>. This will assure that BroadVoice doesn’t shut down your account when ten of your friends attempt to make outgoing calls at the same time. </p>
+<p>For <i>Outgoing Dial Rules</i>, enter the following on three separate lines. It means you can use BroadVoice to place 7 and 10-digit calls as well as 1-areacode-phonenumber calls in the U.S.<br>
+<code><br>
+NXXNXXXXXX<br>
+NXXXXXX<br>
+1NXXNXXXXXX</code></p>
+<p>For <i>Outgoing Settings</i>, name this trunk <b>bv</b> and then cut the following code and paste it into the <i>Peer Details</i> section. Once you have finished, replace the three occurrences of 9994567890 with your actual 10-digit BroadVoice phone number and replace yourBVpassword with your actual BroadVoice SIP password.  This is NOT the password you set up to log in to your BroadVoice portal account at <a href="http://www.broadvoice.com/">www.broadvoice.com</a>.  To retrieve your SIP password, log in to your BroadVoice portal at <a href="http://www.broadvoice.com/">www.broadvoice.com</a> and then click on the <i>Account</i> tab. Under <i>My Devices</i>, click <i>Show Settings</i>. In the list of settings will be your <i>auth_password</i>.  Write it down, or better yet, cut and paste it into your Asterisk@Home configuration immediately after <i>secret=</i> with no intervening or trailing spaces.<br>
+<code><br>
+authname=9994567890<br>
+canreinvite=no<br>
+dtmf=inband<br>
+dtmfmode=inband<br>
+fromdomain=sip.broadvoice.com<br>
+fromuser=9994567890<br>
+host=sip.broadvoice.com<br>
+insecure=very<br>
+nat=yes<br>
+secret=yourBVpassword<br>
+type=peer<br>
+user=phone<br>
+username=9994567890<br>
+</code></p>
+<p>For <i>Incoming Settings</i>, name the <i>USER Context</i>, <b>sip.broadvoice.com</b>. Then cut and paste the following into the <i>User Details</i> section of the form. Replace the two occurrences of <i>9994567890</i> with your actual 10-digit BroadVoice phone number and again replace <i>yourBVpassword</i> with your actual BroadVoice SIP password just as you did above.<br>
+<code><br>
+context=from-pstn<br>
+dtmf=rfc2833<br>
+dtmfmode=rfc2833<br>
+fromdomain=sip.broadvoice.com<br>
+host=sip.broadvoice.com<br>
+insecure=very<br>
+nat=yes<br>
+secret=yourBVpassword<br>
+type=user<br>
+user=9994567890<br>
+username=9994567890<br>
+</code></p>
+<p>There’s one more step in the SIP Trunk configuration, and it’s the place where most folks make typos so BE CAREFUL. In the <i>Register String</i> field, enter the code below. Replace the two occurrences of <i>9994567890</i> with your actual 10-digit BroadVoice phone number and again replace <i>yourBVpassword</i> with your actual BroadVoice SIP password just as you did above. Note that there are three sections to this register string, your BroadVoice account address in email format, your BV SIP password, and your BroadVoice account address again in  email format. The three sections are separated from each other by two colons which must not be deleted.<br>
+<code><br>
+9994567890@sip.broadvoice.com:yourBVpassword:9994567890@sip.broadvoice.com<br>
+</code></p>
+<p>Once you’ve checked and double-checked and triple-checked your typing for typos, save the page.  A red bar will display at the top of the screen, click on it to reload Asterisk with the new settings. Now let’s check and be sure you’re registered. Click on the Maintenance tab at the top of AMP.  If prompted for a username and password, enter maint for the username and password for the password. Click Asterisk Info in the left column and a whole bunch of Asterisk details will be displayed.  The section we’re interested in is Sip Peers. It should show sip.broadvoice.com with your phone number as the username.  In the right column, if you have successfully logged in, it will show Registered. If it shows anything else, you need to make a small addition to your Linux configuration (which is a good idea anyway).  Look at your BroadVoice device configuration settings screen again (where we found your SIP password), and there will be an entry like this: proxy_ip: <i>proxy-atl.broadvoice.com</i>. The entry we are most interested in is the three-letter city code following proxy-. As an aside, if you try to ping this domain, you’ll get an unknown domain message because BroadVoice has been too lazy to change the hyphen to a period which would be the correct name for this proxy. Anyway, this is BroadVoice’s best guess of their closest server to you.  The other problem is that all of BroadVoice’s servers are not created equal.  You can register with some and with others you time out.  Atlanta (atl), for example, regularly rejects our registration requests, and we live in Atlanta. Go figure!  Actually, we do need to go figure because we want this to work. So drop down to a command prompt, and ping the following IP addresses. Write down the response times for each of the IP addresses. Now what we want to do is point sip.broadvoice.com to the proxy with the shortest ping time and see if Asterisk will register. If not, we’ll move to the next shortest, and so on.<br>
+<code><br>
+#Los Angeles proxy<br>
+#147.135.8.128  sip.broadvoice.com<br>
+#New York City proxy<br>
+#147.135.20.128 sip.broadvoicce.com<br>
+#Atlanta proxy<br>
+#147.135.28.128 sip.broadvoice.com<br>
+#DC proxy<br>
+#147.135.0.128 sip.broadvoice.com<br>
+#Chicago proxy<br>
+#147.135.12.128 sip.broadvoice.com<br>
+#Miami proxy<br>
+#147.135.4.128 sip.broadvoice.com<br>
+#service network restart once change is made<br>
+</code></p>
+<p>Here’s how to set the default IP address for sip.broadvoice.com on your Asterisk server.  Go to the Asterisk server console and log in as root with password of password.  Change to the /etc directory: <i>cd /etc</i>. Type all of the code above into the bottom of the hosts file: <i>nano hosts</i>. The pound sign (#) at the beginning of a line means it’s a comment which is ignored by Linux. Now remove the # sign from the line with the IP address with the lowest ping time by pressing <i>Ctrl-D</i> while positioned over the # sign.  Save your changes: <i>Ctrl-X, y, then enter</i>.  Now restart the network services on your Linux machine: <i>service network restart</i>. Now refresh your AMP maintenance screen and check to see if you’re registered with BroadVoice. If not, repeat the drill. Remark out the line you unremarked and delete the # sign from the IP address line of the server with the next fastest ping times.  Continue until you get a Registered message. If none of the servers work and you’re sure you typed your phone numbers and passwords correctly, call BroadVoice support: 1-978-418-7300. Nights and weekends have shorter hold times, and expect to get cut off once or twice. It’s a feature!</p>
+<p><b><a name="extension">Creating Your First Asterisk Extension</a></b>.  Now that we have a VoIP connection, we need an internal phone number for each telephone that will connect to the Asterisk server. You guessed it. They’re called extensions. And you can number them any way you desire, but we’ll give you a suggestion (if you live in the U.S. of A) which will save you lots of heartbreak. Don’t use extensions that begin with numbers which are used in the North American dialing plan. They may work, but they may not. The best numbers for extensions begin with 1000 and go all the way up to 1199. After that, you’re bumping into the dialing plan.  And three-digit numbers almost always begin some phone number in the United States.  Having told you the best practice, let me admit that we use numbers in the range of 200 to 399 and have had no problems with BroadVoice service or Asterisk. If we had it to do over again, we’d probably heed our own advice, but … </p>
+<p>To set up an Extension, click on the Setup tab and then choose Extensions.  An almost blank form will appear with a default extension of 200 using SIP as the protocol with rfc2833 for DTMF signalling. Set the extension number to whatever you desire, but be sure the protocol says SIP and the DTMF setting is rfc2833, for now. For ease of explanation, let’s assume you chose 1000.  Now let’s make the extension password 1000 also to keep things simple.  Enter your name for the user name. Be sure the Voicemail and Directory option is Enabled. Make the voice mail password 1000 as well. Enter a working email address for this user account and leave the other defaults as they are for now. Click Add Extension to save your work.  Click on the red bar again to reset Asterisk.</p>
+<p><b><a name="incoming">Configuring Asterisk for Incoming Calls</a></b>.  Only two more steps and we’ll be ready to try out our new system. Click the <i>Incoming Calls</i> tab. In both the <i>Regular Hours</i> and <i>After Hours</i> sections of the form, click the <i>Extension</i> radio button and choose your new extension number (1000) for receipt of incoming calls. Click <i>Submit Changes</i> and then click the red bar to reset Asterisk.</p>
+<p><b><a name="outgoing">Configuring Asterisk for Outgoing Calls</a></b>. Now click on the Outbound Routing tab. The Add Route form will display. For Route Name, call it Outside. Leave the password blank. For Dial Patterns, enter the following:<br>
+<code><br>
+NXXNXXXXXX<br>
+NXXXXXX<br>
+1NXXNXXXXXX</code></p>
+<p>Finally, for the Trunk Sequence, choose SIP/bv.  Check your entries carefully. Then press the Add button. Now click the Submit button. And click on the red bar to restart Asterisk.</p>
+<p><b><a name="xlite">Configuring the X-Lite Softphone</a></b>.  Start up X-Lite on your PC or Mac and choose Preferences-&gt;Systems Settings-&gt;SIP Proxy-&gt;Default from the menu bar. Make sure it is enabled. To keep things simple, enter 1000 for your Username, Authorization User, and Password.  For Domain Realm and SIP Proxy, enter the internal IP address of your Asterisk server. You can change any or all of this later. Close the configuration menu and the softphone will try to register with Asterisk. If all went well, you’ll get a “Logged In” message with your extension 1000 displayed on the screen. You now should be able to dial a call anywhere in the U.S. using the same digits you’d use on your home telephone. Try it. You’ll like it! If that worked, you’re ready to take your first incoming call.  Go to your cell phone or home phone and dial your BroadVoice number just as if it were your Aunt Betty’s phone number. All the area code and long distance rules still apply except you can dial any number in your own area code using BroadVoice by dialing a 7-digit number whether Ma Bell requires 10 digits or not.</p>
+<p></p><center><br>
+<eminimall width="728" height="90" client="wardmundy" products="utstarcom sip phone"></eminimall>
+<p></p></center>
+<p><b><a name="security">Securing Asterisk</a></b>. Now that we have things working, it’s time to make sure Asterisk@Home stays that way. There are two critical steps to securing Asterisk@Home. First, we need to install all of the patches which have been released since the bundled version for the CD was created. And second, we need to reset a number of passwords to secure passwords that only you know. Then we’ll be ready to put Asterisk on the DMZ of your firewall and expose it to every evil Internet person known to mankind.  To get the latest Linux updates, log in to your Asterisk server as root, and type the following at the prompt: <i>yum -y update</i>. You may have to reboot your server when the update process completes. Get in the habit of doing this every couple of weeks, and you’ll never have a security problem with Linux.</p>
+<p>Now for the passwords. First, think up a good one. Use letters and numbers. Now log out and back in to your Asterisk server. Read the screen and type: <i>help-aah</i>.  As you can see, you need to change the Linux password (passwd), the maintenance password for AMP (passwd-maint), the standard AMP password (passwd-amp), the MeetMe password (passwd-meetme), and the admin password used to check email (passwd admin). One more you have to dig for is the password for the Flash Operator Panel (FOP). Change to the directory where the config file is stored: <i>cd /var/www/html/panel</i>. Edit the config file: <i>nano op_server.cfg</i>. Find the line with the password: <i>Ctrl-W security_code</i>. Then change <i>passw0rd</i> to something else and save your changes: <i>Ctrl-X, y, then Enter</i>. Don’t forget to stop and restart Asterisk: <i>amportal stop</i> then <i>amportal start</i>.. There’s really no reason you can’t use the same password for all of these passwords <i>as long as it’s secure</i>. Finally, log in to the Asterisk Management Panel (AMP) and click on CRM which starts up the Sugar CRM application. Login as admin with password for your password. Click on My Account in the upper right corner, and then click the Change Password button to change your CRM password.</p>
+<p>Once you’ve completed all of these password changes, use a web browser to open the web interface to your router and find the option which let’s you designate an IP address as your DMZ server.  Insert the IP address of your Asterisk server there.  What this means is that Asterisk now is sitting out on the Internet without the protections of your router/firewall. You’ll need to do this if you plan to add remote extensions at other locations which can make calls off your Asterisk server.  If you don’t care about this functionality, then the DMZ step is unnecessary.</p>
+<p><b>Homework</b>. We’ve covered enough to get you up and running with Asterisk@Home.  Take a little time to add a few more extensions and enjoy your new toy.  We’ll add the really fun stuff next week, but, if you want to get a head start, here are some of the best tutorials we’ve found: <a href="http://chayden.net/Asterisk/SeUpAsteriskAtHome.htm">Asterisk@Home Handbook</a>, <a href="http://members.optusnet.com.au/~bsharif/asterisk/AsteriskForDumbMe.htm">Asterisk@Home for Dumb Me</a> (especially good for those outside the U.S. that want to configure Asterisk for international dialing), <a href="http://www.asteriskdocs.org/modules/tinycontent/content/docbook/current/docs-html/book1.html">The Hitchhiker’s Guide to Asterisk</a>, <a href="http://www.geekgazette.com/index.php?option=com_content&amp;task=view&amp;id=2&amp;Itemid=26">Build Your Own PBX</a>, <a href="http://www.geekgazette.com/index.php?option=com_content&amp;task=view&amp;id=20&amp;Itemid=31">Configuring Asterisk@Home for BroadVoice</a>, the <a href="http://www.voip-info.org/tiki-index.php">VoIP Wiki</a>, <a href="http://sourceforge.net/forum/?group_id=123387">Asterisk@Home Forums</a>, and <a href="http://voxilla.com/forum-viewforum-f-17.html">Voxilla’s Asterisk Forum</a>. </p>
+<p><b>Coming Attractions</b>. One of the little goodies we’ve been working on for next week will let you access a web page stored on your Asterisk machine from anywhere in the world, type in the phone number of the phone sitting beside you, and have Asterisk call you back at that number with dial tone (after entering your password, of course). You then can make unlimited calls using your BroadVoice service at your home to anywhere in 21 countries … for free (assuming you have the BroadVoice $19.95 World Plan). For those that travel frequently outside the United States, you know what a big deal this really is. Stay tuned!</p>
+<hr>
+<p><b>Some Recent Nerd Vittles Articles of Interest…</b></p>
+<p><iframe frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-62 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 22 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-479">
+
+			<div id="comment-479">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7ffe40ce7f583bedcf2383503d99976c0cb24697cbae5121b4d67f8324ada33b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7ffe40ce7f583bedcf2383503d99976c0cb24697cbae5121b4d67f8324ada33b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">Dave</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-479">Friday, August 19, 2005 at 10:04 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>This tutorial didn’t work for me.  When I try dailing a local or long distance number I get an “All circuits are busy now” message from the SIP client.  There is a message at the top of the SIP/bv trunk page in AMP mentioning that this trunk isn’t included in any routes which I assume is the problem.  Is this related to the fact that I used Asterisk@Home v1.3 or is there some missing step?</p>
+<p><i>[WM: Sorry. There was a missing step. Kinda reminds me of my grandmother always leaving one ingredient out of the recipes she handed out to make sure hers always tasted a little bit better. Look at the article again and complete the step labeled: Configuring Asterisk for Outgoing Calls. My apologies.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-483">
+
+			<div id="comment-483">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/fc08ee665d10d1ec72cacbe60c8b899c89fc58c499fd24471eac1364fb838630?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/fc08ee665d10d1ec72cacbe60c8b899c89fc58c499fd24471eac1364fb838630?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">Mike</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-483">Thursday, August 25, 2005 at 8:27 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>The night before I googled out your instructions – I had spent several hours, learning a lot, but nonetheless failing at completing an inbound &amp; outbound call 🙁  I was aware of the need for a route – but I had missed something in setting up the trunk… although from the Maint screen – I had registered with the SIP Peer I would always get a trunk busy …. Anyway… I plan to look more into your configs vs mine and LEARN where I went wrong….  THANKS A BUNCH!!!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-499">
+
+			<div id="comment-499">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/23c2a56e249180d10f510e1d85049ffa47c07319cea83ba642508aabeeaeed33?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/23c2a56e249180d10f510e1d85049ffa47c07319cea83ba642508aabeeaeed33?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ward Mundy</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-499">Sunday, September 4, 2005 at 4:18 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Password update process was added for Sugar CRM today. Start up AMP. Click CRM. Log in with username admin and password of password. Click on My Account and then update password to change password.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-506">
+
+			<div id="comment-506">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0d709d7f8736c97b148a63ceb03298ebd56add4be2537f1e852e2173607afaee?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0d709d7f8736c97b148a63ceb03298ebd56add4be2537f1e852e2173607afaee?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">marc</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-506">Friday, September 9, 2005 at 3:24 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I too have the same problem Mike did. When I place an outgoing call to my cell phone from my Broadvoice phone I hear “all circuits busy”. However the call actually goes through as my cell phone starts to ring! I have rechecked the trunk and outbound routing…but can’t figure it out.</p>
+<p><i>[WM: Something’s wrong … but you knew that. My guess would be that you’re not getting properly registered with BroadVoice or your SPA-3000 is misconfigured. But there’s an easy way to find out. Go to the Asterisk console, log in as root, and then start up the Asterisk console: asterisk -r. If you have trouble reading the messages quick enough, you may need to use SSH from a Mac (ssh root@ipaddr of your Asterisk box then asterisk -r) or Putty from a PC. Report back what you find when Asterisk tries to place the call. Another place to look is AMP-&gt;Maintenance-&gt;AsteriskInfo which will tell you whether Asterisk is getting properly registered with BroadVoice. Finally, use a web browser to check the Info tab of your Sipura SPA-3000 using your Admin login and check the Registration State under Line1 and PSTN. Both should say Registered.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-508">
+
+			<div id="comment-508">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0d709d7f8736c97b148a63ceb03298ebd56add4be2537f1e852e2173607afaee?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0d709d7f8736c97b148a63ceb03298ebd56add4be2537f1e852e2173607afaee?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">marc</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-508">Friday, September 9, 2005 at 6:18 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>thanks for the feedback. i isolated the problem and now outgoing calls<br>
+work. unfortunately, there were so many variables, i can’t remember<br>
+exactly what i did to fix the problem. </p>
+<p>i am now on to the next problem! incoming calls..they go straight to BV<br>
+voicemail. i had a number of ideas, but none of them seem to fix the<br>
+problem. i turned on debugging and placed a call to my BV number and<br>
+below is the results. </p>
+<p>AsteriskInfo shows that i am being registered properly with BV. </p>
+<p>Here is the debugging info. any thoughts appreciated…thanks.</p>
+<p>Sending to 147.135.0.128 : 5060 (non-NAT)<br>
+Looking for 2104640055 in from-broadvoice<br>
+SIP/2.0 404 Not Found</p>
+<p>hi. me again. i was able to figure out my problem. you can follow my struggle here: <a href="http://tinyurl.com/8yjxa" rel="nofollow ugc">http://tinyurl.com/8yjxa</a></p>
+<p>but your blog was a great resource. i’ll be back!</p>
+<p><i>[WM: Here’s a good example of how NOT to implement Asterisk. From your post on <a href="http://voxilla.com/index.php?name=PNphpBB2&amp;file=viewtopic&amp;p=25336">Voxilla</a>, it’s apparent that you were using three different tutorials to configure Asterisk. Nothing in mine ever mentioned a from-broadvoice context so … The bottom line is try baking the cake according to the directions in one cookbook before you start adding other ingredients. Otherwise, you end up with a debugging mess. mberlant is good at untangling things; however, I’ve worked hard to avoid spending my life debugging other folk’s code, and I’m not inclined to change directions now. But, thanks for sharing your quest.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-611">
+
+			<div id="comment-611">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/50694fc5db47b592913683eda3ef1fc47a78510fc5d2cddde0b63322b1aad6af?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/50694fc5db47b592913683eda3ef1fc47a78510fc5d2cddde0b63322b1aad6af?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Roosevelt</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-611">Monday, October 24, 2005 at 11:54 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I just wanted to know who is my isp provider and my ip address.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-655">
+
+			<div id="comment-655">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/c70f5877e5c68345e37b816bae7723222dd348e24779e1b90ed893d537d81ad6?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/c70f5877e5c68345e37b816bae7723222dd348e24779e1b90ed893d537d81ad6?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Justin</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-655">Thursday, November 17, 2005 at 10:03 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I followed your instructions to the T.  Beleive me.  I even completely reformatted and readded all the info and only your info back into the sytem but still I cannot get incoming calls to complete.  They come in to the system but the system drops them.  See the log file.</p>
+<p>Nov 17 22:00:07 VERBOSE[1328]: — Executing AbsoluteTimeout(“SIP/5182121068-2d9e”, “15”) in new stack<br>
+Nov 17 22:00:07 VERBOSE[1328]: — Set Absolute Timeout to 15<br>
+Nov 17 22:00:07 VERBOSE[1328]: — Executing Congestion(“SIP/5182121068-2d9e”, “”) in new stack<br>
+Nov 17 22:00:07 VERBOSE[1328]: == Spawn extension (from-sip-external, 5182121068, 2) exited non-zero on ‘SIP/5182121068-2d9e’<br>
+Nov 17 22:00:07 VERBOSE[1328]: — Executing AbsoluteTimeout(“SIP/5182121068-2d9e”, “15”) in new stack<br>
+Nov 17 22:00:07 VERBOSE[1328]: — Set Absolute Timeout to 15<br>
+Nov 17 22:00:07 VERBOSE[1328]: — Executing Congestion(“SIP/5182121068-2d9e”, “”) in new stack<br>
+Nov 17 22:00:07 VERBOSE[1328]: == Spawn extension (from-sip-external, h, 2) exited non-zero on ‘SIP/5182121068-2d9e’<br>
+Nov 17 22:00:07 DEBUG[1328]: cdr_mysql: inserting a CDR record.<br>
+Nov 17 22:00:07 DEBUG[1328]: cdr_mysql: SQL command as follows: INSERT INTO cdr (calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode) VALUES (‘2005-11-17 22:00:07′,'”Unavailable” &lt;147.135.20.128&gt;’,’14713520128′,’5182121068′,’from-sip-external’, ‘SIP/5182121068-2d9e’,”,’Congestion’,”,0,0,’NO ANSWER’,3,”)<br>
+Nov 17 22:00:07 DEBUG[1328]: update_user_counter(5182121068) – decrement inUse counter<br>
+Nov 17 22:00:07 DEBUG[1328]: 5182121068 is not a local user<br>
+Nov 17 22:00:07 DEBUG[1328]: Stopping retransmission on ‘1ff008d-a6@147.135.20.128’ of Response 1: Not Found<br>
+Nov 17 22:00:08 DEBUG[1328]: Stopping retransmission on ‘6c9629b067a8d64073aa98ba4dbecd18@127.0.0.1’ of Request 103: Found<br>
+Nov 17 22:00:08 DEBUG[1328]: Registration successful</p>
+<p>I tried adding context=from-pstn to both broadvoice entrys in sip_additional.conf and all that does is keep anything from hitting the log file.  I get either a busy signal or voicemail if it is enabled.</p>
+<p><i>[WM: Read this <a href="http://mundy.org/blog/index.php?p=75">column</a> (particularly the discussion of from-sip-external), and I think you’ll see what’s missing.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-668">
+
+			<div id="comment-668">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7020b72311aed0656a792aa9b5434169251d9d207684fbbe7c8609bdf7383b14?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7020b72311aed0656a792aa9b5434169251d9d207684fbbe7c8609bdf7383b14?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ron</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-668">Tuesday, November 22, 2005 at 1:08 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Thanks you saved me on the SPA-3000 install.  I would have been still trying to configure it a month from now.<br>
+How about universal plug and play everyone??!!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-688">
+
+			<div id="comment-688">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/6c239e25780caebb0077ba5931929601418b54ad358bb229de26b055d13069b5?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/6c239e25780caebb0077ba5931929601418b54ad358bb229de26b055d13069b5?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Austin</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-688">Thursday, December 1, 2005 at 6:10 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Thanks for the article.  read it all, it all work except that in sames my incoming call is not getting answer at all or routed to the extension.</p>
+<p>here is a debug</p>
+<p>— Executing AbsoluteTimeout(“SIP/2403990305-9283”, “15”) in new stack<br>
+— Set Absolute Timeout to 15<br>
+— Executing Congestion(“SIP/2403990305-9283”, “”) in new stack<br>
+== Spawn extension (from-sip-external, 2403990305, 2) exited non-zero on ‘SIP/2403990305-9283’<br>
+    — Executing AbsoluteTimeout(“SIP/2403990305-9283”, “15”) in new stack<br>
+— Set Absolute Timeout to 15<br>
+— Executing Congestion(“SIP/2403990305-9283”, “”) in new stack<br>
+== Spawn extension (from-sip-external, h, 2) exited non-zero on ‘SIP/240399030</p>
+<p>help!</p>
+<p><i>WM: Congratulations. You’ve found the #1 problem with the default Asterisk Management Portal (AMP) configuration.  Just edit the from-sip-external context in extensions.conf and comment out all the existing lines. Then add the following line and reload Asterisk: </i></p>
+<p>exten =&gt; _.,1,Goto(from-pstn-timecheck,s,1)</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-729">
+
+			<div id="comment-729">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/678f5f958736b7fb705a3ad863427a1a7f54f11881045927385f2641ca60c6c0?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/678f5f958736b7fb705a3ad863427a1a7f54f11881045927385f2641ca60c6c0?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Nat</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-729">Friday, December 16, 2005 at 5:03 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Your articles have helped me a lot, thanks. However, I’ve not been able to make or receive calls on our regular phone lines. We have a T1, and I purchased a Digium TDM2412B card for this purpose. There seems to be very little information about this type of setup. I can make outbound calls using voipjet without problem, but when I try to make or receive calls through our T1 phone lines, I just can’t. I have a Zap trunk pointing to g0 and as far as I know it should work, but it doesn’t. Do you have any idea of what am I missing or where to get this info? Thanks.</p>
+<p><i>[WM: I don’t have a T1 line or card so I’m not going to be much help. There is lots of information on T1 cards on the Digium site. I’d recommend you post your questions in either the <a href="/lists.php">Asterisk-Users listserv</a> or on the <a href="http://forums.digium.com/viewforum.php?f=1&amp;sid=2a2e96421b3232763e0d679baa83693e">Asterisk Users Forum</a>. Search around a bit in both places first. Good luck!]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-810">
+
+			<div id="comment-810">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/782b9b18470d22b32c713a222ee3d970094d54b93ed01ee83eb8707487421ea2?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/782b9b18470d22b32c713a222ee3d970094d54b93ed01ee83eb8707487421ea2?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Darren</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-810">Thursday, January 5, 2006 at 3:43 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I am trying to integrate my CCM with Asterisk using a sip trunk. I am able to place calls from asterisk to my CCM servers but I have been able to place calls via CCM to asterisk. Can someone please point me in the right direction, I am new to Asterisk but I have been working with CCM for a long time now. Here is a copy of the error I am getting …</p>
+<p><i>[WM: Hi Darren, Questions such as this are better posted on the Voxilla or SourceForge forums where you can get threaded input from numerous individuals. Best of luck.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-890">
+
+			<div id="comment-890">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/30c380d3dab7ec7a6015acb0ef0e86cd5cf11dde7a90b9b941e9669f0ccf90ff?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/30c380d3dab7ec7a6015acb0ef0e86cd5cf11dde7a90b9b941e9669f0ccf90ff?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Lee</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-890">Friday, January 27, 2006 at 8:42 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I’ve been really impressed by the amount of useful information on your site. I have always thought that Asterisk is fantastic but with this level of information it because even better. I have been trying to work out how to implement a follow-me facility but unless I am missing something it doesn’t seem completely straight forward. I will crack on… It would be really great if you could add an article on follow-me using asterisk to allow for hotdesking.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-919">
+
+			<div id="comment-919">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/83970bf39ad610d60187ac833e697a3bb4080b43a638e8be30ab1b1c308438c0?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/83970bf39ad610d60187ac833e697a3bb4080b43a638e8be30ab1b1c308438c0?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Paul Durano</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-919">Thursday, February 2, 2006 at 12:06 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I admire people who share knowledge to anybody. This information is highly appreciated. God bless to Free information.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-931">
+
+			<div id="comment-931">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/83970bf39ad610d60187ac833e697a3bb4080b43a638e8be30ab1b1c308438c0?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/83970bf39ad610d60187ac833e697a3bb4080b43a638e8be30ab1b1c308438c0?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Paulo Durano</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-931">Friday, February 3, 2006 at 11:08 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Outgoing call is ok. Incoming says “busy”. Pls. help me solve the problem. Thanks<br>
+Incoming Settings</p>
+<p>context=from-pstn<br>
+dtmf=rfc2833<br>
+dtmfmode=rfc2833<br>
+fromdomain=sip.broadvoice.com<br>
+host=sip.broadvoice.com<br>
+insecure=very<br>
+nat=yes<br>
+secret=********<br>
+type=user<br>
+user=7328101969<br>
+username=7328101969<br>
+Thank you.</p>
+<p><i>[WM: To fix it, choose AMP-&gt;Maintenance-&gt;Config Edit-&gt;extensions.conf-&gt;from-sip-external. Comment out all the lines in the existing file by adding a semicolon at the beginning of each line. Then add the following line, save your changes, and reload Asterisk]<br>
+<code><br>
+exten =&gt; _X.,1,Goto(from-pstn-timecheck,s,1)<br>
+</code><br>
+</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1157">
+
+			<div id="comment-1157">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2ca1c76c2b4d0aa616ae5496ef35c7b88a04cb6386ad0000c6d90d5b39e11464?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2ca1c76c2b4d0aa616ae5496ef35c7b88a04cb6386ad0000c6d90d5b39e11464?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bobby Feather</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-1157">Saturday, March 11, 2006 at 12:03 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I might be able to help with the t1 card problem. I have never used one of the cards before but i work for a Telcom copany as a tech and work with t1’s ever day. Setting up the card does not sound to hard to work out. Send me the type of card and the model # and i will see if I can find something and point out the main options to set.<br>
+<a href="mailto:braintumor2000@gmail.com">braintumor2000@gmail.com</a></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1225">
+
+			<div id="comment-1225">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/c0239e3461f2c99c2eb33661224810b6b382250113b6fa44cf20ef4c5276dfb7?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/c0239e3461f2c99c2eb33661224810b6b382250113b6fa44cf20ef4c5276dfb7?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ian Worthington</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-1225">Monday, March 20, 2006 at 9:29 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>“let me admit that we use numbers in the range of 200 to 399”.</p>
+<p>Numbers in the range 3xx are speed dial numbers — not good for extensions unless you want to get very confused!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1634">
+
+			<div id="comment-1634">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/9ffef571819f4ad5627fbbfa3609ed75a32ae0194f12e4bd93ee701c9c1c1e70?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/9ffef571819f4ad5627fbbfa3609ed75a32ae0194f12e4bd93ee701c9c1c1e70?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mike</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-1634">Thursday, June 15, 2006 at 12:29 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Great work.  Two Questions, do the tutorials for asterisk@home port over to trixbox?  I am having trouble making outbound 800 calls with free world dialup.   I am registered with FWD in the asterisk_info page.   I can connect for about 9 seconds when I hangs up.   Any help wold be greatly appreciated.</p>
+<p><i>[WM: Read the current articles on <a href="http://nerdivttles.com/">Nerd Vittles</a> for TrixBox tutorials. As for FWD and 800 calls, we’ve always had mixed luck with FWD. Sometimes it’s great. Often it’s not.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1699">
+
+			<div id="comment-1699">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e24318a8ce476bb0e3960b02be5d92d2667818d4a228787e34c72c48f1f344a0?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e24318a8ce476bb0e3960b02be5d92d2667818d4a228787e34c72c48f1f344a0?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">ali</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-1699">Monday, June 26, 2006 at 5:03 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>i have downloaded and burn cd for Trixbox. When i reboot my PC with this cd in it, instalation does not start. Tried couple times no luck!!!!<br>
+any word of advice??</p>
+<p><i>[WM: Probably a bad ISO image. Try another download from a different site.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1813">
+
+			<div id="comment-1813">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/9e0962b65c60ede3a71269e21801e89eb76bd07a9150befa14263a30a517f022?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/9e0962b65c60ede3a71269e21801e89eb76bd07a9150befa14263a30a517f022?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.tekops.com/" class="url" rel="ugc external nofollow">Dave</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-1813">Monday, August 7, 2006 at 2:14 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Your tutorial was great, confirmed what I had figured from 2 other tutorials, tinkering, and docs from broadvoice tech support.  Have had outbound working fine for days but COULD NOT get inbound working.  Finally solved it:<br>
+1) log into broadvoice and turn off voicemail (their own people tell<br>
+   you this.<br>
+2) when receiving an incoming call I would watch the SIP DEBUG output<br>
+   and would always get “407 Proxy Not Authorized”.  FINALLY<br>
+   figured out that in the registration line the second part SHOULD<br>
+   NOT BE “sip.broadvoice.com” but the broadvoice proxy server, here’s<br>
+   my register line (passwords removed):</p>
+<p>   <a href="mailto:9125551212@sip.broadvoice.com">9125551212@sip.broadvoice.com</a>:<secret>:9125551212@proxy.nyc.broadvoice.com</secret></p>
+<p>Hope this helps.  Also, th elast part of your article was really helpful in that ASTERISK IS CONFIGURED BY DEFAULT to route inbound SIP calls to “congested” and then hangup.  This needs changed as you describe and then it works great!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1922">
+
+			<div id="comment-1922">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3e24da401030e68a08af7212600586013adf48b470c91eed14a66e69c1509541?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3e24da401030e68a08af7212600586013adf48b470c91eed14a66e69c1509541?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ruben</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-1922">Friday, September 15, 2006 at 8:29 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Has anyone setup their asterisk system for TelaSip.  I need to set up the inbound, and outbound trunks and dial plans.<br>
+I have inbound working from the free sip provider that I read about in NerdVittles.<br>
+Now I ‘paid’ for TelaSip and can’t configure it correctly.  I’ve read everything I can get my hands on online.<br>
+Can an expert help?</p>
+<p>Thanks</p>
+<p>Ruben.</p>
+<p><i>[WM: Our site is full of configuration information on most providers including TelaSIP. The full list is <a href="/index.php?p=130">here</a> and TelaSIP is <a href="/index.php?p=71">here</a>.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-1925">
+
+			<div id="comment-1925">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/11509d427d993fb154a60fa0e2be107fe408d4a1043d4b9a1b5fea395de5138e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/11509d427d993fb154a60fa0e2be107fe408d4a1043d4b9a1b5fea395de5138e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Charles R Downs</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-1925">Sunday, September 17, 2006 at 11:00 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>On the question #18.  Just burning the ISO on the CD is not enough. You have to make the CD a bootable CD. Nobody explains this.  I worked very hard using Nero to get the CD to be bootable. It took several tries.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1928">
+
+			<div id="comment-1928">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/571275f2b5927a1d29b87f1dfa2b91261e5f4e6e7137ee25d3840e0fbdcd335e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/571275f2b5927a1d29b87f1dfa2b91261e5f4e6e7137ee25d3840e0fbdcd335e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://501@iax.kunzlerklan.com/" class="url" rel="ugc external nofollow">Octothorpe</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/#comment-1928">Sunday, September 17, 2006 at 7:05 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>In reference to #20 above, I always have just downloaded the ISO and burned it with NERO with absolutely no problems, other than the ocassional bad burn.  You do need to make sure that your PC bios is set to boot off of the CD or no CD will appear to be bootable.</p>
+<p><i>[WM: Ditto.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/isp-in-a-box-installing-a-free-asterisk-pbx-phone-system-part-ii/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjkwMTAzNCwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

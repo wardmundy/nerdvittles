@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>The Next Plateau: VoIP Communications with Asterisk in Amazon’s EC2 Cloud – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/">
+<link rel="shortlink" href="/?p=5060">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=099F014EC5C2AFA9D7AD46C42BF7915D');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=5060">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-5060 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/" title="Permalink to The Next Plateau: VoIP Communications with Asterisk in Amazon’s EC2 Cloud" rel="bookmark">The Next Plateau: VoIP Communications with Asterisk in Amazon’s EC2 Cloud</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Monday, February 11, 2013 at 6:33 am</li>		<li class="category">in <a href="/category/technology/" rel="category tag">Technology</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fdisaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud%2F&amp;text=The+Next+Plateau%3A+VoIP+Communications+with+Asterisk+in+Amazon%26%238217%3Bs+EC2+Cloud" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fdisaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud%2F&amp;t=The+Next+Plateau%3A+VoIP+Communications+with+Asterisk+in+Amazon%26%238217%3Bs+EC2+Cloud" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-5060" class="clearfix post-5060 post type-post status-publish format-standard hentry category-technology tag-asterisk tag-cloud-computing tag-fax tag-incrediblepbx tag-piaf tag-security tag-virtualization tag-voip">
+
+		<div class="entry">
+
+			<p></p><center><img decoding="async" src="/wp-images/IncrediblePBXintheCloud.gif"></center><br>
+We’ve spent considerable effort exploring and enhancing the VoIP cloud offerings for our followers, and today we’re delighted to introduce another terrific service: Amazon’s Elastic Compute Cloud (EC2). This is one of several Amazon Web Service (AWS) offerings that provides resizable compute capacity in the cloud and is designed to make web-scale computing easier for developers. That’s the Amazon pitch for their service. Ours is a bit different. For anyone with mission-critical operations or that has ever given a moment’s thought to business continuity planning (THINK: hurricanes, tornados, earthquakes, blizzards, fires, floods, bombs), you need an EC2 backup plan for VoIP communications. It really doesn’t matter whether your organization uses a proprietary phone system, or Asterisk®, or good ol’ black telephones, the point is simply this. When your lights go out and you still need a communications system for your employees and your customers, what’s your plan? Staying home in bed isn’t a choice for most folks. So our focus is not to persuade anybody to move their primary communications platform to Amazon EC2 although it’s certainly worth considering. For today, let’s tackle emergency planning and Disaster Recovery 101 for that dreadful day when you really don’t have a choice. And D-Day is a really bad day to start thinking about communications alternatives. You’ll have plenty of other things to do.
+<p>We’re going to make this fun today and provide all the tools you’ll need to set up shop in Amazon’s EC2 Cloud. The good news is that EC2 is almost free for your first year so getting started isn’t going to be a financial burden. Once you have everything built, you can turn it off and hope you never have to use it. On the other hand, it’s dirt cheap for an entire year so enjoy yourself and learn why VoIP communications can revolutionize your business at a fraction of the cost of a proprietary communications system. For our Asterisk aficionados that have already discovered the beauty of free VoIP communications, we’ve got some additional goodies today, <em>Incredible Backup and Incredible Restore</em>, that will let you quickly move your communications platform back and forth between EC2 and a local server or virtual machine effortlessly. </p>
+<p>For those just getting started, the real beauty of VoIP communications is that, once your server platform is operational, you can bring up communications services for your employees without any hardware investment. A notebook computer and a free SIP softphone will let you make and receive calls through your EC2 communications system. By adding trunks from Google Voice or any SIP service provider, you complete the communications circle to connect to any phone in the world. We do this for a living so, if your business needs some hand-holding to get started, <a href="http://pbxinaflash.com/about/comment.php" target="_blank">drop us a note</a>. We like to travel.</p>
+<p></p><center>
+<h2>The Choice is Yours: PIAF-Purple with Asterisk 1.8 or PIAF-Green with Asterisk 11</h2>
+<p></p></center>
+<p><b>Getting Started.</b> For your communications platform, we’ve built two new versions of PBX in a Flash™ for Amazon EC2: <a href="http://thecloudmarket.com/search?search_term=PIAF" target="_blank">PIAF-Purple</a> and <a href="http://thecloudmarket.com/search?search_term=PIAF" target="_blank">PIAF-Green</a>. You can’t beat the price. Both are free! These two builds are based upon the two long-term support (LTS) releases of Asterisk: 1.8 and 11. In our testing, both are rock solid and production-ready. If tried and true is your cup of tea, then PIAF-Purple with Asterisk 1.8 and FreePBX 2.10 is your baby. If you want to get a jump on the future, then PIAF-Green with Asterisk 11 and FreePBX 2.11 is worth a careful look. But, to use either one, you first need to get set up with an Amazon EC2 account. So head over to <a href="http://aws.amazon.com/ec2/" target="_blank">Amazon</a> and click on <em>Sign Up Now</em>. A word to the wise here. You don’t want the bad guys breaking into your account unless you have an unlimited budget. There are lots of non-free Amazon EC2 services that could max out your credit card quickly. So, in addition to signing up for your Amazon account, also activate <a href="http://aws.amazon.com/mfa/" target="_blank">Multi-Factor Authentication</a>. It’s your bank account!</p>
+<p></p><center><img decoding="async" src="https://pbs.twimg.com/media/BClADiMCcAEEkow.jpg:large" border="1"></center>
+<p>Once your account is activated, sign in to the <a href="http://aws.amazon.com/console/" target="_blank">Amazon Management Console</a>. After entering both your passwords, the AWS Management Console will appear. Click on <em>EC2</em> to bring up the EC2 Dashboard (shown above). This is home base in EC2. The <em>Launch Instance</em> button is used to start a new virtual machine. We’ll walk you through that process in a minute. In the left margin are the functions you’ll be using most often. <em>Instances</em> displays your existing virtual machines, both running and stopped. <em>Volumes</em> are the virtual hard disks associated with your virtual machines or instances in Amazon-speak. A volume gets created as part of the VM launching process. When you delete instances, it’s important to also delete the associated volume, or you get billed for it separately. <em>Elastic IPs</em> lets you assign an IP address to an Instance using Amazon’s DHCP servers. You access your virtual machines using SSH and, without an IP address, you can’t gain access. For SSH security, EC2 uses <em>Key Pairs</em>. As part of launching a new virtual machine, we’ll walk you through creating one. Amazon EC2 also has its own firewalls called <em>Security Groups</em>. Basically, all services are blocked until you open them up. We’ll also walk you through that process as well. Once you’ve created your Key Pair and Security Group, you can use them with multiple instances. Now you’re an expert so let’s Launch a New Instance.</p>
+<p></p><center><img decoding="async" src="https://pbs.twimg.com/media/BC_Og3rCMAAgURL.jpg:large"></center>
+<p><b>Creating a New Virtual Machine.</b> Click on the blue <em>Launch Instance</em> button in the EC2 Dashboard to begin. Choose <em>Classic Wizard</em>. You build a new instance by starting with one that someone else has already built. Be careful here. There are literally thousands to choose from and, unless you know the creator, use Name Brand, trusted instances only. Anybody can hide anything in an instance that they’ve  made publicly available. Think of your worst Trojan Horse horror story, and there’s probably a public Amazon instance to match it. For our purposes, the magic number you need to know is <em>399149154715</em>. That’s our Amazon EC2 account number, and it means any instances prefixed with that number or our mugshot were created by us. So click on the <a href="http://thecloudmarket.com/search?search_term=PIAF" target="_blank">Cloud Market</a> and search for <em>PIAF</em>. In about a minute, both PIAF2 AMIs will appear. Pick your favorite but be sure the file name displays our smiling face. Then click <em>Select</em>. For the <em>Instance Type</em>, make sure <em>T1 Micro</em> is chosen. That’s the only free option during your first year. Leave the <em>Availability Zone</em> at <em>No Preference</em> and <em>Number of Instances</em> set to 1. Click <em>Continue</em>. In <em>Advanced Instance Options</em>, accept all of the defaults and click <em>Continue</em>. For <em>Storage Device Configuration</em>, accept the defaults by clicking <em>Continue</em>. Next, you’ll be prompted to add Tags to your Instance. This is a short-hand description to help you distinguish one instance from another. For the <em>Name Value</em>, enter something like <em>PIAF-Purple-64</em> or <em>PIAF-Green-64</em> and click <em>Continue</em>. Next, you’ll be prompted to create a <em>Key Pair</em> to use with the instance. If you don’t already have one, click <em>Create New Key Pair</em> and <em>Continue</em>. Once the key pair is created, the .pem file will be downloaded to your desktop computer. Change the permissions on the .pem file to what SSH requires: <em>chmod 700 mykey.pem</em>. You’ll need this key file to log into your instance with SSH so move it to a safe place. Next, you’ll create or use an existing <em>Security Group</em>. This sets up the firewall rules to use with your instance. For PBX in a Flash, you’ll need at least the following Inbound Rules in your Security Group: TCP 22 (SSH), TCP 80 (Web), TCP 1723 (for PPTP VPN only), and TCP 9001 (for WebMin access). For VoIP services, you’ll need UDP 5060 (SIP), UDP 10000-20000 (RTP), UDP 4569 (IAX), and UDP 69 (TFTP, if desired). EC2 lets you lock down Security Group entries to individual IP addresses. We strongly recommend this for SSH, Web, SIP, IAX, and TFTP services. If you need access from multiple IP addresses, just add additional Security Group rules for each address and service. Finally, you’ll be shown a summary of all your selections. If everything looks OK, click <em>Launch</em> to start the instance. While it’s starting up, click<em> Elastic IPs</em> from the left column of the EC2 Dashboard. Choose <em>Allocate New Address</em> and then <em>Associate Address</em> to connect it with the instance that just launched. Write down the IP address. You’ll need it for SSH access. Finally, click <em>Instances</em> and wait for your virtual machine to come on line with a green check mark. </p>
+<p><b>Your First Login.</b> Now you can log into your EC2 instance via SSH using your key file and the IP address associated with the instance: <em>ssh -i mykey.pem -v ec2-user@54.235.12.34</em>. If you’re using a Windows machine with Putty, use <a href="http://ithelpblog.com/cloudcomputing/vpc-how-can-we-design-good-vpc-on-amazon-with-aws-nat-server-part-iii-access-server-in-aws-ec2-access-server-in-aws-vpc/" target="_blank">PuttyGen.exe</a> to convert your .pem key into something Putty can understand before attempting to log in. Once you’re logged in, you need to immediately change all the default passwords:</p>
+<ul>
+<li><strong>sudo passwd</strong> (to change your ec2-user password)</li>
+<li><strong>sudo passwd root</strong> (to change your root password)</li>
+<li><strong>su root</strong> (to switch to the root account with your new password)</li>
+<li><strong>passwd-master</strong> (to change your FreePBX and web passwords)</li>
+<li><strong>cd /root</strong> (to switch to the /root directory)</li>
+</ul>
+<p>Keep in mind that PBX in a Flash is a little different than a standard Linux install. It has been designed for use as the root user only. So, whenever you log into a PIAF instance in EC2, always execute the following command: <em>su root &amp;&amp; cd /root</em>. Most Linux and PBX in a Flash utilities will not work properly if you attempt to execute them as the <em>ec2-user</em>! For web access and management of your server, point your browser to the IP address of your EC2 instance. If you’re new to PBX in a Flash, stop here and read the <a href="/?p=4630" target="_blank">PBX in a Flash 2.0.6.3 Quick Start Guide</a>. It’ll tell you everything you need to know to get started with PBX in a Flash.</p>
+<p><b>Installing Incredible PBX.</b> We’ve got a few more surprises for you today. First, there are new, GPL2-licensed releases of Incredible PBX: version 10 for FreePBX 2.10 and version 11 for FreePBX 2.11. If you’re new to all of this, Incredible PBX provides some additional layers of security for your server while also giving you dozens of turnkey Asterisk applications including text-to-speech, speech-to-text, SMS messaging, news, weather, stocks, and tide reports, and much more. You can read the <a href="/?p=1119" target="_blank">Incredible PBX tutorial here</a>. To install Incredible PBX while logged into your EC2 instance as root, issue the following commands and plug in your <em>passwd-master</em> password when prompted. If you’re using the PIAF-Green AMI, replace <i>incrediblepbx10</i> with <i>incrediblepbx11</i> below.</p>
+<blockquote><p><code>cd /root<br>
+wget http://incrediblepbx.com/incrediblepbx10.gz<br>
+gunzip incrediblepbx10.gz<br>
+chmod +x incrediblepbx10<br>
+./incrediblepbx10<br>
+</code></p></blockquote>
+<p></p><center><img decoding="async" src="https://pbs.twimg.com/media/BCWjzLMCYAAse4w.jpg:large"></center>
+<p><b>Installing Incredible Fax.</b> Yes, there’s more. Incredible Fax also works just fine on the EC2 platform. If you want the added convenience of having your <em>Incredible PBX</em> double as a <font color="blue">free fax machine</font>, run <strong>install-incredfax2</strong> <u>after</u> the <em>Incredible PBX 10</em> install completes. For Incredible PBX 11, run <i>/root/incrediblefax11.sh</i>. Plug in your email address for delivery of incoming faxes and enter your home area code when prompted. For every other prompt, just press the Enter key. If you’d like to also add the optional OCR utility, just choose it when prompted. For complete documentation, see this <a href="/?p=738">Nerd Vittles article</a>. Don’t forget that a REBOOT OF YOUR SERVER is required when the install is finished, or faxing won’t work! Then log in to AvantFax through the PBX in a Flash GUI using <em>maint:password</em>. Be sure to change your password!</p>
+<p>Also be sure to set up a second, dedicated Google Voice number if you want support for inbound faxing. Once the Google Voice credentials are configured in FreePBX for the additional Google Voice line, simply add an Inbound Route for this DID to point to the fax destination. Just plug in your 10-digit Google Voice number and other entries shown in the form below. Save your setup and reload FreePBX. Done!</p>
+<p></p><center><img decoding="async" src="https://pbs.twimg.com/media/BClo9P-CQAIstyy.jpg:large"></center>
+<p><b>Introducing Incredible Backup and Restore.</b> Last, but not least, we have new GPL2-licensed backup and restore utilities to simplify the task of moving PBX in a Flash setups between Amazon EC2 and other standalone or virtual machine platforms. To complement these new utilities, we’ve also released a new 64-bit PIAF-Purple Virtual Machine image for <a href="/?p=4222" target="_blank">VirtualBox</a>. <a href="https://sourceforge.net/projects/pbxinaflash/files/PIAF-2.0.6.3.1-VirtualMachine/PIAF-Purple-64/" target="_blank">PIAF-Purple-64.ova</a> is a free download from SourceForge and will run under VirtualBox on any Windows, Mac, Linux, or Solaris desktop computer.  Our <a href="/?p=4222" target="_blank">VirtualBox tutorial</a> is available <a href="/?p=4222" target="_blank">here</a>. You also have the option of downloading the current <a href="https://sourceforge.net/projects/pbxinaflash/files/PIAF-2.0.6.3.1-CentOS-6.3-64bit/" target="_blank">64-bit PIAF-20631 ISO</a> from SourceForge and building your own server or virtual machine. All three platforms (Amazon EC2 AMI, VirtualBox OVA, or PIAF 64-bit ISO) are 100% compatible with Incredible PBX, Incredible Fax, and the new Incredible Backup. Once you have matching platforms, you can backup your PIAF or Incredible PBX setup on one platform and then restore it to a different platform by simply copying the backup image to the new platform and running Incredible Restore. The entire procedure takes only a couple of minutes. </p>
+<p>To install the backup and restore utilities on either of the platforms, simply issue the following commands:</p>
+<blockquote><p><code>cd /usr/local/sbin<br>
+wget http://incrediblepbx.com/incrediblebackup10.tar.gz<br>
+tar zxvf incrediblebackup10.tar.gz<br>
+rm incrediblebackup10.tar.gz</code></p></blockquote>
+<p>Because Incredible Backup shuts down Asterisk, MySQL, and Apache, do NOT run this when folks are using your PBX! To make a backup, log into your server as root and type: <em>incrediblebackup</em>.</p>
+<p>The restore procedure essentially erases ALL of your existing FreePBX, Asterisk, TFTP, and web data. To restore a backup, copy the backup file to be restored to /tmp on the new server. Make sure the new server has Asterisk, FreePBX, and Incredible PBX versions that match what’s shown in the backup filename. There is NO error checking presently. To restore, log into your server as root, write down the filename of the backup file, and type: <em>incrediblerestore /tmp/filename.tar.gz</em>. If this is a new server and you’re still using your old one as well, then remove the DUNDI <em>secret</em> and <em>secretexpiry</em> entries from the Asterisk DB and restart Asterisk once the restore is completed:</p>
+<blockquote><p><code>asterisk -rx "database del dundi secret"<br>
+asterisk -rx "database del dundi secretexpiry"<br>
+amportal restart<br>
+</code></p></blockquote>
+<p>For additional usage instructions and tips, see <a href="http://pbxinaflash.com/community/index.php?threads/incredible-backup-10-gpl2.15259/" target="_blank">this thread on the PIAF Forum</a>. Enjoy!</p>
+<p></p><center><a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="NerdUno">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></center>
+<p><em><strong><a href="/?p=2" rel="author me">Originally published</a>: Monday, February 11, 2013</strong></em>  <em><strong><a href="/?p=2" rel="author me">Updated</a>: Thursday, February 14, 2013</strong></em></p>
+<hr>
+<p><img decoding="async" src="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/wp-images/talkorange.png" alt="" hspace="4" width="128" align="left"><b>Support Issues.</b> With any application as sophisticated as this one, you’re bound to have questions. Blog comments are a terrible place to handle support issues although we welcome general comments about our articles and software. If you have particular support issues, we encourage you to get actively involved in the <a href="http://pbxinaflash.com/community/">PBX in a Flash Forum.</a> It’s the best Asterisk tech support site in the business, and it’s all free!  Unlike some forums, ours is extremely friendly and is supported by literally hundreds of Asterisk gurus and thousands of users just like you. </p>
+<p>
+</p><center><a href="http://pbxinaflash.com/forum/"><img decoding="async" src="/wp-images/piaf-forum.gif" alt="" hspace="1" align="center"></a><br>
+<b>Need help with Asterisk?</b> Visit the <a href="http://pbxinaflash.com/forum/">PBX in a Flash Forum</a>.<br>
+</center><br>
+
+<hr>
+<p><b>whos.amung.us</b> If you’re wondering what your fellow man is reading on Nerd Vittles these days, wonder no more. Visit our new <a href="http://whos.amung.us/pro/stats/readers/zwh5/">whos.amung.us</a> statistical web site and check out what’s happening. It’s a terrific resource both for us and for you.</p>
+<hr>
+<p> </p>
+<h3>Special Thanks to Our Generous Sponsors</h3>
+<p><br>
+FULL DISCLOSURE: <a href="/?p=32167" target="_new">ClearlyIP</a>, <a href="https://skyetel.com/" target="_new">Skyetel</a>, Vitelity, <a href="https://m.do.co/c/f8725e13f303" target="_new">DigitalOcean</a>, <a href="http://www.vultr.com/?ref=6918611-3B" target="_new">Vultr</a>, <a href="https://voip.ms/en/code/nerdvittles" target="_new">VoIP.ms</a>, 3CX, Sangoma, TelecomsXchange and VitalPBX have provided financial support to Nerd Vittles and our open source projects through advertising, referral revenue, and/or merchandise. As an Amazon Associate and Best Buy Affiliate, we also earn from qualifying purchases. We’ve chosen these providers not the other way around. Our decisions are based upon their corporate reputation and the quality of their offerings and pricing. Our recommendations regarding technology are reached without regard to financial compensation except in situations in which comparable products at comparable pricing are available from multiple sources. In this limited case, we support our sponsors because our sponsors support us.<br>
+<br>
+<a href="/?p=27123" target="_new"><img decoding="async" src="/vitelity/skyetel-bottom.png" alt="" hspace="9" width="250" height="163" align="left"></a><b>BOGO Bonaza:</b> Enjoy state-of-the-art VoIP service with a $10 credit and half-price SIP service on up to $500 of Skyetel trunking with free number porting when you fund your Skyetel account. No limits on number of simultaneous calls. Quadruple data center redundancy. $25 monthly minimum spend required. <a href="/?p=27123" target="_new">Tutorial and sign up details are here</a>.<br>
+<br>
+<a href="https://incrediblepbx.clearlyip.com/" target="_new"><img decoding="async" src="/vitelity/clearlyip.png" alt="" hspace="9" width="250" height="163" align="left"></a>The lynchpin of Incredible PBX 2020 and beyond is ClearlyIP components which bring management of FreePBX modules and SIP phone integration to a level never before available with any other Asterisk distribution. And now you can configure and reconfigure your new Incredible PBX phones from the convenience of the Incredible PBX GUI.<br>
+<br>
+<a href="https://vitalpbx.org/en/" target="_new"><img decoding="async" src="/vitelity/vitalpbx.gif" alt="" hspace="9" width="250" height="163" align="left"><b>VitalPBX</b></a> is perhaps the fastest-growing PBX offering based upon Asterisk with an installed presence in more than 100 countries worldwide. VitalPBX has generously provided a customized White Label version of Incredible PBX tailored for use with all Incredible PBX and VitalPBX custom applications. <a href="/?p=30854" target="_new">Follow this link</a> for a free test drive!<br>
+ <br>
+<br>
+<img loading="lazy" decoding="async" src="/vitelity/vitelity.png" alt="" hspace="9" width="250" height="163" align="left"><b>Special Thanks to Vitelity.</b> Vitelity is now Voyant Communications and has halted new registrations for the time being. Our special thanks to Vitelity for their unwavering financial support over many years and to the many Nerd Vittles readers who continue to enjoy the benefits of their service offerings. We will keep everyone posted on further developments.<br>
+ </p>
+<hr>
+<p></p>
+<hr>
+<p><b>Some Recent Nerd Vittles Articles of Interest…</b></p>
+<p><iframe loading="lazy" frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			<div class="tag_list">Tags: <a href="/tag/asterisk/" rel="tag">asterisk</a> <span class="separator"> — </span> <a href="/tag/cloud-computing/" rel="tag">cloud computing</a> <span class="separator"> — </span> <a href="/tag/fax/" rel="tag">fax</a> <span class="separator"> — </span> <a href="/tag/incrediblepbx/" rel="tag">IncrediblePBX</a> <span class="separator"> — </span> <a href="/tag/piaf/" rel="tag">piaf</a> <span class="separator"> — </span> <a href="/tag/security/" rel="tag">security</a> <span class="separator"> — </span> <a href="/tag/virtualization/" rel="tag">virtualization</a> <span class="separator"> — </span> <a href="/tag/voip/" rel="tag">voip</a></div>
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-5060 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 18 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-89684">
+
+			<div id="comment-89684">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/b14795819bb44b31b3e501c933034bbd0d7efe24bb6b5cb506bdc2872366a98a?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/b14795819bb44b31b3e501c933034bbd0d7efe24bb6b5cb506bdc2872366a98a?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Josh Jacoby</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-89684">Monday, February 11, 2013 at 11:14 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>One item missing here is that the Community AMI you mention is available only in Amazon’s Northern Virginia region. I think this region comes up by default to new users.</p>
+<p><i>[WM: Learn something every day. Thanks, Josh.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-89694">
+
+			<div id="comment-89694">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/34e3cf8989e4d96cf62980b238971b8232caadca838f69bee8099a8190da2ed4?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/34e3cf8989e4d96cf62980b238971b8232caadca838f69bee8099a8190da2ed4?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Joel Macklow</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-89694">Monday, February 11, 2013 at 3:22 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>First up, thanks so much for creating this AMI, Ward…great work.  Further to Josh’s comment above, if anyone wants to have this AMI in another region, then you can spin up an instance in North Virginia and then snapshot it and transfer it to wherever you want :).  Here is how: <a href="http://aws.typepad.com/aws/2012/12/ebs-snapshot-copy.html" rel="nofollow ugc">http://aws.typepad.com/aws/2012/12/ebs-snapshot-copy.html</a></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-89703">
+
+			<div id="comment-89703">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4288c628cbed5742f513baf550238bc4a35ae51ee81339f0c96e422f1c3d95ee?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4288c628cbed5742f513baf550238bc4a35ae51ee81339f0c96e422f1c3d95ee?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mark Gruber</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-89703">Monday, February 11, 2013 at 7:57 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>This is great news Ward!  I have been researching various attempts to use EC2 for a while and nobody seemed to have been successful in creating an image until now.</p>
+<p>Is it possible to use an existing OVA image as the basis for one in EC2 (so we could try Green, for instance)?</p>
+<p>Or how about installing one of the colors on a running Centos image  in EC2 for maximum flexibility (since Amazon does not allow installing from an ISO)?</p>
+<p>Really appreciate all the hard work it took to do this!</p>
+<p><i>[WM: Thanks. Haven’t gotten to whether .ova images can be imported, but we’re working on it. The fact that EC2 images can be exported to .ova format gives us hope.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-89706">
+
+			<div id="comment-89706">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e87110a29699981dc5bae28b0c33755f48a5041365b180bc8ad01ac96963703c?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e87110a29699981dc5bae28b0c33755f48a5041365b180bc8ad01ac96963703c?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://htwebhost.com/" class="url" rel="ugc external nofollow">ultrabizweb</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-89706">Monday, February 11, 2013 at 9:26 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>You could probably use qemu-img to convert the OVA image to vmdk, and then upload that to amazons vmimport <a href="http://aws.amazon.com/ec2/vmimport/" rel="nofollow ugc">http://aws.amazon.com/ec2/vmimport/</a> site. This last week I used qemu-img to convert a kvm image to ova and it seemed to work ok. Hope this helps someone.</p>
+<p><i>[WM: Looks like that is currently limited to Windows images, not Linux. Kinda weird considering the whole platform runs on Linux. 🙄 ]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-89732">
+
+			<div id="comment-89732">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/6e8907e6c885ff59f4631775829771cfe1a34bfa08add0048f0f64602eb52e2d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/6e8907e6c885ff59f4631775829771cfe1a34bfa08add0048f0f64602eb52e2d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Lynn Nielson</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-89732">Tuesday, February 12, 2013 at 1:07 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>running ./incrediblepbx10 displayed the last IP addresses I connection from instead of the external one running on EC2.  I had to modify the incrediblepbx10 script and modify the 3rd line that began with externip=`pinky…` to externip=`curl -s -S –user-agent “Mozilla/4.0” <a href="http://myip.pbxinaflash.com/" rel="nofollow ugc">http://myip.pbxinaflash.com</a> | awk ‘NR==2’`</p>
+<p>btw, great job on getting this to EC2.</p>
+<p><i>[WM: Thanks. Fixed.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-89780">
+
+			<div id="comment-89780">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="/" class="url" rel="ugc">Nerd Uno</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-89780">Wednesday, February 13, 2013 at 8:46 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>PIONEERS: New PIAF-Green 64-bit AMI for Amazon EC2 now available with Asterisk 11.2.1 and FreePBX 2.11 <a href="http://nerd.bz/12LtKDM" rel="nofollow ugc">http://nerd.bz/12LtKDM</a></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-89791">
+
+			<div id="comment-89791">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/75bca15c5ea375e8920dc0ef7c35ce9774b25c0e5e882f2e4c961520ce43f59c?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/75bca15c5ea375e8920dc0ef7c35ce9774b25c0e5e882f2e4c961520ce43f59c?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Greg</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-89791">Wednesday, February 13, 2013 at 1:06 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>minor typo-  under the first time login section: “pwd” should be “passwd”, no?</p>
+<p><i>[WM: Yes. Fixed. Thank you, Greg.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-89862">
+
+			<div id="comment-89862">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/9158f9c2afa22bc087bd53a3d19a20ee764a540f401b9021074286fcf9167150?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/9158f9c2afa22bc087bd53a3d19a20ee764a540f401b9021074286fcf9167150?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Todd</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-89862">Monday, February 18, 2013 at 1:25 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ballpark costs for hosting per month assuming 2-4 lines with normal usage?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-90021">
+
+			<div id="comment-90021">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/130eabb37d21749842bdd3bb9d8198f8a1471dceb163cb42f150f751ed9d8467?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/130eabb37d21749842bdd3bb9d8198f8a1471dceb163cb42f150f751ed9d8467?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Peter Bata</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-90021">Saturday, February 23, 2013 at 11:02 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I see no mention of pricing!</p>
+<p><i>WM: <a href="http://aws.amazon.com/ec2/pricing/?ref_=pe_8050_28377850" target="_blank" rel="nofollow">It’s complicated</a>. 🙂 </i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-90215">
+
+			<div id="comment-90215">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/8999b284b2c606ff6c097786f64bf94fde8b75d0a1227730ae31854a5ba6a9b6?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/8999b284b2c606ff6c097786f64bf94fde8b75d0a1227730ae31854a5ba6a9b6?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">William</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-90215">Tuesday, March 5, 2013 at 6:43 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Any chance of getting the AMI’s duplicated in the Sydney zone?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-90427">
+
+			<div id="comment-90427">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/cf61bcc77257468dadca7721baf1e140c0e7b6052c06fa0f89128ba9ce009e30?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/cf61bcc77257468dadca7721baf1e140c0e7b6052c06fa0f89128ba9ce009e30?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mike</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-90427">Thursday, March 14, 2013 at 6:59 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>William, you can now copy the AMI yourself using the just announce AWS copy AMI feature. I did this for the US West coast. Just fire up an instance in the US N. Virginia location, then create an AMI from it, then copy your new AMI to the region of your choice.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-90595">
+
+			<div id="comment-90595">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/c5bdb54c702d147e5b4715c68f95fb0ab33b86ae7b5097a5a12218f848aab739?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/c5bdb54c702d147e5b4715c68f95fb0ab33b86ae7b5097a5a12218f848aab739?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Leo</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-90595">Tuesday, March 19, 2013 at 6:31 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>First of all, thanks very much to the author(s?) for that release!!</p>
+<p>While trying:<br>
+cd /root<br>
+wget <a href="http://incrediblepbx.com/incrediblepbx11.gz" rel="nofollow ugc">http://incrediblepbx.com/incrediblepbx11.gz</a><br>
+gunzip incrediblepbx11.gz<br>
+chmod +x incrediblepbx11<br>
+./incrediblepbx11</p>
+<p>I’m getting:<br>
+This utility installs Incredible PBX 11.<br>
+Ooops. You aren’t running a 32-bit version of CentOS 6.<br>
+32-bit CentOS 6 is required for this release of Incredible PBX.</p>
+<p>I got the GREEN AMI from Amazon EC2 in region US-est following this tutorial. Any idea how to get Incredible PBX 11 for 64-bit?</p>
+<p><i>[WM: It’s been fixed. Just remove your old installer and download it again. Thanks for the heads up.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-90671">
+
+			<div id="comment-90671">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/ada1a135164ab1acebc63e139274ed7ebddaf4d2f23e1a021f18a98351861759?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/ada1a135164ab1acebc63e139274ed7ebddaf4d2f23e1a021f18a98351861759?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Matt</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-90671">Thursday, March 21, 2013 at 10:47 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Is it true each instance of this requires a NEW purchase of ” Multi-Factor Authentication device”?  </p>
+<p>fiddle about with settings: @ 1 device<br>
+reinstall ready to go live: @ 2 devices now?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-91380">
+
+			<div id="comment-91380">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4fa3a03d34702185c8773265465222e63feaced3a7e6ec60b7265d820e3c382f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4fa3a03d34702185c8773265465222e63feaced3a7e6ec60b7265d820e3c382f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ciarán</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-91380">Sunday, May 26, 2013 at 6:15 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Mike – I’ve tried to copy the AMI using the AWS copy AMI feature. However when I launch it on the Irish server the Instance reachability check keeps failing.  Do you know if it only works on US servers?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-91851">
+
+			<div id="comment-91851">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a3c90df1f211929511d4c2f81e021bcb8e6e41077b5973919b98b427873da0d1?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a3c90df1f211929511d4c2f81e021bcb8e6e41077b5973919b98b427873da0d1?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Paul</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-91851">Sunday, June 16, 2013 at 1:23 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Cannot seem to resize using the snapshot/create new volume/attach new bigger volume methods commonly found for resizing Amazon EC2 root volumes.</p>
+<p>When getting to the point of using resize2fs /dev/xvde1, the system returns an error that the volume is already resized even though its still 10GB in df -m and EC2 management console shows 30GB.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-92850">
+
+			<div id="comment-92850">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/fdf79f9921363542e38d9e62fab9afd55a46fd1adc12a130530a725d40bb7e32?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/fdf79f9921363542e38d9e62fab9afd55a46fd1adc12a130530a725d40bb7e32?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Benjamin</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-92850">Monday, August 12, 2013 at 5:47 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I am very happy you put this together. Been struggling for over a week to get one of these going.</p>
+<p>When I log in as root, it asks me for a password. Would you mind emailing me or posting the default root password?  Stuck at the login screen.</p>
+<p><i>[WM: Please reread <strong>Your First Login</strong> section of the tutorial. It explains how to get root access.</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-93111">
+
+			<div id="comment-93111">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/6e3fdea0c088fee34d1c7715baa0f83c15fc9a7ff7de6c936239389547916647?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/6e3fdea0c088fee34d1c7715baa0f83c15fc9a7ff7de6c936239389547916647?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ayni</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-93111">Sunday, September 1, 2013 at 2:33 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I’m stuck at the beginning. I can’t find PIAF in community AMI’s. I tried other ways of searching for it but to not avail.. Any ideas? </p>
+<p><i>[WM: <a href="https://aws.amazon.com/amis/piaf-green-asterisk11-2-1-freepbx2-11" target="_blank" rel="nofollow">Here’s a link</a>.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-93434">
+
+			<div id="comment-93434">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/81be306574ee33ede4b638d5cffa396eb68aa779a03519eebc6e63c706b93b00?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/81be306574ee33ede4b638d5cffa396eb68aa779a03519eebc6e63c706b93b00?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Richard</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/#comment-93434">Monday, October 14, 2013 at 7:24 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>has anyone noticed that ‘yum upgrade’ fails when using the green AMI?  I know that this a centos issue,  however since the AMI is provided for people to use, could this be looked at?</p>
+<p><i>[WM: Never, ever run <strong>yum upgrade</strong> on <u>any</u> PIAF server unless instructed to do so after a security alert in the portal.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/disaster-planning-and-recovery-voip-communications-in-amazons-ec2-cloud/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjEzMjAwOSwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

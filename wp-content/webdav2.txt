@@ -1,0 +1,9 @@
+    DAV On
+    <Limit PUT POST DELETE PROPFIND PROPPATCH MKCOL COPY MOVE LOCK UNLOCK>
+     AuthType Basic
+     AuthName "WebDAV Web Server Access"
+     AuthUserFile /usr/local/website.pw
+     require valid-user
+     Order allow,deny
+     Allow from all
+    </Limit>

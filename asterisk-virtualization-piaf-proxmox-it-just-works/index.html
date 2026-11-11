@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>Asterisk Virtualization: PiaF + Proxmox, It Just Works – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/asterisk-virtualization-piaf-proxmox-it-just-works/">
+<link rel="shortlink" href="/?p=643">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=55268DC9C7105B43E86B42FB46F62EA2');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=643">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-643 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/" title="Permalink to Asterisk Virtualization: PiaF + Proxmox, It Just Works" rel="bookmark">Asterisk Virtualization: PiaF + Proxmox, It Just Works</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Monday, September 7, 2009 at 6:02 am</li>		<li class="category">in <a href="/category/technology/internetweb/" rel="category tag">Internet/Web</a>, <a href="/category/technology/networking/" rel="category tag">Networking</a>, <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fasterisk-virtualization-piaf-proxmox-it-just-works%2F&amp;text=Asterisk+Virtualization%3A+PiaF+%2B+Proxmox%2C+It+Just+Works" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fasterisk-virtualization-piaf-proxmox-it-just-works%2F&amp;t=Asterisk+Virtualization%3A+PiaF+%2B+Proxmox%2C+It+Just+Works" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-643" class="clearfix post-643 post type-post status-publish format-standard hentry category-internetweb category-networking category-technology category-telephony tag-openvz tag-piaf tag-proxmox tag-virtualization">
+
+		<div class="entry">
+
+			<p><img decoding="async" src="/wp-images/orgasmatronV.jpg" alt="" hspace="9" align="left"> We've invested weeks and months over the years wrestling with virtualization technologies searching for the perfect fit for the Asterisk® PBX platform and especially for the turnkey solutions provided by <em>PBX in a Flash</em> and our latest Orgasmatron V installer. Why virtualization you might be asking? As with most computer applications, it comes down to flexibility and, of course, cost savings. </p>
+<p>For the latest article on PBX in a Flash 2 with OpenVZ, <a href="/?p=804">follow this link</a>.</p>
+<p>In the flexibility department, VoIP virtualization lets you choose options such as Cloud Computing and hosted solutions from various providers. It also provides a terrific training platform as well as your own managed Cloud Computing solution. You can build and host a dozen or more virtual Asterisk systems on a single $500 to $1,000 server and have a transportable solution ready to deploy in a couple of hours. And then there are those of us in the technology business that need to test all sorts of new operating systems and applications without having to dedicate a standalone machine to each experiment. </p>
+<p><b>Security WARNING:</b> Always run Proxmox behind a secure, hardware-based firewall with no port exposure to the Internet. Review this <a href="http://pbxinaflash.com/forum/showthread.php?p=70789#post70789">message thread</a> for the reasons why.</p>
+<p>Our virtualization platform of choice is Proxmox, a lightweight Debian-based distribution that includes kernel support for both KVM and OpenVZ. As Martin Maurer from Proxmox put it in a <a href="http://www.montanalinux.org/proxmox-ve-martin-interview.html">recent interview</a>:</p>
+<blockquote><p>This means you get the best of both virtualization worlds... containers (OS Virtualization) and fully-virtualized machines (Machine Virtualization). Proxmox VE also includes a very powerful yet easy to use web-based management system with clustering features. Boot the Proxmox VE install media, answer a few simple questions, and within 10 minutes you have a very powerful virtualization platform you can manage from a web browser. Install it on one or more additional machines that are networked together and use Proxmox VE's cluster management tool to create a virtualization cluster that allows for centralized management, automated backups, iso media and OS Template syncing, as well as migration features. Proxmox VE really is a time saving turnkey solution... and it is freely available under a GPL license."
+</p></blockquote>
+<p><img decoding="async" src="/wp-images/wallet.png" alt="" border="0" hspace="5" width="105" height="105" align="left"> As far as cost savings, $500 to $1,000 says it all. When you can run a dozen dedicated systems on such a hardware platform, it reduces the individual cost of each turnkey system deployment to well under $100. And the performance penalty for implementing this multitasking solution is only a 1 to 3 per cent performance hit compared to using comparable standalone systems for similar computing tasks. <a href="http://pro.gigaom.com/2009/09/vmware-tightens-its-stranglehold-but-competitors-are-still-breathing/">Om Malik</a> recently noted that: </p>
+<blockquote><p>More than half of new servers in 2009 will be virtualized, compared with 30 percent in 2008, according to a new survey by TheInfoPro."
+</p></blockquote>
+<p>Comparing 2009 to 2008 deployments, that's a 70% increase in just one year. When there is comparable performance, 90% cost savings, and greatly enhanced deployment flexibility, you have to ask yourself why wouldn't you deploy virtualized solutions. With the solution we're providing today, you get some other benefits as well: snapshot backups and cluster computing, both of which actually work. And the cost of this virtualization technology... it's <em>FREE</em>!</p>
+<p><a href="http://www.dell.com/content/topics/segtopic.aspx/dell-deals-servers?c=us&amp;cs=04&amp;l=en&amp;s=bsd" target="_new"><img decoding="async" src="/wp-images/T100A.jpg" alt="" hspace="9" align="right"></a><b>Hardware Requirements.</b> For full KVM virtualization support, you'll need either an Intel-VT (( Be very careful choosing Intel processors. Even some high-end processors do not support Intel Virtualization Technology. Here's the <a href="http://ark.intel.com/VTList.aspx">official list</a>. )) or AMD-V ((  And here is a <a href="http://wiki.xensource.com/xenwiki/HVM_Compatible_Processors">useful reference</a> for AMD-compatible processors. The <a href="http://en.wikipedia.org/wiki/Advanced_Micro_Devices">AMD WIKI</a> provides the following list of AMD-V compatible processors: "AMD's x86 virtualization extension to the 64-bit x86 architecture is named AMD Virtualization, also known by the abbreviation AMD-V, and is sometimes referred to by the code name 'Pacifica'. AMD processors using Socket AM2, Socket S1, and Socket F include AMD Virtualization support. AMD Virtualization is also supported by release two (8200, 2200 and 1200 series) of the Opteron processors. The third generation (8300 and 2300 series of Opteron processors) will see an update in virtualization technology..." )) capable CPU/Mainboard. Also strongly recommended are a multi-core CPU and as much RAM as your budget can afford. <a href="http://www.dell.com/content/topics/segtopic.aspx/dell-deals-servers?c=us&amp;cs=04&amp;l=en&amp;s=bsd" target="_new">Our favorites</a> (primarily because of cost) are the Dell T105 (with either dual or quad core AMD Athlon processor) or the Dell T300 (with quad core Intel Xeon processor). Both are on sale for the next few days starting at $249 up to about $1,000 with $350-$549 off the retail prices. You can save more by using our Dell coupon in the right margin. We recommend purchasing larger hard disks from other suppliers so stick with the default setup in drives. Dell has gotten more competitive on RAM pricing so that's your call. For a point of reference, a dual core AMD with 8GB of RAM can support about 8 simultaneous Asterisk servers.</p>
+<p><img decoding="async" src="/wp-images/listorange.png" alt="" border="0" hspace="5" width="105" height="132" align="left"> <b>Installing Proxmox.</b> If you go the Dell route, you'll need an external USB CD or DVD drive to install Proxmox. Dell's optical drives aren't supported in the Proxmox boot image. So begin by downloading the <a href="http://pve.proxmox.com/wiki/Downloads">Proxmox VE 1.3 ISO image</a> and create your CD. Then boot your new server from the CD (by pressing F11 for the boot selection screen and choosing your USB external drive on Dell servers). Press Return to begin the install, agree to the license agreement, and click Next on the installer screen to begin. Choose your country, time zone, and keyboard layout. Next choose a secure password and provide a valid email address which is used to send you critical alerts from your Proxmox server. Finally, choose a hostname, specify a fixed IP address, netmask, gateway, and DNS servers and then press Next. Three minutes later, you'll have a new Proxmox server. Log in to your server as root and create a directory for your backups: <em>mkdir /backup</em>. You're finished on the CLI at this point.</p>
+<p><img decoding="async" src="/wp-images/choices.png" alt="" border="0" hspace="5" width="105" height="105" align="left"><b>OpenVZ vs. ISO Images.</b> One of the beauties of Proxmox is that it supports two different types of images to create virtual machines. An OpenVZ template is akin to a snapshot of an existing system while an ISO image is identical to the installer you normally would burn onto a CD in order to install a software application on your server. In short, you still have to go through the installation scenario when you create a virtual machine (KVM) from an ISO image. A virtual machine created from an OpenVZ image is ready for use the moment it is created. If you remember when instant-on televisions first were introduced, you'll also appreciate the difference in boot times between OpenVZ and KVM machines which boot an application installed from an ISO in much the same manner as you would experience on a standalone machine. </p>
+<p>As with life, there's a dark cloud lurking behind every silver lining, and this is especially true in the Asterisk environment. OpenVZ containers rely upon a shared kernel, the one that actually boots the Proxmox server. KVM containers created from ISO images are self-contained with their own complete operating system and kernel. Thus, zaptel and dahdi cannot be loaded directly from an OpenVZ container. Instead one must rely upon a shared version of zaptel or dahdi loaded on the Proxmox server itself. As it turns out, this is no small feat and certainly not a task for mere mortals. Bottom Line: If you need conferencing or otherwise need a timing source for your Asterisk deployment, you will not want to use the OpenVZ approach at least for now. We hope to more fully document the zaptel/dahdi hurdles that need to be addressed in coming weeks. You can follow our progress in this <a href="http://pbxinaflash.com/forum/showthread.php?t=5435">message thread</a> on the <em>PBX in a Flash</em> Forum. On the other hand, if you have more traditional VoIP requirements for your PBX, then the ease of installation and use of the OpenVZ image makes perfect sense. So let's start there assuming you understand the limitations.</p>
+<p></p><center><img decoding="async" src="/wp-images/proxmox-ve.gif" alt="" border="0" hspace="1" align="center"></center>
+<p><b>Installing PIAF OpenVZ.</b> Using a web browser, download the new <a href="http://proxmox.pbxinaflash.com/">PBX in a Flash OpenVZ image</a> to your Desktop. Our special thanks to Wolf Paul, who did most of the work in putting this together. Once you have the OpenVZ image in hand, point your web browser to your Proxmox server: http<strong>s</strong>://ipaddress. Accept the default certificate and login as root. You'll get a Welcome screen that looks something like what's shown above. Click on the Appliance Template option. In the Upload File section, choose the PIAF OpenVZ image on your Desktop and click Upload. Be patient. It's a big file. So go have a cup of coffee. You'll get a prompt when it's completed. And, as Joe Roper has pointed out, you can do this directly within the Proxmox server by logging in as root and issuing the following commands. Thanks, Joe.</p>
+<blockquote><p>cd /var/lib/vz/template/cache/<br>wget http://tr.im/piaf1506
+</p></blockquote>
+<p></p>
+<p>If you really want to walk on the wild side, here's a third method from Ap.Mathu. After logging into your server as root and issuing the following commands, you can download <em>PBX in a Flash</em> as well as Joomla!, eyeOS, BlueOnyx, Moodle, and FrontAccounting directly through the Proxmox web interface (<em>Appliance Templates, Download</em>):</p>
+<blockquote><p>cd ~<br>wget http://mundy.org/piaf1506<br>cat piaf1506 &gt;&gt; /var/lib/pve-manager/apl-available
+</p></blockquote>
+<p></p>
+<p>NOTE: You'll need to use the third option above only <u>after</u> you enable IPtables below because the <em>apl-available</em> file gets regenerated from "headquarters" each time Proxmox restarts.</p>
+<p><img loading="lazy" decoding="async" src="/wp-images/shield2orange.png" alt="" border="0" hspace="5" width="105" height="126" align="left"><b>Enabling IPtables Firewall.</b> IPtables works a little differently in the OpenVZ environment. It actually runs on the Proxmox host. There are three steps to get it working. First, be sure you have downloaded PIAF OpenVZ template 15.04 or later. Second, shut down every running VM on your Proxmox server using the web interface. When you're sure they're all stopped, log into your Proxmox server as root using SSH and <em>carefully</em> enter the following two commands. Note that, because of the length, the sed command stretches to several lines which should be unraveled into a single line for the command to execute properly! Using a block-copy from a desktop machine to your SSH session is the safest method.<br>
+<font size="-2"></font></p>
+<blockquote><p>sed -i 's|ipt_REJECT ipt_tos ipt_limit ipt_multiport iptable_filter iptable_mangle ipt_TCPMSS ipt_tcpmss ipt_ttl ipt_length|ipt_REJECT ipt_tos ipt_TOS ipt_LOG ip_conntrack ipt_limit ipt_multiport iptable_filter iptable_mangle ipt_TCPMSS ipt_tcpmss ipt_ttl ipt_length ipt_state iptable_nat ip_nat_ftp|' /etc/vz/vz.conf</p>
+<p>/etc/init.d/vz restart
+</p></blockquote>
+<p></p>
+<p></p><center><br><img decoding="async" src="/wp-images/create-openvz.gif" alt="" border="0" hspace="1" align="center"></center>
+<p>Now you're ready to create your first virtual machine. Click on Virtual Machines and then the Create tab. Accept the default OpenVZ container type and give your virtual machine a host name that will help you distinguish it from other VMs on your Proxmox server. Create a secure root password for your new VM. We recommend a minimum memory and swap memory size of 512MB and a minimum disk size of 20GB. You can experiment with these to find the best fit on your server. It only takes about 30 seconds  to create an OpenVZ virtual machine so trial-and-error isn't painful. </p>
+<p>You have a choice of Network Types. With Virtual Networks (venet), you need to designate a static IP for your virtual machine. With Bridged Ethernet (veth), an IP address is assigned by your DHCP server. Be aware that our <em>status</em> app currently won't display venet-assigned IP addresses, but <em>ifconfig</em> will. There are some <a href="http://wiki.openvz.org/Differences_between_venet_and_veth" target="_new">other significant differences</a> including network security that you may wish to review. Our special thanks to Martin Maurer from the Proxmox Dev Team for the hand-holding in getting both options working. To keep things simple, choose <em>Bridged Ethernet</em> as shown in the screen shot above. As mentioned, we'll depend upon your DHCP server to assign a dynamic IP address. You can lock it down on your router to assure that the same IP address always is assigned to this virtual machine. Finally, provide a DNS domain for the new VM and assign at least one DNS server. The IP of your gateway router/firewall usually will suffice. Click <em>create</em> when you have filled in all the blanks. Your new virtual machine will be ready to run in less than a minute. </p>
+<p><img loading="lazy" decoding="async" src="/wp-images/Net_Diagnosis.png" alt="" border="0" hspace="5" width="105" height="105" align="left"> To start the OpenVZ virtual machine, click on the List tab. Then click on the VM you wish to run. When the details display, click the <em>Start </em>button. Within a couple seconds, your VM will start up. Now click on the <em>Open VNC Console</em> link which provides you a command line interface to the now running virtual machine. Type <em>ifconfig</em> several times until you get a display showing your network interfaces. If no IP address is shown for eth0, type: <em>service network restart</em>. You only need to do this the first time your new virtual machine is started. Once the network reloads, you should be good to go. Type <em>status</em> and the IP address of your new VM should display. Type <i>service iptables status</i> to verify that IPtables is running. It currently does not show properly with <em>status</em>. If it's not running, type <i>service iptables restart</i>, and then check it again. The safest test is to attempt to log into your new server with a phone using the wrong extension password. After three tries, it should lock out that IP address temporarily. </p>
+<p><img loading="lazy" decoding="async" src="/wp-images/Parabolic.png" alt="" border="0" hspace="5" width="105" height="105" align="left"> Now it's time to secure your new virtual machine. We need to change the master password (not the root password) that is used to gain web access to your server. We also need to change the server's SSH keys to make them unique. Just run the following three commands making certain that you choose to overwrite your existing SSH keys when prompted to do so:</p>
+<blockquote><p> passwd-master<br>
+ ssh-keygen -f /etc/ssh/ssh_host_rsa_key -t rsa<br>
+ ssh-keygen -f /etc/ssh/ssh_host_dsa_key -t dsa
+</p></blockquote>
+<p>Finally, you can type <em>rasterisk</em> to load the Asterisk CLI. You now have a functional PBX which is ready for configuration. See <a href="http://knol.pbxinaflash.com/" target="_new">our knol</a> for step-by-step instructions if you're new to all of this. Or, better yet, you can transform your new virtual machine into a turnkey PBX in less than 10 minutes with free calling in the U.S. and Canada with our <a href="/?p=637" target="_new">Orgasmatron V Installer</a>.</p>
+<p>We strongly encourage (actually we're begging) you to read our <a href="/index.php?p=580">Primer on Asterisk Security</a> before doing anything else. It could save you an astronomical phone bill down the road.</p>
+<p><img loading="lazy" decoding="async" src="/wp-images/site_map.png" alt="" border="0" hspace="5" width="100" height="75" align="left"><b>Where To Go From Here.</b> Until our next chapter, you might want to experiment with some of the other <a href="http://pve.proxmox.com/wiki/Get_Virtual_Appliances">OpenVZ appliances</a> which are available for Proxmox. Many can be installed within the Proxmox GUI (<em>Appliance Templates, Download</em>). Here's the short list: Proxmox Mail Gateway, CYAN Secure Web, Trouble Ticket Tracking, Zenoss Core IT Monitoring, CentOS 4 and 5, Debian 4 and 5, Fedora 9, Ubuntu Hardy, Drupal Content Management, Joomla Content Management, MediaWiki, SugarCRM, and WordPress. Enjoy!</p>
+<p><a href="/?p=645">Continue reading Part II</a> for the 64-bit version with DAHDI conferencing...</p>
+<hr>
+<p><b>Enhanced Google Maps.</b> In case you haven't noticed, we've added yet another Google Map to Nerd Vittles. Now, in addition to showing our location with Google Latitude, we also are displaying your location based upon your IP address. We'll show you how to add something similar to any LAMP-based Linux system in coming weeks. It's a powerful technology that has enormous potential. If you're unfamiliar with Google Maps, click on the <em>Hybrid</em> and <em>Satellite</em> buttons and then check out the scaling and navigation options. Double-click to zoom. Incredible!</p>
+<hr>
+<p><b>whos.amung.us</b> If you're wondering what your fellow man is reading on Nerd Vittles these days, wonder no more. Visit our new <a href="http://whos.amung.us/pro/stats/readers/zwh5/">whos.amung.us</a> statistical web site and check out what's happening. It's a terrific resource both for us and for you.</p>
+<hr>
+<p></p><center><a href="http://pbxinaflash.com/forum/"><img decoding="async" src="/wp-images/piaf-forum.gif" alt="" hspace="1" align="center"></a><br>
+<b>Need help with Asterisk?</b> Visit the <a href="http://pbxinaflash.com/forum/">PBX in a Flash Forum</a>.<br>
+Or Try the New, Free <a href="http://pbxinaflash.com/forum/showthread.php?p=29773#post29773">PBX in a Flash Conference Bridge</a>.</center><br>
+
+<hr>
+<p> </p>
+<h3>Special Thanks to Our Generous Sponsors</h3>
+<p><br>
+FULL DISCLOSURE: <a href="/?p=32167" target="_new">ClearlyIP</a>, <a href="https://skyetel.com/" target="_new">Skyetel</a>, Vitelity, <a href="https://m.do.co/c/f8725e13f303" target="_new">DigitalOcean</a>, <a href="http://www.vultr.com/?ref=6918611-3B" target="_new">Vultr</a>, <a href="https://voip.ms/en/code/nerdvittles" target="_new">VoIP.ms</a>, 3CX, Sangoma, TelecomsXchange and VitalPBX have provided financial support to Nerd Vittles and our open source projects through advertising, referral revenue, and/or merchandise. As an Amazon Associate and Best Buy Affiliate, we also earn from qualifying purchases. We’ve chosen these providers not the other way around. Our decisions are based upon their corporate reputation and the quality of their offerings and pricing. Our recommendations regarding technology are reached without regard to financial compensation except in situations in which comparable products at comparable pricing are available from multiple sources. In this limited case, we support our sponsors because our sponsors support us.<br>
+<br>
+<a href="/?p=27123" target="_new"><img loading="lazy" decoding="async" src="/vitelity/skyetel-bottom.png" alt="" hspace="9" width="250" height="163" align="left"></a><b>BOGO Bonaza:</b> Enjoy state-of-the-art VoIP service with a $10 credit and half-price SIP service on up to $500 of Skyetel trunking with free number porting when you fund your Skyetel account. No limits on number of simultaneous calls. Quadruple data center redundancy. $25 monthly minimum spend required. <a href="/?p=27123" target="_new">Tutorial and sign up details are here</a>.<br>
+<br>
+<a href="https://incrediblepbx.clearlyip.com/" target="_new"><img loading="lazy" decoding="async" src="/vitelity/clearlyip.png" alt="" hspace="9" width="250" height="163" align="left"></a>The lynchpin of Incredible PBX 2020 and beyond is ClearlyIP components which bring management of FreePBX modules and SIP phone integration to a level never before available with any other Asterisk distribution. And now you can configure and reconfigure your new Incredible PBX phones from the convenience of the Incredible PBX GUI.<br>
+<br>
+<a href="https://vitalpbx.org/en/" target="_new"><img loading="lazy" decoding="async" src="/vitelity/vitalpbx.gif" alt="" hspace="9" width="250" height="163" align="left"><b>VitalPBX</b></a> is perhaps the fastest-growing PBX offering based upon Asterisk with an installed presence in more than 100 countries worldwide. VitalPBX has generously provided a customized White Label version of Incredible PBX tailored for use with all Incredible PBX and VitalPBX custom applications. <a href="/?p=30854" target="_new">Follow this link</a> for a free test drive!<br>
+ <br>
+<br>
+<img loading="lazy" decoding="async" src="/vitelity/vitelity.png" alt="" hspace="9" width="250" height="163" align="left"><b>Special Thanks to Vitelity.</b> Vitelity is now Voyant Communications and has halted new registrations for the time being. Our special thanks to Vitelity for their unwavering financial support over many years and to the many Nerd Vittles readers who continue to enjoy the benefits of their service offerings. We will keep everyone posted on further developments.<br>
+ </p>
+<hr>
+<p><b>Some Recent Nerd Vittles Articles of Interest...</b></p>
+<p><iframe loading="lazy" frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			<div class="tag_list">Tags: <a href="/tag/openvz/" rel="tag">openvz</a> <span class="separator"> — </span> <a href="/tag/piaf/" rel="tag">piaf</a> <span class="separator"> — </span> <a href="/tag/proxmox/" rel="tag">proxmox</a> <span class="separator"> — </span> <a href="/tag/virtualization/" rel="tag">virtualization</a></div>
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-643 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 32 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-9956">
+
+			<div id="comment-9956">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9956">Monday, September 7, 2009 at 10:27 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Just checked out your OpenVZ template for Proxmox PIAF container. On running the VM, (I use my router dhcp dns and gateway of 192.168.12.1), I find that the IP 192.168.0.58 gets hardcoded into the /etc/hosts file and that the eth0 gets a dhcp IP address from the router. The status however shows that “Ethernet0” is “OFFLINE” and no connectivity to the VM is possible from outside the ProxMox Host – no webmin (status shows ONLINE), no http – from an external machine on the same subnet. Looks like you will have to patch the VM and redistribute it for users on a subnet other than 192.168.0.x.</p>
+<p><i>[WM: Not sure when you downloaded the image, but you got the old version that had the problem you’ve identified. Just download the latest OpenVZ image, and you’ll be good to go. If the name of the image isn’t <strong>centos-5-PIAF15_i386.tar.gz</strong>, you’ve got the older release.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9961">
+
+			<div id="comment-9961">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/930efcdb3bb3e0ebb57111a8797429d99aa2d431365b821b084d6aec496ab6fd?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/930efcdb3bb3e0ebb57111a8797429d99aa2d431365b821b084d6aec496ab6fd?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">jimb</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9961">Monday, September 7, 2009 at 11:38 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I tried several virtualization combinations with<br>
+the PIAF VMware image on linux-hosted and windows-hosted machines, but I am currently using “VMware ESXi (a free bare-metal hypervisor)” server. </p>
+<p>I have a Dell SC440 on which I installed VMware ESXi server, the “Dell Customized” version. (ESXi server needs at least 2GB RAM to install.) </p>
+<p>ESXi has some nice features (one being it’s free), and it runs the PIAF VM image very well so far.</p>
+<p>(If you are gonna use the PIAF VM image, you will need to convert it first — VMware has a free converter, too.)</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-9963">
+
+			<div id="comment-9963">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9963">Monday, September 7, 2009 at 12:00 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Boot/Init Log Messages that failed:</p>
+<p>Loading default keymap (us): /etc/rc.d/rc.sysinit: line 396: /dev/tty0: No such file or directory<br>
+[FAILED] </p>
+<p><i>[WM: Harmless. Proxmox handles keymapping differently. Still works fine.]</i></p>
+<p>raidautorun: failed to open /dev/md0: Permission denied<br>
+awk: cmd. line:1: fatal: cannot open file `/proc/misc’ for reading (No such file or directory) </p>
+<p><i>[WM: Harmless. Proxmox has different drive mapping from standalone. Still works fine.]</i></p>
+<p>Applying ip6tables firewall rules: modprobe: FATAL: Could not load /lib/modules/2.6.24-7-pve/modules.dep: No such file or directory </p>
+<p>ip6tables-restore v1.3.5: ip6tables-restore: unable to initializetable ‘filter’ </p>
+<p>Error occurred at line: 3<br>
+Try `ip6tables-restore -h’ or ‘ip6tables-restore –help’ for more information.<br>
+[FAILED] </p>
+<p>Applying iptables firewall rules: modprobe: FATAL: Could not load /lib/modules/2.6.24-7-pve/modules.dep: No such file or directory </p>
+<p>iptables-restore v1.3.5: iptables-restore: unable to initializetable ‘nat’ </p>
+<p>Error occurred at line: 2<br>
+Try `iptables-restore -h’ or ‘iptables-restore –help’ for more information.<br>
+[FAILED] </p>
+<p><i>[WM: As explained in the article, if you use OpenVZ image instead of the ISO, IPtables is not supported.]</i></p>
+<p>Starting zaptel: Loading zaptel framework: FATAL: Could not load /lib/modules/2.6.24-7-pve/modules.dep: No such file or directory<br>
+[FAILED]<br>
+Waiting for zap to come online…Error: missing /dev/zap!<br>
+[FAILED] </p>
+<p><i>[WM: As explained in the article, if you use OpenVZ image instead of ISO, zaptel and dahdi are not yet supported. They have to be installed into the Proxmox kernel directly. Coming soon!]</i></p>
+<p>Bringing up interface eth0: Device eth0 does not seem to be present, delaying initialization.<br>
+[FAILED] </p>
+<p><i>[WM: Harmless. As explained in the article, if you choose a Virtual Network, eth0 is not activated. If you choose Bridged Ethernet, eth0 is activated.]</i></p>
+<p>Starting hidd: Can’t open HIDP control socket: Address family not supported by protocol<br>
+[FAILED]<br>
+Starting autofs: Loading autofs4: [FAILED]<br>
+[FAILED]<br>
+Starting Avahi daemon… [FAILED]<br>
+Starting HAL daemon: [FAILED] </p>
+<p><i>[WM: Harmless. Not supported with OpenVZ container. Use the ISO if you need these.]</i></p>
+<p>/etc/rc3.d/S99local: line 8: /usr/src/zaptel/fxotune: No such file or directory</p>
+<p><i>[WM: Harmless. See zaptel comment above.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9964">
+
+			<div id="comment-9964">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9964">Monday, September 7, 2009 at 12:04 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>If PIAF was built on debian, then it may have been easier to port it to ProxMox. I have tested out VMWare, but ProxMox does it’s containers very well. Just takes a while to tame it though. If PIAF was built on the ProxMox CentOS template, it might be easy to troubleshoot it.</p>
+<p><i>[WM: If you have issues with the OpenVZ image, then download the PBX in a Flash ISO image and use it with Proxmox. Works exactly like a standalone machine once installed… and it has none of the VoIP and TTS timing issues associated with VMware.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-9965">
+
+			<div id="comment-9965">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9965">Monday, September 7, 2009 at 12:07 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>WM – Have you uploaded a new version of your template. The latest one of 6 hours ago matched your MD5sum on the beta download site and the errors still persist.</p>
+<p><i>[WM: There was a new image as explained above. Finally was able to reproduce your issue with  156.130.0.58 in the /etc/hosts file using Bridged Ethernet. No similar issue with venet. New OpenVZ container will be available shortly. New checksum will be bfa04e6e125b22b3b3469c8cb26fa0f5.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9966">
+
+			<div id="comment-9966">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/27c8a242f5e8308b8544247b13559e8da70df5757c198e4cc019b54a75d9d843?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/27c8a242f5e8308b8544247b13559e8da70df5757c198e4cc019b54a75d9d843?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Vince Kimball</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9966">Monday, September 7, 2009 at 12:09 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>It’s working great here.  I purchased a quad-core T105 with 8GB of RAM last time they were on sale.</p>
+<p>(Haven’t enabled outside access yet.  Still re-reading the articles about security.)</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-9970">
+
+			<div id="comment-9970">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7b64ad53308df47639d8cd9c3d5d538246ecb5799d88d1dd58d84e90286c525d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7b64ad53308df47639d8cd9c3d5d538246ecb5799d88d1dd58d84e90286c525d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">bbhenry</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9970">Monday, September 7, 2009 at 1:44 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward , I think the iptables does work in OpenVZ. I have played with open VZ for 9 months now. And how do I tell? I have a customer running PIAF on Lylix’s service. and I know they utilize OpenVZ technology. And somehow I turned on the iptables, and I was not able to log in to the PIAF remotely, I had to ask their tech support to turn it off internally. So I am sure the iptable works. Check out the link below</p>
+<p><a href="http://wiki.openvz.org/Setting_up_an_iptables_firewall" rel="nofollow ugc">http://wiki.openvz.org/Setting_up_an_iptables_firewall</a></p>
+<p><i>[WM: One of our gurus just posted a detailed HOW-TO on the <a href="http://pbxinaflash.com/forum/showthread.php?p=33226#post33226" rel="nofollow">PBX in a Flash Forum</a>.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9976">
+
+			<div id="comment-9976">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9976">Tuesday, September 8, 2009 at 8:47 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>The Admin Interface -&gt; FreePBX Admin opened up with maint:password and shows FreePBX v2.5.1.5</p>
+<p>A yum update resulted in<br>
+Updated: dnsmasq.i386 0:2.45-1.1.el5_3</p>
+<p><i>[WM: Don’t run yum update on PBX in a Flash systems. Our <a href="http://knol.pbxinaflash.com/" rel="nofollow">documentation</a> explains the alternatives!]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-9978">
+
+			<div id="comment-9978">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9978">Tuesday, September 8, 2009 at 9:07 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>FreePBX -&gt; phpMyAdmin results in an error:-<br>
+Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly.</p>
+<p><i>[WM: Thanks. This is fixed in PIAF15.05 image. For earlier releases, log into your VM as root and issue the following command.]</i></p>
+<p>chown asterisk:asterisk /var/lib/php/session</p>
+<p></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9980">
+
+			<div id="comment-9980">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9980">Tuesday, September 8, 2009 at 9:15 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>FreePBX -&gt; Config Edit</p>
+<p>None of the files in the /etc and /var/www/html/panel can be read for editing. The owner of the files in /etc are root:root and the permissions are 644.<br>
+The folder /etc/asterisk where the files can be read and edited have the owner as libuuid:libuuid and the permissions set to 664. The files in the folder /var/www/html/panel have the same permissions and owner as those in the /etc/asterisk folder and yet are unreadable for editing.</p>
+<p><i>[WM: You’ve corrupted something. Don’t run yum update on PBX in a Flash systems. Our <a href="http://knol.pbxinaflash.com/" rel="nofollow">documentation</a> explains the alternatives!]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-9988">
+
+			<div id="comment-9988">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9988">Tuesday, September 8, 2009 at 1:18 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>phpMyAdmin works now.</p>
+<p>Some files in /etc like grub.conf, etc which are not allowed to be edited show up in the Edit Config files page and then the browser hangs awhile. It is better to suppress those files from being displayed and altering permissions / ownerships for files that need to be displayed but cannot yet be edited link one of the ldap config files.</p>
+<p>Ethernet0 still shows OFFLINE (in bridge mode) as it is vmbr0 that we are connecting to although the eth0 is the one shown with the IP address from the DHCP server.</p>
+<p><i>[WM: We’re working on the status program. Thanks. In bridged mode, the IP address should display at the bottom of the status display, but there still are issues including the Ethernet0 display. As for blocking editing, keep in mind that you are logged into a VM as root. There is no way to effectively block folks from ruining their systems if they are determined to do it. 🙂 This build is sufficiently stable that no updates should be necessary so enjoy the application as delivered. We do appreciate the heads up on bugs.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9989">
+
+			<div id="comment-9989">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9989">Tuesday, September 8, 2009 at 4:25 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>In FreePBX -&gt; Tools<br>
+Updated all Modules<br>
+I now have FreePBX v2.5.2.1</p>
+<p>It works!</p>
+<p><i>[WM: That’s the idea! Just stay away from yum and watch the RSS feed on the web GUI for security notices, and you’ll be a Happy Camper.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-9994">
+
+			<div id="comment-9994">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9994">Tuesday, September 8, 2009 at 11:41 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>The Orgasmatron referred above is a tar.gz file named with an extension “x” which has an ELF installer (file named “1”) that downloads over 31 MB of files and then installs with bash.</p>
+<p>The Orgasmatron referred below is malware:-</p>
+<p><a href="http://www.exterminate-it.com/malpedia/remove-orgasmatron" rel="nofollow ugc">http://www.exterminate-it.com/malpedia/remove-orgasmatron</a></p>
+<p><i>[WM: Heh. Yeah, we had our Orgasmatron first… and Woody Allen beat all of us. 🙂 Not the same application.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9996">
+
+			<div id="comment-9996">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9996">Wednesday, September 9, 2009 at 12:01 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Where is the install log for orgasmatron stored?</p>
+<p><i>[WM: The source components all can be found in the /root folder. Install log is displayed on the screen as the apps are installed. All of the components including the install procedures are fully documented on our <a href="http://bestof.nerdvittles.com/applications/" rel="nofollow">Best of Nerd Vittles site</a>.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-9997">
+
+			<div id="comment-9997">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9997">Wednesday, September 9, 2009 at 12:08 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I had Upgraded All Modules before the Orgasmatron Install. When I checked for Upgrades after the Orgasmatron Install, I found that the current FreePBX was v2.5.2.1 and the upgrade was slated to become the same again. On performing the upgrade, I find that the FreePBX version now is 2.5.2.2.</p>
+<p><i>[WM: Correct. The Orgasmatron gets updated regularly, but not daily. FreePBX has had a good bit of activity in the last week.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9998">
+
+			<div id="comment-9998">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-9998">Wednesday, September 9, 2009 at 12:12 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>The last fully patched version of phpMyAdmin in the 2.x series is phpMyAdmin v2.11.9.5 and can be found at:-</p>
+<p><a href="http://www.phpmyadmin.net/home_page/downloads.php" rel="nofollow ugc">http://www.phpmyadmin.net/home_page/downloads.php</a></p>
+<p>The installed version still shows:-<br>
+phpMyAdmin – 2.11.0</p>
+<p><i>[WM: We stay fairly current with the thousands of components that comprise PBX in a Flash… but not daily. This will be picked up in due course either through update-fixes or update-source. Take a look at some of the other (older) Linux distros in the Proxmox repository if you really want to have some fun. 🙄 ]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-10001">
+
+			<div id="comment-10001">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10001">Wednesday, September 9, 2009 at 2:34 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>update-sources </p>
+<p>Cannot be used in the OpenVZ template as there are no sources present in it currently.</p>
+<p><i>[Correct. All of the source code for the project is in the PBX in a Flash <a href="http://pbxinaflash.net/source/" rel="nofollow">source repository</a>. The specific source for the OpenVZ build is in the <a href="http://pbxinaflash.net/source/OpenVZ/" rel="nofollow">OpenVZ directory</a>. It was again updated this morning because of a missing piece. If desired, this can be used to upgrade Asterisk manually; however, the plan is to incorporate OpenVZ code upgrades into the update-sources script down the road. Until that happens, we will release either new OpenVZ builds or customized scripts to handle any upgrades that become necessary in the OpenVZ environment.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-10003">
+
+			<div id="comment-10003">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10003">Wednesday, September 9, 2009 at 4:54 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Installed a fresh v1.5.0-5 in a VM and checked out the file permissions after first boot:-</p>
+<p>The file /etc/aliases.db has a chmod of 640 while it’s ownership is designated root:51 – what is the 51 group?</p>
+<p>The file /etc/dumpdates is a zero byte file that has a chmod of 664 and owned by root:disk.</p>
+<p>The file /etc/rndc.key has a chmod of 640 and is owned by root:floppy</p>
+<p>hile the /etc/fxotune/conf and /etc/amportal.conf.org are owned by libuuid:libuuid, the file /etc/amportal.conf is owned by root:root, with the chmod for all three being 644.</p>
+<p>The folders /etc/avahi and /etc/fail2ban are owned by root:root</p>
+<p><i>[WM: Log into the VM. Examine the same files, and the cloud of secrecy will be lifted. 🙂 Some of these are CentOS/RedHat specific.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-10004">
+
+			<div id="comment-10004">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10004">Wednesday, September 9, 2009 at 4:54 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>While the /etc/fxotune.conf and /etc/amportal.conf.org are owned by libuuid:libuuid, the file /etc/amportal.conf is owned by root:root, with the chmod for all three being 644.</p>
+<p><i>[WM: If you look at the files while logged in as root on the Proxmox server, you’re correct. However, take a look at the same files after logging into the VM as root and you will note that fxotune.conf and amportal.conf.org show ownership as asterisk:asterisk. This is because there is no asterisk user defined on the Proxmox server so a placeholder apparently is used to reflect ownership by an account which is foreign the the Proxmox server itself.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-10005">
+
+			<div id="comment-10005">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10005">Wednesday, September 9, 2009 at 5:06 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>/var/log/httpd/error_log and access_log needs to be purged of it’s old errors and accesses.</p>
+<p><i>[WM: Agreed. To fix in the current VM…]</i></p>
+<p>cd /var/log/httpd<br>
+rm error_log<br>
+touch error_log<br>
+rm access_log<br>
+touch access_log<br>
+apachectl restart</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-10006">
+
+			<div id="comment-10006">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10006">Wednesday, September 9, 2009 at 5:09 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>/var/log/mysqld.log has the 640 permissions and owner 27:sudo – what are the 27 owner and sudo group?</p>
+<p><i>[WM: Ditto from the other comments about permissions. In this case, when you log into the VM, the owner:group will be revealed as mysql:mysql.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-10010">
+
+			<div id="comment-10010">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10010">Wednesday, September 9, 2009 at 11:02 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>The RightNow Backup was taken in May 2009 and when we finish with Module Upgrades and restore all from the said backup, the db gets out of synch with the actual versions and I keep getting a message that FOP cannot be started!</p>
+<p><i>[WM: After running the Orgasmatron Installer script, don’t apply any FreePBX updates before restoring the Orgasmatron backup. That’s what got things out of sync. I’ve updated the <a href="http://pve.proxmox.com/wiki/PBX_in_a_Flash" rel="nofollow">WIKI</a> to show the proper procedure.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-10011">
+
+			<div id="comment-10011">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10011">Wednesday, September 9, 2009 at 11:04 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I get an entry in my firewall for:<br>
+<a href="http://hod.omnis.com/" rel="nofollow ugc">http://hod.omnis.com</a> at IP: 216.239.128.70 during the Orgasmatron download. Is it yours?</p>
+<p><i>[WM: We have a number of domains registered through omnis.com, and they provide DNS services for some of those domains.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-ward bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-10012">
+
+			<div id="comment-10012">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://mundy.org/" class="url" rel="ugc external nofollow">ward</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10012">Wednesday, September 9, 2009 at 11:06 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>New <a href="http://tr.im/piafwiki" rel="nofollow">WIKI</a> for PBX in a Flash OpenVZ template is now available.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-10013">
+
+			<div id="comment-10013">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10013">Wednesday, September 9, 2009 at 11:11 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>the file /etc/amportal.conf was owned by root:root</p>
+<p>changed it to asterisk:asterisk</p>
+<p>In the Proxmox file system, it now shows up as owned by libuuid:libuuid</p>
+<p><i>[WM: With the exception of fxotune.conf, all of the /etc/*.conf files should be root:root.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-10019">
+
+			<div id="comment-10019">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/f56865f12580e044fdb05f1eb4ca3846845c8f6ea582b0096a1c20bdb9901f2b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/f56865f12580e044fdb05f1eb4ca3846845c8f6ea582b0096a1c20bdb9901f2b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">gil</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10019">Thursday, September 10, 2009 at 11:06 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Why use Proxmox and not ESXi, Im not an advocate of either but I’m just about to install ESXi and I was wondering if there are any issues?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-ward bypostauthor even thread-even depth-1" id="li-comment-10027">
+
+			<div id="comment-10027">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://mundy.org/" class="url" rel="ugc external nofollow">ward</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10027">Friday, September 11, 2009 at 6:27 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>As a security precaution, the following three commands should be executed on the console whenever you create a new virtual machine:</p>
+<p>passwd-master<br>
+ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N -t rsa<br>
+ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N -t dsa</p>
+<p>Both the article and WIKI have been revised accordingly.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-10037">
+
+			<div id="comment-10037">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dbd72cdfd4fd2322a4de3c52e105a2d93eac8544d90f37084eb53461c6ade7ee?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dbd72cdfd4fd2322a4de3c52e105a2d93eac8544d90f37084eb53461c6ade7ee?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bruce</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10037">Monday, September 14, 2009 at 2:00 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Wow…this is amazing. I would like to see some more comments on the capacity of a Quad Core server, sharing a single Ethernet link (where 100s of SIP calls are made per Asterisk server), and also love to see a re-write of this article to cover everything step by step including ztdummy/dahddi.</p>
+<p>Good work! I see that a full force of at least 4 people are at work to get this beast working.</p>
+<p>Keep it up guys!!!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-10038">
+
+			<div id="comment-10038">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dd9d89a46129e213f9050e1fe09530d10d9271b5542a2c10497b795768ac5e44?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ap.Muthu</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10038">Monday, September 14, 2009 at 2:42 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>ssh-keygen -f /etc/ssh/ssh_host_rsa_key -t rsa -N “Your PassPhrase Here”<br>
+ssh-keygen -f /etc/ssh/ssh_host_dsa_key -t dsa -N “Your PassPhrase Here”</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-10287">
+
+			<div id="comment-10287">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/09075ac82e392f9f3fd5632a023768bc7f534353a7700523ea37dfc6330b3331?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/09075ac82e392f9f3fd5632a023768bc7f534353a7700523ea37dfc6330b3331?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Craig Askings</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-10287">Monday, November 2, 2009 at 8:46 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Has anyone successfully done a live migration of a container that has dahdi enabled? If so what host kernel were you using?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-13455">
+
+			<div id="comment-13455">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e6d2ed6d4e495b630be5135295374583aa62bac10046e99c5ab8196aeaee67cb?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e6d2ed6d4e495b630be5135295374583aa62bac10046e99c5ab8196aeaee67cb?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">wrt54gl</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-13455">Monday, January 17, 2011 at 2:20 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I currently have a trixbox server that I would like to migrate to this. It is using a Sangoma A200 card. Can anyone point me in the right direction on how to configure and use the Sangoma card with the 64bit PIAF openVZ container?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-90951">
+
+			<div id="comment-90951">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/84759f000e02c764f07dd4b429b5a9597b3e4442acc5f85065edbe4750d16816?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/84759f000e02c764f07dd4b429b5a9597b3e4442acc5f85065edbe4750d16816?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">dusty</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/asterisk-virtualization-piaf-proxmox-it-just-works/#comment-90951">Friday, March 29, 2013 at 9:15 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I’m mostly concerned about call quality with virtualized Asterisk.  </p>
+<p>What is a good way to test this?  Does anyone have results from VoIP Spear (voipspear.com) or VQMon (www.telchemy.com/vqmon.php)?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/asterisk-virtualization-piaf-proxmox-it-just-works/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/asterisk-virtualization-piaf-proxmox-it-just-works/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/asterisk-virtualization-piaf-proxmox-it-just-works/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/asterisk-virtualization-piaf-proxmox-it-just-works/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/asterisk-virtualization-piaf-proxmox-it-just-works/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/asterisk-virtualization-piaf-proxmox-it-just-works/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjE5NTk0Niwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

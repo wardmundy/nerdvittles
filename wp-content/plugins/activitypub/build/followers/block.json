@@ -1,0 +1,85 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "activitypub/followers",
+  "apiVersion": 3,
+  "version": "9.4.3",
+  "title": "Fediverse Followers",
+  "category": "widgets",
+  "description": "Display your followers from the Fediverse on your website.",
+  "textdomain": "activitypub",
+  "icon": "groups",
+  "keywords": [
+    "fediverse",
+    "activitypub",
+    "followers",
+    "mastodon"
+  ],
+  "supports": {
+    "html": false,
+    "interactivity": true,
+    "color": {
+      "gradients": true,
+      "link": true,
+      "__experimentalDefaultControls": {
+        "background": true,
+        "text": true,
+        "link": true
+      }
+    },
+    "typography": {
+      "fontSize": true,
+      "__experimentalDefaultControls": {
+        "fontSize": true
+      }
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {
+    "selectedUser": {
+      "type": "string",
+      "default": "blog"
+    },
+    "per_page": {
+      "type": "number",
+      "default": 10
+    },
+    "order": {
+      "type": "string",
+      "default": "desc",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    }
+  },
+  "usesContext": [
+    "postType",
+    "postId"
+  ],
+  "styles": [
+    {
+      "name": "default",
+      "label": "Default",
+      "isDefault": true
+    },
+    {
+      "name": "card",
+      "label": "Card"
+    },
+    {
+      "name": "compact",
+      "label": "Compact"
+    }
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "viewScriptModule": "file:./view.js",
+  "viewScript": "wp-api-fetch",
+  "style": [
+    "file:./style-index.css"
+  ],
+  "render": "file:./render.php"
+}

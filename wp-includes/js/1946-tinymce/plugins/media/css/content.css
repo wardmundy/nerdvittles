@@ -1,0 +1,6 @@
+.mceItemFlash, .mceItemShockWave, .mceItemQuickTime, .mceItemWindowsMedia, .mceItemRealMedia {border:1px dotted #cc0000; background-position:center; background-repeat:no-repeat; background-color:#ffffcc;}
+.mceItemShockWave {background-image: url(/wp-includes/js/1946-tinymce/plugins/media/img/shockwave.gif);}
+.mceItemFlash {background-image:url(/wp-includes/js/1946-tinymce/plugins/media/img/flash.gif);}
+.mceItemQuickTime {background-image:url(/wp-includes/js/1946-tinymce/plugins/media/img/quicktime.gif);}
+.mceItemWindowsMedia {background-image:url(/wp-includes/js/1946-tinymce/plugins/media/img/windowsmedia.gif);}
+.mceItemRealMedia {background-image:url(/wp-includes/js/1946-tinymce/plugins/media/img/realmedia.gif);}

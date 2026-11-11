@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>Nerd Vittles Birthday Bash: freePBX 2.2.0, TrixBox for Macs, CallerID Trifecta for Asterisk, and… – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/">
+<link rel="shortlink" href="/?p=164">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=D5068361F37A96263938A838F6A0FC1B');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=164">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-164 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/" title="Permalink to Nerd Vittles Birthday Bash: freePBX 2.2.0, TrixBox for Macs, CallerID Trifecta for Asterisk, and…" rel="bookmark">Nerd Vittles Birthday Bash: freePBX 2.2.0, TrixBox for Macs, CallerID Trifecta for Asterisk, and…</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Wednesday, January 17, 2007 at 1:00 am</li>		<li class="category">in <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fthe-nerd-vittles-birthday-bash-introducing-freepbx-220%2F&amp;text=Nerd+Vittles+Birthday+Bash%3A+freePBX+2.2.0%2C+TrixBox+for+Macs%2C+CallerID+Trifecta+for+Asterisk%2C+and%26%238230%3B" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fthe-nerd-vittles-birthday-bash-introducing-freepbx-220%2F&amp;t=Nerd+Vittles+Birthday+Bash%3A+freePBX+2.2.0%2C+TrixBox+for+Macs%2C+CallerID+Trifecta+for+Asterisk%2C+and%26%238230%3B" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-164" class="clearfix post-164 post type-post status-publish format-standard hentry category-technology category-telephony">
+
+		<div class="entry">
+
+			<p><img decoding="async" src="/wp-images/birthday.jpg" alt="" hspace="9" align="left">We made some New Year’s Resolutions this year… that we intend to keep. So, no, we’re not going to discuss losing weight. Our most important resolution was to stop getting caught up in upgrade-itis with Asterisk® and TrixBox. After all, we’re building phone systems that folks expect to be considerably more reliable than their Windows desktop machines… which doesn’t take much. We’ve gotten literally hundreds of emails asking the same two questions: when do we plan to switch to TrixBox 2.0 and how about upgrading to Asterisk 1.4?  Our answer is always the same to both questions: <i>not anytime soon</i>. Why? Because there is almost nothing that can’t already be done with TrixBox 1.2.3. It’s 99% reliable, at least once you <i>NerdVittlize It</i> using our <a href="/index.php?p=153">upgrade script</a>. So what do these upgrades buy you other than another version number? Who knows? We’d suggest you do a lot of reading before making the leap. Start with <a href="http://www.sureteq.com/asterisk/trixboxv2.0.htm">Chris Sherwood’s Guide</a> and see if there’s some new feature you really can’t live without. And then check out the <a href="http://www.trixbox.org/modules/newbb/viewforum.php?forum=2">TrixBox Help Forum</a> to determine if you can deal with the reported problems. That’s the balancing act we all have to perform, and we’ll let you know when we finally take the plunge. For now, we’re happy with the feature set in TrixBox 1.2.3, and it lets us build reliable snap-on applications that really make a phone system hum. If there are features you don’t need or use, just turn them off. That’s what WebMin is for! Think of it as TrixBox 2.0 in reverse. Instead of enabling apps, you disable them. Are you really that short on disk space? As for the feature set, you’re not missing much. Our home phone system has so many gimmicks and gizmos that some callers  (mostly my perverted friends) ask to speak to Allison when they call. She doesn’t live with us. She’s a nice Canadian girl, but you might still  enjoy listening to her <a href="http://www.ronaldlewis.com/interviews/2007/01/interview-with-allison-smith-north.html">recent interview</a> with Ronald Lewis. </p>
+<p>Having said all that, there’s one new product for Asterisk that is nothing short of incredible. That’s the Rob Thomas &amp; Co. upgrade of freePBX to 2.2.0. While the developers have conservatively numbered the new version, don’t be deceived. It’s more like 3.0 compared to the 2.1.3 version that ships with TrixBox 1.2.3. Why the enthusiasm? Because freePBX now includes the toolset that lets developers add unlimited new functionality without mucking around in the basic freePBX code.  We’ll show you what we mean in a little bit so hang in there. Our diatribe is almost over.</p>
+<p>We’ve also gotten a lot of questions about whether we’ve looked at AsteriskNOW, the new “appliance” from Digium. Yes, we’ve <a href="http://www.asterisknow.org/">looked</a> and we’ve read some excellent <a href="http://www.madikonda.com/downloads/asterisknow.pdf">documentation</a>. If all you want to do is set up some extensions around your house and replace your answering machine, it looks like an interesting product. What’s missing? Well, the 80 million things you can do with freePBX for openers.  So we actually thought about writing a HOW-TO covering installation of freePBX 2.2.0 with AsteriskNOW, but then we remembered our New Year’s Resolution, not to mention the Asterisk 1.4 wrinkle with a bunch of missing commands. They call them “deprecated.” It’s a nice word for throwing the baby out with the bath water. To save a few lines of code, the Asterisk developers removed some important, old commands from the product. So now application developers have to review and update every piece of code they’ve ever written for Asterisk to make sure there aren’t any deprecated commands lurking. To make matters worse, you have to have different versions of applications to run on Asterisk 1.2 and Asterisk 1.4. Dumb idea not to mention a huge waste of time and talent! So… here’s our bottom line: why reinvent the wheel when TrixBox 1.2.3 is rock-solid reliable and when TrixBox uses the very best tools in the business: Asterisk 1.2.12.1, Apache, MySQL, PHP, Flite, SendMail, SugarCRM, and on and on we go. Aside from the IAX security hole which our upgrade script patches, every one of these applications is a proven winner which brings us back to freePBX.</p>
+<p>You really, really need freePBX 2.2.0! We plan to build all of our future goodies using it so climb on board today. We promise. You’ll enjoy the ride… every week!  If you’re using TrixBox 2.0, you’re all set. If not, here’s how to upgrade your TrixBox 1.2.3 system to freePBX 2.2.0 in about 10 minutes! There’s nothing hard about any of this. The remainder of this article does assume that you have installed TrixBox 1.2.3 from the original .iso image and then <a href="/index.php?p=153">NerdVittlized</a> it on a dedicated Linux machine <i>OR</i> that you’ve installed our <a href="/index.php?p=152">VMware/Windows XP version of TrixBox 1.2.3</a> which comes NerdVittlized out of the box. Otherwise, as they say, <a href="http://www.urbandictionary.com/define.php?term=YMMV">YMMV</a>. If you’re new to all of this and have no idea what <i>NerdVittlizing</i> means, read up on the gerund <a href="/index.php?p=153">here</a>, and then come back and join us once you’ve secured your system and added all of the the Nerd Vittles goodies. </p>
+<p>When we get finished with the freePBX upgrade to your TrixBox 1.2.3 system, <i>everything that worked before you started the upgrade will still work when you get finished</i>. Of course, we recommend you try this out on a non-production system and <i>verify for yourself</i> that your system still functions reliably. That’s what VMware is for! But we think you’ll find that you still have a system that is ready to put in production: phones ring, applications run just as before, and all the things you have come to rely upon in your phone system will still function. And we’ll have an essential, new building block to add all sorts of additional features to your system in coming weeks without breaking anything. We’re even going to add a few goodies today just to get you started!</p>
+<p><b>Upgrading to freePBX 2.2.0.</b> The upgrade process is straight-forward, but you need to pay attention and perform the steps in the order we’ve outlined below. Winging it will result in a system that either doesn’t work at all or one that may exhibit all sorts of quirky behavior. So, be reasonable. Do it our way! We’ve tested this about a dozen times on all sorts of different machines which is something you’re probably not going to find all that exciting to replicate.</p>
+<p>First, make sure that your TrixBox 1.2.3 server is working reliably. It handles incoming calls correctly, voicemail works, outbound calls work, etc. Once you’re certain that you have a stable TrixBox 1.2.3 system, then log into your server as root and issue the following commands <i>in order</i>. If, for some reason, the freePBX mirror site is unavailable, substitute <i>bestof.nerdvittles.com/applications/callerid</i> for <i>mirror.freepbx.org</i> below:</p>
+<pre>
+cd /usr/src
+wget http://mirror.freepbx.org/freepbx-2.2.0.tar.gz
+tar zxvf freepbx-2.2.0.tar.gz
+cd freepbx-2.2.0
+./install_amp  (When prompted whether to overwrite existing files, type <i>a</i>)
+</pre>
+<p>Once the installation is completed, don’t reboot your system or restart Asterisk! Instead, using a web browser (IE 6 works great) point the browser to the IP address of your web server. Choose <i>System Administration</i> and type the username <i>maint</i> followed by your password to gain access. Now choose <i>freePBX</i>. Whatever you do, don’t click the Red Bar to update settings until you’ve completed <u>all</u> of the steps below.</p>
+<p><b>Pass #1.</b> We’re going to make <u>three passes</u> through the FreePBX module update process before we’re ready to click the Red Bar. So choose <i>Tools</i> then <i>Module Admin</i> then click <i>Check for Updates online</i>.  Click <i>Download all</i> at the top, far right side of your browser window. Then click the <i>Process</i> button followed by the <i>Confirm</i> button. Wait for the downloads to be processed. Then click the <i>Return</i> button at the bottom of the browser window.</p>
+<p><b>Pass #2.</b>  Click <i>Upgrade all</i> at the top, far right side of your browser window. Then click the <i>Process</i> button followed by the <i>Confirm</i> button. Wait for the upgrades to be processed. Then click the <i>Return</i> button at the bottom of the browser window.</p>
+<p><b>Pass #3.</b>  Click <i>Upgrade all</i> at the top, far right side of your browser window. Then click the <i>Process</i> button followed by the <i>Confirm</i> button. Wait for the upgrades to be processed. Then click the <i>Return</i> button at the bottom of the browser window.</p>
+<p>Finally, click the <i>Red Bar</i> to apply the configuration changes. Count to 20. Now let’s log into your server as root again and make a minor correction or two, and you’ll be ready to reboot and go. Once you’re logged in, issue the following commands to fix the initial voice prompts with our Stealth Autoattendant:</p>
+<pre>
+cd /var/lib/asterisk/sounds/custom
+mv nv-greeting.wav nv-greeting.wav.bak
+mv nv-menu.wav nv-menu.wav.bak
+</pre>
+<p>Now edit line 428 in the extensions.conf file to resolve a freePBX bug with Enum Lookups:</p>
+<pre>
+nano -w /etc/asterisk/extensions.conf
+Ctrl-W and type: arg3 is pattern
+press Enter key
+Ctrl-W again and press Enter key
+</pre>
+<p>You can verify the line number by pressing <i>Ctrl-C</i> in Nano. You should be positioned on line 428 which begins like this:</p>
+<pre>
+exten =&gt; s,1,GotoIf($["{$ARG3}" = 
+</pre>
+<p>Just insert an exclamation point (!) immediately <i>before</i> the equals sign (=) so that it looks like this <i>!=</i> and save your change: <i>Ctrl-X, Y, then press Enter</i>.</p>
+<p>Now restart your server, and you’re done: <i>shutdown -r now</i>. Congratulations! You now should have a functioning freePBX 2.2.0 system. Be sure to take a look at the <a href="http://www.freepbx.org/2007/01/05/freepbx-220-is-here-finally/">Release Notes</a> and the <a href="http://aussievoip.com.au/wiki/Freepbx">freePBX Wiki</a>.</p>
+<p><b>Adding Free Directory Assistance to freePBX.</b> We’ll have a whole bunch more to say about freePBX 2.2.0 in coming weeks, but we wanted to give you a couple of sneak previews of new functions which are incredibly powerful. First, there’s a new way to add loads of functionality to your system without having to be a programmer. For example, here’s how to integrate <i>free</i> Directory Assistance into your system by simply dialing <i>411</i> from any phone connected to your Asterisk system.</p>
+<p>Using your web browser, go back into freePBX (<i>System Admin, freePBX, Setup</i>) and choose <i>Misc Destination</i>. Make the following entries:</p>
+<pre>
+<b>description</b>  Directory Assistance
+<b>dial</b>  8003733411
+</pre>
+<p>Then click the <i>Submit Changes</i> button followed by the <i>Red Bar</i> to reload your configuration into memory. </p>
+<p>Now choose <i>Misc Application</i> and make the following entries:</p>
+<pre>
+<b>description</b>  Information
+<b>Feature Code</b>  411
+<b>Status</b>  Enabled
+<b>Destination</b>  Misc Destination:Directory Assistance
+</pre>
+<p>Then click the <i>Submit Changes</i> button followed by the <i>Red Bar</i> to reload your configuration into memory. Now dial 411 from any phone on your system and enjoy free Directory Assistance.</p>
+<p><b>Checking Your AutoAttendant.</b> The real beauty of the new <i>Misc Application</i> function is that you can use it for internal testing of almost anything. For example, to try out your Stealth AutoAttendant by dialing 412 from any extension, add the following <i>Misc Application</i>:</p>
+<pre>
+<b>description</b>  Test AutoAttendant
+<b>Feature Code</b>  412
+<b>Status</b>  Enabled
+<b>Destination</b>  IVR:Stealth AutoAttendant
+</pre>
+<p>Click the <i>Submit Changes</i> button followed by the <i>Red Bar</i> to reload your configuration into memory. Now dial 412 from any phone on your system and you can try out the Nerd Vittles Stealth AutoAttendant without having to dial into your system from an outside phone.</p>
+<p><b>Accessing the VoiceMail System.</b> Another nice trick is to add hidden extensions to access VoiceMail. Let’s assume you want to do this for extension 500 and for the hidden extension number we add another zero: 5000. Here’s how to set up the <i>Misc Application</i>:</p>
+<pre>
+<b>description</b>  VoiceMail 500
+<b>Feature Code</b>  5000
+<b>Status</b>  Enabled
+<b>Destination</b>  Core:voicemail box 500
+</pre>
+<p>Click the <i>Submit Changes</i> button followed by the <i>Red Bar</i> to reload your configuration into memory. Now dial 5000 from any phone on your system to access the VoiceMail box for extension 500. It’s an easy way to leave messages for someone else on your system without dialing in from an outside phone. You can also use it to retrieve voicemail. Just press the asterisk (*) button while the voicemail prompt is playing on the phone. Then enter your voicemail password for extension 500. You should be catching on by now. Build a few more just for fun.</p>
+<p><b>Happy Birthday to Us.</b> We’ll close by mentioning that it’s a big week here at Nerd Vittles. And we have a couple more surprises for you. This Friday marks our Second Birthday. Hard to believe it’s been two years. We spent our first six months covering what you could do with a <a href="/index.php?p=40">$500 Mac mini</a>. But the last 18 months have been devoted almost exclusively to <a href="/index.php?p=130">Asterisk</a>. Our gift to you is the brand new <a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a> web site. Have a look. There’s an <a href="http://bestof.nerdvittles.com/rssfeed.xml">RSS Feed</a> for the new site as well. We think you’ll enjoy both the new format <i>and</i> the content.  And, it’ll only get better as time marches on.</p>
+<p>And your gift to us? Glad you asked. What a great time to send along a <i>modest</i> contribution through the PayPal link at the top of the page. If every person that reads Nerd Vittles each week donated just ten bucks with any major credit card, we’d have the resources to pull off some really slick projects and hire a little help. Those additions just aren’t feasible without Yankee Dollars. So skip that overpriced cheeseburger today and do your part for the cause. We promise to spend it wisely, and, just like your church, we won’t come calling again (at least not too often) until this time next year. Finally, an apology for the yo-yo’s at PayPal. Once in a while, <i>their</i> system tacks on a shipping charge to <i>donations</i>. No shortage of Village Idiots, is there? If it happens to you, just reduce the amount of your donation accordingly. We’ve screamed and hollered for two years, but it still happens once in a while for no apparent reason. We’ve gotten two generous contributions in recent days for $47.50, not the sort of number someone usually pulls out of their hat. But thanks nevertheless and our apologies for the shipping charge! Now back to the party. All together now… Happy Birthday, Nerd Vittles… and to all a good night.</p>
+<p><a href="http://mundy.org/patthenerd/"><img decoding="async" src="/wp-images/nabaztag.jpg" alt="" hspace="9" align="left"></a><b>From the Really Cool Dept.</b> We’ve got a few more surprises to pull out of our hat so hang in there. What’s this? A New Bunny! We received a rather unique birthday gift from a fan. It’s a new Nabaztag/tag Wi-Fi Rabbit. We’ve named him <b>PatTheNerd</b>, what else? In addition to blinking lights and wiggly ears, you get a talking bunny with one of the best voice synthesizers on the planet. And it all runs over a self-configured wireless network connection on your LAN. Want to try it out? Feel free to send us a voice message. Just click on the bunny (<i>inset</i>). And soon, you’ll be able to issue voice commands directly to your bunny as well. Who’s Yo Daddy? </p>
+<p>If you’ve never heard of these little guys, you’ve got some serious reading to do. Start <a href="http://www.nabaztag.com/">here</a> and then head to their <a href="http://nabaztag.forumactif.fr/If-you-do-not-speak-french-f8.htm">Forum</a>. Every kid should have one! And, once you get yours, leave it to Nerd Vittles to turn your little critter into a <i>Weather Bunny</i>, maybe not as cute as the one at your local television station, but still pretty cool. Your Weather Bunny will tell you the latest weather conditions in any city in the United States as often as you like. Just add an entry to your Asterisk crontab! Sound familiar? You can download our <a href="/weather-bunny.zip">WeatherBunny for NabazTag</a> application written in PHP at your convenience. And now there’s a <a href="/news-bunny.zip">News Bunny</a> as well! We’ll continue NerdVittlizing Pat in the coming weeks so stay tuned. Pat should be great at providing message alerts and reading emails and voicemail. <a href="http://nabaztalk.com/forum/viewtopic.php?id=4">Someone</a> has even set up an Asterisk voicemail box for their rabbit.  So what are you waiting for? Order one for yourself and put a bunny to work! Thanks, <i>anonymous</i>!</p>
+<p><b>News Flash!</b> For Intel-based Mac users, the wait is over. A beta of VMware is now available simply by filling out <a href="http://register.vmware.com/content/beta/fusion/registration.html">this form</a>. Once installed, you should be able to run the <a href="/index.php?p=152">VMware version of TrixBox 1.2.3</a> or the <a href="http://sourceforge.net/project/showfiles.php?group_id=123387&amp;package_id=192286">VMware version of TrixBox 2.0</a> on your Mac Desktop. Let us know how it goes! We’re jealous and wishing we had an Intel Mac ourselves. All we got was a dumb bunny.</p>
+<p><b>CallerID Trifecta.</b> <i><strong>NOTE: This application has been superseded. Continue reading the latest article <a href="/?p=609">here</a>.</strong></i></p>
+<p>Finally, we’ll leave you with some seriously good, new software if we do say so.  It’s been almost a year since we last discussed <a href="/index.php?p=115">CallerID Tips and Tricks</a>. Seems to be our favorite topic on Nerd Vittles around the time of our birthday celebration. Don’t ask us why? But we wanted to continue the tradition this year by introducing an all-new CallerID Trifecta. Thanks to freePBX 2.2.0, with just a couple minutes of effort, you can snap our code into the web directory on your Asterisk server, make a couple of freePBX entries, and, presto, you get instant CallerID name lookups for all your incoming calls using AsteriDex, the Google Residential Phonebook, and AnyWho. We’ll add more sources including SugarCRM in the coming weeks. For today, you’ll find the documentation and download at this <a href="http://bestof.nerdvittles.com/applications/callerid/">link</a> on the Best of Nerd Vittles site. Particularly for those outside the U.S, we think you’ll find the PHP code easy to follow if you want to build additional directory resources on your own. Just be careful to <i>always</i> exit from the procedure rather than letting it just play out, or freePBX gets squirrelly and often just dumps incoming calls into voicemail. Guess how we know. Enjoy and thanks for visiting!</p>
+<hr>
+<p><b>Some Recent Nerd Vittles Articles of Interest…</b></p>
+<p><iframe frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-164 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 31 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-2369">
+
+			<div id="comment-2369">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/81557782de89f90033d16687bd3bc6d46b30866157a02b23654dfa6ddaa7bb54?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/81557782de89f90033d16687bd3bc6d46b30866157a02b23654dfa6ddaa7bb54?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">chris</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2369">Wednesday, January 17, 2007 at 12:21 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward,</p>
+<p>Thanks for everything.  On your 411 Directory Assistance Instructions, you will also need to go into Feature Codes and disable the 411 Phone Book Dial by Name Directory.</p>
+<p><i>[WM: Technically, you’re correct but, because it’s further down in the Feature Codes list than these new entries, it will get ignored either way. But thanks for catching it.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2370">
+
+			<div id="comment-2370">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/8433868e1e903032f2ceaec348a0b7be77011be5fb8f28a86eba25f370333481?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/8433868e1e903032f2ceaec348a0b7be77011be5fb8f28a86eba25f370333481?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" decoding="async">
+					<cite class="fn">Dave</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2370">Wednesday, January 17, 2007 at 4:21 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, your CallerID Trifecta is a great idea, but some of us may not want to go through the hassle of installing AstriDex just to enable a local CallerID name lookup source.  Is there any way you could make it look through a comma-quote delimited text file as the local lookup source?  That way, those of us who only have a few numbers could simply add them to a flat file that looks like something like this:</p>
+<p>“2345552368”,”John Smith”<br>
+“7895550000”,”FooFoo, Inc.”<br>
+“7655554545”,”DON’T ANSWER!!”</p>
+<p>Or whatever name or comment you may want to add.</p>
+<p>The beauty of this is that if you already have an address/phone book program, you can usually tell it to export certain fields in comma-quote delimited format.  Even if it won’t export them in quite the format you need, you can always use a program like CSVed (<a href="http://csved.sjfrancke.nl/index.html" rel="nofollow ugc">http://csved.sjfrancke.nl/index.html</a>) to massage the output you do get into the file format you need.</p>
+<p>I just don’t see the point of having to install what amounts to a whole new database program, which also mucks around with the FreePBX speed dialing codes (I think), when all I really need is to be able to read a few phone number and name combinations off a short list.  If AstriDex didn’t change the FreePBX dial plan AT ALL then I might consider using it just for this application, but I would still think it’s gross overkill for the purpose, kind of like renting a backhoe to dig a post hole for a mailbox.</p>
+<p>On a more positive note, thanks much for the tip about the free Directory Assistance, and the use of Misc Destinations and Misc Applications to create a shortcut.  In the past I’ve done this sort of thing by creating a custom extension; I think the way you’ve shown is a bit better, because you don’t have to remember any oddball dial strings for the custom extension.</p>
+<p><i>[WM: Thanks for your comments but, just to be clear, AsteriDex and the CallerID Trifecta do NOT muck around in the freePBX Dialplan. That’s the real beauty of freePBX 2.2.0.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2371">
+
+			<div id="comment-2371">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/8433868e1e903032f2ceaec348a0b7be77011be5fb8f28a86eba25f370333481?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/8433868e1e903032f2ceaec348a0b7be77011be5fb8f28a86eba25f370333481?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Dave</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2371">Wednesday, January 17, 2007 at 5:31 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, I apologize, I was looking at the AsteriDex page and I saw the dial plan listings and the phrase, “To use the AsteriDex RoboDialer, pick up a phone and dial 00 followed by the five-digit code for the person you wish to call” and assumed that it was doing something to the dial plan. Now that I read it more closely, I see that’s only if you actually add those dial plan snippets in manually. I still think that installing AstriDex just to be able to create a list of caller names and numbers is serious overkill (and would still prefer to have it read a comma-quote delimited file), but I do apologize for not reading the AstriDex page more carefully before making my original comment.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2372">
+
+			<div id="comment-2372">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/75407349fcf8105a150c901b041d687340e28482bc7bf113842872bb6951d7cc?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/75407349fcf8105a150c901b041d687340e28482bc7bf113842872bb6951d7cc?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.neoarchaicrevue.com/" class="url" rel="ugc external nofollow">Josh</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2372">Wednesday, January 17, 2007 at 7:02 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hmm. on the note about CSV files.  It would be really slick if Asteridex could use them to simply import them into asteridex itself.  Then problem solved, and your asteridex is now full of useful numbers, bonus!  Of course iSync compatibility will remain distant dream.  </p>
+<p>As to Trixbox 2.0, I got antsy and backed up my old install (then lost the backup, major pita), and installed 2.0.  At first I was disappointed in the slow-down of the web-gui, but then I installed turck mmcache, and everything sped back up. (<a href="http://turck-mmcache.sourceforge.net/" rel="nofollow ugc">http://turck-mmcache.sourceforge.net/</a>)  Other than that the big thing was just redownloading all the cool nerd vittle stuff and pasting some dial plan code around.  Still looking for the differences between what I had after the NV tutorial, and what I have now. (I’m also still a newbie at using the freepbx gui, as I can’t get a spa-3000 to work without injecting my own lines in sip_custom.conf)</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2373">
+
+			<div id="comment-2373">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/47379da4cb255d04f68f2009149cf2cc92ee972e8703e89495e8751e77172c9d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/47379da4cb255d04f68f2009149cf2cc92ee972e8703e89495e8751e77172c9d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ray</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2373">Wednesday, January 17, 2007 at 8:52 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi,</p>
+<p>Just want to let you know that I just installed your trixbox123 (Linux) on my VMware host – went through the full install &amp; updated with your scripts – got it working with my local extensions and trunks. Then I used your instructions to update to freepbx 2.2.0 – all working!</p>
+<p>I did spot one problem in your instructions – </p>
+<p>cd /var/lib/asterisk/sounds/custom<br>
+mv nv-greeting.wav nv-greeting.wav.bak<br>
+mv nv-menu.wav nv-menu.wav.bak</p>
+<p>.. the .wav files in the directory specified above were missing – there were .gsm versions only</p>
+<p>Is this an error in your instructions?? Or did something go wrong in my initial install?</p>
+<p>I am not sure why you are changing the greeting message – it seems to be working same as in trixbox123 (never got overwritten from update to 2.2.0) – perhaps you can check and let us know. I only mention this since I did a clean install and then upgrade.</p>
+<p>Any feedback on this would be appreciated…</p>
+<p><i>[WM: There were several versions of the image floating around. Some had the .wav files as well as the .gsm versions which broke playback using the .gsm sound files. If you didn’t have the .wav files, then there wasn’t a problem, and the instructions above were harmless.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2374">
+
+			<div id="comment-2374">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/47379da4cb255d04f68f2009149cf2cc92ee972e8703e89495e8751e77172c9d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/47379da4cb255d04f68f2009149cf2cc92ee972e8703e89495e8751e77172c9d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ray</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2374">Wednesday, January 17, 2007 at 9:45 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Great!</p>
+<p>Thank you for the explanation.</p>
+<p>Just doing some more tests on my VMware host – and am quite impressed with the performance. We have a P4 2.8G CPU with 1G RAM – running W2K3 Web Edition Server (with 6 e-store websites) and mail server. In this server we have the VMware guest OS installed which is once again W2K3 Web Edition Server – running a heavily loaded mail server only. There is also an additional VMware guest OS running – the TrixBox123 with freepbx 2.2.0 upgrade which was just installed. Everything is working – cpu load is moderately low (between 2-15%) and memory is running below 500MB. The only problem we have is network traffic which directly affects the asterisk voice quality – it gets choppy at times. I guess there is no easy way to prioritize the network traffic for Asterisk? (or is there??) since the other appliances running on this hardware don’t care as much if several packets are delayed in transit. It would be nice if we could put Asterisk first in line when the packets are handed out.</p>
+<p>Your experience with this would be welcomed..</p>
+<p>I also noticed that the current upgrade to freepbx 2.2.0 will yield two .wav MOH files. Unfortunately .wav files will not play in this default installation. For a while I thought MOH was broken – but noticed that once converting (or removing the .wav files) MOH is functioning as expected.</p>
+<p>Thanks again!</p>
+<p><i>[WM: Take a look at the comments section of the article on our VMware TrixBox 1.2.3 implementation. There are a couple of tweaks there that should improve voice quality dramatically. If those don’t do it, then you’ll need to consider a router that can prioritize packets. Most of the new gaming routers have this functionality, and it’s easy to implement and configure. Good luck!]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2378">
+
+			<div id="comment-2378">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4c31fe78746ba4f21660c0c4e6c9b3f2afc920ee9ca9fd6bc9f93d8f5b4788aa?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4c31fe78746ba4f21660c0c4e6c9b3f2afc920ee9ca9fd6bc9f93d8f5b4788aa?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">UncleWard</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2378">Thursday, January 18, 2007 at 5:05 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>We’ve now added a <a href="/news-bunny.zip">News Bunny for Nabaztag</a> that reads any of the Yahoo RSS News Feeds. There’s now a link to the download in the original column above or just click <a href="/news-bunny.zip">here</a>.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2379">
+
+			<div id="comment-2379">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/46b45d44d58c7f2a6ec305c973a861ab4522f434203590f6f702eda1cb4759bb?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/46b45d44d58c7f2a6ec305c973a861ab4522f434203590f6f702eda1cb4759bb?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Scott</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2379">Thursday, January 18, 2007 at 5:48 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Just to be clear, the pbx-in-a-flash isn’t for the Trixbox 2.0 version?</p>
+<p><i>[WM: Not yet.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2380">
+
+			<div id="comment-2380">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/47379da4cb255d04f68f2009149cf2cc92ee972e8703e89495e8751e77172c9d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/47379da4cb255d04f68f2009149cf2cc92ee972e8703e89495e8751e77172c9d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ray</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2380">Thursday, January 18, 2007 at 8:47 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward,</p>
+<p>Thanks for the VMware process priority tip! It will keep Trixbox at the front of the processor cycle queue.</p>
+<p>Just another bit of feedback for you…</p>
+<p>1. The Zork application appears to have all the modules installed – BUT it is not working on completion of the default install of the freepbx 2.2.0. Unless I broke something (I hope not) your input would be most welcome in solving this…</p>
+<p>2. In the TrixBox – configuration and administration window – if you select the ENDPOINT MANAGER – it is broken (again in my default install). There appears to be a problem in the trixbox.php code – it hardwires the default mySql root password – so it you change it (as recommended in the freepbx 2.2.0 upgrade) – it creates an undefined function call.</p>
+<p><i>[WM: Thanks for your comment. The MySQL password should NOT be changed on a TrixBox system unless your Asterisk server is in a public area. It causes all sorts of problems.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2382">
+
+			<div id="comment-2382">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/47379da4cb255d04f68f2009149cf2cc92ee972e8703e89495e8751e77172c9d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/47379da4cb255d04f68f2009149cf2cc92ee972e8703e89495e8751e77172c9d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ray</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2382">Thursday, January 18, 2007 at 9:15 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ooops…</p>
+<p>I forgot to ask you about something which is a big problem for all of us who have multiple DIDs from the same provider. I think this would be an issue for many of your readers – so perhaps there is a solution or a workaround…</p>
+<p>Here is the scenario…</p>
+<p>I have a DID in Melbourne and another in Sydney (Australia for the uninformed) – both of these DIDs have unique numbers and are serviced by the same provider.</p>
+<p>Unfortunately the provider only operate a SIP trunk (no IAX) and has the same host registration details for each DID – the only things which differ are the username (number) / passwords for the respective accounts.</p>
+<p>The problem I am having is in setting up BOTH trunks to work independently on the TrixBox.</p>
+<p>When they are set-up – all is fine – both are registered but unfortunately with same IPs and port numbers (because they have same host). This creates the problem – because TrixBox is unable to differentiate the two trunks when receiving incoming calls. One would expect that the CID for the individual DIDs would be sufficient for TrixBox to know which trunk is being used. The result is that when you try to ring one trunk from the other (or visa versa) the response is a busy message – telling you the party you are calling is on the phone – because it is calling the trunk which instigated the call.</p>
+<p>After researching this behavior – I found the following …</p>
+<p>“Registering multiple SIP accounts with one SIP provider has been a nightmare in Asterisk. Or, rather, still is. The match-on-IP scheme for peers is a hack to handle registrations, but not a very good hack. If you register for multiple accounts, the incoming calls will all match the same peer. A poor solution.”</p>
+<p>… so is there a workaround for this behavior – that can be implemented in the TrixBox?</p>
+<p>OR have you already a way of handling multiple SIP registrations to the same host?<br>
+Hope you can point all of us with this problem in the right direction!</p>
+<p>I’ve stuck out on most of the forums and would be very happy if there IS a solution to this problem.</p>
+<p><i>[WM: If I were you, I’d try posting this on Rob’s <a href="http://www.freepbx.org/forums/viewforum.php?f=2&amp;sid=a14af6b59a501a847cbc1aa4e5bfd6fb">freePBX Forum</a>. He may have some ideas particularly since he’s from Australia. Good luck!]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2389">
+
+			<div id="comment-2389">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3969947956bd50d6ebcadd1bd9c6671a8f4ea5832d7cf19549db181de276e816?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3969947956bd50d6ebcadd1bd9c6671a8f4ea5832d7cf19549db181de276e816?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">liku</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2389">Sunday, January 21, 2007 at 5:48 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>hi! 2 things:</p>
+<p>Re: 2 DID problem:</p>
+<p>Have you tried to differentiate your trunk by adding the number at the end of your registration string?</p>
+<p>In my case I own multiple DIDs from the same provider in sip and got many wasted hours to solve incoming route… but when I tuned my registration string and defined specific inbound routes, it worked:<br>
+username:passord@ilovenerdvittles.com/my_did_number<br>
+johndoe:password@voipautria.com/0123456789</p>
+<p>Re: my problem now</p>
+<p>I upgraded from 1.2.3 following the 3 PASS recommendation, but just after rebooting, everything seemed fine except the fop.<br>
+Now i get msg icon on all extensions, and the down arrow icon for all trunk and extension..</p>
+<p><i>[WM: Trying resaving your trunks and extensions in freePBX. This worked wonders with the original PBX-in-a-Flash utility as well.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2393">
+
+			<div id="comment-2393">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/93965b068ab966a3253451947eb37a35f2def036f38eb53c3908d5bb07b27fb1?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/93965b068ab966a3253451947eb37a35f2def036f38eb53c3908d5bb07b27fb1?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bernie</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2393">Monday, January 22, 2007 at 1:47 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi!  Thanks for all the work you do on this stuff!</p>
+<p>I’ve setup CallerID Trifecta on my trixbox and it works for 2 of my DID’s but not the 3rd.  All are from VoIPStreet. The 2 it works on are pay-per-minute and the one it doesn’t is a flate rate.  Any idea what could be going on?  Here’s some logfile output both from the same caller.</p>
+<p>Working – </p>
+<p>Verbosity was 1 and is now 3<br>
+    — Executing Set(“SIP/2guys-669xxx-09961d58”, “FROM_DID=281657xxxx”) in new stack<br>
+    — Executing Gosub(“SIP/2guys-669xxx-09961d58”, “cidlookup|cidlookup_3|1”) in new stack<br>
+    — Executing Set(“SIP/2guys-669xxx-09961d58”, “CALLERID(name)=E P S Software Corp”) in new stack<br>
+    — Executing Return(“SIP/2guys-669xxx-09961d58”, “”) in new stack</p>
+<p>Not working – </p>
+<p>    — Executing Set(“SIP/2guys-669xxx-099c9700”, “FROM_DID=1832252xxxx”) in new stack<br>
+    — Executing Gosub(“SIP/2guys-669xxx-099c9700”, “cidlookup|cidlookup_3|1”) in new stack<br>
+    — Executing Set(“SIP/2guys-669xxx-099c9700”, “CALLERID(name)=”) in new stack<br>
+    — Executing Return(“SIP/2guys-669xxx-099c9700”, “”) in new stack</p>
+<p><i>[WM: Check to be sure both are passing the CallerID number in the same format. Perhaps the “not working” is adding a 1 or +1 to the incoming number.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2395">
+
+			<div id="comment-2395">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/32fc10847b5071c2fd55bd0fc580bcc26308acdec12d83878c85e1e3b1fd172b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/32fc10847b5071c2fd55bd0fc580bcc26308acdec12d83878c85e1e3b1fd172b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Ed Lally</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2395">Monday, January 22, 2007 at 4:35 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward,</p>
+<p>I absolutely love the site and have learned a lot in a few short days. Thanks for the great work!</p>
+<p>One topic I’d like to see if you can cover is least-cost routing.  If I sign up for multiple VOIP providers, I’d like to be able to direct calls based on their rates, which may differ based on day of week, time of day, and destination.  In addition, if I have a fixed-time plan (e.g., 500 minutes per month) it would be great to have Asterisk stop using the trunk after that point.  Setting the trunk priority in the outgoing routes is a start, but it would be nice to see something more robust.  Any interest in tackling this in a future column?<br>
+Thanks, ed</p>
+<p><i>[WM: Take a look at last week’s <a href="/index.php?p=163">article</a>. VoicePulse offers a service such as you describe.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2396">
+
+			<div id="comment-2396">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/93965b068ab966a3253451947eb37a35f2def036f38eb53c3908d5bb07b27fb1?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/93965b068ab966a3253451947eb37a35f2def036f38eb53c3908d5bb07b27fb1?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bernie</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2396">Monday, January 22, 2007 at 4:49 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi, I checked the numbers being presented on the trunk and you’re right, there is a difference.  The DIDs that work are getting it as area code+number and the one that isn’t is coming in as 1+area code+ number?  Could you tell me how to allow for that in the callerid.php file?</p>
+<p>Thanks!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2397">
+
+			<div id="comment-2397">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/cf7ed7b5dedc2b3fec19ede439d8a8e1f444e46e3aeff33b0667fd6315f1dd45?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/cf7ed7b5dedc2b3fec19ede439d8a8e1f444e46e3aeff33b0667fd6315f1dd45?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bill</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2397">Monday, January 22, 2007 at 5:47 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Had the trifecta working…but..if it can’t find a number either in the internql database or google or anywho, the call won’t go through. It just rings and rings…</p>
+<p><i>[WM: Try downloading the app again. There was a problem in the initial release.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2398">
+
+			<div id="comment-2398">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4bd06c69be5fc885f0096a9e9e7a340f444b0bd77fb13c56829026a07f77306e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4bd06c69be5fc885f0096a9e9e7a340f444b0bd77fb13c56829026a07f77306e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Pat West</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2398">Monday, January 22, 2007 at 8:27 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward,</p>
+<p>Very cool as usual.  I just wanted to point out a new toy that I have found to be very useful.  SSL-Explorer <a href="http://www.sshtools.com/showSslExplorerCommunity.do" rel="nofollow ugc">http://www.sshtools.com/showSslExplorerCommunity.do</a> A very powerful clientless SSL based VPN.  Very good for giving remote access to web apps, trixbox, VNC, rdesktop, etc, without exposing anything more than port 443 to the internet. You can even create custom tunnels to alow SIP connection for a softphone.  Several authentication methodes are available.  Enterprise license add extra features like a full VPN tunnel and more authentication options, including active directory. Easy install via rpm or windows installer. Server requires a recent JRE.  Client side needs a semi-recent browser with a recent Java plugin.  Also available as a vmware prebuilt appliance, <a href="http://www.vmware.com/vmtn/appliances/directory/543" rel="nofollow ugc">http://www.vmware.com/vmtn/appliances/directory/543</a> </p>
+<p>And thanks for all the goodies.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2399">
+
+			<div id="comment-2399">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/93965b068ab966a3253451947eb37a35f2def036f38eb53c3908d5bb07b27fb1?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/93965b068ab966a3253451947eb37a35f2def036f38eb53c3908d5bb07b27fb1?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bernie</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2399">Monday, January 22, 2007 at 11:10 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hello again, I changed the beginning of the script as follows and it has cleared up my issue.  Hopefully this will help someone else.</p>
+<p>&lt;?php<br>
+$thenumber=$_REQUEST[‘thenumber’];</p>
+<p>function right ($str, $howManyCharsFromRight)<br>
+{<br>
+  $strLen = strlen ($str);<br>
+  return substr ($str, $strLen – $howManyCharsFromRight, $strLen);<br>
+}<br>
+if (strlen($thenumber)&lt;10) :<br>
+ exit ;<br>
+endif;</p>
+<p>if (strlen($thenumber)&gt;10) :<br>
+ $thenumber = right ($thenumber, 10) ;<br>
+endif;</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2400">
+
+			<div id="comment-2400">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/cf7ed7b5dedc2b3fec19ede439d8a8e1f444e46e3aeff33b0667fd6315f1dd45?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/cf7ed7b5dedc2b3fec19ede439d8a8e1f444e46e3aeff33b0667fd6315f1dd45?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bill</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2400">Tuesday, January 23, 2007 at 12:57 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Downloaded the new version as you suggested. The problem seems to be this:</p>
+<p>Telco provides a valid CLID. The Telco Database is more complete than either Google or Anywho. I’d think the flow should go something like this:</p>
+<p>1. If there is a CLID name from telco, the call should no be processed through Google or Anywho, but should be processed against Asteridex and the Internal Asterisk Phone Book.</p>
+<p>2. If there is no valid entry in either of the above sources, the telco CLID should be passed downstream.</p>
+<p>3. If there is an entry in the above sources, then the CLID should be changed to reflect that.</p>
+<p><i>[WM: Good suggestion. We’ll take a crack at it for the next version. Our initial thought was that the lookup probably would not be applied at all to “phone company” trunks, but there may be situations in which the scenario you propose above will work better. Thanks.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2450">
+
+			<div id="comment-2450">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0a854462b94447f443e36096378c9fbcb6e858b52d29362faf8cd26c18767cd3?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0a854462b94447f443e36096378c9fbcb6e858b52d29362faf8cd26c18767cd3?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mark Pratt</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2450">Saturday, February 10, 2007 at 6:41 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Can anyone give me a url for the VMware tweaks in item 6 above as I cannot seem to find these.</p>
+<p>Cheers!</p>
+<p>P.S. Keep up the fantastic work on trixbox!!!</p>
+<p><i>[WM: Here’s the <a href="/index.php?p=152">article</a>. Be sure to read the section on “Making VMware Keep Correct Time.” Better yet, read the whole article and also the comments which follow it… especially #10, 17, and 21.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2453">
+
+			<div id="comment-2453">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/09d9918adfdda456127b70b1d0f9eb0a7d05b223445cc34fb6e636d82f4472bf?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/09d9918adfdda456127b70b1d0f9eb0a7d05b223445cc34fb6e636d82f4472bf?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jeff Waltermire</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2453">Sunday, February 11, 2007 at 7:32 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi Ward,<br>
+I’ve been tinkering with Asterisk for a while but just dabbling.  The trixbox stuff is cool and thank you for your cool toys.  In your 411 blip you said “Now choose Misc Application and make the following entries:…”  I am running Trixbox 2.0 and I don’t find the Misc Application nor do I see that it’s a module I’m lacking.  Is it called something else?  Is it only in 1.2.3 and older versions?  I found the Misc Destinations and put that in but I never found the Application one.</p>
+<p>Thanks,<br>
+Jeff</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2507">
+
+			<div id="comment-2507">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/fd3e80887f5b07bb85a9f13e1c9d97327ee38b2d5f827003bfb375def9ae4ec6?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/fd3e80887f5b07bb85a9f13e1c9d97327ee38b2d5f827003bfb375def9ae4ec6?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Kim Callis</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2507">Saturday, February 24, 2007 at 11:51 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Would the poster of the comment below give the entire entry… I am suffering from the same problem…</p>
+<p>&gt;&gt; Hello again, I changed the beginning of the script as follows and &gt;&gt; it has cleared up my issue. Hopefully this will help someone else.</p>
+<p>&gt;&gt; 10) :<br>
+&gt;&gt; $thenumber = right ($thenumber, 10) ;<br>
+&gt;&gt; endif;</p>
+<p><i>[WM: See #20 above. WordPress has problems with some of the PHP code insertions for obvious reasons. The main one is that it, too, is written in PHP.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2510">
+
+			<div id="comment-2510">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/f7621c83638692a9519e09712a52eab43b120b7f4212ccbd5dacde11464448de?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/f7621c83638692a9519e09712a52eab43b120b7f4212ccbd5dacde11464448de?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Tony Trus</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2510">Sunday, February 25, 2007 at 9:52 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I think it’s a good idea to make sure that, if a phonenumber begins with 1 and has 11 digits, the app can handle it.  here is the code:<br>
+&lt;?php<br>
+$thenumber=$_REQUEST[‘thenumber’];<br>
+$pos = strpos($thenumber, ‘1’);<br>
+if (($pos == 0) &amp;&amp; (strlen($thenumber)==11)) : //if the caller id added a 1 to the number and its 11 digits long<br>
+$thenumber=substr($thenumber, 1);<br>
+endif;</p>
+<p>if (strlen($thenumber)10) :<br>
+ exit ;<br>
+endif;</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2513">
+
+			<div id="comment-2513">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/6265ade5dfcae5418d006934edcf2cf59870831e128086f3d5e2448b3e8fe900?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/6265ade5dfcae5418d006934edcf2cf59870831e128086f3d5e2448b3e8fe900?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Trevor</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2513">Monday, February 26, 2007 at 10:48 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I agree with you about 99% for this article.  The 1% is regarding the asterisk 1.4 series. Almost all commands have a new version, otherwise they had been marked as deprecated for a long time (and even the new ones they have been asking people to use instead for quite awhile).</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2593">
+
+			<div id="comment-2593">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/1ebcbd10428790a700d00b1039cd90418fa9a557bed65d8719933825f9005d9e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/1ebcbd10428790a700d00b1039cd90418fa9a557bed65d8719933825f9005d9e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Rene Alamo</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2593">Thursday, March 29, 2007 at 9:10 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Just want to say thank you on all the articles, a coworker and I have these up and running connected. Your articles I have found are one of the best!! Keep up the good work</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2614">
+
+			<div id="comment-2614">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/511d6438e1ce7722a56477e7791d1e0eba01ee63c74b59ecf7aa14547fcbdd39?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/511d6438e1ce7722a56477e7791d1e0eba01ee63c74b59ecf7aa14547fcbdd39?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Tom</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2614">Friday, April 13, 2007 at 5:06 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>anyone have an idea on how to allow the name from the existing caller ID through the trifecta setup? I mean, only have the trifecta look up unknown name entries or items that come through with only a number?</p>
+<p><i>[WM: This is a current limitation in freePBX. You might want to post something on freePBX.org. The more requests they get, the quicker it will get addressed.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2629">
+
+			<div id="comment-2629">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2d8074e95779391cce9a63cec9274643d17d166b639898bd9fbad3a7024d10ce?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2d8074e95779391cce9a63cec9274643d17d166b639898bd9fbad3a7024d10ce?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jeremy Willden</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2629">Sunday, April 22, 2007 at 10:48 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>The upgrade went great, but I think one feature is broken – I can’t seem to use # to blind transfer calls any more.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2630">
+
+			<div id="comment-2630">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2d8074e95779391cce9a63cec9274643d17d166b639898bd9fbad3a7024d10ce?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2d8074e95779391cce9a63cec9274643d17d166b639898bd9fbad3a7024d10ce?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jeremy Willden</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2630">Sunday, April 22, 2007 at 10:53 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Update on the # transfer – it’s reverted (or updated) to ## to transfer.  I’m sure this can be edited in a configuration file back to a single #, but I think it’s better this way anyway (so I can still use # for IVRs when calling other IVR systems).</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2699">
+
+			<div id="comment-2699">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/f764cc2dcfe9abb21563dad92fb5e87a318df748a6971b1bddc5a3af11fc1b6a?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/f764cc2dcfe9abb21563dad92fb5e87a318df748a6971b1bddc5a3af11fc1b6a?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Matt Myers</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2699">Friday, June 8, 2007 at 10:56 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I had a functioning system with inbound, outbound, and auto-attendant working based off of the nv-vm install.  After performing the freePBX upgrade inbound calling stopped working.  When I call my number nothing happens.  No ringing, no sound, no greeting, do not see anything in the logs. Any suggestions are greatly appreciated!</p>
+<p><i>[WM: Restore backkup. Then try again.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-2757">
+
+			<div id="comment-2757">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5950d8ae0f46614c7d0a391a8e2cf7142a8269738a49342335bf9941c1c54524?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5950d8ae0f46614c7d0a391a8e2cf7142a8269738a49342335bf9941c1c54524?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.m24designs.com/" class="url" rel="ugc external nofollow">Matthew M</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2757">Sunday, July 8, 2007 at 1:30 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>when performing the update it seems that asterisk cli is broken and will not update.</p>
+<p>everything runs more or less correct and I can still log into asterisk-cli.</p>
+<p>Even tried redoing the installation, with the same problem. Everything else upgrades and installs successfully except asterisk-cli.</p>
+<p>Is this normal? Any ideas?<br>
+Thanks in advance</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2806">
+
+			<div id="comment-2806">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/468d5de547253871364f2be97c1b0cfd717069b846b8c47aefcf02ac618547ff?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/468d5de547253871364f2be97c1b0cfd717069b846b8c47aefcf02ac618547ff?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">John G</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-2806">Saturday, August 4, 2007 at 10:38 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I ran into a “file not found” problem when I followed these instructions:</p>
+<p>” Once you’re logged in, issue the following commands to fix the initial voice prompts with our Stealth Autoattendant:</p>
+<p>cd /var/lib/asterisk/sounds/custom<br>
+mv nv-greeting.wav nv-greeting.wav.bak<br>
+mv nv-menu.wav nv-menu.wav.bak     ”</p>
+<p>I think I fixed my problem by substituting “gsm” for “wav” in the above instructions.  (just an FYI)</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-3153">
+
+			<div id="comment-3153">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a5d4ac1da9f27bb29190ad7d49a992d3d2677f6392d0473117c807e1bcb9df6f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a5d4ac1da9f27bb29190ad7d49a992d3d2677f6392d0473117c807e1bcb9df6f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bradley</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/#comment-3153">Tuesday, February 19, 2008 at 4:59 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Once upon a time, I found a link on your web site that allowed us to set and publish the cnam/ani on our DID numbers, once activated it would call us to confirm that we owned the number and confirmed the cnam/ani we set.</p>
+<p>Where is that again??? It is so valuable!</p>
+<p>Tbanks Ward, for all you do for us Nerds!!!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/the-nerd-vittles-birthday-bash-introducing-freepbx-220/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjI4MjEwMSwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

@@ -1,0 +1,38 @@
+/* Video Frame Capture component styles */
+
+.wpz-frame-capture {
+    margin: 12px 0 16px;
+}
+
+.wpz-frame-capture__video {
+    display: block;
+    max-width: 100%;
+    width: 480px;
+    margin-bottom: 8px;
+    background: #000;
+    border-radius: 3px;
+}
+
+.wpz-frame-capture__video[hidden] { display: none; }
+
+.wpz-frame-capture__controls {
+    -js-display: flex;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.wpz-frame-capture__controls[hidden] { display: none; }
+
+.wpz-frame-capture__status {
+    font-style: italic;
+    color: #555;
+    font-size: 12px;
+}
+
+.wpz-frame-capture__hint {
+    margin-top: 6px;
+}
+
+.wpz-frame-capture__hint[hidden] { display: none; }

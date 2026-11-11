@@ -1,0 +1,32 @@
+#
+# Set DAVLockDB for webdav support
+#
+
+DAVLockDB /private/var/run/davlocks/DAVLockDB
+
+#
+#
+
+#Fix headers for WebDAV
+
+BrowserMatch "^WebDAVFS/1.[012]" redirect-carefully
+BrowserMatch "Microsoft Data Access Internet Publishing Provider" redirect-carefully
+BrowserMatch "Microsoft-WebDAV-MiniRedir/5.1.2600" redirect-carefully
+BrowserMatch "^WebDrive" redirect-carefully
+BrowserMatch "^WebDAVFS" redirect-carefully
+
+<IfModule mod_headers.c>
+Header add MS-Author-Via "DAV"
+</IfModule>
+
+#Set up WebDAV directory rules
+Alias /dav "/Library/WebServer/Documents/dav"
+<location /dav>
+    DAV On
+    AuthType Basic
+    AuthName "WebDAV Restricted"
+    AuthUserFile /usr/local/dav.pw
+    require valid-user
+    Order allow,deny
+    Allow from all
+</location>

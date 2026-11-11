@@ -1,0 +1,196 @@
+[reminder]
+exten => s,1,DigitTimeout(7)
+exten => s,2,ResponseTimeout(10)
+exten => s,3,Playback(custom/reminder1)
+exten => s,4,Wait(2)
+exten => s,5,Set(TMPMSG=${CUT(UNIQUEID,.,-1)}${CUT(UNIQUEID,.,2-)})
+exten => s,6,Record(custom/${TMPMSG}:gsm)
+exten => s,7,Wait(1)
+exten => s,8,Playback(custom/${TMPMSG})
+exten => s,9,Wait(1)
+exten => s,10,Background(vm-review)
+exten => 1,1,Goto(reminder7,s,1)
+exten => 2,1,Goto(s,8)
+exten => 3,1,Goto(s,3)
+exten => t,1,Goto(s,10)
+exten => i,1,Playback(goodbye)
+exten => i,2,Hangup
+exten => h,1,Hangup
+
+[reminder2]
+exten => s,1,DigitTimeout(7)
+exten => s,2,ResponseTimeout(10)
+exten => s,3,Read(APPTDT,custom/reminder2,8) 
+exten => s,4,AGI(checkdate.php|${APPTDT})
+exten => s,5,GotoIf($["foo${HOTDATE}" = "fooBAD"]?99,1)
+exten => s,6,Playback(you-entered)
+exten => s,7,GotoIf($["foo${HOTDATE}" = "fooTODAY"]?s,10)
+exten => s,8,SayUnixTime(${HOTDATE},,ABdY)
+exten => s,9,Goto(s,11)
+exten => s,10,Playback(today)
+exten => s,11,Goto(reminder3,s,1)
+exten => 99,1,Playback(conf-errormenu)
+exten => 99,2,Goto(s,3)
+exten => t,1,Goto(s,3)
+exten => i,1,Goto(s,3)
+exten => h,1,Hangup
+
+[reminder3]
+exten => s,1,DigitTimeout(7)
+exten => s,2,ResponseTimeout(10)
+exten => s,3,Background(if-correct-press)
+exten => s,4,Background(digits/1)
+exten => s,5,Background(otherwise-press)
+exten => s,6,Background(digits/2)
+exten => s,7,Background(press-star-cancel)
+exten => 1,1,Goto(reminder4,s,1)
+exten => 2,1,Goto(reminder2,s,1)
+exten => *,1,Playback(goodbye)
+exten => *,2,System(/bin/rm -f /var/lib/asterisk/sounds/custom/${TMPMSG}.gsm)
+exten => *,3,Hangup
+exten => t,1,Goto(reminder2,s,6)
+exten => i,1,Goto(reminder2,s,6)
+exten => h,1,Hangup
+
+[reminder4]
+exten => s,1,DigitTimeout(7)
+exten => s,2,ResponseTimeout(10)
+exten => s,3,Read(APPTTIME,custom/reminder3,4)
+exten => s,4,GotoIf($["foo${APPTTIME}" < "foo1200"]?reminder5,s,1)
+exten => s,5,AGI(checktime.php|${APPTDT}|${APPTTIME}|0|${APPTPHONE})
+exten => s,6,GotoIf($["foo${HOTTIME}" = "fooBAD"]?99,1)
+exten => s,7,Playback(you-entered)
+exten => s,8,SayUnixTime(${HOTTIME},,ABdY)
+exten => s,9,Playback(digits/at)
+exten => s,10,SayUnixTime(${HOTTIME},,IMP)
+exten => s,11,Goto(s,18)
+exten => s,12,AGI(checktime.php|${APPTDT}|${APPTTIME}|1200|${APPTPHONE})
+exten => s,13,GotoIf($["foo${HOTTIME}" = "fooBAD"]?99,1)
+exten => s,14,Playback(you-entered)
+exten => s,15,SayUnixTime(${HOTTIME},,ABdY)
+exten => s,16,Playback(digits/at)
+exten => s,17,SayUnixTime(${HOTTIME},,IMp)
+exten => s,18,Goto(reminder6,s,1)
+exten => 99,1,Playback(conf-errormenu)
+exten => 99,2,Goto(s,3)
+exten => t,1,Goto(s,3)
+exten => i,1,Goto(s,3)
+exten => h,1,Hangup
+
+[reminder5]
+exten => s,1,Background(1-for-am-2-for-pm)
+exten => 1,1,Goto(reminder4,s,5)
+exten => 2,1,Goto(reminder4,s,12)
+exten => *,1,Playback(goodbye)
+exten => *,2,System(/bin/rm -f /var/lib/asterisk/sounds/custom/${TMPMSG}.gsm)
+exten => *,3,Hangup
+exten => t,1,Goto(reminder4,s,1)
+exten => i,1,Goto(s,1)
+exten => h,1,Hangup
+
+[reminder6]
+exten => s,1,DigitTimeout(7)
+exten => s,2,ResponseTimeout(10)
+exten => s,3,Background(if-correct-press)
+exten => s,4,Background(digits/1)
+exten => s,5,Background(otherwise-press)
+exten => s,6,Background(digits/2)
+exten => s,7,Background(press-star-cancel)
+exten => 1,1,Goto(reminder9,s,1)
+exten => 2,1,Goto(reminder4,s,1)
+exten => *,1,Playback(goodbye)
+exten => *,2,System(/bin/rm -f /var/lib/asterisk/sounds/custom/${TMPMSG}.gsm)
+exten => *,3,Hangup
+exten => t,1,Goto(reminder6,s,3)
+exten => i,1,Goto(reminder6,s,3)
+exten => h,1,Hangup
+
+[reminder7]
+exten => s,1,DigitTimeout(7)
+exten => s,2,ResponseTimeout(10)
+exten => s,3,Read(APPTPHONE,custom/reminder4,0)
+exten => s,4,Goto(reminder8,s,1)
+exten => t,1,Goto(reminder8,s,1)
+exten => i,1,Goto(s,3)
+exten => #,1,Goto(reminder8,s,1)
+exten => h,1,Hangup
+
+[reminder8]
+exten => s,1,DigitTimeout(7)
+exten => s,2,ResponseTimeout(10)
+exten => s,3,GotoIf($["foo${APPTPHONE}" = "foo"]?4:5)
+exten => s,4,Set(APPTPHONE=${CALLERIDNUM})
+exten => s,5,Playback(you-entered)
+exten => s,6,SayDigits(${APPTPHONE})
+exten => s,7,Background(if-correct-press)
+exten => s,8,Background(digits/1)
+exten => s,9,Background(otherwise-press)
+exten => s,10,Background(digits/2)
+exten => s,11,Background(press-star-cancel)
+exten => 1,1,Goto(reminder2,s,1)
+exten => 2,1,Goto(reminder7,s,1)
+exten => *,1,Playback(goodbye)
+exten => *,2,System(/bin/rm -f /var/lib/asterisk/sounds/custom/${TMPMSG}.gsm)
+exten => *,3,Hangup
+exten => t,1,Goto(reminder8,s,5)
+exten => i,1,Goto(reminder8,s,5)
+exten => h,1,Hangup
+
+[reminder9]
+exten => s,1,NoOp(APPTDT: ${APPTDT})
+exten => s,2,NoOp(APPTTIME: ${APPTTIME})
+exten => s,3,NoOp(APPTPHONE: ${APPTPHONE})
+exten => s,4,NoOp(APPTMSG: /var/lib/asterisk/sounds/custom/${APPTTIME}.${APPTDT}.${APPTPHONE}.gsm)
+exten => s,5,Playback(your-msg-has-been-saved)
+exten => s,6,Playback(goodbye)
+exten => s,7,Hangup
+exten => h,1,System(/bin/mv -f /var/lib/asterisk/sounds/custom/${TMPMSG}.gsm /var/lib/asterisk/sounds/custom/${APPTTIME}.${APPTDT}.${APPTPHONE}.gsm)
+exten => h,2,DeadAGI(reminder.php|${APPTDT}|${APPTTIME}|${APPTPHONE})
+exten => h,3,Hangup
+
+
+[remindem]
+exten => s,1,Answer
+exten => s,2,Wait(2)
+exten => s,3,Playback(custom/reminder5)
+exten => s,4,Wait(2)
+;exten => s,5,BackgroundDetect(custom/broadcast|1000|50|3000)
+exten => s,5,Playback(custom/${MSG})
+exten => s,6,Goto(talk,1)
+exten => t,1,Goto(talk,1)
+exten => i,1,Goto(talk,1)
+exten => o,1,Goto(talk,1)
+exten => h,1,DBget(email=EMAIL/${APPTPHONE}) ; see if number to call has an associated email address
+exten => h,2,GotoIf($["foo${email}" = "foo"]?4)
+exten => h,3,system(mime-construct --to ${email} --subject "Telephone Reminder" --attachment /var/lib/asterisk/sounds/custom/${APPTTIME}.${APPTDT}.${APPTPHONE}.gsm --type audio/gsm --file ${APPTTIME}.${APPTDT}.${APPTPHONE}.gsm --multipart multipart/mixed --string "An important reminder is attached to this message.")
+exten => h,4,NoOp(Callee hung up call before menu. Dialed: ${APPTPHONE}.)
+exten => h,5,System(/bin/rm -f /var/lib/asterisk/sounds/custom/${APPTTIME}.${APPTDT}.${APPTPHONE}.gsm)
+exten => h,6,Hangup
+exten => talk,1,Goto(remindem2,s,1)
+
+[remindem2]
+exten => s,1,DigitTimeout(4)
+exten => s,2,ResponseTimeout(4)
+exten => s,3,Background(to-hear-msg-again)
+exten => s,4,Background(press-1)
+exten => s,5,Background(otherwise-press)
+exten => s,6,Background(digits/2)
+exten => t,1,NoOp(Callee's Answering Machine probably answered. Dialed: ${APPTPHONE}.)
+exten => t,2,Background(restarting)
+exten => t,3,Wait(1)
+exten => t,4,Playback(custom/${MSG})  ; playing again for ans machine
+exten => t,5,Background(goodbye)
+exten => t,6,Hangup
+exten => h,1,DBget(email=EMAIL/${APPTPHONE}) ; see if number to call has an associated email address
+exten => h,2,GotoIf($["foo${email}" = "foo"]?4)
+exten => h,3,system(mime-construct --to ${email} --subject "Telephone Reminder" --attachment /var/lib/asterisk/sounds/custom/${APPTTIME}.${APPTDT}.${APPTPHONE}.gsm --type audio/gsm --file ${APPTTIME}.${APPTDT}.${APPTPHONE}.gsm --multipart multipart/mixed --string "An important reminder is attached to this message.")
+exten => h,4,System(/bin/rm -f /var/lib/asterisk/sounds/custom/${APPTTIME}.${APPTDT}.${APPTPHONE}.gsm)
+exten => h,5,Hangup
+exten => i,1,Goto(1,1)
+exten => o,1,Goto(1,1)
+exten => 1,1,NoOp(Callee Replayed Message. Dialed: ${APPTPHONE}.)
+exten => 1,2,Playback(custom/${MSG})  ; playing again by request
+exten => 1,3,Goto(s,1)
+exten => 2,1,Background(goodbye)
+exten => 2,2,NoOp(Callee Acknowledged Call. Dialed: ${APPTPHONE}.)
+exten => 2,3,Hangup

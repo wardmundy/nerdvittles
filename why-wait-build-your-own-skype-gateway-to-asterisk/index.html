@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>Why Wait? Build Your Own Skype Gateway to Asterisk – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/why-wait-build-your-own-skype-gateway-to-asterisk/">
+<link rel="shortlink" href="/?p=587">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=6818C2460FE0BBC8C2D9F891B399F6AE');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=587">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-587 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/" title="Permalink to Why Wait? Build Your Own Skype Gateway to Asterisk" rel="bookmark">Why Wait? Build Your Own Skype Gateway to Asterisk</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Tuesday, February 17, 2009 at 8:58 am</li>		<li class="category">in <a href="/category/technology/audio/" rel="category tag">Audio</a>, <a href="/category/technology/mp3-devices/" rel="category tag">MP3 Devices</a>, <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fwhy-wait-build-your-own-skype-gateway-to-asterisk%2F&amp;text=Why+Wait%3F+Build+Your+Own+Skype+Gateway+to+Asterisk" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fwhy-wait-build-your-own-skype-gateway-to-asterisk%2F&amp;t=Why+Wait%3F+Build+Your+Own+Skype+Gateway+to+Asterisk" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-587" class="clearfix post-587 post type-post status-publish format-standard hentry category-audio category-mp3-devices category-technology category-telephony tag-asterisk tag-freepbx tag-skype">
+
+		<div class="entry">
+
+			<p><a href="http://skypejournal.com/2008/09/skype-for-asterisk-story-real-details.html"><img decoding="async" src="http://skypejournal.com/uploaded_images/SkypeForAsteriskLogo.160px-723331.jpg" alt="Photo and Background Story courtesy of Skype Journal" align="left"></a>As the world awaits the much-hyped Digium® commercial offering of a Skype for Asterisk® gateway, we began exploring existing alternatives last week that provide individuals (( Skype and this suggested implementation are intended for individual use. Your use is, of course, governed by the <a href="http://www.skype.com/intl/en-us/legal/terms/voip/">Skype Terms of Service</a>. )) the same functionality at what will no doubt be considerably less cost. The <a href="/?p=585">Gizmo5 offering</a> is darn-near perfect for those that need a quick solution and don't mind spending $20 a year to let someone else wrestle with the technical complexities that invariably accompany maintenance of cross-platform gateways such as this one.</p>
+<p><strong>NOTE: Article has been updated. For the latest edition, follow <a href="/?p=680">this link</a>.</strong></p>
+<p>We, of course, like the technical challenge that comes with the territory so today we turn our attention to <a href="http://mhspot.com/">Greg Dorfuss' SipToSis software</a> which forms the lynchpin of Gizmo's offering and which lets any Asterisk user create much the same gateway at no cost other than the expense of any Skype Out calls you may choose to make. When we're finished, you'll be able to call any Skype user in the world from any extension on your Asterisk server by entering either a Skype username or any 10-digit telephone number preceded by an 8 to take advantage of SkypeOut calling rates. You'll also be able to receive incoming calls from any Skype user on any extension of your Asterisk system. In short, what you get is a transparent interface to several hundred million Skype users from your Asterisk server. And the time to set this up is less than 15 minutes assuming you already have one of the Nerd Vittles Orgasmatron Builds in operation. These are available for Dell PowerEdge servers, Everex gPC desktop systems and minis, and most of the new Atom-based systems. If you have a garden-variety FreePBX-based Asterisk server such as PBX in a Flash, trixbox, or Elastix, just add another 5 minutes to reconfigure a few things.</p>
+<p><b>Prerequisites.</b> For today's project, we're assuming you have an existing FreePBX-based Asterisk server with either CentOS 5.2 or the Fedora 10 Remix featured in our Atomic Flash build. You'll need both a keyboard and mouse! For inbound Skype calling to work with other implementations including generic PBX in a Flash systems, you'll need to create a SIP URI for your Asterisk server: mothership@127.0.0.1. We've previously explained how to set one up in <a href="/index.php?p=208">this article</a>. The Atomic Flash installer, VPN in a Flash build, and the Orgasmatron II and III builds include this SIP URI functionality out of the box. You'll also need Java 1.5. To see if it's included in your distribution,  issue the following command: <em>rpm -q jdk</em>. Finally, we're assuming you already have an existing Skype account. If not, download the Skype software for your Mac or Windows PC, and sign up. Try out a demo from any Skype phone. Just call <em>nerdvittles</em>.</p>
+<p><b>Installing JAVA.</b> If your particular Asterisk distribution doesn't have JAVA 1.5 or higher installed (rpm -q jdk), here's how to do it. Go to <a href="https://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/ViewProductDetail-Start?ProductRef=jdk-6u12-oth-JPR@CDS-CDS_Developer">Sun's Java SE Development Kit 6u12 website</a>, choose Linux for the platform, and agree to the license agreement. Then click Continue. Download jdk-6u12-linux-i586-rpm.bin and copy it to your Asterisk server. Make the file executable (chmod +x jdk-6u12-linux-i586-rpm.bin) and then run it. Scroll down the wordy license agreement AGAIN and type yes. Java 1.6 then will be installed on your system. Whew! </p>
+<p><b>Basic Installation.</b> Now we're ready to get started. Log into your Asterisk server as root and issue the following commands. </p>
+<blockquote><p>
+cd /root<br>
+mkdir skype<br>
+cd skype<br>
+wget http://www.skype.com/go/getskype-linux-centos<br>
+#Atomic Flash builds including VPN in a Flash<br>
+#should skip the next 3 yum commands.<br>
+#Then pick up again after the next comment line.<br>
+yum install xorg-x11-server-Xvfb<br>
+yum install qt4<br>
+yum install xterm<br>
+#everyone continues on from here<br>
+yum install libXScrnSaver.i386<br>
+wget http://pbxinaflash.net/source/skype/siptosis.tgz<br>
+rpm -ivh skype*<br>
+cd /<br>
+tar zxvf /root/skype/siptosis.tgz
+</p></blockquote>
+<p><b>FreePBX Design.</b> The FreePBX setup that we recommend goes something like this. For outbound Skype calls, you have two choices. </p>
+<p>1. To place a call to a regular phone number using SkypeOut (which costs you money), you'll simply dial 8 plus the area code and number. Our foreign friends will have to adjust their dialplans and /siptosis/SkypeOutDialingRules.props accordingly. Today's setup assumes 10-digit phone numbers! </p>
+<p>2. To place a call to a Skype username using a softphone that supports SIP URI dialing such as X-Lite, you simply precede the Skype username with an asterisk, e.g. *echo123 will connect you to the Skype Call Testing Service. </p>
+<p>For incoming Skype calls, the default setup routes those calls to a SIP URI: mothership@127.0.0.1. Whether you point this URI to an extension, ring group, or IVR is up to you. In the default Orgasmatron and Atomic Flash builds, the mothership URI is pointed to the Stealth AutoAttendant, an IVR that plays a welcoming message and then transfers the call to a ring group if no digit is pressed by the caller.</p>
+<p><b>Configuring FreePBX.</b> To put this setup in place, use a web browser to access FreePBX on your Asterisk server. You'll need to create a Custom Trunk and then an Outbound Route.</p>
+<p>1. Choose Setup, Add Trunk, Add Custom Trunk. Fill in the form so that it looks like the following using your own CallerID number obviously:</p>
+<p></p><center><img decoding="async" src="/why-wait-build-your-own-skype-gateway-to-asterisk/wp-images/CustomTrunk.gif" alt="" align="center"></center>
+<p>When you're finished, click the Submit Changes button and then reload the dialplan when prompted.</p>
+<p>2. Next choose Setup, Outbound Routes, Add Route. Fill in the form so that it looks like this:</p>
+<p></p><center><img decoding="async" src="/why-wait-build-your-own-skype-gateway-to-asterisk/wp-images/OutSkype.gif" alt="" align="center"></center>
+<p>When you're finished, click the Submit Changes button. Be sure to move this new OutSkype route to the top position in your Outbound Routes listing in the right margin! Then reload the dialplan when prompted.</p>
+<p>3. If you're not using one of our custom Asterisk builds, add a new DayNight Control 1 option while you're still in FreePBX. Just specify where you want calls routed for Day mode and Night mode. Then, here's the easy way to activate SIP URI support on your Asterisk/FreePBX server. Copy the [from-sip-external] context from the extensions.conf file in /etc/asterisk. Now copy the content into extensions_override_freepbx.conf. Be sure to preserve the context name in brackets! Now make it look like the following. The additions we're making are shown in <strong>bold</strong> below:</p>
+<blockquote><p>
+[from-sip-external]<br>
+;give external sip users congestion and hangup<br>
+; Yes. This is _really_ meant to be _. - I know asterisk whinges about it, but<br>
+; I do know what I'm doing. This is correct.<br>
+exten =&gt; _.,1,NoOp(Received incoming SIP connection from unknown peer to ${EXTEN})<br>
+exten =&gt; _.,n,Set(DID=${IF($["${EXTEN:1:2}"=""]?s:${EXTEN})})<br>
+exten =&gt; _.,n,Goto(s,1)<br>
+exten =&gt; s,1,GotoIf($["${ALLOW_SIP_ANON}"="yes"]?from-trunk,${DID},1)<br>
+<b>exten =&gt; mothership,1,Goto(app-daynight,1,1)<br>
+exten =&gt; pbxinaflash,1,Goto(app-daynight,1,1)<br>
+exten =&gt; e164,1,Goto(from-trunk,e164,1)<br>
+exten =&gt; fax,1,Goto(from-trunk,fax,1)</b><br>
+exten =&gt; s,n,Set(TIMEOUT(absolute)=15)<br>
+exten =&gt; s,n,Answer<br>
+exten =&gt; s,n,Wait(2)<br>
+exten =&gt; s,n,Playback(ss-noservice)<br>
+exten =&gt; s,n,Playtones(congestion)<br>
+exten =&gt; s,n,Congestion(5)<br>
+exten =&gt; h,1,NoOp(Hangup)<br>
+exten =&gt; i,1,NoOp(Invalid)<br>
+exten =&gt; t,1,NoOp(Timeout)
+</p></blockquote>
+<p>Finally, reload your Asterisk dialplan, and we're finished with Asterisk and FreePBX setup:<br>
+<code><br>
+<i>asterisk -rx "dialplan reload" </i><br>
+</code></p>
+<p><b>Activating Your Skype Gateway.</b> Now we're ready to place your Skype gateway in production. You'll need to perform these steps from the console on your Asterisk server since we have to run Skype in graphics mode. This may look a bit complicated. It's really not. It's just a bit tedious to figure out the sequence of steps, but we've done that part for you.</p>
+<p><b>For those on a CentOS-based system</b>, here are the steps:</p>
+<p>1. Start up X-Windows: <i>xinit</i></p>
+<p>NOTE: If xinit won't start on your particular machine, you may need to create /etc/X11/xorg.conf. Here's a generic config file that should work fine for our purposes:</p>
+<blockquote><p>
+Section "ServerLayout"<br>
+	Identifier     "X.org Configured"<br>
+	Screen      0  "Screen0" 0 0<br>
+EndSection</p>
+<p>Section "Device"<br>
+	Identifier  "Card0"<br>
+	Driver      "vesa"<br>
+EndSection</p>
+<p>Section "Screen"<br>
+	Identifier "Screen0"<br>
+	Device     "Card0"<br>
+	SubSection "Display"<br>
+		Viewport   0 0<br>
+		Depth 16<br>
+		Modes "800x600"<br>
+	EndSubSection<br>
+	SubSection "Display"<br>
+		Viewport   0 0<br>
+		Depth     16<br>
+		Modes    "800x600"<br>
+	EndSubSection<br>
+EndSection
+</p></blockquote>
+<p>2. Next we need to start up Skype, log in, set it to autologin whenever we start it, and then in the Skype configuration, set it to run minimized: <i>skype</i></p>
+<p>NOTE: Place a Skype Test Call (echo123) to be sure your audio settings are set correctly. If a test call fails with a bad audio message, go into Options, Sound Devices and reconfigure your Audio settings until you can place the test call successfully. Otherwise, none of the rest will work! If you're using a Dell server such as the PowerEdge T100, you're probably S.O.L. without an advanced degree in Rocket Science.<br>
+HINT: Intel Atom-based motherboards are a piece o' cake!</p>
+<p>3. Once you've got Skype working and all of the Skype settings configured above, shut down Skype.</p>
+<p>4. Now start Skype again in background mode: <i>skype &amp;</i></p>
+<p>5. Be sure to write down the PID for Skype in case you need to kill the job if something goes wrong. 🙂</p>
+<p>6. You should have a command prompt back now. So issue these commands:<br>
+<code><br>
+cd /siptosis<br>./SipToSis_linux<br>
+</code><br>
+7. A message from Skype should pop up asking if you want to authorize external use of Skype: <i>yes</i>. Also be sure to mark the Checkbox to save this setting for future connections!</p>
+<p>8. Now go to a softphone connected to an extension on your Asterisk server and dial <i>*echo123</i></p>
+<p>9. Go to any extension connected to your Asterisk server and dial 8 + your home phone number.  This will place the outbound call through SkypeOut at 2¢ a minute.</p>
+<p>Finally, here are a few navigation tips for managing your Asterisk console on CentOS systems:</p>
+<p>1. Ctrl-Alt-F2 gets you a new login prompt for your server</p>
+<p>2. Ctrl-Alt-F7 gets you back to the SipToSis/Skype session. You can kill SipToSis by holding down Ctrl-C for several seconds. To kill Skype: <i>kill pid#</i> (that you wrote down). To restart Skype: <i>skype &amp;</i> and to restart SipToSis, just issue the command again: ./SipToSis_Linux</p>
+<p>3. Ctrl-Alt-F9 gets you to the Asterisk CLI.</p>
+<p><b>Automating the Skype Gateway Startup.</b> Once you're positive everything is working reliably and you've rebooted and tried it again just to make certain there are no prompts, here's how to fire up your Skype gateway whenever you reboot your server. </p>
+<p>Log into your server as root and issue the following commands:<br>
+<code>cd /root<br>wget http://pbxinaflash.net/source/skype/start-skype<br>chmod +x start-skype<br>echo "/root/start-skype" &gt;&gt; /etc/rc.d/rc.local<br>reboot<br>
+</code></p>
+<p><b>For those using one of our Fedora 10 builds</b> such as VPN in a Flash or the Atomic Flash installer, these systems have a full implementation of X-Windows and KDE. Just start the system in mode5 (graphics mode), log in, run Skype in one window and start up SipToSis in a terminal window using the commands in Step 6 above. Authorize external use of Skype when prompted.</p>
+<p><b>Setting Up Speed Dials for Skype Friends.</b> One of the wrinkles with Skype is that Skype uses names for its users rather than numbers. If you don't have a SIP URI-capable softphone, there's still an easy way to place calls to your Skype friends using FreePBX. Just add a Speed Dial number to your FreePBX dialplan. Choose Extension, then select the Custom type, provide an Extension Number which is the Speed Dial number (this could actually spell your friend's name using a TouchTone phone), enter a Display Name for your friend, and add an optional SIP Alias. Then insert the following in the <i>dial</i> field replacing <i>joeschmo</i> with your friend's actual Skype name. Save your entries and reload the dialplan when prompted.<br>
+<code>SIP/joeschmo@127.0.0.1:5070</code></p>
+<p><b>Security Warning.</b> One final note of caution. Do NOT expose UDP port 5070 to the Internet unless you first secure this port with a username and password to avoid Internet intruders using your gateway as a free Skype dialing platform! You do not need 5070 exposed to the Internet to implement today's gateway solution for inbound or outbound Skype calling from your Asterisk server so we recommend you keep it securely behind at least one firewall.</p>
+<p><b>Where To Go From Here.</b> Well, those are the basics. You now can make one outbound Skype call at a time from your Asterisk server, and you can receive an inbound Skype call on any Asterisk extension when Skype users call your regular Skype name. If you want to start up your own business (like Gizmo5), then you'll need to do some tweaking. What you'll need is the <a href="http://www.mhspot.com/sts/siptosis_download.php">STS Trunk Builder</a> toolkit which is free, but proprietary. Enjoy!</p>
+<hr>
+<p><img decoding="async" src="/why-wait-build-your-own-skype-gateway-to-asterisk/wp-images/pbxonaflash.jpg" alt="" align="right"><b>Want a Bootable PBX in a Flash Drive?</b> Our <a href="/?p=575">Atomic Flash</a> bootable USB flash installer for <i>PBX in a Flash</i> has been quite the hit. Special thanks to all of our generous contributors! Atomic Flash provides all of the goodies in the <a href="/index.php?p=251">VPN in a Flash system</a> featured last month on Nerd Vittles. You can build a complete turnkey system using almost any current generation PC with a SATA drive and this USB flash installer <i>in less than 15 minutes</i>! </p>
+<p>If you'd like to put your name in the hat for a chance to win a free one delivered to your door, just post a <a href="/index.php?p=573#comments">comment</a> with your best <i>PBX in a Flash</i> story. (( This offer does not extend to those in jurisdictions in which our offer or your participation may be regulated or prohibited by statute or regulation. )) </p>
+<p>Be sure to include your real email address which will not be posted. The winner will be chosen by drawing an email address out of a hat (the old fashioned way!) from all of the comments posted over the next several weeks. </p>
+<p>And it still isn't too late to make a contribution of $50 or more to the PBX in a Flash project and get a free Atomic Flash installer delivered to your door as our special thank you gift. See this <a href="/?p=575">Nerd Vittles article</a> for details.</p>
+<hr>
+<p> </p>
+<h3>Special Thanks to Our Generous Sponsors</h3>
+<p><br>
+FULL DISCLOSURE: <a href="/?p=32167" target="_new">ClearlyIP</a>, <a href="https://skyetel.com/" target="_new">Skyetel</a>, Vitelity, <a href="https://m.do.co/c/f8725e13f303" target="_new">DigitalOcean</a>, <a href="http://www.vultr.com/?ref=6918611-3B" target="_new">Vultr</a>, <a href="https://voip.ms/en/code/nerdvittles" target="_new">VoIP.ms</a>, 3CX, Sangoma, TelecomsXchange and VitalPBX have provided financial support to Nerd Vittles and our open source projects through advertising, referral revenue, and/or merchandise. As an Amazon Associate and Best Buy Affiliate, we also earn from qualifying purchases. We’ve chosen these providers not the other way around. Our decisions are based upon their corporate reputation and the quality of their offerings and pricing. Our recommendations regarding technology are reached without regard to financial compensation except in situations in which comparable products at comparable pricing are available from multiple sources. In this limited case, we support our sponsors because our sponsors support us.<br>
+<br>
+<a href="/?p=27123" target="_new"><img decoding="async" src="/vitelity/skyetel-bottom.png" alt="" hspace="9" width="250" height="163" align="left"></a><b>BOGO Bonaza:</b> Enjoy state-of-the-art VoIP service with a $10 credit and half-price SIP service on up to $500 of Skyetel trunking with free number porting when you fund your Skyetel account. No limits on number of simultaneous calls. Quadruple data center redundancy. $25 monthly minimum spend required. <a href="/?p=27123" target="_new">Tutorial and sign up details are here</a>.<br>
+<br>
+<a href="https://incrediblepbx.clearlyip.com/" target="_new"><img decoding="async" src="/vitelity/clearlyip.png" alt="" hspace="9" width="250" height="163" align="left"></a>The lynchpin of Incredible PBX 2020 and beyond is ClearlyIP components which bring management of FreePBX modules and SIP phone integration to a level never before available with any other Asterisk distribution. And now you can configure and reconfigure your new Incredible PBX phones from the convenience of the Incredible PBX GUI.<br>
+<br>
+<a href="https://vitalpbx.org/en/" target="_new"><img decoding="async" src="/vitelity/vitalpbx.gif" alt="" hspace="9" width="250" height="163" align="left"><b>VitalPBX</b></a> is perhaps the fastest-growing PBX offering based upon Asterisk with an installed presence in more than 100 countries worldwide. VitalPBX has generously provided a customized White Label version of Incredible PBX tailored for use with all Incredible PBX and VitalPBX custom applications. <a href="/?p=30854" target="_new">Follow this link</a> for a free test drive!<br>
+ <br>
+<br>
+<img loading="lazy" decoding="async" src="/vitelity/vitelity.png" alt="" hspace="9" width="250" height="163" align="left"><b>Special Thanks to Vitelity.</b> Vitelity is now Voyant Communications and has halted new registrations for the time being. Our special thanks to Vitelity for their unwavering financial support over many years and to the many Nerd Vittles readers who continue to enjoy the benefits of their service offerings. We will keep everyone posted on further developments.<br>
+ </p>
+<hr>
+<p><b>Some Recent Nerd Vittles Articles of Interest...</b></p>
+<p><iframe loading="lazy" frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			<div class="tag_list">Tags: <a href="/tag/asterisk/" rel="tag">asterisk</a> <span class="separator"> — </span> <a href="/tag/freepbx/" rel="tag">freepbx</a> <span class="separator"> — </span> <a href="/tag/skype/" rel="tag">skype</a></div>
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-587 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 31 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-8038">
+
+			<div id="comment-8038">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7328476b613320a3c10b449e19dc967aa0abdc8bd9f35a8ebcbb5ce6167c2b63?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7328476b613320a3c10b449e19dc967aa0abdc8bd9f35a8ebcbb5ce6167c2b63?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Peter Q</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8038">Tuesday, February 17, 2009 at 4:42 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>One minor glitch – I Found that the rpm -ivh skype was complaining about libXss being needed. </p>
+<p>yum install libXScrnSaver.i386 seems to have fixed that….</p>
+<p><i>[WM: Our wget line should have taken care of that?? Did you combine the two lines in the script and remove the ↩ before executing the wget command? I actually like your method better so I have changed it now and removed:</i></p>
+<p>wget <a href="ftp://ftp.pbone.net/mirror/ftp.centos.org/5.2/%E2%86%A9" rel="ugc">ftp://ftp.pbone.net/mirror/ftp.centos.org/5.2/↩</a><br>
+os/x86_64/CentOS/libXScrnSaver-1.1.0-3.1.i386.rpm</p>
+<p>Thanks.]</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-8061">
+
+			<div id="comment-8061">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/b993a95775746110e744b77a2fbbdc13029200a0ea16e106b0f27eb36d8d140b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/b993a95775746110e744b77a2fbbdc13029200a0ea16e106b0f27eb36d8d140b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mike</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8061">Tuesday, February 17, 2009 at 6:22 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, this is great information, and I’ll bet you’re going to get a big jump in traffic to your site, because a lot of Asterisk users have been looking for a simple way to do this for quite some time.  But there is a problem, if you are not running PBX in a Flash – on some CentOS-based systems, no version of Java is installed at all, and if you just do “yum install java” it installs an earlier version (1.4).  Do you have any idea how someone would go about getting the prerequisite Java 1.5 installed on a system running CentOS 5.2, but that currently has no version of Java installed?</p>
+<p><i>[WM: Download the <a href="https://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/ViewProductDetail-Start?ProductRef=jdk-6u12-oth-JPR@CDS-CDS_Developer" rel="nofollow">Java SE Development Kit 6u12 for Linux</a> in the .rpm.bin flavor, chmod +x *.rpm.bin, run the executable and agree to the license. We’ve now added this into the body of the tutorial. It was a common problem. Thanks.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-8211">
+
+			<div id="comment-8211">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/af291e61da0b7aa1865d6958f6a496b42a143c52d70222b592eeea6b269fe06f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/af291e61da0b7aa1865d6958f6a496b42a143c52d70222b592eeea6b269fe06f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Clint Davis</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8211">Wednesday, February 18, 2009 at 11:16 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>We are desperately waiting for the Digium Skype channel driver.</p>
+<p>We have looked at other ways of connecting to Skype and providing the ability for our teleconferencing service to have the ability to conference PSTN, VoIP(SIP) &amp; Skype.</p>
+<p>However the main reason we are waiting for Digium to release this is because it will be fully supported. (Chat &amp; Voice, and video in the future)</p>
+<p>And you know that they are going to iron out all the kinks to make it perform better than any other work around solution. (For teleconferencing we need the least CPU utilization)</p>
+<p>For PBX’s in Australia Gizmo is not really an option, because their servers are located in the US. Thus making the call route from AUS -&gt; US -&gt; AUS, and degrading the response time and quality.</p>
+<p>Clint Davis</p>
+<p><i>[WM: 😆  😆  😆  😆  😆 OK. Sorry. I’ve stopped laughing now. Here’s hoping you’re right about all of what you’ve said. Seeing is believing as they say. Footnote: Since our article, Digium has posted this <a href="http://blogs.digium.com/2009/02/23/skype-for-asterisk-update/" rel="nofollow">update</a> (the first in six months!) with some details about their offering.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-8212">
+
+			<div id="comment-8212">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/1bbcd82cf1d6fe12dda2cf67c4df3707d7e1a01cd97f7c569eaed5c16a462513?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/1bbcd82cf1d6fe12dda2cf67c4df3707d7e1a01cd97f7c569eaed5c16a462513?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">KP</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8212">Wednesday, February 18, 2009 at 11:18 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward,</p>
+<p>I was very happy to get this one in my RSS feed. I have used skype for about 3 years now with excellent results. I am a recent PIAF/Asterisk user and have been desperately searching for skype integration into my new PIAF install. </p>
+<p>Thank you for doing this.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-8229">
+
+			<div id="comment-8229">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/78dd4679cd2a4d9612793acf246a59806ba3d49153160209dab78f705fd82bc6?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/78dd4679cd2a4d9612793acf246a59806ba3d49153160209dab78f705fd82bc6?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Dave MIchels</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8229">Wednesday, February 18, 2009 at 12:44 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Anyone know if this will work with Asterisk Based Switchvox? You can’t get access to the files in Switchvox – only the GUI.</p>
+<p><i>[WM: Without root access, I doubt you can get it going. You’ve got to get the siptosis code plus Skype plus Java installed somehow. You could certainly build it up on a separate machine and use it as a Skype gateway to Switchvox. That’s essentially what Gizmo5 is doing.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-8794">
+
+			<div id="comment-8794">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3c01544696bd654f931858f9a5132bc3ea381181d25c32106731a18f442d4908?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3c01544696bd654f931858f9a5132bc3ea381181d25c32106731a18f442d4908?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bill</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8794">Saturday, February 21, 2009 at 12:38 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I got as far as the line<br>
+rpm -ivh skype*<br>
+And got this:</p>
+<p># rpm -ivh skype*<br>
+warning: skype-2.0.0.72-centos.i586.rpm: Header V3 DSA signature: NOKEY, key ID<br>
+error: Failed dependencies:<br>
+        libXv.so.1 is needed by skype-2.0.0.72-centos.i586</p>
+<p>Any idea what the problem might be? Thanks in advance.</p>
+<p><i>[WM: See the first comment above. Or reread the article. The fix now has been incorporated.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-ward bypostauthor even thread-even depth-1" id="li-comment-8891">
+
+			<div id="comment-8891">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://mundy.org/" class="url" rel="ugc external nofollow">ward</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8891">Saturday, February 21, 2009 at 1:26 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>On some systems, xinit won’t start up without the existence of an xorg.conf configuration file for the display card and driver. We’ve amended the Activating Your Skype Gateway section of the  tutorial above to include a generic one that should work fine on almost any current generation machine.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-8896">
+
+			<div id="comment-8896">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/58ab8d63800af9fc2c4de8fcedb0bd1ee5407d063252d6b1ba8bd7de6c02f259?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/58ab8d63800af9fc2c4de8fcedb0bd1ee5407d063252d6b1ba8bd7de6c02f259?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Al B</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8896">Saturday, February 21, 2009 at 1:54 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, thanks for the tip on xinit, but unfortunately even that isn’t doing the trick – after creating the /etc/X11/xorg.conf file I still get<br>
+-bash: xinit: command not found<br>
+So, I am stuck at this point in the instructions, unable to start xinit.</p>
+<p><i>[WM: If xinit can’t be found, then you haven’t successfully installed the X-Windows components listed in the article.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-8927">
+
+			<div id="comment-8927">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0851d9c7980310de87da8eafc19e6a8a433ddd6e7da950de60b45e6bd3a9c2d3?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0851d9c7980310de87da8eafc19e6a8a433ddd6e7da950de60b45e6bd3a9c2d3?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">gnowk</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8927">Sunday, February 22, 2009 at 1:06 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward, I was trying to set up SipToSis just a few days ago and didn’t get very far.  I finally got it set up with the help of your tutorial and your SipToSis configs.  Thanks!</p>
+<p>Not sure if other folks experienced this, but my Skype client kept crashing initially.  Turns out my particular setup can’t receive calls with video.  Disabling video on my end fixed it.</p>
+<p>Also, when I get a Skype call, the incoming caller ID is set to “SkypeCaller”.  Is there a way to get the caller’s Skype name displayed instead?  I am not using PiaF, so not sure if that’s the cause of it.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-8931">
+
+			<div id="comment-8931">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/536d768ef889fe80a79da006341a2ac79933a8cc38957c217e9a54cc68fd1510?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/536d768ef889fe80a79da006341a2ac79933a8cc38957c217e9a54cc68fd1510?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">J</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8931">Sunday, February 22, 2009 at 10:07 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I just wanted to comment that I also had the problem of no xinit, and I triple checked to see that all of the software listed in the article had installed without errors.  So I did a “yum list” and saw a package named xorg-x11-xinit.i386, which I suspected might give me the elusive xinit. After doing a “yum install xorg-x11-xinit.i386” I typed xinit and was greeted with this message:</p>
+<p># xinit</p>
+<p>xinit:  No such file or directory (errno 2):  no server “X” in PATH</p>
+<p>Use the — option, or make sure that /usr/bin is in your path and<br>
+that “X” is a program or a link to the right type of server<br>
+for your display.  Possible server names include:</p>
+<p>    Xorg         X.Org displays</p>
+<p>giving up.<br>
+xinit:  Connection refused (errno 111):  unable to connect to X server<br>
+xinit:  No such process (errno 3):  Server error.</p>
+<p>I checked and /usr/bin is definitely in my path!</p>
+<p>What I am wondering is, do your PiaF systems ship with X-Windows and perhaps some sort of desktop environment already installed?  If that’s the case, that would explain why some people are having problems and not others – I think if your CentOS installation is a basic “server” install – one intended to be administered remotely, such as via a ssh connection – it doesn’t include X-Windows or a desktop. This is the impression I get from certain pages I have Googled, feel free to correct me if I’m wrong.</p>
+<p>I’d be curious to know if everyone who has got this to run successfully has some sort of desktop such as KDE, Gnome, etc. installed, or if anyone has got this to work on a barebones CentOS server configuration (not PiaF), and if so, what they had to install that’s not listed in the article.</p>
+<p><i>[WM: Here’s a listing of installed modules on a PBX in a Flash system that you can compare.]</i></p>
+<p>libX11-devel.i386                        1.0.3-9.el5            base<br>
+libXScrnSaver-devel.i386                 1.1.0-3.1              base<br>
+libXTrap-devel.i386                      1.0.0-3.1              base<br>
+libXau-devel.i386                        1.0.1-3.1              base<br>
+libXaw-devel.i386                        1.0.2-8.1              base<br>
+libXcomposite.i386                       0.3-5.1                base<br>
+libXcomposite-devel.i386                 0.3-5.1                base<br>
+libXcursor-devel.i386                    1.1.7-1.1              base<br>
+libXdamage.i386                          1.0.3-2.1              base<br>
+libXdamage-devel.i386                    1.0.3-2.1              base<br>
+libXdmcp-devel.i386                      1.0.1-2.1              base<br>
+libXevie.i386                            1.0.1-3.1              base<br>
+libXevie-devel.i386                      1.0.1-3.1              base<br>
+libXext-devel.i386                       1.0.1-2.1              base<br>
+libXfixes-devel.i386                     4.0.1-2.1              base<br>
+libXfont-devel.i386                      1.2.2-1.0.3.el5_1      base<br>
+libXfontcache-devel.i386                 1.0.2-3.1              base<br>
+libXft-devel.i386                        2.1.10-1.1             base<br>
+libXi-devel.i386                         1.0.1-3.1              base<br>
+libXinerama-devel.i386                   1.0.1-2.1              base<br>
+libXmu-devel.i386                        1.0.2-5                base<br>
+libXp.i386                               1.0.0-8.1.el5          base<br>
+libXp-devel.i386                         1.0.0-8.1.el5          base<br>
+libXpm-devel.i386                        3.5.5-3                base<br>
+libXrandr-devel.i386                     1.1.1-3.1              base<br>
+libXrender-devel.i386                    0.9.1-3.1              base<br>
+libXres-devel.i386                       1.0.1-3.1              base<br>
+libXt-devel.i386                         1.0.2-3.1.fc6          base<br>
+libXtst-devel.i386                       1.0.1-3.1              base<br>
+libXv-devel.i386                         1.0.1-4.1              base<br>
+libXvMC.i386                             1.0.2-2.1              base<br>
+libXvMC-devel.i386                       1.0.2-2.1              base<br>
+libXxf86dga-devel.i386                   1.0.1-3.1              base<br>
+libXxf86misc-devel.i386                  1.0.1-3.1              base<br>
+libXxf86vm-devel.i386                    1.0.1-3.1              base            </p>
+<p>x3270.i386                               3.3.4p7-3.el5.4        base<br>
+x3270-text.i386                          3.3.4p7-3.el5.4        base<br>
+x3270-x11.i386                           3.3.4p7-3.el5.4        base<br>
+x86info.i386                             1:1.20-1.26.fc6        base<br>
+xfdesktop.i386                           4.4.2-1.el5.centos     extras<br>
+xfwm4.i386                               4.4.2-1.el5.centos     extras<br>
+xfwm4-themes.noarch                      4.4.2-1.el5.centos     extras<br>
+xhtml1-dtds.noarch                       1.0-7.1.1              base<br>
+xjavadoc.i386                            1.1-4jpp.1             base<br>
+xjavadoc-javadoc.i386                    1.1-4jpp.1             base<br>
+xorg-x11-drv-i810-devel.i386             1.6.5-9.13.el5         base<br>
+xorg-x11-drv-via-devel.i386              0.2.1-9                base<br>
+xorg-x11-fonts-100dpi.noarch             7.1-2.1.el5            base<br>
+xorg-x11-fonts-75dpi.noarch              7.1-2.1.el5            base<br>
+xorg-x11-fonts-ISO8859-1-100dpi.noarch   7.1-2.1.el5            base<br>
+xorg-x11-fonts-ISO8859-14-100dpi.noarch  7.1-2.1.el5            base<br>
+xorg-x11-fonts-ISO8859-14-75dpi.noarch   7.1-2.1.el5            base<br>
+xorg-x11-fonts-ISO8859-15-100dpi.noarch  7.1-2.1.el5            base<br>
+xorg-x11-fonts-ISO8859-15-75dpi.noarch   7.1-2.1.el5            base<br>
+xorg-x11-fonts-ISO8859-2-100dpi.noarch   7.1-2.1.el5            base<br>
+xorg-x11-fonts-ISO8859-2-75dpi.noarch    7.1-2.1.el5            base<br>
+xorg-x11-fonts-ISO8859-9-100dpi.noarch   7.1-2.1.el5            base<br>
+xorg-x11-fonts-ISO8859-9-75dpi.noarch    7.1-2.1.el5            base<br>
+xorg-x11-fonts-Type1.noarch              7.1-2.1.el5            base<br>
+xorg-x11-fonts-cyrillic.noarch           7.1-2.1.el5            base<br>
+xorg-x11-fonts-ethiopic.noarch           7.1-2.1.el5            base<br>
+xorg-x11-fonts-misc.noarch               7.1-2.1.el5            base<br>
+xorg-x11-fonts-syriac.noarch             7.1-2.1.el5            base<br>
+xorg-x11-fonts-truetype.noarch           7.1-2.1.el5            base<br>
+xorg-x11-proto-devel.i386                7.1-9.el5.centos       base<br>
+xorg-x11-resutils.i386                   7.1-2.fc6              base<br>
+xorg-x11-server-Xdmx.i386                1.1.1-48.41.el5_2.1    updates<br>
+xorg-x11-server-Xephyr.i386              1.1.1-48.41.el5_2.1    updates<br>
+xorg-x11-server-Xnest.i386               1.1.1-48.41.el5_2.1    updates<br>
+xorg-x11-server-randr-source.i386        1.1.1-48.41.el5_2.1    updates<br>
+xorg-x11-server-sdk.i386                 1.1.1-48.41.el5_2.1    updates<br>
+xorg-x11-twm.i386                        1:1.0.1-3.1            base<br>
+xorg-x11-util-macros.i386                1.0.2-4.fc6            base<br>
+xorg-x11-xbitmaps.i386                   1.0.1-4.1              base<br>
+xorg-x11-xfs-utils.i386                  1:1.0.2-4              base<br>
+xorg-x11-xfwp.i386                       1.0.1-3.1              base<br>
+xorg-x11-xsm.i386                        1.0.2-4.fc6            base<br>
+xorg-x11-xtrans-devel.i386               1.0.1-1.1.fc6          base<br>
+xscreensaver.i386                        1:5.04-1.el5.centos    extras<br>
+xscreensaver-base.i386                   1:5.04-1.el5.centos    extras<br>
+xscreensaver-extras.i386                 1:5.04-1.el5.centos    extras<br>
+xscreensaver-extras-gss.i386             1:5.04-1.el5.centos    extras<br>
+xscreensaver-gl-base.i386                1:5.04-1.el5.centos    extras<br>
+xscreensaver-gl-extras.i386              1:5.04-1.el5.centos    extras<br>
+xscreensaver-gl-extras-gss.i386          1:5.04-1.el5.centos    extras<br>
+</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-8933">
+
+			<div id="comment-8933">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0851d9c7980310de87da8eafc19e6a8a433ddd6e7da950de60b45e6bd3a9c2d3?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0851d9c7980310de87da8eafc19e6a8a433ddd6e7da950de60b45e6bd3a9c2d3?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">gnowk</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8933">Sunday, February 22, 2009 at 2:12 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I did mine on a trixbox  installation.  It didn’t have KDE, Gnome or other X desktop software installed.</p>
+<p>Since I don’t have a monitor attached to my box, I used Xvnc instead.  It is an X server that you can vnc to.  Just do a “yum install -y vnc-server”.  </p>
+<p>In addition, you need to run desktop software on top of it.  I used xfce, but KDE or Gnome would work to.  For xfce, install the following with yum:<br>
+<code><br>
+xfce-mcs-manager<br>xfce4-panel<br>xfdesktop<br>xfwm4<br>xorg-x11-fonts-truetype<br>xorg-x11-fonts-ISO8859-2-100dpi<br>xorg-x11-fonts-ISO8859-1-100dpi<br>
+</code></p>
+<p>yum will pull in other dependencies too.  The fonts might be optional, but I installed them just in case.</p>
+<p>I also modified /etc/fonts/fonts.conf to include “/usr/share/X11/fonts/TTF” as a font directory.</p>
+<p>Modify ~/.vnc/xstartup to include the following:<br>
+<code><br>
+xfce-mcs-manager<br>xfwm4 --daemon<br>xfdesktop &amp;<br>xterm &amp;<br>exec xfce4-panel<br>
+</code></p>
+<p>To start Xvnc, just run “vncserver”.  I believe it asks you for a password to use the first time around.  Just enter one and use that for the vnc viewer later.  After which, it should tell you what your DISPLAY variable is (used for X if you need it).  This is also the same server value for connecting from your vnc viewer.</p>
+<p>Connect from a vnc viewer and an xterm should already be started.  Continue at step 2 of the article from here on.</p>
+<p>Hope I didn’t miss anything.</p>
+<p><i>[WM: Big help! Thanks.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-8948">
+
+			<div id="comment-8948">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/c9fefc3d66a0e3b1296b892087b2c599051d0983b902e1befa3d460d44a73d3f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/c9fefc3d66a0e3b1296b892087b2c599051d0983b902e1befa3d460d44a73d3f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jim</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8948">Tuesday, February 24, 2009 at 4:41 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Works just fine. Is there any way to auto run ./SipToSis_Linux? Now on every reboot i must run it manually. </p>
+<p>Great job!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-8960">
+
+			<div id="comment-8960">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7b64ad53308df47639d8cd9c3d5d538246ecb5799d88d1dd58d84e90286c525d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7b64ad53308df47639d8cd9c3d5d538246ecb5799d88d1dd58d84e90286c525d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Henry</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8960">Wednesday, February 25, 2009 at 9:17 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>do I “have to” launch the SipToSis_Linux under the siptosis directory. I tried launching it form / with the following command:<br>
+/siptosis/SipToSis_Linux<br>
+But it keeps looping and gives me errors, and force me to reboot the machine to stop it from looping. Does anyone have a good way of launching the service at boot?</p>
+<p><i>[WM: Keep an eye on <a href="http://pbxinaflash.com/forum/showthread.php?t=3495" rel="nofollow">this thread</a>.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-8966">
+
+			<div id="comment-8966">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/536d768ef889fe80a79da006341a2ac79933a8cc38957c217e9a54cc68fd1510?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/536d768ef889fe80a79da006341a2ac79933a8cc38957c217e9a54cc68fd1510?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">J</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8966">Thursday, February 26, 2009 at 2:38 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Okay, I finally have this running on an Elastix system.  Here are some of the things I had to do, in no particular order:</p>
+<p>1) Install additional packages:</p>
+<p>yum install libXv.so.1<br>
+yum groupinstall “X Window System”</p>
+<p>The first must be done before doing rpm -ivh skype* in your instructions.</p>
+<p>2) To start X server at bootup, went into /etc/inittab and changed the line id:3:initdefault: to id:5:initdefault:</p>
+<p>3) In /etc/X11/twm/system.twmrc I had to add the line<br>
+RandomPlacement<br>
+after top comment section<br>
+and then copy that file to /root/.twmrc<br>
+This is because if you don’t have any other window manager X windows seems to use twc, and twc has a quirk where it won’t actually show the box that pops up when a call is placed or received until you click on it (until then it shows a grid outline), but if that box doesn’t show all sorts of weird and undesirable things happen.  The “RandomPlacement” tells twm to just pick a place randomly and show the box!</p>
+<p>4) In order to get outgoing calls to work I did have to edit /siptosis/SipToSkypeAuth.props and change the last line from *,*,127.0.0.1,calleeid to *,*,*,calleeid – I made sure that port 5070 is not open in the router so no one from outside my local network can misuse this. Sorry, but it’s the only thing that worked.</p>
+<p>5) This may be system-specific, but in the Skype client itself, I had to go into Options|Sound Devices and change the Sound Out setting to an actual hardware device instead of Default Device (I just picked the first one on the list).</p>
+<p>I also have a question – is anyone else having issues with touch tones not being able to activate an IVR selection?  This works fine as long as I route it to an extension, and if the Skype caller uses their touch tone pad to hit some tomes I can hear them loud and clear, but when I route calls to an IVR they don’t do anything.  I went to the SipToSis site and noted that in their forum they say that SipToSis Skype Gateway Bridge Update 20090217 includes this change: “Change (again) rfc2833 DTMF encoding for compatibility issues with some SIP servers.” I just wondered if your download is based on that version or an earlier one (not that I would know if that would affect this issue), or if anyone else has had the touch tone issues and found a workaround?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-8973">
+
+			<div id="comment-8973">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/536d768ef889fe80a79da006341a2ac79933a8cc38957c217e9a54cc68fd1510?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/536d768ef889fe80a79da006341a2ac79933a8cc38957c217e9a54cc68fd1510?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">J</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8973">Friday, February 27, 2009 at 6:53 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Me again – I think I have solved the touch tone problem and also have figured out how to start everything automatically at reboot.  Once again this was on an Elastix box, so things may be different on other systems.</p>
+<p>To get the software to pass touch tones through to Asterisk (so you can direct Skype callers to an IVR) I had to change two options in /siptosis/siptosis.cfg:</p>
+<p>enableSkypeDtmfDetector=yes<br>
+inbandFullTimeDtmfDetection=yes</p>
+<p>At least for me, this got incoming tones working reliably.  Note that if you are using this for incoming calls from Skype users you may not know in advance, you might actually have to tell them (in the IVR recording) that they need to click on the “More” button, then “Toggle Dialpad” in order to make a selection.</p>
+<p>As for getting it to start up at reboot – the only way I could get it to do so was as part of the vnc server startup. So you do have to have a vncserver installed (I’m assuming that “yum install vncserver” would work, but it was already present on my system).  So this is what I did:</p>
+<p>First I used Webmin (System|Bootup and Shutdown) to start vncserver at bootup – just check the box next to vncserver and click “Start on Boot”</p>
+<p>I then edited /root/.vnc/xstartup to make sure the following was at the end of the file (don’t duplicate the “twm &amp;” line if it’s already in the file, and don’t include it at all if you are using some other window manager):</p>
+<p>twm &amp;<br>
+skype &amp;<br>
+sleep 5<br>
+cd /siptosis<br>
+./SipToSis_linux &gt;&gt; /var/log/siptosis</p>
+<p>Note that I put in a five second delay to give Skype time to fully start before SipToSis_linux starts (don’t know if that’s necessary but seemed logical), and also, because when starting this way there’s no visible window for SipToSis, I send the output to a log file called /var/log/siptosis</p>
+<p>Since I don’t want that log file to just grow forever I used Webmin (System|Log File Rotation|Add a new log file to rotate) to rotate the log file.  The settings I used were:</p>
+<p>Log file paths: /var/log/siptosis<br>
+Ignore log file if missing? Yes<br>
+Re-create log file after rotation? Yes, with mode 0644 and owned by user root and group root</p>
+<p>I left all other settings at the defaults, though you might want to do a daily rotation on a high traffic system (ours isn’t so I left it at weekly).</p>
+<p>After a reboot I could connect using a vnc client to port 5903 – I’m not exactly sure why 5903 rather than 5900, 5901, or 5902, but you can try ports starting at 5900 if it doesn’t work the first time.  However, it appears you don’t actually have to have a VNC client connected for this to work – the main thing is that you must start the vnc client first, then let the vnc client’s xstartup script start up Skype and SipToSis.  When I tried to start the latter two programs directly in a Webmin startup script it didn’t work. It goes without saying that if you do this you want to make absolutely, positively sure that the vnc server port is not accessible outside your local network, particularly since this stuff is running as root!!! It would probably be a good idea to protect access to the VNC server in some way (require a strong password or a SSH connection from the client) but at the moment I’m not sure how to change that.</p>
+<p>By the way, if Webmin doesn’t already have a Bootup and Shutdown action for vnc, I’d be suspicious that it had not installed properly, but if you think it has you could probably try using something as simple as “service vncserver start” for the bootup and “service vncserver stop” for the shutdown.</p>
+<p><i>[WM: Great tips. For another autostart solution that’s a little less complicated, see <a href="http://pbxinaflash.com/forum/showthread.php?t=3495&amp;page=3" rel="nofollow">this thread</a>.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-8975">
+
+			<div id="comment-8975">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/536d768ef889fe80a79da006341a2ac79933a8cc38957c217e9a54cc68fd1510?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/536d768ef889fe80a79da006341a2ac79933a8cc38957c217e9a54cc68fd1510?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">J</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8975">Friday, February 27, 2009 at 2:41 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Here’s a couple more hints (sorry about the numerous posts but I have to post these as I figure them out or I forget them!)</p>
+<p>I’m up to four changes in /siptosis/siptosis.cfg now:</p>
+<p>enableSkypeDtmfDetector=yes<br>
+inbandFullTimeDtmfDetection=yes<br>
+concurrentcalllimit=1<br>
+is_registrar=no</p>
+<p>
+The first two I covered in my previous post. The third is needed because if you are on a Skype call and another comes in, and this setting is &gt; 1, the first call will be put on hold and connect the second one put through.  Since there’s probably no way for either of the parties to the first call to take it off hold, the effect from their standpoint is that the call was cut off!  The fourth line is to stop the SipToSis program from printing ‘WARNING: file “users.db” not found: created new empty DB’ every time it starts.</p>
+<p>I do like the other autostart method shown, but for those who want to run vncserver (at least for a while) I forgot that I might have modified my /etc/sysconfig/vncservers file.  The two uncommented lines I have are these:</p>
+<p>VNCSERVERS=”3:root”<br>
+VNCSERVERARGS[2]=”-geometry 800×600 -nolisten tcp -nohttpd -localhost”</p>
+<p>
+The first line may be part of the reason that the vncserver is on port 5903 – I think the port is 5900 + the screen number (but don’t quote me on that).</p>
+<p>But I do like bbhenry’s method (in the thread you posted) for once you know everything is working as it should be.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-8977">
+
+			<div id="comment-8977">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7b64ad53308df47639d8cd9c3d5d538246ecb5799d88d1dd58d84e90286c525d?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7b64ad53308df47639d8cd9c3d5d538246ecb5799d88d1dd58d84e90286c525d?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Henry</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8977">Friday, February 27, 2009 at 10:03 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>J<br>
+Thanks for sharing how you configure the siptosis gateway, those tips are truely useful</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-8982">
+
+			<div id="comment-8982">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/536d768ef889fe80a79da006341a2ac79933a8cc38957c217e9a54cc68fd1510?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/536d768ef889fe80a79da006341a2ac79933a8cc38957c217e9a54cc68fd1510?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">J</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-8982">Saturday, February 28, 2009 at 2:06 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>One more small tidbit for you: If you add this line in /siptosis/siptosis.cfg …..</p>
+<p>from_url=”SkypeCaller” &lt;sip:Skype_Caller@127.0.0.1:5060&gt;</p>
+<p>….. when a call comes in from a Skype user to your Asterisk box it will show the Skype user name in the Caller ID Name field, and “Skype_Caller” in the Caller ID number field. I don’t know if any phone displays will barf on letters where numbers are “supposed” to go, but if that is an issue just change “Skype_Caller” to something numeric.</p>
+<p><i>[WM: Thanks very much for all of your work on this. We’ve now incorporated all of your config changes in the siptosis.tgz download.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-ward bypostauthor even thread-even depth-1" id="li-comment-9006">
+
+			<div id="comment-9006">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://mundy.org/" class="url" rel="ugc external nofollow">ward</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-9006">Monday, March 2, 2009 at 4:20 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>You now can try out this new service by calling <i>nerdvittles</i> from your nearest Skype telephone. 🙂</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9076">
+
+			<div id="comment-9076">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/f950603a146a713b88b2f89bb49814eff02438913319abd44ce6361d3194bc7a?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/f950603a146a713b88b2f89bb49814eff02438913319abd44ce6361d3194bc7a?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Kevin</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-9076">Thursday, March 19, 2009 at 9:49 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Just tried installing the skype gateway on a clean install of PIAF 1.4_X64 today but am getting the following errors when trying to install the skype client:<br>
+root@pbx:~/skype $ rpm -ivh skype*<br>
+warning: skype-2.0.0.72-centos.i586.rpm: Header V3 DSA signature: NOKEY, key ID<br>
+d66b746e<br>
+error: Failed dependencies:<br>
+        libXv.so.1 is needed by skype-2.0.0.72-centos.i586<br>
+        libasound.so.2 is needed by skype-2.0.0.72-centos.i586<br>
+        libasound.so.2(ALSA_0.9) is needed by skype-2.0.0.72-centos.i586<br>
+        libasound.so.2(ALSA_0.9.0rc4) is needed by skype-2.0.0.72-centos.i586<br>
+root@pbx:~/skype $</p>
+<p>Any ideas? I followed the instructions listed but no joy. TIA.</p>
+<p><i>[WM: See this <a href="http://pbxinaflash.com/forum/showthread.php?t=3495" rel="nofollow">message thread</a> on the PBX in a Flash forum.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-9106">
+
+			<div id="comment-9106">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/1b3f4927d69aa9cfe427f7d90e134a6fbf64ca7bb144ff563a33454e3cc7c371?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/1b3f4927d69aa9cfe427f7d90e134a6fbf64ca7bb144ff563a33454e3cc7c371?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">marc</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-9106">Tuesday, March 24, 2009 at 10:20 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p><a href="http://www.skypeforsip.com/" rel="nofollow ugc">http://www.skypeforsip.com/</a></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9166">
+
+			<div id="comment-9166">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/40ae0d6e418f5bc5700888762e3a1110cdb4786c820846c3b9d68b3226c713fa?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/40ae0d6e418f5bc5700888762e3a1110cdb4786c820846c3b9d68b3226c713fa?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Rrichiez</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-9166">Saturday, April 4, 2009 at 1:22 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi my question is will this slow asterisk down? if i do thiere upgrade will i have to reconfigure this again? linux and asterisk are always upgrading and dont want to be having to reconfigure all the time also want to know if this will take up alot of resources from the box? skype is very cheap….</p>
+<p><i>[WM: Will Skype slow down your Asterisk system? Good question. Kinda depends upon the horsepower of your system, the current load on your server, and the number of Skype calls going in and out. My best guestimate is that a Skype calls consumes slightly more processing resources than a SIP call using a compression codec. Best way to find out is obviously to try it. You can always disable it if performance becomes a problem.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-ward bypostauthor even thread-even depth-1" id="li-comment-9186">
+
+			<div id="comment-9186">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://mundy.org/" class="url" rel="ugc external nofollow">ward</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-9186">Thursday, April 9, 2009 at 3:25 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>For those having problems building this gateway on systems other than PBX in a Flash, take a look at this excellent <a href="http://www.freepbx.org/support/documentation/howtos/how-to-set-up-a-skype-gateway" rel="nofollow">FreePBX tutorial</a> which builds upon our initial work.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9470">
+
+			<div id="comment-9470">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/b5b29f1d2d687eb7946037dee01aef3ffe1211703a0f2bc6f274a1740b27bcc0?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/b5b29f1d2d687eb7946037dee01aef3ffe1211703a0f2bc6f274a1740b27bcc0?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Dave</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-9470">Sunday, July 5, 2009 at 8:56 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Here’s another tip for setting up speeddials for Skype instead of creating extensions. All speeddials are stored in the internal db “sysspeeddials”. Go into Asterisk CLI, type in “database put sysspeeddials ## SkypeID”, where ## is the speeddial #. Precede the SkypeID with * or 8 or whatever code you use in the Skype Outgoing prefix. E.g. “database put sysspeeddials 99 *echo123”. Then use the regular speeddial code *0 followed by 99 will call the Skype echo123 test line.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-9803">
+
+			<div id="comment-9803">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2b56dbb06306dac7caf3db47d0d71a0ee4358b305c620de4ab9dadf9cfa11322?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2b56dbb06306dac7caf3db47d0d71a0ee4358b305c620de4ab9dadf9cfa11322?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">p</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-9803">Tuesday, August 11, 2009 at 7:34 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Don’t suppose anyone can offer some advice on how this will work if the Asterisk instance is running from a Xen Server VM? my concern is the audio device, as i dont know if Xen supports presenting Soundcards to guest Linux OS (CentOS)</p>
+<p>any tips would be greately appreciated.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9917">
+
+			<div id="comment-9917">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/ec7720cf70a933e478f7612badcd64751409a67d1426495c702cf4bb0fc5b08a?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/ec7720cf70a933e478f7612badcd64751409a67d1426495c702cf4bb0fc5b08a?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">James</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-9917">Monday, August 31, 2009 at 5:12 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Ward – I just got around to trying this and the skype centos rpm is no longer available.  Do you have any suggestions on how to get this working now?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-9932">
+
+			<div id="comment-9932">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e4f40a0f69ed5497ec76767b2f5cae50134791cc5f6215dabff09d43e78523b4?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e4f40a0f69ed5497ec76767b2f5cae50134791cc5f6215dabff09d43e78523b4?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">CK</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-9932">Wednesday, September 2, 2009 at 12:08 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I used the “static skype” download not the rpm for Centos 5 – un’tar’ed and executed – Perfect</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-10449">
+
+			<div id="comment-10449">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/74819f44b5ce73096629c4d933a06b52c69aeb10996e2f66bef239e93e17c01f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/74819f44b5ce73096629c4d933a06b52c69aeb10996e2f66bef239e93e17c01f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://frameloss.org/" class="url" rel="ugc external nofollow">Todd</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-10449">Saturday, January 9, 2010 at 7:11 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>You guys make this too easy!!!!  Thanks for all the great scripts and instructions.</p>
+<p>Some notes . . . if you are trying this (as of) January 2010 you might have to upgrade your Xorg server via yum.  You might also need to alter the startup script to add credentials to it . . . “echo username password | skype –pipelogin &amp;” if you are running the new beta version of skype (and as mentioned, the centos version is no longer there–just use the static compiled version on the site and as already mentioned copy the files as specified in the README file.)</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-10506">
+
+			<div id="comment-10506">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/8ef6f496b66263c9c7dae33a8fb2206ebde160989a03fa1e28659696c4a11d15?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/8ef6f496b66263c9c7dae33a8fb2206ebde160989a03fa1e28659696c4a11d15?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mr Bear</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-10506">Wednesday, January 20, 2010 at 8:36 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi there great guide 😀 however it has come to my attention that my pbx is running in a vmware environment on esxi and is without a sound card 🙁 is there anyway to make this work without one or am i gonna have to dig around for a physical box to reinstall on…</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-10983">
+
+			<div id="comment-10983">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/279377bab9c394a678d7e516d0cab4be8c83d7818e79001c7f713898fb58d78a?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/279377bab9c394a678d7e516d0cab4be8c83d7818e79001c7f713898fb58d78a?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Dallas</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-10983">Sunday, April 18, 2010 at 2:24 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I’m a little late to this and now I find that Skype has taken down the CentOS rpm. I tried the FC10 rpm but it complains about needing qt4-x11. I have the rpmforge repo enabled but can’t find qt4-x11. Any suggestions?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-10985">
+
+			<div id="comment-10985">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/279377bab9c394a678d7e516d0cab4be8c83d7818e79001c7f713898fb58d78a?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/279377bab9c394a678d7e516d0cab4be8c83d7818e79001c7f713898fb58d78a?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Dallas</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/why-wait-build-your-own-skype-gateway-to-asterisk/#comment-10985">Sunday, April 18, 2010 at 5:15 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Never mind… the “static skype” works fine.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/why-wait-build-your-own-skype-gateway-to-asterisk/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/why-wait-build-your-own-skype-gateway-to-asterisk/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/why-wait-build-your-own-skype-gateway-to-asterisk/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/why-wait-build-your-own-skype-gateway-to-asterisk/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/why-wait-build-your-own-skype-gateway-to-asterisk/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/why-wait-build-your-own-skype-gateway-to-asterisk/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjc3NjY3NCwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

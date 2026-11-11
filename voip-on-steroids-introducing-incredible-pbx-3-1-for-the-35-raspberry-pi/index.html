@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>VoIP on Steroids: Introducing Incredible PBX 3.7 for the $35 Raspberry Pi – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/">
+<link rel="shortlink" href="/?p=3026">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=25F7F059F3963C0B0C0CADF6D07EE3B1');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=3026">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-3026 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/" title="Permalink to VoIP on Steroids: Introducing Incredible PBX 3.7 for the $35 Raspberry Pi" rel="bookmark">VoIP on Steroids: Introducing Incredible PBX 3.7 for the $35 Raspberry Pi</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Tuesday, November 6, 2012 at 3:00 am</li>		<li class="category">in <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fvoip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi%2F&amp;text=VoIP+on+Steroids%3A+Introducing+Incredible+PBX+3.7+for+the+%2435+Raspberry+Pi" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fvoip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi%2F&amp;t=VoIP+on+Steroids%3A+Introducing+Incredible+PBX+3.7+for+the+%2435+Raspberry+Pi" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-3026" class="clearfix post-3026 post type-post status-publish format-standard hentry category-technology category-telephony tag-asterisk tag-freepbx tag-incrediblepbx">
+
+		<div class="entry">
+
+			<p><img decoding="async" src="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/wp-images/IncrediblePi.gif" alt="" hspace="9" align="left"> We feel like a kid in a candy store with our new $35 <a href="http://en.wikipedia.org/wiki/Raspberry_Pi" target="_blank" rel="noopener noreferrer">Raspberry Pi® Model B</a>. Imagine squeezing a 700 mHz ARM processor with <font color="red">512MB of RAM</font>, 2 USB ports, a 10/100 Ethernet port, an HDMI port, composite video, a separate audio jack, an SDHC card slot, and a micro USB port onto a motherboard the size of a credit card with a total weight of 1.6 ounces and a typical power draw of 3.5 watts. Thanks to <a href="http://www.raspberry-asterisk.org/?p=22" target="_blank" rel="noopener noreferrer">Gernot</a> and his Asterisk for Raspberry Pi project, a full LAMP stack with Asterisk® and FreePBX® gave us a head start on turning the Raspberry Pi into yet another Incredible PBX™ platform complete with <a href="http://gmailblog.blogspot.com/2012/12/free-calling-within-us-and-canada.html" target="_blank" rel="noopener noreferrer">free Google Voice™ calling through 2013</a>. (( Google Voice calling is free throughout the United States and Canada at least through the end 0f 2012. Extensions typically have been announced during the last week of December each year… but nothing lasts forever. ))<br>
+[iframe-popup id=”3″]</p>
+<p><strong>07/01/2019 NEWS FLASH:</strong> Just released Incredible PBX LITE for the Raspberry Pi 2, 3, and 4 featuring Raspbian 10 Buster. <a href="/?p=30080" rel="noopener noreferrer" target="_blank">Tutorial here</a>. </p>
+<p>Trust us when we say the performance of this $35 computer is nothing short of amazing. Can it do everything a $200 dual-core Atom PC can do? No. Can it do 90% of everything for someone whose requirements do not exceed a few simultaneous calls at a time but still wants a full-blown PBX for call routing, voicemail, IVRs, music on hold, and text-to-speech and speech-to-text apps for a home, a SOHO office, a Little League team, or a dorm room? Absolutely.  We’re now at the two-month mark with this project, and the Raspberry Pi Foundation already has released a 512MB version of the computer <em>at the same price</em> <u>AND</u> new firmware that autodetects the proper memory setup depending upon whether you have a 256MB or 512MB Pi. Version 3.5 and beyond incorporates the new firmware into Incredible PBX.</p>
+<p>The honeymoon isn’t over yet. Incredible Pi™ 3.5 featured the very latest Debian 7 firmware specifically tailored for the Raspberry Pi™ from its developers. You can read all about it <a href="http://www.raspberrypi.org/archives/2008" target="_blank" rel="noopener noreferrer">here</a>. Is it better? Can you spell ROCKET SHIP? With a reliable power supply, you now can overclock the Raspberry Pi and join the 1GHz Club. That represents a 50% performance improvement. And doubling the RAM to 512MB now makes the Raspberry Pi a near perfect VoIP platform. Better yet, the Raspbian kernel handles management of the overclocking so you never have to confront Fried Raspberry Pi. When the CPU temperature gets too high, the kernel will throttle things back to avoid a disaster. And version 3.7 adds Incredible Fax to the platform for those with a 512MB Raspberry Pi. The complete tutorial is available <a href="/?p=3880" target="_blank" rel="noopener noreferrer">here</a>.</p>
+<p><b>Eben Upton Visits Charleston.</b> The developer of the Raspberry Pi, <a href="http://www.raspberrypi.org/" target="_blank" rel="noopener noreferrer">Eben Upton</a>, and his lovely wife, Liz, made a brief appearance in Our Town last Thursday night. Makelab Charleston, in cooperation with the College of Charleston and the Lowcountry Graduate Center, hosted the event. With an SRO crowd, we all got to hear the Raspberry Pi story first hand. If you missed the presentation, you missed a real treat. </p>
+<p><b>What’s New in Incredible PBX 3.x.</b> For those of you already running a previous version, here’s a quick thumbnail of the other new features in addition to overclocking. We’ve tried to mimic as much of the previous builds as possible. But keep in mind that this is a new creation from the ground up because there was no migration path from Debian Squeeze and Wheezy to Raspbian. But we keep good notes, and <a href="http://www.raspberry-asterisk.org/?p=68" target="_blank" rel="noopener noreferrer">Gernot</a> did much of the heavy lifting. 😉</p>
+<p><b>SECURITY ALERT:</b> Incredible PBX 3.7 addresses a serious security flaw in prior versions of Asterisk. With the exception of the new Asterisk release incorporated into this release, the functionality is identical to Incredible PBX 3.6.</p>
+<p>Incredible PBX 3.5 and beyond added automatic detection and support of 512MB Raspberry Pi devices without touching anything. And the latest version 3.7 adds an awesome fax server to Incredible PBX for those with a 512MB board. The complete tutorial is available <a href="/?p=3880" target="_blank" rel="noopener noreferrer">here</a>. <em>update-my-pi</em> in the /root folder of your server helps to safeguard your system by bringing it up to date with the latest fixes and enhancements. After running it the first time, it gets run automatically whenever you log in as root. For the safety of your server, don’t disable it! It’s free for the first ten updates, and then it’s just $20 a year. We have to eat, too. If you are philosophically opposed to ever spending a dime to support the open source movement, then feel free to load the latest version of Incredible PBX at no cost whenever you like. It will <em>always</em> be free! Then you can restore your settings using the backup and restore feature built into FreePBX.</p>
+<p>To enable overclocking <em>at your own risk</em>, run: <em>raspi-config</em>. Overclocking works for us. YMMV! The key is a <a href="http://nerd.bz/NsoUj3" target="_blank" rel="noopener noreferrer">good power supply</a>. If you’re using an SD card larger than 4GB, version 3.3 and beyond now can resize your partitions on the fly. Just choose the option in raspi-config and reboot. Even though the kernel now monitors CPU temperature and manages overclocking, it’s always nice to see for yourself. To monitor the CPU temperature, just run the <em>status</em> program which provides a current snapshot anytime. Temperature data now is provided on the FreePBX Dashboard as well.</p>
+<p></p><center><img decoding="async" src="https://pbs.twimg.com/media/A8t0q9ICIAAeS-6.jpg:large" border="0"></center>
+<p>There’s more good news. Networking is much more stable; however, we’ve dropped support for the TP-Link WiFi adapters. If you still have one of these, see the setup instructions in the <a href="http://www.pbxinaflash.com/community/index.php?threads/alfa-1000mw-usb-wifi-stick-on-raspi-almost.15670/" target="_blank" rel="noopener noreferrer">PIAF Forum</a>. Otherwise you’ll need the recommended <a href="http://www.amazon.com/gp/product/B003X26PMO/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B003X26PMO&amp;linkCode=as2&amp;tag=nerdvitt-20" target="_blank" rel="noopener noreferrer">AirLink 101 N-150</a> if you want WiFi capability. In the 3.3 release and beyond, your server will automatically attempt to connect to any open WiFi network that it can find. We’ve also added two scripts in /root to let you restart either your wired or wireless network and designate it as the primary network: <em>restart-eth0</em> and <em>restart-wlan0</em>. Time zone management was also a bit of mess with multiple file settings required to support both Linux and PHP. In the 3.3 update and beyond, you’ll be prompted to select your timezone when you first log in as root. The setup script will automatically apply your entry in all the right places. We’ve also replaced SendMail with Exim to simplify the process of using an SMTP mail gateway such as Gmail. We’ve documented the procedure for making the change <a href="http://pbxinaflash.com/community/index.php?threads/incredible-pbx-4-raspberry-pi.13873/page-17#post-92412" target="_blank" rel="noopener noreferrer">here</a>.</p>
+<p>As part of the 3.x migration, we’ve also eliminated the pi user account. Everything you need to do to configure Incredible PBX requires root permission. So goodbye <em>sudo</em>. Only the root user account is included, and the default password is <em>raspberry</em>. Change the password when you first log in. New SSH and DUNDI keys now are automatically generated when you first boot your server. The FreePBX Backup and Restore Utility is included in this new build. AsteriDex SpeedDials have been fixed. Enter 3-digit Dial Codes in AsteriDex, and you can call by dialing <em>00nnn</em>. In the latest update, Telephone Reminders again work. </p>
+<p>X Windows is included in this build. This won’t work with SSH. For a demo slideshow, plug in a real monitor and log in as root. In the /root folder, enter the command: <em>startx</em>. To end the slideshow, press <em>ESCape</em>. To disable the slideshow: <em>mv .xinitrc xinitrc</em>. To add photos, copy .jpg images into <em>/root/slideshow</em>. No mouse is required for the slideshow but, if you run X Windows natively, you’ll need a USB mouse. The SMS Blasting app in /root now supports phone numbers (which use SMS) and email addresses (which use SendMail). </p>
+<p>Last but not least, a sophisticated <a href="https://wiki.asterisk.org/wiki/display/AST/ConfBridge+10" target="_blank" rel="noopener noreferrer">Conference Bridge</a> has been added to Incredible PBX 3.x releases. If you route one of your inbound DIDs to the predefined IVR, users can press <em>0</em> and enter <em>1234</em> for the conference PIN to join the conference. Local extensions simply dial C-O-N-F. We’ve already tested a 9-person conference call with excellent results. But don’t take our word for it. Try it for yourself. Just call our demo Raspberry Pi AutoAttendant and take the Conference Bridge and a handful of other Incredible PBX™ apps for a test drive: </p>
+<p></p><center><img decoding="async" src="https://pbs.twimg.com/media/A8FrQgDCUAEp86x.jpg:large" border="1"></center>
+<p>And here’s what the conference call looked like in the FreePBX Dashboard:</p>
+<p></p><center><img decoding="async" src="https://pbs.twimg.com/media/A8FrsY-CAAE_cbz.jpg:large" border="1"></center>
+<p>So you don’t have to jump around between articles, we’ve put together this <strong>Quick Start Guide</strong> that tells you everything you need to know to get up and running in about an hour. Most of that time will be consumed copying the Incredible Pi image to an SD card. So there’s plenty of time for lunch during the hour. Once your system is running and you’ve completed the setup steps below, then jump over to the <a href="http://nerd.bz/Rgi9Yu" target="_blank" rel="noopener noreferrer">application tutorial</a> which explains how to use every one of the <a href="http://nerd.bz/Rgi9Yu" target="_blank" rel="noopener noreferrer">35 Incredible PBX Apps for the $35 Raspberry Pi</a>.</p>
+<p></p><center><img decoding="async" src="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/wp-images/RaspberryPiExtras.jpg"></center>
+<p><b>What to Buy.</b> Here’s everything you need to get started. (( Many of our purchase links refer users to Amazon when we find their prices are competitive for the recommended products. Nerd Vittles receives a small referral fee from Amazon to help cover the costs of our blog. We never recommend particular products solely to generate Amazon commissions. However, when pricing is comparable or availability is favorable, we support Amazon because Amazon supports us. )) The case is optional. Yes, you can run the Raspberry Pi sitting on your desk with no case. It’s only 5 volts. WiFi is also optional. There’s a 10/100 port on the Raspberry Pi that gives you all the networking you need. Here are the links to buy the pieces. You also need a CAT5 cable and either a spare PC or Mac with Putty or SSH and a pair of earbuds <u>or</u> an HDMI cable to connect to a TV or monitor and a USB keyboard.</p>
+<ul>
+<li>$35 512MB Raspberry Pi from <a href="http://www.mcmelectronics.com/product/83-14421" target="_blank" rel="noopener noreferrer">MCM</a> or <a href="http://www.newark.com/jsp/search/productdetail.jsp?sku=43W5302" target="_blank" rel="noopener noreferrer">Newark</a> or <a href="http://www.amazon.com/gp/offer-listing/B009SQQF9C/ref=as_li_qf_sp_asin_til?tag=nerdvitt-20&amp;camp=14573&amp;creative=327641&amp;linkCode=am1&amp;creativeASIN=B009SQQF9C&amp;adid=0DG81K8G32CAYHXZCKE7&amp;&amp;ref-refURL=%2F%3Fp%3D3880" target="_blank" rel="noopener noreferrer">Amazon</a></li>
+<li><a href="http://nerd.bz/Rj1QrR" target="_blank" rel="noopener noreferrer">$10 Power Adapter (this one is rock solid!)</a></li>
+<li><a href="http://www.amazon.com/gp/product/B001W1BSM0/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B001W1BSM0&amp;linkCode=as2&amp;tag=nerdvitt-20" target="_blank" rel="noopener noreferrer">$10 SanDisk 16GB SDHC Type 4 card</a></li>
+<li><a href="http://adafruit.com/products/859?gclid=CMDPvNua9LECFQQ4nAodP1cAmA" target="_blank" rel="noopener noreferrer">$15 Adafruit Acrylic Case</a></li>
+<li><a href="http://www.amazon.com/gp/product/B003X26PMO/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B003X26PMO&amp;linkCode=as2&amp;tag=nerdvitt-20" target="_blank" rel="noopener noreferrer">$13 AirLink 101 N150 WiFi Adapter</a> or <a href="http://adafruit.com/products/814" target="_blank" rel="noopener noreferrer">Adafruit Mini WiFi Adapter</a></li>
+</ul>
+<p><b>Setting Up Google Voice.</b> If you want free calling in the U.S. and Canada, then you’ll need a Google Voice account, and you’ll need one dedicated to<em> Incredible Pi</em>, or it won’t work. Log out after setting up the new Google Voice account!</p>
+<ul>
+<li><a href="http://nerd.bz/dcYm6x" target="_blank" rel="noopener noreferrer">Register for Google Voice account</a> (no funky characters in your password!)</li>
+<li>Enable <em>Google Chat</em> as Phone Destination</li>
+<li>Configure Google Voice Calls Settings:</li>
+<p><font size="-2"></font></p>
+<ul>
+<li><b>Call Screening</b> – <i>OFF</i></li>
+<li><b>Call Presentation</b> – <i>OFF</i></li>
+<li><b>Caller ID (In)</b> – <i>Display Caller’s Number</i></li>
+<li><b>Caller ID (Out)</b> – <i>Don’t Change Anything</i></li>
+<li><b>Do Not Disturb</b> – <i>OFF</i></li>
+<li><b>Call Options (Enable Recording)</b> – <i>OFF</i></li>
+<li><b>Global Spam Filtering</b> – <i>ON</i></li>
+</ul>
+<p></p>
+<li>Place test call in and out using <em>GMail Call Phone</em></li>
+</ul>
+<p><b>Baking Your Incredible Pi.</b> The disk drive for the Raspberry Pi is an SD card. So what you need to do is download Incredible Pi and copy the image onto an SDHC card. Mac and Linux installers are included. For Windows, just use <a href="http://www.softpedia.com/get/CD-DVD-Tools/Data-CD-DVD-Burning/Win32-Disk-Imager.shtml" target="_blank" rel="noopener noreferrer">Win32 Disk Imager</a>. Here are the steps:</p>
+<ol>
+<li><a href="https://sourceforge.net/projects/pbxinaflash/files/IncrediblePi-1.x-Debian-6/" target="_blank" rel="noopener noreferrer">Download the Incredible Pi package</a></li>
+<li>Decompress the tarball: tar zxvf incrediblepi-<em>version</em>.tar.gz</li>
+<li>Copy .img file to SDHC using image utility or script</li>
+<li>Insert SDHC card into Raspberry Pi</li>
+<li>Boot the Raspberry Pi from Incredible Pi SDHC card</li>
+</ol>
+<p><b>Your First Bite of Incredible Pi.</b> If you’re not using a monitor and keyboard, you can use SSH to gain root access to Incredible Pi. And you can use any web browser on your private network to access your server. There are a couple of hurdles. First, you need the network address of your new server. And, second you need an SSH client. With Incredible PBX 3.3 and beyond, you needn’t worry about the IP address. You now can access your server via SSH by logging in like this: <em>root@incrediblepbx.local</em>. And browser access to your server is available at the following address: <em>http://incrediblepbx.local</em>. You still can plug in some earbuds when the bootup process begins and listen for the Incredible Pi to tell you its IP address when the boot procedure completes (about 90 seconds). Then you can use that IP address instead of <em>incrediblepbx.local</em>. The latest releases of Incredible PBX also include a Java-based SSH client in the FreePBX web GUI: <em>Admin -&gt; Java SSH</em>.</p>
+<p>Here’s <strong>everything you need to know about security</strong> for Incredible Pi:<br>
+<font color="red"><br>
+1. ALWAYS RUN INCREDIBLE PI BEHIND A SECURE HARDWARE-BASED FIREWALL/ROUTER<br>
+2. NEVER EXPOSE ANY INCREDIBLE PI PORTS DIRECTLY TO THE INTERNET<br>
+3. NEVER MAP INBOUND INTERNET PORTS FROM YOUR FIREWALL TO INCREDIBLE PI<br>
+</font></p>
+<p><b>Initial Setup.</b> There also are a few setup steps to complete once your Incredible Pi finishes the bootup process. When you first login (username: root  password: raspberry), you’ll be prompted to change your root password and to set your default time zone. If you’re using either a wired network or an open WiFi network, then everything just works. If you’re using secured WiFi, then you’ll need to plug in your credentials in <em>/etc/wpa.conf</em> and reboot. The wired network always takes precedence so unplug the cable if you want WiFi to be your primary network. Next, run <em>/root/update-my-pi</em> to bring your server up to current specs. Finally, now’s the time to repartition your SD card if you’re using a card larger than 4GB. While you’re at it, bump up the performance of your Raspberry Pi by 50% by setting the overclocking to turbo mode. It works great for us. YMMV! The key is a rock-solid power adapter such as the one we’ve recommended. Just run <em>raspi-config</em> and follow your nose. </p>
+<p><b>Accessing Incredible Pi By GUI.</b> You don’t have to be a Linux guru to use Incredible Pi. In fact, we’re just about finished with the Linux command prompt, but stay logged in until we finish the steps below. Most of your configuration of the PBX will be performed using the FreePBX® Web GUI. You also can access SSH through the FreePBX interface.</p>
+<p>If you’re new to Asterisk® and FreePBX, here’s the one paragraph primer on what needs to happen before you can make free calls with Google Voice. You’ll obviously need a free Google Voice account. This gets you a phone number for people to call you and a vehicle to place calls to plain old telephones throughout the U.S. and Canada <em>at no cost</em>. You’ll also need a softphone or SIP phone to actually place and receive calls. <a href="http://voip.null.ro/pmwiki/index.php?n=Main.YateClient" target="_blank" rel="noopener noreferrer">YATE</a> makes a free softphone for PCs, Macs, and Linux machines so download your favorite and install it on your desktop. Phones connect to <em>extensions</em> in FreePBX to work with <em>Incredible Pi</em>. Extensions talk to <em>trunks</em> (like Google Voice) to make and receive calls. FreePBX uses <em>outbound routes</em> to direct outgoing calls from extensions to trunks, and FreePBX uses <em>inbound routes</em> to route incoming calls from trunks to extensions to make your phones ring. In a nutshell, that’s how a PBX works. There are lots of bells and whistles that you can explore down the road.</p>
+<p>Let’s get started. Using a browser, enter the IP address of your server or just use <em>incrediblepbx.local</em> as the address. Choose <em>FreePBX Administration</em>. When prompted for a username and password, use <em>admin</em> for both. Here are the six steps you need to complete before making your first free call:</p>
+<ol>
+<li>Change FreePBX admin Password and Default Email</li>
+<li>Add Google Voice Account credentials</li>
+<li>Set Destination for Incoming Calls</li>
+<li>Change Extension 701 Passwords</li>
+<li>Eliminate Audio and DTMF Problems</li>
+<li>Install and Register a Softphone to Extension 701</li>
+</ol>
+<p><b>1. Changing FreePBX admin Password and Default Email.</b>  From the main FreePBX GUI, click <em>Admin =&gt; Administrators</em>. Click on <em>admin</em> user in the far-right column. Enter a new <em>Password</em> and click <em>Submit Changes</em> button. Then click the <font color="red"><em>Apply Config</em></font> button. Next, set your default email address at the bottom of <em>Settings -&gt; General Settings</em>. Repeat the procedure above to save your entry.</p>
+<p><b>2. Activating a Google Voice Trunk.</b> To create a Trunk in FreePBX to handle calls to and from Google Voice, you’ll need three pieces of information from the Google Voice account you set up above: the 10-digit Google Voice phone number, your Google Voice account name, and your Google Voice password. Choose <em>Other -&gt; Google Voice</em> from the FreePBX GUI. The following blank form will appear:</p>
+<p></p><center><img decoding="async" src="https://pbs.twimg.com/media/A8Fu0gzCQAA2w3K.jpg:large" border="1"></center>
+<p>Fill in the blanks with your information and check all 3 boxes. If your Google Voice account name ends in @gmail.com, you can leave that out. Otherwise, include the full email address. Then click <em>Submit Changes</em> and <font color="red"><em>Apply Config</em></font>.</p>
+<p><font color="red"><strong>There’s one more step or your Google Voice account won’t work reliably with Incredible Pi! From the Linux command prompt while logged into your server as root, restart Asterisk: <em>amportal restart</em></strong></font></p>
+<p><b>3. Setting a Destination for Incoming Calls.</b> Now that you’ve created your Google Voice Trunk, we need to tell FreePBX how to process inbound calls when someone dials your Google Voice number. There are any number of choices. You could simply ring  an extension. Or you could ring multiple extensions by first creating a Ring Group which is just a list of extension numbers. Or you could direct incoming calls to an Interactive Voice Response (IVR) system (we’ve actually set one up for you to play with). </p>
+<p>By default, Incredible Pi is configured to route all incoming calls to a demo IVR that shows off some of the applications that come with Incredible Pi. You can change whenever you like by choosing <em>Connectivity -&gt; Inbound Routes -&gt; Default</em>. In the <em>Set Destination</em> section of the form, change the target to <em>Extensions</em> and then select <em>701</em> from the list. Then click <em>Submit</em> and <font color="red"><em>Apply Config</em></font>. </p>
+<p><b>4. Changing Extension Passwords.</b> From the main FreePBX GUI, choose <em>Applications -&gt; Extensions</em>. Then click on <em>701</em> in the Extension List on the right side of your display. You’ll see a form that looks like this:</p>
+<p></p><center><img decoding="async" src="https://pbs.twimg.com/media/A8FvYE9CMAEDPeC.jpg:large" border="1"></center>
+<p>For now, we only need to make a few changes. First, you need a very secure password for both the extension itself and your voicemail account for this extension. The extension <em>secret</em> needs to be a combination of letters and numbers. The <em>Voicemail Password</em> needs to be all numbers, preferably six or more. Replace the existing 1234secret and 1234 with your own (very secure) entries. You also need to lock down this extension so that it is only accessible from devices on your private LAN. You do that with the <em>deny</em> and <em>permit</em> entries which currently are filled with zeroes. Leave the <em>deny</em> entry the way it is which tells <em>Incredible Pi</em> to block everybody except those allowed in the <em>permit</em> entry below. For the <em>permit</em>, we need the first three octets of your private LAN address, e.g. if your LAN is 192.168.0.something then the permit entry will be <em></em><em>192.168.0</em>.0/255.255.255.0.</p>
+<p>Finally, you need to plug in your actual email address in the Voicemail section so that voicemails can be delivered to you when someone leaves a message. You can also include a pager email address if you want a text message alert with incoming voicemails. If you want the voicemails to automatically be deleted from the server after they are emailed to you (a good idea considering the disk storage limitations of an SDHC card), change the <em>Delete Voicemail</em> option from No to Yes. That’s it. Now save your settings by clicking the <em>Submit</em> button. Then reload the dialplan by clicking on the red prompt when it appears.</p>
+<p>In case you’re curious, unless you’ve chosen to automatically delete voicemails after emailing them, you can retrieve your voicemails by dialing <em>*98701</em> from any extension on your phone system. You’ll be prompted to enter the voicemail password you set up. In addition to managing your voicemails, you’ll also be given the opportunity to either return the call to the number of the person that called or to transfer the voicemail to another extension’s voicemail box. And you can always leave a voicemail for someone by dialing their extension number preceded by an asterisk, e.g. *701 would let someone leave you a voicemail without actually calling you.</p>
+<p><b>5. Eliminating Audio and DTMF Problems.</b> You can avoid one-way audio on calls and touchtones that don’t work with these simple settings in FreePBX: <em>Settings -&gt; Asterisk SIP Settings</em>. Just plug in your public IP address and your private IP subnet. Then set ULAW as the only Audio Codec.<br>
+</p><center><img decoding="async" src="https://pbs.twimg.com/media/A8Fr_O_CIAAAUx9.jpg:large" border="1"></center>
+<p><b>6. Setting Up a Desktop Softphone.</b> Incredible Pi supports all kinds of telephones, but we’ll start with the easy (free) one today. You can move on to “real phones” once you’re smitten with the VoIP bug. For today, you’ll need to download a softphone to your desktop PC or Mac. </p>
+<p>As we mentioned, the easiest way to get started with Incredible Pi is to set up a YATE softphone on your Desktop computer. Versions are available at no cost for Macs, PCs, and Linux machines. Just download the appropriate one and install it from <a href="http://yateclient.yate.ro/" target="_blank" rel="noopener noreferrer">this link</a>. Once installed, it’s a simple matter to plug in your extension 701 credentials and start making calls. Run the application and choose <em>Settings -&gt; Accounts</em> and click the New button. Fill in the blanks using the IP address of <em>Incredible Pi</em>, 701 for your account name, and whatever password you created for the extension. Click <em>OK</em>. </p>
+<p></p><center><img decoding="async" src="https://pbs.twimg.com/media/A8FwG44CIAIlVwV.jpg:large"></center> 
+<p>Once you are registered to extension 701, close the Account window. Then click on YATE’s Telephony Tab and place your first call. It’s that easy!</p>
+<p></p><center><img decoding="async" src="https://pbs.twimg.com/media/A8Fwq1XCQAEvPPe.jpg:large"></center>
+<p><b>Monitoring Call Progress with Asterisk.</b> That about covers the basics. We’ll leave you with a tip on how to monitor what’s happening with your PBX. There are several good tools within the FreePBX GUI. You’ll find them under the <em>Reports</em> tab. In addition, Asterisk has its own Command Line Interface (CLI) that is accessible from the Linux command prompt. Just execute the following command while logged in as root: <em>asterisk -rvvvvvvvvvv</em>.</p>
+<p><b>Activating SAMBA for Windows Networking.</b>  SAMBA is included for transparent access using the Windows Networking Protocol from PCs, Macs, and other Linux machines. As delivered, SAMBA is deactivated. For obvious reasons, we recommend you never activate root login access to SAMBA without a very secure password. If you wish to enable SAMBA on your server, here are the steps while logged in as root:</p>
+<ul>
+<li>1. Set SAMBA password for user <em>root</em>: <em>smbpasswd -a root</em></li>
+<li>2. Change Windows workgroup from WORKGROUP, if needed: <em>nano -w /etc/samba/smb.conf</em></li>
+<li>3. Manually start SAMBA from command prompt: <em>service samba start</em></li>
+<li>4. If desired, set SAMBA to start on boot: <em>rcconf</em> and activate SAMBA option</li>
+</ul>
+<p>If you’d like to update your <em>status</em> application to display SAMBA status instead of WLan1, here are the steps:<br>
+<code>cd /usr/local/sbin<br>
+wget http://incrediblepbx.com/sambastatus.tgz<br>
+tar zxvf sambastatus.tgz<br>
+rm sambastatus.tgz<br>
+</code></p>
+<p><b>Activating the PPTP VPN Client.</b> If you’ve followed the <a href="/?p=817" target="_blank" rel="noopener noreferrer">Nerd Vittles tutorial</a> and previously set up a <a href="/?p=817" target="_blank" rel="noopener noreferrer">PPTP VPN Server</a> for your devices, then it’s pretty simple to add Incredible Pi to the mix by activating its PPTP VPN client. You’ll need the FQDN or public IP address of your VPN server as well as a username and password for VPN access to your VPN server. Once you have those in hand, log into Incredible Pi as root.</p>
+<p>Lest we forget to mention, you cannot log into your PPTP server from an IP address on the same private LAN so you’d only use the PPTP VPN when your Incredible Pi is at a remote location.</p>
+<p>Edit the connection template:  <em>nano -w /etc/ppp/peers/my-pptp-server</em>. Insert the following text and replace <em>myfqdn.org</em> with the FQDN of your PPTP server, replace <em>myname</em> with your PPTP username, and replace <em>mypassword</em> with your PPTP password. Then save the file: <em>Ctrl-X, Y, then Enter</em>.</p>
+<p>To test it, issue the following command: <em>/etc/init.d/pptp start</em>. When you run <em>ifconfig</em>, you should now see a ppp0 entry:</p>
+<p><code>ppp0      Link encap:Point-to-Point Protocol<br>
+          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1<br>
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0<br>
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0<br>
+          collisions:0 txqueuelen:3<br>
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)<br>
+</code><br>
+Remember, it won’t show an IP address if the Raspberry Pi and your PPTP VPN Server are on the same subnet (like ours). Once you install your Raspberry Pi in a remote location, you now can access it at the first IP address in your reserved PPTP IP address pool.</p>
+<p>To permanently activate the PPTP VPN client on your Incredible Pi server, run <em>rcconf</em>. Scroll to the bottom of the list and highlight <em>pptp</em>. Press the space bar to select it for automatic startup when you boot your server. Then tab to OK and press Enter. </p>
+<p><b>Shutting Down Your Server.</b> Last but not least, never just pull the plug when you want to shut down your server, or you may end up with corrupted MySQL databases. Then nothing will run. Instead, log into your server as root, and issue the following command: <em>shutdown -h now</em>. Enjoy!</p>
+<p><b>3.7 Update: Activating Incredible Fax.</b> With a 512MB Raspberry Pi, here are the <strong>5 Simple Steps</strong> to activate Incredible Fax. The complete tutorial is available <a href="/?p=3880" target="_blank" rel="noopener noreferrer">here</a>.</p>
+<ol>
+<li>Download and Install Incredible PBX 3.7</li>
+<li>Run the <em>/root/fax-enable</em> Script to Automatically Configure HylaFax</li>
+<li>Using FreePBX, Add Additional, Dedicated DID and Inbound Route to Handle Incoming Faxes</li>
+<li>Install Any Desktop HylaFax Client to Send Faxes via Print-to-Fax using any PDF</li>
+<li>Reboot Your Server and Enjoy</li>
+</ol>
+<p><b>Where To Go Next.</b> Once you’ve done a little exploring, take a few minutes to read the complete tutorial on all <a href="/?p=2750" target="_blank" rel="noopener noreferrer">35 Incredible PBX applications for Raspberry Pi</a>. A few require a bit of configuration before you start using them. And then you’ll want to explore <a href="/?p=3536" target="_blank" rel="noopener noreferrer">Interconnecting Asterisk Servers with Incredible PBX and the Raspberry Pi</a>. Enjoy!</p>
+<hr>
+<p><img decoding="async" src="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/wp-images/reminder.gif" alt="" hspace="4" height="128" width="128" align="left">Don’t forget to <a href="http://www.listyourself.net/">List Yourself</a> in Directory Assistance so everyone can find you by dialing 411. And add your new number to the <a href="https://www.donotcall.gov/register/reg.aspx">Do Not Call Registry</a> to block telemarketing calls. Or just call 888-382-1222 from your new number.</p>
+<p></p><center><a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="NerdUno">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></center>
+<p><em><strong><a href="/?p=2" rel="author me">Originally published</a>: Tuesday, September 25, 2012</strong></em>  <em><strong><a href="/?p=2" rel="author me">Updated</a>: Sunday, October 21, 2012</strong></em>  <em><strong><a href="/?p=2" rel="author me">Updated</a>: Tuesday, November 27, 2012</strong></em></p>
+<hr>
+<p><img decoding="async" src="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/wp-images/talkorange.png" alt="" hspace="4" width="128" align="left"><b>Support Issues.</b> With any application as sophisticated as this one, you’re bound to have questions. Blog comments are a terrible place to handle support issues although we welcome general comments about our articles and software. If you have particular support issues, we encourage you to get actively involved in the <a href="http://pbxinaflash.com/community/">PBX in a Flash Forums.</a> It’s the best Asterisk tech support site in the business, and it’s all free!  In fact, there is a thread dedicated to <a href="http://www.pbxinaflash.com/community/index.php?threads/incredible-pbx-4-raspberry-pi.13873/">support of Incredible Pi</a>. Please have a look and post your support questions there. Unlike some forums, ours is extremely friendly and is supported by literally hundreds of Asterisk gurus and thousands of ordinary users just like you. You won’t have to wait long for an answer to your question.</p>
+<p><b>Bug Fixes.</b> A few bugs are to be expected. If you’re using Incredible Pi, please review  these on the <a href="http://nerd.bz/NfyW6Q" target="_blank" rel="noopener noreferrer">PIAF Forum</a>. </p>
+<hr>
+<p>
+</p><center><img decoding="async" src="http://pbxinaflash.com/images/piaf-flashdrive.gif" width="300" height="100"></center>
+<p><b>Astricon 2012.</b> <a href="http://www.astricon.net/">Astricon 2012</a> will be in Atlanta at the Sheraton beginning October 23 through October 25. We hope to see many of you there. We called Atlanta home for over 25 years so we’d love to show you around. Be sure to tug on my sleeve and mention you’d like a free <a href="http://nerd.bz/piafthumb">PIAF Thumb Drive</a>. We’ll have a bunch of them to pass out to our loyal supporters. Nerd Vittles readers also can save 20% on your <a href="https://www.tmcnet.com/scripts/astricon/registration.aspx?theplan=AST-A&amp;sc=AC12VIT">registration</a> by using coupon code: <strong>AC12VIT</strong>.</p>
+<hr>
+<p>
+</p><center><a href="http://pbxinaflash.com/forum/"><img decoding="async" src="/wp-images/piaf-forum.gif" alt="" hspace="1" align="center"></a><br>
+<b>Need help with Asterisk?</b> Visit the <a href="http://pbxinaflash.com/forum/">PBX in a Flash Forum</a>.<br>
+</center><br>
+
+<hr>
+<p><b>whos.amung.us</b> If you’re wondering what your fellow man is reading on Nerd Vittles these days, wonder no more. Visit our new <a href="http://whos.amung.us/pro/stats/readers/zwh5/">whos.amung.us</a> statistical web site and check out what’s happening. It’s a terrific resource both for us and for you.</p>
+<hr>
+<p> </p>
+<h3>Special Thanks to Our Generous Sponsors</h3>
+<p><br>
+FULL DISCLOSURE: <a href="/?p=32167" target="_new">ClearlyIP</a>, <a href="https://skyetel.com/" target="_new">Skyetel</a>, Vitelity, <a href="https://m.do.co/c/f8725e13f303" target="_new">DigitalOcean</a>, <a href="http://www.vultr.com/?ref=6918611-3B" target="_new">Vultr</a>, <a href="https://voip.ms/en/code/nerdvittles" target="_new">VoIP.ms</a>, 3CX, Sangoma, TelecomsXchange and VitalPBX have provided financial support to Nerd Vittles and our open source projects through advertising, referral revenue, and/or merchandise. As an Amazon Associate and Best Buy Affiliate, we also earn from qualifying purchases. We’ve chosen these providers not the other way around. Our decisions are based upon their corporate reputation and the quality of their offerings and pricing. Our recommendations regarding technology are reached without regard to financial compensation except in situations in which comparable products at comparable pricing are available from multiple sources. In this limited case, we support our sponsors because our sponsors support us.<br>
+<br>
+<a href="/?p=27123" target="_new"><img decoding="async" src="/vitelity/skyetel-bottom.png" alt="" hspace="9" width="250" height="163" align="left"></a><b>BOGO Bonaza:</b> Enjoy state-of-the-art VoIP service with a $10 credit and half-price SIP service on up to $500 of Skyetel trunking with free number porting when you fund your Skyetel account. No limits on number of simultaneous calls. Quadruple data center redundancy. $25 monthly minimum spend required. <a href="/?p=27123" target="_new">Tutorial and sign up details are here</a>.<br>
+<br>
+<a href="https://incrediblepbx.clearlyip.com/" target="_new"><img loading="lazy" decoding="async" src="/vitelity/clearlyip.png" alt="" hspace="9" width="250" height="163" align="left"></a>The lynchpin of Incredible PBX 2020 and beyond is ClearlyIP components which bring management of FreePBX modules and SIP phone integration to a level never before available with any other Asterisk distribution. And now you can configure and reconfigure your new Incredible PBX phones from the convenience of the Incredible PBX GUI.<br>
+<br>
+<a href="https://vitalpbx.org/en/" target="_new"><img loading="lazy" decoding="async" src="/vitelity/vitalpbx.gif" alt="" hspace="9" width="250" height="163" align="left"><b>VitalPBX</b></a> is perhaps the fastest-growing PBX offering based upon Asterisk with an installed presence in more than 100 countries worldwide. VitalPBX has generously provided a customized White Label version of Incredible PBX tailored for use with all Incredible PBX and VitalPBX custom applications. <a href="/?p=30854" target="_new">Follow this link</a> for a free test drive!<br>
+ <br>
+<br>
+<img loading="lazy" decoding="async" src="/vitelity/vitelity.png" alt="" hspace="9" width="250" height="163" align="left"><b>Special Thanks to Vitelity.</b> Vitelity is now Voyant Communications and has halted new registrations for the time being. Our special thanks to Vitelity for their unwavering financial support over many years and to the many Nerd Vittles readers who continue to enjoy the benefits of their service offerings. We will keep everyone posted on further developments.<br>
+ </p>
+<hr>
+<p></p>
+<hr>
+<p><b>Some Recent Nerd Vittles Articles of Interest…</b></p>
+<p><iframe loading="lazy" frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			<div class="tag_list">Tags: <a href="/tag/asterisk/" rel="tag">asterisk</a> <span class="separator"> — </span> <a href="/tag/freepbx/" rel="tag">freepbx</a> <span class="separator"> — </span> <a href="/tag/incrediblepbx/" rel="tag">IncrediblePBX</a></div>
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-3026 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 37 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-83513">
+
+			<div id="comment-83513">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="/" class="url" rel="ugc">Nerd Uno</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-83513">Tuesday, September 25, 2012 at 1:39 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Use Bluetooth Proximity Detection with your Raspberry Pi to Forward Calls to Your Cell When You’re Away. Here’s how: <a href="http://nerd.bz/PDUoGi" rel="nofollow ugc">http://nerd.bz/PDUoGi</a></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-84085">
+
+			<div id="comment-84085">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/8850640c33655d80cc1898e8dfe0a0f62d01232873210748cd65dba8f94d72d3?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/8850640c33655d80cc1898e8dfe0a0f62d01232873210748cd65dba8f94d72d3?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bob</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-84085">Friday, September 28, 2012 at 11:36 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Great work so far. 1 question though, with such limited resources, why are you using a heavy webserver like Apache? Why not Lighttpd or Nginx?</p>
+<p>Also what about using Exim instead of sendmail?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-84169">
+
+			<div id="comment-84169">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5a84fff088568965728f862625e7cba6f8289d5b759c9dc5633f4bb52d6f7f41?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5a84fff088568965728f862625e7cba6f8289d5b759c9dc5633f4bb52d6f7f41?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">David J Murray</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-84169">Saturday, September 29, 2012 at 10:46 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I used gparted to move the linux-swap (swapoff first) to the end of the device.<br>
+Then the raspi-config – expand_rootfs will work.</p>
+<p>So you might want to re-arrange the partitions to have ‘/’ as the last partition in the image on your next release for expand_rootfs to work.</p>
+<p><i>[WM: Thanks. This has been resolved in Incredible PBX 3.3.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-85826">
+
+			<div id="comment-85826">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="/" class="url" rel="ugc">Nerd Uno</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-85826">Monday, October 8, 2012 at 4:09 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Incredible PBX 3.3 bug reports and fixes can be found at <a href="http://nerd.bz/Tn8HCU" rel="nofollow">this link</a>.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-86636">
+
+			<div id="comment-86636">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="/" class="url" rel="ugc">Nerd Uno</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86636">Sunday, October 14, 2012 at 8:57 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>If you’re in the U.K., looks like you can already order a <a href="http://uk.farnell.com/raspberry-pi/raspbrry-modb-512m/sbc-raspberry-pi-model-b-512mb/dp/2191863" rel="nofollow">512MB Raspberry Pi</a>… if you hurry.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-86647">
+
+			<div id="comment-86647">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/684bab3cfac780e513841569202a9d9cd7e5a8da8bbb2971f27df8693aed4a8c?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/684bab3cfac780e513841569202a9d9cd7e5a8da8bbb2971f27df8693aed4a8c?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://malibusoftwaregroup.com/" class="url" rel="ugc external nofollow">Doug</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86647">Monday, October 15, 2012 at 1:01 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Hi,<br>
+I have PIAF running on basic machine, I have MP118 for POTS lines and Intepeer for VOIP.<br>
+I have two NICs – 1 for internal network and 1 for external.<br>
+I want to go with this hardware.  Can I share the 1 NIC or should I use the WIFI as well? I have never been able to use NAT on my router/firewall successfully.  I must be missing something.  Ideas?<br>
+Doug</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-86720">
+
+			<div id="comment-86720">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/ccbd3bb498ef9d5828755af7f318bdd2b2756d572a5dda20e97419d40b7a78f7?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/ccbd3bb498ef9d5828755af7f318bdd2b2756d572a5dda20e97419d40b7a78f7?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Stuart</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86720">Saturday, October 20, 2012 at 8:28 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I want to use the GPIO pins to trigger a phone ring so this acts as a doorbell.  Someone has already posted scripts of how to do this on Asterisk at <a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?t=15348&amp;p=168350" rel="nofollow ugc">http://www.raspberrypi.org/phpBB3/viewtopic.php?t=15348&amp;p=168350</a> – how easy is it to set this up on Incredible PBX?</p>
+<p><i>[WM: Kinda depends on your skill level. The detailed instructions are <a href="http://nerd.bz/T4iU1B" target="_blank" rel="nofollow">here</a>. Incredible PBX for the Raspberry Pi uses “pure Raspbian” so the process is fairly straight-forward. All the tools needed to recompile Asterisk can be found in /usr/src/asterisk-1.8.16.0 on your SD card. If things go horribly wrong, just be sure you have a good backup of your SD card before you begin. Good luck!]</i> </p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-86723">
+
+			<div id="comment-86723">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/fa38232e0a85dd0bcb53d2a0b746c300474d95ef203b5758dd6f12af49576fbb?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/fa38232e0a85dd0bcb53d2a0b746c300474d95ef203b5758dd6f12af49576fbb?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Randy</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86723">Saturday, October 20, 2012 at 2:07 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Can this also be used to setup regular (non google voice) sip trunks. I haven’t downloaded and read all of the docs yet, so apologies if it is clear. I like the polished look of your version, just would rather bring in my own SIP trunk.</p>
+<p><i>[WM: You can use both SIP and IAX2 trunks. Just add them within FreePBX, and away you go.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-86729">
+
+			<div id="comment-86729">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/ccbd3bb498ef9d5828755af7f318bdd2b2756d572a5dda20e97419d40b7a78f7?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/ccbd3bb498ef9d5828755af7f318bdd2b2756d572a5dda20e97419d40b7a78f7?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Stuart</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86729">Sunday, October 21, 2012 at 6:38 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Thinking about a really basic doorbell with no compiling etc., I found this script to make an extension ring if pin 17 is activated.</p>
+<p><code>#!/bin/bash<br>
+while true;<br>
+do<br>
+   cmd=$(cat /sys/class/gpio/gpio17/value)<br>
+      if [ $cmd = '0' ]; then<br>
+         asterisk -rx 'originate local/s@fromdoor application Playback beep'<br>
+      fi<br>
+sleep 1<br>
+done<br>
+</code></p>
+<p>Then edit extensions_custom.conf to include:</p>
+<p>    [fromdoor]<br>
+    exten =&gt; s,1,SET(CALLERID(name)=From DOOR)<br>
+    same =&gt; n,Dial(SIP/nnnn,10)<br>
+    same =&gt; n,hangup()</p>
+<p>(Where nnnn is extension number).</p>
+<p>I understand I would need to take 3.3v with a 10k Ohm resistor, run this parallel with pin 17, then switch to ground to activate it.  (Like this <a href="http://i.imgur.com/FqnNB.png" target="_blank" rel="nofollow">http://i.imgur.com/FqnNB.png</a>)</p>
+<p>This is a really basic question – I am not a programmer, how do I run the script?</p>
+<p><i>[WM: Log into your server as root. Create a file for the script, e.g.<strong> nano -w /root/doorbell.sh</strong>. Save the file: <strong>Ctrl-X, Y, then Enter</strong>. Run the script in the background after testing it without using the ampersand: <strong>/root/doorbell.sh &amp;</strong></i> </p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-86734">
+
+			<div id="comment-86734">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/ccbd3bb498ef9d5828755af7f318bdd2b2756d572a5dda20e97419d40b7a78f7?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/ccbd3bb498ef9d5828755af7f318bdd2b2756d572a5dda20e97419d40b7a78f7?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Stuart</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86734">Monday, October 22, 2012 at 1:32 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Thanks, one more question – once I have set the script all up properly, how can I get it to run automatically on boot?</p>
+<p>(Does this version have watchdog to reboot the device if it crashes too?)</p>
+<p><i>[WM: Crashes? We don’t want no stinking crashes. But, yes, watchdog is included in the build. Once the script is running, you can add a line to <strong>/etc/init.d/freepbx</strong> just below<strong> ${AMPORTAL_BIN} start</strong></i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-86749">
+
+			<div id="comment-86749">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/644f4596d2dbca3c3ce47f0b3063959055d2c008eed8dc5bfb0d1654c39b6012?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/644f4596d2dbca3c3ce47f0b3063959055d2c008eed8dc5bfb0d1654c39b6012?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">HIMALA</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86749">Tuesday, October 23, 2012 at 8:52 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>ward<br>
+what is the capacity for this pbx?<br>
+how many simultaneous call can Handel ?</p>
+<p>thanks in advance</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-86801">
+
+			<div id="comment-86801">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="/" class="url" rel="ugc">Nerd Uno</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86801">Sunday, October 28, 2012 at 3:03 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Just Released: Incredible PBX 3.5 Torrent for 256MB and 512MB Raspberry Pi. 2MB/sec downloads. <a href="http://nerd.bz/RnKASK" rel="nofollow ugc">http://nerd.bz/RnKASK</a></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-86802">
+
+			<div id="comment-86802">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e3f4f556263ffdb0a6676522ac7b200defc8783481a3e6d821d0e314f3fa6379?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e3f4f556263ffdb0a6676522ac7b200defc8783481a3e6d821d0e314f3fa6379?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Joe</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86802">Sunday, October 28, 2012 at 10:18 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I followed the directions and went back and double checked to make sure everything was correct, but I’m still unable to receive incoming calls from google voice, although outgoing calls work perfectly.</p>
+<p>I have asterisk -rvvvvvvvvvv running in an ssh session and I see lots of debugging info when I place an outgoing call, but when I try to make one incoming, nothing appears on the debugger. </p>
+<p>I’m kinda stumped, anyone have an idea how to go about debugging this?</p>
+<p>Thanks</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-86803">
+
+			<div id="comment-86803">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e3f4f556263ffdb0a6676522ac7b200defc8783481a3e6d821d0e314f3fa6379?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e3f4f556263ffdb0a6676522ac7b200defc8783481a3e6d821d0e314f3fa6379?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Joe</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86803">Sunday, October 28, 2012 at 10:27 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Argh, please disregard last message. I was logged in to google chat through my android phone.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-86829">
+
+			<div id="comment-86829">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="/" class="url" rel="ugc">Nerd Uno</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86829">Tuesday, October 30, 2012 at 2:50 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>CallCentric network outage may cause IPtables to fail with Incredible PBX for Raspberry Pi. Here’s the fix: <a href="http://nerd.bz/Sc6FBw" rel="nofollow ugc">http://nerd.bz/Sc6FBw</a></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-86860">
+
+			<div id="comment-86860">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/40f324c7ba661305dd5421ef1e1f59c4225158b07e69b4e0e3eeeea86e5d8a09?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/40f324c7ba661305dd5421ef1e1f59c4225158b07e69b4e0e3eeeea86e5d8a09?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">SAm</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86860">Sunday, November 4, 2012 at 11:27 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I was thinking maybe this would be good for a sip door phone?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-ward bypostauthor even thread-even depth-1" id="li-comment-86919">
+
+			<div id="comment-86919">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://mundy.org/" class="url" rel="ugc external nofollow">ward</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86919">Saturday, November 10, 2012 at 1:26 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Incredible Faxing for the 512MB Raspberry Pi finally has arrived. Install instructions here: <a href="http://nerd.bz/TSbzqC" rel="nofollow ugc">http://nerd.bz/TSbzqC</a></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-86921">
+
+			<div id="comment-86921">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0f409b2fb7063fc0b27c57181e3b70fd24cec20f8138d5f4af81fd5bfaa627d7?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0f409b2fb7063fc0b27c57181e3b70fd24cec20f8138d5f4af81fd5bfaa627d7?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Crusadio</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86921">Saturday, November 10, 2012 at 4:31 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Have you tried adding a heatsink to keep the CPU cooler when overclocking? There seem to be a bunch of different heatsink kits for the Raspberry Pi available.</p>
+<p>– Crusadio</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-86922">
+
+			<div id="comment-86922">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dc824a4944b88b875c550aaaa1b33aef34eed98c6f15c9ef91c14d681ae19685?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dc824a4944b88b875c550aaaa1b33aef34eed98c6f15c9ef91c14d681ae19685?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bill</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86922">Saturday, November 10, 2012 at 11:12 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I have v3.5 on a 256K Pi running at home to help me learn Asterisk.  I have 3 SPA942 phones with a trunk to the outside world.  All is working great, but is there anyway to do paging to all the phones ?  PiAF talks about a Paging module, but I can’t see it as a built-in or an available module.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-86988">
+
+			<div id="comment-86988">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="/" class="url" rel="ugc">ward</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-86988">Monday, November 19, 2012 at 8:10 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Incredible PBX 3.6 featuring Incredible Fax is now ready for testing. <a href="http://nerd.bz/UOOgL9" rel="nofollow ugc">http://nerd.bz/UOOgL9</a></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-87038">
+
+			<div id="comment-87038">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/bb7a53a7a31d4bb0c8c8f3afae7fd707f5a4fd0800aaa3cc9a64664149b35ea8?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/bb7a53a7a31d4bb0c8c8f3afae7fd707f5a4fd0800aaa3cc9a64664149b35ea8?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Dawid</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-87038">Friday, November 23, 2012 at 8:48 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Is it possible to incorporate Skype gateway into this Rasspberry Pi distro?</p>
+<p><i>[WM: Skype is proprietary, and M$FT has not chosen to release a version for this ARM processor. Sorry.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-87099">
+
+			<div id="comment-87099">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/b90269716a40645b1f1b28fe7be0a559395495028f71745921713aba6f8ae2ab?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/b90269716a40645b1f1b28fe7be0a559395495028f71745921713aba6f8ae2ab?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Karl Miller</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-87099">Monday, November 26, 2012 at 10:36 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Thanks sooo much for all this work.  As a software engineer, I know all the work this took, and it is so nice to have everything working in one package.  I have had several false starts with Freeswitch, Asterisk by itself, plugpbx, etc.   I am waiting for my new model PI and will eagerly  set this up and get it going with my Nexvortex.com account (these guys are great for a very cost-effective SIP account).<br>
+My next effort will be creating a package for a SOHO SMB that can be easily turnkey’d SD card image that can be setup for multiple offices (one with a PI pbx, and the rest with just phones behind their router).</p>
+<p>Amazing coordination and thoughtfulness in putting this together.<br>
+Thanks again, your place in heaven is preserved 😉</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-87170">
+
+			<div id="comment-87170">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/fd6a90f8acb460e870b1d7847f801efa510d15411b9544ed245fea0d0938b319?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/fd6a90f8acb460e870b1d7847f801efa510d15411b9544ed245fea0d0938b319?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Francis</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-87170">Friday, November 30, 2012 at 7:57 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I haven’t been able to boot v3.6 successfully.  It keeps getting stuck at the same spot:</p>
+<p>…<br>
+[   17.450507] EXT4-fs (mmcblk0p2): re-mounted. Opts: (null)<br>
+[   17.955682] bcm2708 watchdog, heartbeat=10 sec (nowayout=0)<br>
+[   18.082264] bcm2835 ALSA card created!<br>
+[   18.088798] bcm2835 ALSA chip created!<br>
+[   18.108266] bcm2835 ALSA chip created!<br>
+[   18.119225] bcm2835 ALSA chip created!<br>
+[   18.127708] bcm2835 ALSA chip created!<br>
+[   18.136138] bcm2835 ALSA chip created!<br>
+[   18.144602] bcm2835 ALSA chip created!<br>
+[   18.152828] bcm2835 ALSA chip created!<br>
+[   25.949645] bcm2835-cpufreq: switching to governor ondemand<br>
+[   25.961321] bcm2835-cpufreq: switching to governor ondemand<br>
+[   28.339789] NET: Registered protocol family 10<br>
+[   32.709849] Adding 897020k swap on /var/swap.  Priority:-1 extents:27 acrossS<br>
+[   86.499399] ip_tables: (C) 2000-2006 Netfilter Core Team<br>
+[   89.714954] watchdog stopped                                                 </p>
+<p>I’ve tried 2 different cards and 2 different Pi’s all with the same result.  I created the cards using the make_sdhc script.</p>
+<p>This is the first version I’ve tried.  I’m going to downgrade and try v3.5 and see if it works better.  But, any idea what problem is here?</p>
+<p>Thanks.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-87173">
+
+			<div id="comment-87173">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/fd6a90f8acb460e870b1d7847f801efa510d15411b9544ed245fea0d0938b319?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/fd6a90f8acb460e870b1d7847f801efa510d15411b9544ed245fea0d0938b319?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Francis</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-87173">Saturday, December 1, 2012 at 1:59 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Never mind.  I didn’t know Incredible PBX doesn’t show a login prompt on the serial console which is why the system appears to be hung.  (I don’t have a graphical display.)  I can log in through SSH now.</p>
+<p>Thanks.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-87213">
+
+			<div id="comment-87213">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/0586e74ae1296fc97d036ef528b3f39a18ada6687fc82b2adad252f8074546b7?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/0586e74ae1296fc97d036ef528b3f39a18ada6687fc82b2adad252f8074546b7?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">DennisDunbar</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-87213">Tuesday, December 4, 2012 at 12:30 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I have a static I/P address and a FQDN that I want to use with 3.6 on a Pi.</p>
+<p>I tried setting SIP from within FreePBx and set the changes to be accepted from my server and it doesn’t work.</p>
+<p>I modify interfaces and I added dns-nameservers and it crashes.</p>
+<p>Any ideas?</p>
+<p><i>[WM: See <a href="http://pbxinaflash.com/community/index.php?threads/static-ip-for-raspberry-pi.14364/" target="_blank" rel="nofollow">this thread</a> on the forum for some suggestions.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-87543">
+
+			<div id="comment-87543">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/d04c515852c78dd02ebed055d96b78b9e1bbfcc9b98ae781f1bbcb56de2120e9?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/d04c515852c78dd02ebed055d96b78b9e1bbfcc9b98ae781f1bbcb56de2120e9?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Raymund</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-87543">Monday, December 24, 2012 at 9:32 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Am still waiting for my Pi to arrive… I intend to make this as my first project, however, I would like to know if someone has done this with a USB stick 3G modem (Huawei) as extension to transfer calls to a gsm network. I understand that there are “cheap” GoIP sip-gsm gateways but if the project can just be on one device, why not? I have tried venturing into asterisk + chan_datacard and chan_mobile sometime ago but I could not make it work. There’s this nice win program from Oktell called sipgsm… has anyone ported such in linux? Thanks</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-87586">
+
+			<div id="comment-87586">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/dee40bc63a8f4f633428590b4cd850e73d4321586b247ea08da3d66bd4d406cb?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/dee40bc63a8f4f633428590b4cd850e73d4321586b247ea08da3d66bd4d406cb?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Eugene</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-87586">Friday, December 28, 2012 at 8:38 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Is there any chance to connect 3G-modem Huawei E1550 as SIP-GSM Gateway to Incredible Pi? Any ideas how to do it?</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-87600">
+
+			<div id="comment-87600">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5f7573a30a383691334f7bf17c96b09ab41a0399b9c09d44d0b9805eb0306e72?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5f7573a30a383691334f7bf17c96b09ab41a0399b9c09d44d0b9805eb0306e72?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">chris</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-87600">Friday, December 28, 2012 at 11:06 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I have not been able to get inbound gtalk calls to work.  Looking at the asterisks log, Asterisk does not see anything when a call is made to my gvoice number.  Network trace also does not see any xmpp traffic when a call is made.  Although outbound gvoice calls work. And I can see JABBER: messages reporting buddy status message changes.  Any Advice?  I am using a my main gmail account, But I have verified all of my other gtalk sessions were closed on all devices. This used to work a few months ago but stopped, I have not been able to pin down the cause.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-ward bypostauthor even thread-even depth-1" id="li-comment-87604">
+
+			<div id="comment-87604">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/2408a3c4293b9d78d6e51166fe474d795c2c68d4d4f2490e6e42218829f4a21e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://mundy.org/" class="url" rel="ugc external nofollow">ward</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-87604">Saturday, December 29, 2012 at 7:02 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p><i>[WM: Don’t know how much clearer we can be. You cannot use a Google account that is being used for other purposes elsewhere. That means Gmail, Jabber, Jingle, XMPP, SMS, or any other Google function that requires your credentials for use. If you do, you will never get incoming calls to work. One more time: you must use a <u>dedicated</u> Google account for Incredible PBX if you expect inbound calling to work reliably.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-87681">
+
+			<div id="comment-87681">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/43fbdfc6a7654ad77986ceb9c9ae744f3292c718691a608dae6bf49e9b5f8ad1?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/43fbdfc6a7654ad77986ceb9c9ae744f3292c718691a608dae6bf49e9b5f8ad1?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Marty</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-87681">Wednesday, January 2, 2013 at 1:14 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I am running Incredible PBX on my Pi and it is working well. I have a few questions relating to it:</p>
+<p>1) Using windows how do I make a backup of the entire SD card that is running Incredible PBX? I have tried win32diskimager, but it only backs up the 1st partion.</p>
+<p>2) I would like to be able to call a ‘custom destination’ and have the text to speak engine tell me the status of a GPIO pin. How would I go about do this?</p>
+<p>3) How would I setup an IVR that would allow me to turn on/off a gpio pin?</p>
+<p>Thank you!!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-87997">
+
+			<div id="comment-87997">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4d7cc85d2ddd2a7ebc781d38907b7f382b8bdca28db4029c0f7aef5c2c350912?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4d7cc85d2ddd2a7ebc781d38907b7f382b8bdca28db4029c0f7aef5c2c350912?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Felix</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-87997">Wednesday, January 16, 2013 at 1:45 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I am trying to install 3.7 on my new Pi (with 512MB of memory), and it hangs starting network interface. Connectivity is not an issue, Asterisk for Raspberry boots up perfectly, as well as Raspberry’s own Debian. Any advice?</p>
+<p><i>[WM: It’s either a bad image on the SD card, or a bad SD card, or a defective power supply. Since you say the other builds boot, that would narrow it down to the first two in my opinion. Does the checksum of the image match what it should be? That would be the first place to look. Then I’d try burning the image to another card.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-88010">
+
+			<div id="comment-88010">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4d7cc85d2ddd2a7ebc781d38907b7f382b8bdca28db4029c0f7aef5c2c350912?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4d7cc85d2ddd2a7ebc781d38907b7f382b8bdca28db4029c0f7aef5c2c350912?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Felix</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-88010">Wednesday, January 16, 2013 at 11:33 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>No, unfortunately, I tried re-download; untar on Linux instead of Windows; put on SD rather than on microSD with adapter. the result is the same – it’s hanging right after telling me about eth interface. If there is anything I can do to troubleshoot – please let me know. I’ll happily swap raspberry-asterisk card for Incredible PBX card. Thanks.</p>
+<p><i>[WM: Unfortunately we can’t diagnose networking problems via comments. Please head to the PIAF Forum for assistance. Sounds like it’s not getting an IP address from your router which would cause it to hang. This is a wired connection, right? Without a network address, it can’t access the network to set the clock so Asterisk cannot load.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-88244">
+
+			<div id="comment-88244">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5e218685d64d5cc66fc01c6bcef644bd143b4d4392872c859647f1629ea9cdcb?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5e218685d64d5cc66fc01c6bcef644bd143b4d4392872c859647f1629ea9cdcb?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Bob</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-88244">Monday, January 21, 2013 at 7:15 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Great directions!  Just wondering:  I have version 2 of raspberry pi.  Do you think it has enough processing power to record a conference while it is handling 2 did lines without deteriorating audio quality?</p>
+<p><i>[WM: Only one way to find out. 🙂 ]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-89546">
+
+			<div id="comment-89546">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/aa03e943bf37bdd586f6f88467331628752bc82ff86cadfd720d18dcc5e58430?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/aa03e943bf37bdd586f6f88467331628752bc82ff86cadfd720d18dcc5e58430?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Anirban</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-89546">Friday, February 8, 2013 at 3:16 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I make lots of international call from my vonage VOIP phone . I want to build a call recorder (incoming and outgoing). Can raspberry pi and Free Incredible PBX and my vonage adapter work together to make it happen?</p>
+<p><i>[WM: If you add an OBi110, you can use your Vonage adapter.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-89719">
+
+			<div id="comment-89719">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/aa03e943bf37bdd586f6f88467331628752bc82ff86cadfd720d18dcc5e58430?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/aa03e943bf37bdd586f6f88467331628752bc82ff86cadfd720d18dcc5e58430?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Anirban</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-89719">Tuesday, February 12, 2013 at 3:52 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I followed the process mentioned above. But whenever I try to make call using Yate Client from my PC. I got a error message ” All circuits are busy”<br>
+Please help.</p>
+<p><i>[WM: Please head to the PIAF Forum for assistance. Can’t do it on a blog. Sorry.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-90078">
+
+			<div id="comment-90078">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/744d7404dd588ef19975da702bea6cb691e140d5b2e4594f966a3e6ebd4c25a5?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/744d7404dd588ef19975da702bea6cb691e140d5b2e4594f966a3e6ebd4c25a5?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Scott P</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-90078">Wednesday, February 27, 2013 at 12:16 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Absolute perfection.  Other than the slow write speeds to the sd card (you might add a warning note about that part), I had it swapped over to local extension numbers and trunked to existing asterisk servers in minutes.   FreePBX is noticeably slower but it doesn’t get any cooler than this!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-90099">
+
+			<div id="comment-90099">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/3314542bf8aa7a543355799057b036c401ca4fb90195e907d9aa9eacaeb71d18?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/3314542bf8aa7a543355799057b036c401ca4fb90195e907d9aa9eacaeb71d18?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Cameron</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/#comment-90099">Wednesday, February 27, 2013 at 7:30 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>A few people have asked how this device would scale. How many IP handsets might this support, and how many concurrent calls in/out? OR, is this really just a perfect DEV env for someone wanting to test and learn Asterisk?</p>
+<p><i>[WM: Seems to do just fine from what we’ve seen and heard.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/voip-on-steroids-introducing-incredible-pbx-3-1-for-the-35-raspberry-pi/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjMzMTcwNCwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->

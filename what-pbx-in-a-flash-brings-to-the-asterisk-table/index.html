@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head><meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="no-annotation">
+ 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia%7CMerriweather:400,700">
+
+    <link rel="pingback" href="/xmlrpc.php">
+
+    <title>What PBX in a Flash Brings to the Asterisk Table – Nerd Vittles</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.5.8" media="all">
+<link rel="stylesheet" id="wpa-css-css" href="/wp-content/plugins/honeypot/includes/css/wpa.css?ver=2.4.02" media="all">
+<link rel="stylesheet" id="zoom-theme-utils-css-css" href="/wp-content/themes/wpzoom-chronicle/functions/wpzoom/assets/css/theme-utils.css?ver=2.2.11" media="all">
+<link rel="stylesheet" id="chronicle-style-css" href="/wp-content/themes/wpzoom-chronicle/style.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="media-queries-css" href="/wp-content/themes/wpzoom-chronicle/css/media-queries.css?ver=1.1.9" media="all">
+<link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=1085ce5c29abc323a0de1dc5e80b62c7" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="/wp-content/plugins/tablepress/css/build/default.css?ver=3.4.1" media="all">
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":"","is_scan":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#fff","border":"#bf662b","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#db7032","button_2_button_hover":"#af5a28","button_2_link_colour":"#444","button_2_as_button":"1","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script id="cookie-law-info-js" src="/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.5.8"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+
+<link rel="canonical" href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/">
+<link rel="shortlink" href="/?p=573">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('/?wordfence_lh=1&hid=B418D6223193A36C21E772D0C5ACC108');
+</script><!-- WPZOOM Theme / Framework -->
+<meta name="generator" content="Chronicle 1.1.9">
+<meta name="generator" content="WPZOOM Framework 2.2.11">
+<style type="text/css"></style>
+<script type="text/javascript">
+var title = document.title;
+var uri = window.location.href
+</script>
+<script>
+    $.ajax({
+	type: "POST",
+        url: "http://mundy.org/vlog.php",
+        data:{ title: title, uri: uri },
+        success: function(data){
+            document.write(data);
+        }
+    })
+</script>
+<meta property="fediverse:creator" name="fediverse:creator" content="ward@nerdvittles.com">
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="/?p=573">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/nerdvittles.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/nerdvittles.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/nerdvittles.png">
+<style id="wp-custom-css">
+iframe {
+       float:left;
+       box-sizing:border-box;
+   }
+
+/* Hide Chrome injected Google Annotation widgets */
+div[class*="google-anno"], 
+span[class*="google-anno"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide the home ad banner block */
+#home_ad,
+.adsbygoogle {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide the header ad banner block */
+.adv {
+    display: none !important;
+}
+
+/* Hide all Chrome / Google injected annotation wrappers and popovers */
+[class*="google-anno"],
+[data-google-vignette],
+[data-google-interstitial] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block standard Google AdSense and show_ads wrappers */
+.adsbygoogle,
+[id^="google_ads"],
+iframe[src*="googlesyndication.com"],
+script[src*="show_ads.js"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Block common ad container classes and sidebars */
+.ad-container,
+.ad-wrapper,
+.header-ad,
+.sidebar-ad,
+.footer-ad,
+.nerd-vittles-ad {
+    display: none !important;
+}
+
+/* Block common fixed pop-up & overlay banners */
+div[class*="popup"],
+div[id*="popup"],
+div[class*="overlay-ad"] {
+    display: none !important;
+}
+
+
+</style>
+</head>
+<body class="wp-singular post-template-default single single-post postid-573 single-format-standard wp-theme-wpzoom-chronicle">
+
+	<header id="header">
+
+		<div id="menutop">
+
+			<div class="wrap">
+
+				
+	 				<a class="btn_menu" id="toggle-top" href="#"></a>
+
+	 				<div id="topmenu-wrap">
+
+					 	
+					</div>
+
+				
+				<div id="thedate">Monday 9th November 2026</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="head-wrap">
+
+			<div id="logo">
+				
+				<a href="/" title="Ward Mundy's Technobabblelog">
+											<img src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/NerdVittles-newlogo4-1.png" alt="Nerd Vittles">
+									</a>
+
+							</div><!-- / #logo -->
+
+			<form method="get" id="searchform" action="/">
+	<fieldset>
+		<input type="text" name="s" id="s" placeholder="Search"><input type="submit" id="searchsubmit" value="Search">
+	</fieldset>
+</form>
+<div class="clear"></div>
+			
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="menu">
+
+			<div class="wrap">
+
+				<a class="btn_menu" id="toggle-main" href="#"></a>
+
+				<div id="menu-wrap">
+
+									</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div><!-- /#menu -->
+
+		<div class="clear"></div>
+
+	</header>
+
+	<div id="content">
+<h1 class="title">
+	<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/" title="Permalink to What PBX in a Flash Brings to the Asterisk Table" rel="bookmark">What PBX in a Flash Brings to the Asterisk Table</a>
+	</h1>
+
+<div class="post-meta">
+
+	<ul>
+		<li class="date">Tuesday, December 30, 2008 at 1:00 am</li>		<li class="category">in <a href="/category/technology/audio/" rel="category tag">Audio</a>, <a href="/category/technology/mp3-devices/" rel="category tag">MP3 Devices</a>, <a href="/category/technology/" rel="category tag">Technology</a>, <a href="/category/technology/telephony/" rel="category tag">Telephony</a></li><li class="share">
+				<a href="https://x.com/intent/tweet?url=%2Fwhat-pbx-in-a-flash-brings-to-the-asterisk-table%2F&amp;text=What+PBX+in+a+Flash+Brings+to+the+Asterisk+Table" target="_blank" title="Share this on X" class="twitter">Post</a>
+				<a href="https://facebook.com/sharer.php?u=%2Fwhat-pbx-in-a-flash-brings-to-the-asterisk-table%2F&amp;t=What+PBX+in+a+Flash+Brings+to+the+Asterisk+Table" target="_blank" title="Share this on Facebook" class="facebook">Share</a>
+			</li>	</ul>
+
+	<div class="clear"></div>
+
+</div><!-- /.post-meta -->
+
+<section id="main" role="main">
+
+	<div id="post-573" class="clearfix post-573 post type-post status-publish format-standard hentry category-audio category-mp3-devices category-technology category-telephony tag-asterisk tag-piaf tag-stability tag-vitelity tag-voip">
+
+		<div class="entry">
+
+			<p><img decoding="async" src="/what-pbx-in-a-flash-brings-to-the-asterisk-table/wp-images/nwyr2.gif" alt="" hspace="2" align="left">As 2008 comes to a close, <em>PBX in a Flash</em> celebrates its First Anniversary and continues to be the only Asterisk® distro that offers users a choice of Asterisk 1.4 or 1.6 in either 32-bit or 64-bit flavors. In addition, you can choose our Lean, Mean Asterisk Machine or a preconfigured turnkey implementation with every VoIP bell and whistle on the planet. It’s all about choice and flexibility, and we offer <a href="http://pbxinaflash.com/downloads/">both</a>.  For a preview of coming attractions, see the end of this article or take a look at the screen capture below. But today we hand over the editorial reins to some of our <em>PBX in a Flash</em> users to express in their own words why they chose <em>PBX in a Flash</em> and what their return on investment has been. We think you’ll be surprised by some of the responses. We certainly were.</p>
+<p><img decoding="async" src="/what-pbx-in-a-flash-brings-to-the-asterisk-table/wp-images/piaf-flash.jpg" alt="" hspace="2" align="center"></p>
+<blockquote><p>
+<strong>You Never Know How Things Will Work Out<br>
+</strong><br>
+During the time of PBXIAF 1.0, I had been working with Trixbox for about 6 months. By the time PBXIAF 1.1 came out, I had learned enough about the way Trixbox can’t be updated to develop a healthy appreciation for the PBXIAF “compile on site, update as prudent” approach.</p>
+<p>I happen to be a techno-nut -– but that notwithstanding, our small business was experiencing telephonic growing pains. After 7 years in business, an opportunity to expand our private label help desk product was easily ready to overrun the terrible copper lines we had for telephone service.</p>
+<p>Since it was obvious VoIP was the only way to go – we began to explore what was out there. Vonage was riding high, Packet8 and many other competitors all got us around the limited copper into the office, each one we looked at had their own special quirks. All of them were using analog telephone adapters (ATAs) and either regular or slightly customized Analog phones.</p>
+<p>We began a year of exploration that started with the BigGreenBox – hoping to learn enough about VoIP and this strange creature called FreePBX to be able to use it. But, with time marching on, Packet8’s Virtual Office product was selected, and put into use in a 10-phone system.</p>
+<p>Although pretty much always under development, the web application that was provided was a little twisted, but worked once you got over its way of looking at call flow – rudimentary ring groups could be arranged in such a way as to simulate queues provided nor more than 8-10 callers were on hold. And so it went for a good year. We definitely used all our creativity to connect various IVR’s ($15/month each) to give the caller a good experience, but we were already clearly operating at the very limits of flexibility and capacity for the Packet8 system.</p>
+<p>The average telephone bill during this period was approximately $380 per month (about 1/3 of what copper lines had cost) and almost nothing in hardware ($1,000 in proprietary telephones and ATAs).</p>
+<p>Then the balance was broken when Packet8 rather arbitrarily stopped supporting a type of IVR transfer that was crucial to our work flow. At the same moment, the unthinkable happened. The help desk grew a little more. Less flexibility + even more demands for non-achievable call flow changes was the death knell for Packet8 at our office.</p>
+<p>During this same time we had deployed several ISOs of the GreenBox in the lab and with field technicians….Several ISO’s! In a very short time. So many ISO’s, so fast – and a complete reinstall to go with each one. Yikes. It had become apparent to me that my career would suddenly change from network engineering to “PBX Upgrade and Reconfigure Monkey” if we deployed that distribution. Also – the forums were unproductive and negative much of the time. There are ways to disagree and still remain civil. Then, I rediscovered Nerd Vittles. This was about the time PBXIAF 1.1 was released.</p>
+<p>The difference in the environment and team spirit – even when disagreements occurred – is very palatable. The community is full of people who are so wonderfully giving of their experience. The difference in the distributions – well- they can be summed up in about 6 words. Ward Mundy, Tom King, and Joe Roper.</p>
+<p>This trio has brought together a remarkable set of skills and disciplines that produced a really, really good distribution, not solely RPM-based so knuckleheads like me can follow simpler instructions. [Asterisk code is] updated and compiled right on the box – and fully scripted. Security flaws get fixed in hours – sometimes minutes (when they find them – there’s been so FEW), not DAYS like the other guys. And all of it is based on FreePBX, arguably the most evolved UI for managing Asterisk.</p>
+<p>Together – they got stability, reliability, and repeatability, and decorated it with enough solid features and functions to be a platform whose feature-function-benefit points are all top notch. Linux, Asterisk, Mysql, Apache, Text to Speech (2 different flavors), Voice Reminders, Wake Up Calls, Weather Reports, Tide Reports, Email by Phone, Headline News by Phone, and scripts that make it all go together just the way it needs to be: “stable and reliable”.</p>
+<p>PBX In a Flash is a gift – an opportunity for our technical staff to learn a new area of our field, with the camaraderie of some genuine experts in the arena. We are 8 people, doing the work of 12 – just like a million small businesses. As an old network guy – learning a new skill has been tremendously exhilarating. And this technology is so flexible that I’m continually exhilarated learning new things… and for a long time to come! The professional growth has been great for all of us.</p>
+<p>Now, the money. Way back up in the top of this [post], I told you the phone bill with Packet8 was on a good month $380 with barely the [functionality] needed to do our professional best.</p>
+<p>Today, thanks to PBXIAF, we run 6 queues every day, with tremendous customer and client satisfaction. We use every part of the system to provide our customers with the best telephone interaction experience they could get anywhere. While handling about 10% more traffic, and with far superior call handling and work flow support, our average phone bill is $120 month.</p>
+<p>Here’s the good part. With the $260 a month being saved, the company was able to afford to bring in group medical insurance for all our employees. How’s that for positively impacting 8 people every single day of their lives?</p>
+<p>Ward, Tom, Joe – I could never have done it without you.</p>
+<p>–tshif
+</p></blockquote>
+<p>And then there was this testimonial from a venue that all of us are thinking about these days:</p>
+<blockquote><p>
+Our small public middle school in Washington, DC has to make every penny count. I’m in charge of our technology and its meager budget. This past summer we moved to a new and bigger building and needed to migrate our phone system. We had an existing NEC Aspire system with 15 extensions that worked just fine – nothing fancy – and it hooked up to a single POTS line.</p>
+<p>At the new building we needed to double the size to 30 extensions. As the Aspire system used VOIP, it should just be a matter of buying the handsets and a little labor to configure them. Right? [Wrong!] $17,000 is what they wanted to hook up the existing equipment that we moved over and add the 15 new extensions. My response: “Hell no!”</p>
+<p>I’d wanted an excuse to setup an Asterisk server for a while, but I had heard how complicated it was. School was close to opening. I had a lot of other things to take care of. And I needed a solution that would most likely work the first time. I found PiaF then read up on the wiki and Nerd Vittles. I ordered a set of Aastra 57i’s and a used Dell PowerEdge 2650. We decided to go “pure VOIP” for flexibility and signed up with Vitelity.com.</p>
+<p>I followed the great step-by-step directions for PiaF. I wanted to set mine up inside a Virtual Machine  which added some complexity, but I found lots of helpful users in the forums that had documented their experiences before me.</p>
+<p>Now we’re 5 months in. The system has more capabilities than our old NECs. The sound quality is better, and it’s easier to use. I had some problems with my server crashing, but I was able to rebuild it on different hardware and transfer our entire configuration in about an hour. Now everything is great. I love that we’re implementing more open source tools, open standards, and aren’t limited to vendor BS when we’re ready to expand. Other schools thought we were “crazy” to setup our own system. Now they want all the details to try and do it themselves.</p>
+<p>The best part, of course, is that our whole setup was under $7K. That’s a $10,000 savings. To translate that with regards to the school, that savings allowed us to buy and set up four desktop machines in each of ten classrooms. Now THAT is making a difference.</p>
+<p>Thanks to the PiaF team and community!</p>
+<p>–jcasimir
+</p></blockquote>
+<p>And then there’s this one:</p>
+<blockquote><p>
+<strong>TODAY I TOOK CONTROL OF MY VOIP…..</strong></p>
+<p>I’ve been a happy VOIP user for 4 years running on Vonage. Even got my son hooked up on Vonage while he was in the Army stationed in Japan. But, when the lawsuits loomed over Vonage’s head, I started looking for something else, and I found Nerd Vittles. WOW! Being kind of a gadget junkie to start with and always looking for something interesting to do with my PCs, I started with Trixbox from Ward’s “build” and fumbled along. When PIAF came along I naturally followed.</p>
+<p>I have two important successes that have made me love this VOIP/PIAF stuff.</p>
+<p>1) When my grandson was diagnosed with a heart condition my daughter and her husband were stuck in hospital emergency rooms for hours at a time. Being about 500 miles from both our family and the other grandparents, they had a very difficult time getting news out to us since hospitals usually restrict the use of cell phones and don’t allow long distance calls from their phones. That only leaves (yuck!) pay phones. In just a few minutes time, I was able to buy a local DID to the hospital and connect it to my PIAF. I then set up an IVR that gave them access to a DISA. That way they could call us using a local number or call through the DISA to contact the other grandparents. Keeping everyone informed really eases your mind when the grandkids are ill!</p>
+<p>2) When I got tired of my wife continuing to ask me for phone numbers when calling our family and friends, I finally decided to set up an IVR for her. So far, both of our kids’ home and cell numbers (as well as my cell number) have kept her happy. When she asks for more I’ll just add them. So far the “Wife Acceptance Factor” is high and I’m having great fun. Hanging up on recognized telemarketers is great, the Callerid Superfecta works great, and I like getting the Weather Forecast from Allison.</p>
+<p>The port from Vonage was completed today. I’m using Future-Nine as my primary provider. So, like I said, today is the day I took control of my VOIP.</p>
+<p>–jeffmac
+</p></blockquote>
+<p>And, speaking of role reversal…</p>
+<blockquote><p>
+<strong> PIAF to the Rescue!!</strong></p>
+<p>Here is a twist for you.</p>
+<p>First, the problem:</p>
+<p>My company has a ShoreTel system in place, 48 extensions. They have 2 PRI’s bonded together with dynamic channel allocation. Eight channels are dedicated to the phones, the rest to the Internet. When we have more calls than 8, the system robs channels from the Internet, up to 23 channels max, and returns them as the call volume drops. This all works well.</p>
+<p>Monday, a pole a few blocks from our office had the transformer catch fire, and the provider’s equipment was affected. We lost both Internet and phones for several hours. Much of our business is time critical. With no incoming phone calls and no email, we almost lost out on a chance to bid on a VERY large deal. Fortunately, the customer knew the L.A. branch number and after being unable to get in touch with us, he called L.A.</p>
+<p>Anyway, now it is critical to management that this NEVER happen again.</p>
+<p>The Solution:</p>
+<p>Tuesday: I studied the issue and wrote a proposal.</p>
+<p>Wednesday: I fired up a PIAF box, established a 10 channel SIP trunk group to the ShoreTel system, and got everything setup for intersystem routing, etc.</p>
+<p>Thursday: I am picking up a pay-as-you-go service with 10 channels from a VOIP provider with a single DID and setting our Telco service for failover/rollover to the VOIP DID. I am then ordering a second Internet circuit, 2meg x 2meg, to bring in the SIP trunks from the provider. As soon as that is done, I will dual-home the mail server so that we can get and send email via both Internet providers.</p>
+<p>The End Result:</p>
+<p>If the primary connection fails, phone service rolls over to the DID from the VOIP provider, rolls into PIAF, and cross trunks to the ShoreTel – AUTOMATICALLY!! Email switches to the secondary MX record and keeps right on rolling. One change in the firewall for the public NAT address and gateway and Internet [and phone service] is back up and running.</p>
+<p>THANK YOU Ward, Tom, Joe and gang for making this possible.</p>
+<p>–Greg Keys
+</p></blockquote>
+<p>And, last but not least…</p>
+<blockquote><p>
+<strong>You made my Grandma Cry!<br>
+</strong></p>
+<p>My wife and I are currently living in Germany, and we’ve been using a Skype-In number so our friends and family can call us. For my wife it is important that the solution just works like a regular phone and so I had setup a Siemens M34 to interface with our DECT phone and it worked, mostly, for a few days until the entire system needed to be restarted. For most of our family, this solution works. But my grandmother is living in a different area code and can’t afford to call us as often as she would like.</p>
+<p>I stumbled upon the <em>PBX in a Flash</em> project a few weeks ago and, after I found two old Grandstream GXP-2000 in the company junk closet (we are an Internet startup – someone is always buying new toys), I installed PiaF 1.2 using VMWare. I set up a Vitelity DID, the CallerID Superfecta, the Callerid Creep Detector, experimented with ring groups, routing, IVRs and was so impressed that I knew our Skype-solution days were numbered.</p>
+<p>Last night, I took the plunge, reformatted the Skype system, and deployed PiaF 1.3. The install was so fast and painless. I copied the old configuration information into the new system. And, my new PBX was up and running in under and hour.</p>
+<p>I had so much time left on my hands that I figured I might as well experiment. I followed another Nerd Vittles tutorial and created a few cell phone extensions for my family back in the states. I went to Vitelity and purchased another DID. I recorded a quick message, setup an IVR, and a new corresponding route. That’s when the fun started.</p>
+<p>I called my grandmother and told her: “Grandma, we’ve got a new telephone number. Will you please call me right back at…”. She was a little surprised when I told her that the number was now going to be a local call for her. The real surprise came when she called the number and heard, “Hi Grandma, welcome to your phone system. For Martin and Ashlee, please press 1, for Rachel please press 2,…”. By the time she pressed 1 and Asterisk was ringing our home ring group, she was in tears.</p>
+<p>We talked for quite a while about our lives, the Olympics, the hurricane, and everything else. This morning when I got up, I checked the call logs and saw that she had systematically called every single IVR point after we got off the phone.</p>
+<p>I didn’t deploy PiaF as a mission-critical business application yesterday–though that day will come for me, but I did what the open-source Internet ideology is all about in my mind. I used the knowledge and experience others have gifted the community to create a solution that fit my situation.</p>
+<p>Thanks Again, PiaF Team, from the bottom of my heart!</p>
+<p>–Martin Modahl
+</p></blockquote>
+<p>For those of you that still need a New Year’s Resolution, we hope our fans have given you some ideas.  And, when my wife again asks why I continue to work for 5¢ an hour, I’ve got something great for her to read. </p>
+<p>Thanks, everybody. You’ve made it all worthwhile.</p>
+<hr>
+<p><img decoding="async" src="/what-pbx-in-a-flash-brings-to-the-asterisk-table/wp-images/pbxonaflash.jpg" alt="" align="right"><b>Want a Bootable PBX in a Flash Drive?</b> Early in 2009 to celebrate the beginning of Nerd Vittles’ Fifth Year, we’ll be introducing our bootable USB flash installer for <i>PBX in a Flash</i> with all of the goodies in the <a href="/index.php?p=251">VPN in a Flash system</a> featured a few weeks ago on Nerd Vittles. You can build a complete turnkey system using almost any current generation PC with a SATA drive and our flash installer <i>in less than 15 minutes</i>! </p>
+<p>If you’d like to put your name in the hat for a chance to win a free one delivered to your door, just post a comment below with your best <i>PBX in a Flash</i> story. (( This offer does not extend to those in jurisdictions in which our offer or your participation may be regulated or prohibited by statute or regulation. )) </p>
+<p>Be sure to include your real email address which will not be posted. The winner will be chosen by drawing an email address out of a hat (the old fashioned way!) from all of the comments posted over the next couple weeks. All of the individuals whose comments were used in today’s story will automatically be included in the drawing as well. Good luck to everyone and Happy New Year!!</p>
+<hr>
+<p><b>Nerd Vittles Fan Club Map.</b> We hope you’ll take a second and add yourself to our <a href="http://www.frappr.com/nerdvittles">Frappr World Map</a>. In making your entry, you can choose an icon: guy, gal, nerd, or geek. For those that don’t know the difference in the last two, here’s the <a href="http://www.google.com/url?sa=X&amp;start=2&amp;oi=define&amp;ei=-dsjRO7-I86GswGWjtHpBw&amp;sig2=k5uEX30_RqM_kNJlARWRcw&amp;q=http://www.scotsmist.co.uk/glossary_n.html">best definition</a> we’ve found: <i>“a nerd is very similar to a geek, but with more RAM and a faster modem.”</i>  We’re always looking for the best BBQ joints on the planet. So, if you know of one, add it to the map while you’re visiting. </p>
+<hr>
+<p> </p>
+<h3>Special Thanks to Our Generous Sponsors</h3>
+<p><br>
+FULL DISCLOSURE: <a href="/?p=32167" target="_new">ClearlyIP</a>, <a href="https://skyetel.com/" target="_new">Skyetel</a>, Vitelity, <a href="https://m.do.co/c/f8725e13f303" target="_new">DigitalOcean</a>, <a href="http://www.vultr.com/?ref=6918611-3B" target="_new">Vultr</a>, <a href="https://voip.ms/en/code/nerdvittles" target="_new">VoIP.ms</a>, 3CX, Sangoma, TelecomsXchange and VitalPBX have provided financial support to Nerd Vittles and our open source projects through advertising, referral revenue, and/or merchandise. As an Amazon Associate and Best Buy Affiliate, we also earn from qualifying purchases. We’ve chosen these providers not the other way around. Our decisions are based upon their corporate reputation and the quality of their offerings and pricing. Our recommendations regarding technology are reached without regard to financial compensation except in situations in which comparable products at comparable pricing are available from multiple sources. In this limited case, we support our sponsors because our sponsors support us.<br>
+<br>
+<a href="/?p=27123" target="_new"><img decoding="async" src="/vitelity/skyetel-bottom.png" alt="" hspace="9" width="250" height="163" align="left"></a><b>BOGO Bonaza:</b> Enjoy state-of-the-art VoIP service with a $10 credit and half-price SIP service on up to $500 of Skyetel trunking with free number porting when you fund your Skyetel account. No limits on number of simultaneous calls. Quadruple data center redundancy. $25 monthly minimum spend required. <a href="/?p=27123" target="_new">Tutorial and sign up details are here</a>.<br>
+<br>
+<a href="https://incrediblepbx.clearlyip.com/" target="_new"><img decoding="async" src="/vitelity/clearlyip.png" alt="" hspace="9" width="250" height="163" align="left"></a>The lynchpin of Incredible PBX 2020 and beyond is ClearlyIP components which bring management of FreePBX modules and SIP phone integration to a level never before available with any other Asterisk distribution. And now you can configure and reconfigure your new Incredible PBX phones from the convenience of the Incredible PBX GUI.<br>
+<br>
+<a href="https://vitalpbx.org/en/" target="_new"><img decoding="async" src="/vitelity/vitalpbx.gif" alt="" hspace="9" width="250" height="163" align="left"><b>VitalPBX</b></a> is perhaps the fastest-growing PBX offering based upon Asterisk with an installed presence in more than 100 countries worldwide. VitalPBX has generously provided a customized White Label version of Incredible PBX tailored for use with all Incredible PBX and VitalPBX custom applications. <a href="/?p=30854" target="_new">Follow this link</a> for a free test drive!<br>
+ <br>
+<br>
+<img loading="lazy" decoding="async" src="/vitelity/vitelity.png" alt="" hspace="9" width="250" height="163" align="left"><b>Special Thanks to Vitelity.</b> Vitelity is now Voyant Communications and has halted new registrations for the time being. Our special thanks to Vitelity for their unwavering financial support over many years and to the many Nerd Vittles readers who continue to enjoy the benefits of their service offerings. We will keep everyone posted on further developments.<br>
+ </p>
+<hr>
+<p><b>Some Recent Nerd Vittles Articles of Interest…</b></p>
+<p><iframe loading="lazy" frameborder="0" src="/articles.html" width="100%" height="294"></iframe></p>
+			<div class="clear"></div>
+
+						<div class="clear"></div>
+
+			<div class="tag_list">Tags: <a href="/tag/asterisk/" rel="tag">asterisk</a> <span class="separator"> — </span> <a href="/tag/piaf/" rel="tag">piaf</a> <span class="separator"> — </span> <a href="/tag/stability/" rel="tag">stability</a> <span class="separator"> — </span> <a href="/tag/vitelity/" rel="tag">vitelity</a> <span class="separator"> — </span> <a href="/tag/voip/" rel="tag">voip</a></div>
+		</div><!-- / .entry -->
+
+		<div class="clear"></div>
+
+	</div><!-- #post-573 -->
+
+	
+	<div id="comments">
+
+
+
+	<h3>This article has 23 comments</h3>
+
+	<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-5464">
+
+			<div id="comment-5464">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/f636846b01a33ea3a223a698d8a0985561af6e00d330e864ab81953a818bed63?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/f636846b01a33ea3a223a698d8a0985561af6e00d330e864ab81953a818bed63?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Chris</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5464">Tuesday, December 30, 2008 at 4:58 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Great testimonials…put my name in the hat for the PBX on a Flash</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5477">
+
+			<div id="comment-5477">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/7930828684a27679c712473c11643d5da270dd2669fbd6a83072ce7c538658dc?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/7930828684a27679c712473c11643d5da270dd2669fbd6a83072ce7c538658dc?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">mashby</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5477">Tuesday, December 30, 2008 at 11:53 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I swear you guys must be reading my mind!</p>
+<p>Earlier in the year, I was wishing that there was a Fax solution for PiaF and boom, the next week you guys had a complete how to on creating a complete fax solution.</p>
+<p>Then last week, I’m lamenting how I wished there was an easy way to install PiaF via a flash drive and BAM, you guys have that coming out in a few more weeks.</p>
+<p>I swear, you guys must be reading my mind!</p>
+<p>Thank you for all that you do to make asterisk easy for the rest of us mere mortals. You guys rock.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-5490">
+
+			<div id="comment-5490">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/ec3c93d31d0357ab4fbb4d3344afb82aa70b5d62db4cfbd005a7cc0bf686e9ef?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/ec3c93d31d0357ab4fbb4d3344afb82aa70b5d62db4cfbd005a7cc0bf686e9ef?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mike Holland</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5490">Wednesday, December 31, 2008 at 10:10 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Having large Enterprise VoIP Systems from the heavies in the market, I was limited in how to expand the capabilities of these systems (an A system in KY and a C system in Texas plus about 100 A SIP systems throughout the country).  Introducing a “PBX in a Flash” system gave me the ability of integrating an Application server to the mix.  </p>
+<p>My favorite use is when our Exchange environment failed at the corporate location (got to love M$).  Our Exchange environment is our backend for our Unified Messaging.  I was able to not only supply a multiple seat bridge (50) for restoration efforts via SIP and H323 Trunks into the PIAF system, but also provide an imap back-up for Voicemail for any boxes deemed critical.  I now use the PIAF server as my Core Switch providing linking to all diverse systems (including TDM systems and Satellite Phones).  I use it as a streaming information server for the mobile workforce and provide limited off-premise dialtone to remote marketing agents that work from their homes.  I use the ACD and IVR for allowing remote agents to log in and handle marketing calls.  In my development box, I am trying to terminate remote modem connections of SIP trunks utilizing software DSP’s and trying to eliminate our PRI’s into multiple modem banks for our 2000 remote telemetry sites.  Just imagine, a communications rack with no AS5XXX. If it can be done with a fax and over VSAT or SAT Phone, 4.8kbps, it can be done with Soft DSP as 2.4kbps.    </p>
+<p>The hardware is an Industrial Server with Dual SATA drives, 4 Core Processor, and 8gb of memory.  I run a full back-up system in a Virtual Machine using Xen Server on a monster machine at our data Center.  This box has been the answer to my prayers at night as I huddle under the covers asking, “Will my budget get approved, Will the marketing guys from the other companies play on CTO’s fears, and what secret license/maint. costs will pop up out of nowhere?”  None!!  The CTO is happy…No, Amazed.  I was able to save several 6-figure numbers by implementing this one Swiss Army Knife!</p>
+<p>Mike H.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5492">
+
+			<div id="comment-5492">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/c973ad76ecee6497c48787b58d10e51ede79533b419c5b4f6b5fdc0d588a1af9?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/c973ad76ecee6497c48787b58d10e51ede79533b419c5b4f6b5fdc0d588a1af9?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.geekone.org/" class="url" rel="ugc external nofollow">Jeremy</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5492">Wednesday, December 31, 2008 at 2:52 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Awesome work!  I’ve simplified my setup for a while (ATA directly connecting to Viatalk) but am planning on giving PiaF a shot after the first of the year.  I cringe when I think back to the amount of work I had to put into my straight-Asterisk system to do half of what PiaF does out of the box.  I learned a ton that way, but am thankful that I won’t have to replicate it again on my own.</p>
+<p>Thanks Ward and company!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-5493">
+
+			<div id="comment-5493">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a00b8b0d96d38575502f09ce52787103638117a9f1af08731f4a442098981c83?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a00b8b0d96d38575502f09ce52787103638117a9f1af08731f4a442098981c83?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Tim</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5493">Wednesday, December 31, 2008 at 3:05 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Put my name in the hat.  I’m also using PIAF at my house. Voip lines and call handling for 2 adults and 3 kids is what sold me. All the other extras are what makes it fun.  I have our Alltel  cell phones connecting with bluetooth as trunks when they are in the house so we can choose one of them as a trunk and get free calling to any Alltel # from the house phones.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5494">
+
+			<div id="comment-5494">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a634b25eaea6a6507fb0bc3bf75eb0aff20208a467718d56c6832848a3b372ec?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a634b25eaea6a6507fb0bc3bf75eb0aff20208a467718d56c6832848a3b372ec?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Deacon</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5494">Wednesday, December 31, 2008 at 3:06 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Like “You made my Grandma Cry!” my mother lives 2000+ miles away and is on a fixed income since my dad passed away. Mom isn’t very computer literate, and living a good distance away, it was pretty hard to get her using Skype.  I too built a PiaF and bought a local number for her; she calls now whenever she wants and it doesn’t cost her a dime!  The PiaF team ROCKS!!!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-5500">
+
+			<div id="comment-5500">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4bf933b39c029c3d374db5fa06baf5b5a22fbbeee37d560c07ed97c3baf537c3?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4bf933b39c029c3d374db5fa06baf5b5a22fbbeee37d560c07ed97c3baf537c3?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Reginald W</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5500">Wednesday, December 31, 2008 at 7:16 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I’ve been following Ward from early on but never did an actual working installation of an AAH or trixbox system. Reading about the issues in upgrading systems, having to start over again on any upgrades and the hassles of doing so just made it impractical to implement for the business. I didn’t have enough time in the day to babysit a phone system in addition to all the other things I do or try to do in a day.<br>
+.<br>
+It is only with the release of the Orgasmatron and the ability to update PIAF without having to start from scratch that has gotten me to get a system to install. Hopefully I will have it up and operational early in 2009.<br>
+.<br>
+The tutorials and instructions that Ward and company have put together are great. Here’s to a wonderful 2009 for the Nerdvittles crew and all those who sail with her. Hopefully I will be able to contribute some stories when I am operational.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5522">
+
+			<div id="comment-5522">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e25a757bb4b137fb8155013ec514c3df940d592a9897f9901078774a85a4e68e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e25a757bb4b137fb8155013ec514c3df940d592a9897f9901078774a85a4e68e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mike</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5522">Thursday, January 1, 2009 at 5:08 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Call me the nerd, but I want details on the screenshot… 😉 OS, info, etc.?</p>
+<p><i>[WM: Soon.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-5533">
+
+			<div id="comment-5533">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/4f026443f441a8beecd7f451db0ff9e399fb8d75dc560c3a87b86239dbc2a681?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/4f026443f441a8beecd7f451db0ff9e399fb8d75dc560c3a87b86239dbc2a681?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Mukesh Aggarwal</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5533">Thursday, January 1, 2009 at 10:43 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I am so longing to install Piaf on my machine. Unfortunatly, I have to install some other software which is supported only on Fedora. So I have to roll my own asterisk+frepbx on it. But recently when my non-techie friend’s asterisk (which I built looong time back) died.. i told him to install Piaf. And he was able to do it without my help !! But Piaf is the way to go..</p>
+<p><i>[WM: Good news. The new Orgasmatron III build is a Fedora 10 Mix, and the soon-to-be-released flash installer uses the same basic build.]</i></p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5534">
+
+			<div id="comment-5534">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/feb28c52963dd82d628768baf86585f1ed23260eca15f8649641f4b6247a776f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/feb28c52963dd82d628768baf86585f1ed23260eca15f8649641f4b6247a776f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">TPHank</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5534">Thursday, January 1, 2009 at 10:45 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I stumbled across the Nerd Vittles site a few years ago when looking into VOIP, and got an SPA3000 and started following every “vittle” since then!  Whenever anyone asks me about my system at home, my first response, check out Nerd Vittles!<br>
+Thank you!!!<br>
+Happy New Year’s and Many More!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-5551">
+
+			<div id="comment-5551">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/e55b6b41aced0137c9ef31f4d6fd2078e6643604acaa34fd2b35bfed2dddca3b?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/e55b6b41aced0137c9ef31f4d6fd2078e6643604acaa34fd2b35bfed2dddca3b?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Darrell</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5551">Friday, January 2, 2009 at 2:31 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>My father was a HUGE fund raiser for several non-profit organizations for many years. After his death, the phone continued to ring several times throughout the day.  My mother made the statement that she was to tired of dealing with all the calls.</p>
+<p>I installed PIAF with IVR menus to redirect calling parties to new contacts.  After doing this, my mother said the phone seldom rings and could not imagine not having her PBX. </p>
+<p>As a side benefit, I installed IAX2 trunks between me and my mother.  This allows us to talk without LD charges.</p>
+<p>THANKS PBX in a Flash!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5632">
+
+			<div id="comment-5632">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5034904715dda551073d3e12f28066b76fde0d1ae783f5e6b1309f20ec1b056f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5034904715dda551073d3e12f28066b76fde0d1ae783f5e6b1309f20ec1b056f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">jon becker</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5632">Sunday, January 4, 2009 at 8:54 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Half of my family lives in moscow, russia. we’ve used PBXIAF to bring them closer by setting up DISA so that we don’t always have to be local to the PBX to give the relatives a call and that if they call, it instantly calls them back so not incur the ridiculous charges since they don’t have broadband at home. It passed the WAF and she brags about it to her friends.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-5688">
+
+			<div id="comment-5688">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/ac374eb536e489e8c0f76efaa3f2b9247c75eed70bd65eae009ef7906c922810?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/ac374eb536e489e8c0f76efaa3f2b9247c75eed70bd65eae009ef7906c922810?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Harold Monroe</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5688">Tuesday, January 6, 2009 at 5:44 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>The best of both worlds…</p>
+<p>I work for a company in Los Angeles with a Merlin Legend PBX phone system which has a 23 line PRI and three backup Verizon copper lines. We also have two data T1’s. About 2 years ago we opened a small office in China. There was immediate concern about the costs for calling the China office since our long distance provider was charging about 15 cents/minute. Initially, I got a phone card account and programmed it into the speed dial of several phones and got the charge down to about 2 cents for the phone card plus 2 cents for the phone call – 4 cents/minute total. Still, I longed for something easier and cheaper.</p>
+<p>Enter Trixbox and Nerd Vittles. I bought an OpenVox 4 port PRI card and got to work, eventually switching to PIAF 1.2. Vitelity was chosen for the provider for our international calls. PIAF was setup in between the Merlin Legend phone system (using a cross-over PRI cable) and the Telco PRI. All incoming calls go to PIAF first before arriving at the Merlin Legend PBX and all outgoing calls from the Merlin go through PIAF. ML – PIAF – Telco. If the call is within the US PIAF uses the Telco PRI, if international it uses Vitelity at 1.6 cents/minute to China. This has worked very well and is totally transparent to the users. The company definitely didn’t want to spend money on a new PBX nor VOIP phones, here we were able to merge the two together and leverage our Merlin phones with the advantages of a VOIP system.</p>
+<p>The best feature of all is that 4 digit extensions were setup which dial our China office and China “visitor” cell phones. Rather than dial 011, country code and the11 digit number we can dial the 4 digit extension and get the China office or China cell phones. This is also available when away from the LA office. A person can call the LA office, dial the 4 digit extension and be connected to the China office. This has thrilled the company president who can now be on the road or at home, dial the LA office, and dial the 4 digit extension reaching the China office. Formerly he would call the China office from his home or cell and pay a high fee for the call. Additionally we also have 4 digit extensions for getting into Asterisk’s conferencing, finally breaking the Merlin Legend’s 3-way calling limit!</p>
+<p>Recently a flooded Verizon cable plant downed our company PRI. We could not make or receive calls. A call to the PRI provider rerouted our incoming calls to our spare copper backup lines and a quick change to the PIAF programming sent all calls to Vitelity over our data T1. Back in business in less than an hour!</p>
+<p>PIAF 1.2 has proven to be very reliable and has been up continuously for over 29 weeks!</p>
+<p>Finally using the free “Asterisk Outlook Dialer” by LanTone.com I have finally been able to enjoy something I have wanted for a long time – dialing through Outlook.</p>
+<p>The next thing I want to do (prompted by reading Greg Keys’ story) is see about dynamic channel allocation of our PRI and eliminate one data T1. We are not using all 23 PRI channels, so why not discontinue a data T1 and share a line between voice and data?</p>
+<p>Thanks for putting together a great and reliable product!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5900">
+
+			<div id="comment-5900">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/5bc4a25c4d32b920543cbdd61736819972274488c5b4730f46d75da65db461cb?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/5bc4a25c4d32b920543cbdd61736819972274488c5b4730f46d75da65db461cb?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn"><a href="http://www.sjobeck.com/" class="url" rel="ugc external nofollow">Jason Sjobeck</a></cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-5900">Sunday, January 11, 2009 at 11:27 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>We make a living selling, installing, integrating, supporting telephone systems. And we love PIAF as our favorite. I dont know what else to say.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-6162">
+
+			<div id="comment-6162">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/1f3f07585bf30d85132e0fe129f9845b5f0ee7aae5f68c80741345ddf39d062c?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/1f3f07585bf30d85132e0fe129f9845b5f0ee7aae5f68c80741345ddf39d062c?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jonathan Hamon</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-6162">Wednesday, January 14, 2009 at 9:24 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>We have started deploying PIAF using KVM Virtual containers. Seems to be working well and expect this to be our biggest selling VPS product line in 2009</p>
+<p>Hope to also start deploying these for trying clients so would simply love that 8 Gb USB drive.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-6166">
+
+			<div id="comment-6166">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/82e2ebd0bc62b4cd8cd98515510710fbed43c89de03b42811acfcd3a56d8133e?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/82e2ebd0bc62b4cd8cd98515510710fbed43c89de03b42811acfcd3a56d8133e?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">John Lake</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-6166">Wednesday, January 14, 2009 at 9:41 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>With our offices scattered all about we were looking to implement a mainstream phone system with some VOIP sets to bring us together with less phone numbers.  It was suggested we look at PIAF and so I threw something together over the holidays and ordered some IAX trunks from Unlimitel.  So far, the whole thing is very promising.  Still trying to get some stuff working…</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-6273">
+
+			<div id="comment-6273">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/544c71ee76fd71ca1641319c0fe95eabedfc2e31fb94a67765224a35a619a6c4?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/544c71ee76fd71ca1641319c0fe95eabedfc2e31fb94a67765224a35a619a6c4?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Steve Schoon</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-6273">Tuesday, January 20, 2009 at 8:42 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Definitely interested in the bootable USB flash drive.  Can’t wait!!!</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-6285">
+
+			<div id="comment-6285">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/9ff7c7727195784af4f4be660aac46203ae4c0064729d1f9dee6f38e0ba901a7?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/9ff7c7727195784af4f4be660aac46203ae4c0064729d1f9dee6f38e0ba901a7?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Jim Carroll</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-6285">Thursday, January 22, 2009 at 4:36 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>We’re currently using PIF 1.3 and originally had A@H 2.5 for our ITC company. We have a mixture of ZAP cards, ATA’s, Cisco 7940’s,PSTN and SIP and IAX trunks in a 3 machine config – 2 local servers (here in NZ) linked by IAX trunks and 2 offsite 7940’s using SIP over 2 ADSL connections. We also have another associate with a server in Florida via IAX for those rare US calls and he can call his parents here in NZ for nothing. We had issues originally – who didn’t ? The cost savings alone have been worth the effort. We’ve done cisco and avaya and just kept the cisco phones. FreePBX is just brilliant, PIF rocks and is very stable. We installed a 1.2 server in a local school that had a bad experience with an IT consultant and a “pure” asterisk install. Echo went away, message lights worked again, they even had the right time on thier phones. Inserting the name and logo of the school on the principles and secretarys Linksys IP phones was just the icing on the cake !<br>
+The USB drive would be excellent – keep up the good work.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-6291">
+
+			<div id="comment-6291">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/55730f550867829fc36dff788040e60d87f5d3b4e6736245f094ffc42301a855?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/55730f550867829fc36dff788040e60d87f5d3b4e6736245f094ffc42301a855?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Dave Ewaldz</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-6291">Thursday, January 22, 2009 at 2:21 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>I’ve been running PIAF at home since the initial release, and trixbox before that. It’s worked great for my family. We have a mix of Grandstream phones and ethernet/fxs devices. If we went back to an old answering machine at this point, my family would revolt.</p>
+<p>In an ongoing quest to green up our household, I’ve just started building a low power consumption Intel Atom based MSI Wind PC desktop replacement for our current PIAF machine. The USB drive install looks like a great way to install PIAF on this machine, rather than hunting down a USB cdrom drive, etc.</p>
+<p>I’ll definitely report back how PIAF runs on this new machine down the road.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-9052">
+
+			<div id="comment-9052">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/befddd382be317e60da44503d59c9f22bebf0dcd8b47f76b4aabe70f0cbf6412?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/befddd382be317e60da44503d59c9f22bebf0dcd8b47f76b4aabe70f0cbf6412?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Scott Cooper</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-9052">Thursday, March 12, 2009 at 8:52 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Been studying up a bit on Asterisk, and am pleased to see it may have the ability to connect to Skype – thanks for the post.  And the Flash drive offer sounds great too 😉</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-9109">
+
+			<div id="comment-9109">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/30b0714a55d0e64a32f7a833e6e475d76f8d8b3944f74f0d63c2968eabc7da5c?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/30b0714a55d0e64a32f7a833e6e475d76f8d8b3944f74f0d63c2968eabc7da5c?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Octothorpe</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-9109">Tuesday, March 24, 2009 at 9:55 pm</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>4 years ago (December 2004 to be exact) is the magical time I was introduced to asterisk and nerd vittles.  At the time Asterisk@home was as good as it got.  This was my first foray into anything telephony and especially VOIP.  I was asked by a friend if I would take a look at it and see if I could help  them with their asterisk@home installation.  I spent winter break (I was a college student at the time) playing with asterisk@home and by spring semester I had set up my own Asterisk@home box with my friend at the college and even my own second box at the college in the basement where I worked (without cellphone coverage).  Using Tricks I learned at nerdvittles, I set up a time-based forwarding scheme and registration between all three boxes so that calls coming “home” routed to my friend’s asterisk box at the college (it had firewall rules to allow the traffic, and then to my asterisk box and an old cisco 30vip phone in the basement so I could get my calls and make calls between me, home, and my friend for free.</p>
+<p>From there I have gone forward with PBX-in-a-flash and have set up a teleyapper system for my community CERT group and now have become the telephone and network engineer at the same college where I began toying with asterisk as a student.</p>
+<p>I can definitely say Nerd Vittles, Ward Mundy, Asterisk, and PBX-in-a-Flash have truly changed my life.  I will remain a loyal fan for as long as the site remains.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-40333">
+
+			<div id="comment-40333">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/9f25947024c924ec0b2e0a5ecfc0cd5033d7d3f88f9ccd6cb2ab07a94cc2d735?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/9f25947024c924ec0b2e0a5ecfc0cd5033d7d3f88f9ccd6cb2ab07a94cc2d735?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Dave Killip</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-40333">Saturday, July 23, 2011 at 9:45 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>Thank you!   I was trapped in a bad place with a very stilted version of FreePBX sold on an appliance from a vendor who never answered questions, and with the new offering of a thumbdrive distribution I can happily begin the install learning process all over again, just like the big kids do.  You have done a great thing, and thank you<br>
+  Dk</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-93209">
+
+			<div id="comment-93209">
+
+				<div class="comment-author vcard">
+					<img alt="" src="https://secure.gravatar.com/avatar/a7d5cf2338d361a60b09861cacac7ba67b64b411eee1d74cd2cec7b690e74c4f?s=50&amp;r=g" srcset="https://secure.gravatar.com/avatar/a7d5cf2338d361a60b09861cacac7ba67b64b411eee1d74cd2cec7b690e74c4f?s=100&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">
+					<cite class="fn">Brian Simmons</cite>
+
+					<div class="comment-meta commentmetadata">
+
+						<a href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/#comment-93209">Tuesday, September 10, 2013 at 9:16 am</a>
+
+						
+					</div><!-- .comment-meta .commentmetadata -->
+
+					<div class="reply">
+											</div><!-- .reply -->
+
+					<div class="clear"></div>
+
+				</div><!-- .comment-author .vcard -->
+
+				
+				<div class="comment-body"><p>For years I had a dream of running a PBX style phone system in my house.  But for years I thought it was out of the realm of possibilities.  When Obihai released the Obi100/110, I recognized the opportunity to drop my phone line use Google Voice and still have a normal operating phone system with all my existing analog phones.</p>
+<p>Well we all know that Google Voice doesn’t do CNAM lookups on their caller ID information.  So after a few months of using the Obi, I decided I wanted to find a solution that would allow me to get CNAM information.  Luckily I found PIAF and Nerd Vittles during my search.</p>
+<p>While I’m using the full version instead of the virtual version of PIAF, I have really enjoyed the process.  I recently upgraded to PIAF-Green and I’m slowly replacing my analog phones with digital phones.  </p>
+<p>There are a lot of great features about the system that we love: free calling via GV, multiple VM boxes (one for each member of the household), email notifications of messages (with message attached), VmLocator, etc, etc, etc.  But I think the feature I love the most is the auto-answer intercom feature.  We use it a lot to round the family up for dinner, or when we are leaving the house, etc, etc, etc.  Our house isn’t huge, but it is multi-story and being able to intercom is so much nicer than having to yell up the stairs to get people’s attention.  </p>
+<p>So a warm “Thank You” to Ward and the rest of the PIAF team.  You guys are doing a great job.</p>
+</div>
+
+			</div><!-- #comment-##  -->
+
+		</li><!-- #comment-## -->
+	</ol>
+
+	
+
+	
+
+</div><!-- #comments -->
+	<div class="clear"></div>
+
+</section><!-- /#main -->
+
+
+<section id="sidebar">
+	
+	
+	
+			 
+
+				<div class="nocol">
+					<div id="text-36" class="widget widget_text"><h3 class="title">BEST CLOUD PLATFORMS FOR INCREDIBLE PBX 2020</h3>			<div class="textwidget"><center><a href="/?page_id=29839" target="_new"><img src="https://pbs.twimg.com/media/EVGiyiKVAAAUTOD?format=jpg&amp;name=medium" width="335" height="215"></a></center></div>
+		<div class="clear"></div></div><div id="custom_html-10" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div><iframe src="http://mundy.org/vlog.php" marginwidth="0" style="border:none; margin-left:0%; height: 1px;"></iframe></div></div><div class="clear"></div></div>				</div> 
+			
+			<div class="col1">
+				<div id="text-25" class="widget widget_text"><h3 class="title">Help Support Nerd Vittles</h3>			<div class="textwidget"><center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCemsGFQkbV3ucb/fBJ3JJag+/Z/fC2AWzhKZdw/PI5NS/LP78D4pc0yqZ1uRrGzCm2UV5VoyAFhNnbG8osNMSRjKHqvokUgQTfeaDvGaFhfwMMxFeJ2vIpQU0pDxpg5Mh6EFKi8GkVjDRGUhxV8EZarcCLS7cg4cY+/ACWth20ZzELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI2nY0WtfvE/mAgaCBau7dGjWSmk/DGD2suqmSk6pzhO7LIaOeSU8DVzAmbUv0paw1gZCbhEqlyO4OolkXkWBmZf8hRJbGCJM0KLMQPPaQZqAY7l1/OJU9f3342ypr5RhmpqOp4z+732NnGKn3G9z46eY8DBaRlIOVzpUR/YRniEjMhUmluwQrV8thLX4u+3gYKBM31LHZhJwXaOt52WDzymHtuPDVAJxCjurIoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYwMjE4MTA1NTI0WjAjBgkqhkiG9w0BCQQxFgQUm2FJxEdCTr9Mnr1fYpDjDPoJmCkwDQYJKoZIhvcNAQEBBQAEgYBb0RzuaCA/8GPU2GSentLxGzOnATESTrx75AF63gbTCOtIgOIlKpB8NqGi3av172nxAN61i0g9eP7bPyrVjh61bGlrpZLCKjZienTRNReFSfzZFSa33k2VAAGPQKEX3UUuQagbjaLn76pfWKvBopk5SC3LRAChOtNe5c6tMhVbtw==-----END PKCS7-----
+"></form></center>
+</div>
+		<div class="clear"></div></div><div id="text-42" class="widget widget_text"><h3 class="title">FREE ASTERISK SOLUTIONS</h3>			<div class="textwidget"><p><img decoding="async" title="Credit: Vecteezy Editor" src="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/images/IncrediblePBX-options4.png" usemap="#Map"></p>
+<map id="Map" name="Map">
+<area title="" alt="" coords="14,64,156,105" shape="rect" href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/?p=36164">
+<area title="" alt="" coords="14,124,154,161" shape="rect" href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/?p=31290">
+<area title="" alt="" coords="12,10,159,47" shape="rect" href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/?p=36192">
+<area title="" alt="" coords="12,177,156,217" shape="rect" href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/?p=30854">
+<area title="" alt="" coords="12,231,157,270" shape="rect" href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/?p=36763">
+<area title="" alt="" coords="13,285,156,321" shape="rect" href="/what-pbx-in-a-flash-brings-to-the-asterisk-table/?page_id=36131">
+ </map>
+</div>
+		<div class="clear"></div></div><div id="linkcat-20" class="widget widget_links"><h3 class="title">Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="https://community.asterisk.org/" title="Asterisk Forum from Sangoma">Asterisk Forum</a></li>
+<li><a href="/lists.php">Asterisk ListServ</a></li>
+<li><a href="http://bestof.nerdvittles.com/">Best of Nerd Vittles</a></li>
+<li><a href="https://community.freepbx.org/" title="FreePBX Forum from Sangoma">FreePBX Forum</a></li>
+<li><a href="https://www.voip-info.org/forum/">Incredible PBX Forum</a></li>
+<li><a href="https://filedn.com/lBgbGypMOdDm8PWOoOiBR7j/" title="Incredible PBX Repository">Incredible PBX Repo</a></li>
+<li><a href="https://wiki.incrediblepbx.com/Services">Incredible PBX Wiki</a></li>
+<li><a href="http://twitter.com/NerdUno">Twitter: @NerdUno</a></li>
+<li><a href="https://www.voip-info.org/forum/">VoIP-Info Forum</a></li>
+
+	</ul>
+<div class="clear"></div></div>
+<div id="text-28" class="widget widget_text"><h3 class="title">A Word from Our Sponsor</h3>			<div class="textwidget"><center></center><center><a href="https://partner.pcloud.com/r/103007" title="pCloud Premium" target="_blank"><img src="https://partner.pcloud.com/media/banners/lifetime/lifetime008300250.png" width="178" height="148"></a>
+</center>
+</div>
+		<div class="clear"></div></div><div id="categories-7" class="widget widget_categories"><h3 class="title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-11"><a href="/category/technology/apple-macs/">Apple &amp; Macs</a> (58)
+</li>
+	<li class="cat-item cat-item-8"><a href="/category/technology/audio/">Audio</a> (33)
+</li>
+	<li class="cat-item cat-item-181"><a href="/category/autonomous-car/">Autonomous Car</a> (10)
+</li>
+	<li class="cat-item cat-item-15"><a href="/category/technology/blogs/">Blogs</a> (17)
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/cellular/">Cellular Services</a> (80)
+</li>
+	<li class="cat-item cat-item-189"><a href="/category/incrediblepbx/centos-sl/">CentOS/SL Platform</a> (189)
+</li>
+	<li class="cat-item cat-item-195"><a href="/category/cloudcomputing/">Cloud Computing</a> (144)
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/general/">General</a> (4)
+</li>
+	<li class="cat-item cat-item-194"><a href="/category/googlevoice/">Google Voice &amp; Svcs</a> (101)
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/technology/home-automation/">Home Automation</a> (31)
+</li>
+	<li class="cat-item cat-item-188"><a href="/category/incrediblepbx/">Incredible PBX</a> (316)
+</li>
+	<li class="cat-item cat-item-16"><a href="/category/technology/internetweb/">Internet/Web</a> (119)
+</li>
+	<li class="cat-item cat-item-10"><a href="/category/technology/microsoft-pcs/">Microsoft &amp; PCs</a> (29)
+</li>
+	<li class="cat-item cat-item-12"><a href="/category/technology/mp3-devices/">MP3 Devices</a> (41)
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/technology/networking/">Networking</a> (96)
+</li>
+	<li class="cat-item cat-item-19"><a href="/category/technology/office-automation/">Office Automation</a> (19)
+</li>
+	<li class="cat-item cat-item-14"><a href="/category/photography/">Photography</a> (9)
+</li>
+	<li class="cat-item cat-item-191"><a href="/category/incrediblepbx/raspberrypi/">Raspberry Pi</a> (124)
+</li>
+	<li class="cat-item cat-item-159"><a href="/category/technology/reddit/">Reddit</a> (1)
+</li>
+	<li class="cat-item cat-item-193"><a href="/category/security/">Security</a> (33)
+</li>
+	<li class="cat-item cat-item-7"><a href="/category/technology/smartphones/">Smartphones</a> (124)
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/technology/streaming-devices/">Streaming Devices</a> (59)
+</li>
+	<li class="cat-item cat-item-2"><a href="/category/technology/">Technology</a> (813)
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/technology/telephony/">Telephony</a> (707)
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/technology/tivoreplaytv/">TiVo/ReplayTV</a> (5)
+</li>
+	<li class="cat-item cat-item-190"><a href="/category/incrediblepbx/ubuntu-debian/">Ubuntu/Debian</a> (129)
+</li>
+	<li class="cat-item cat-item-9"><a href="/category/technology/video/">Video</a> (25)
+</li>
+	<li class="cat-item cat-item-192"><a href="/category/incrediblepbx/wazo-xivo/">Wazo &amp; XiVO</a> (58)
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/technology/wi-fi/">Wi-Fi</a> (57)
+</li>
+			</ul>
+
+			<div class="clear"></div></div><div id="tag_cloud-9" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="/tag/android/" class="tag-cloud-link tag-link-123 tag-link-position-1" style="font-size: 9.3375796178344pt;" aria-label="android (19 items)">android</a>
+<a href="/tag/asterisk/" class="tag-cloud-link tag-link-22 tag-link-position-2" style="font-size: 22pt;" aria-label="asterisk (521 items)">asterisk</a>
+<a href="/tag/cellular/" class="tag-cloud-link tag-link-164 tag-link-position-3" style="font-size: 13.350318471338pt;" aria-label="Cellular (55 items)">Cellular</a>
+<a href="/tag/centos/" class="tag-cloud-link tag-link-128 tag-link-position-4" style="font-size: 8.7133757961783pt;" aria-label="centOS (16 items)">centOS</a>
+<a href="/tag/cloud-computing/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 13.082802547771pt;" aria-label="cloud computing (52 items)">cloud computing</a>
+<a href="/tag/fail2ban/" class="tag-cloud-link tag-link-84 tag-link-position-6" style="font-size: 8.2675159235669pt;" aria-label="fail2ban (14 items)">fail2ban</a>
+<a href="/tag/fax/" class="tag-cloud-link tag-link-41 tag-link-position-7" style="font-size: 15.044585987261pt;" aria-label="fax (87 items)">fax</a>
+<a href="/tag/firewall/" class="tag-cloud-link tag-link-85 tag-link-position-8" style="font-size: 11.745222929936pt;" aria-label="firewall (36 items)">firewall</a>
+<a href="/tag/freepbx/" class="tag-cloud-link tag-link-55 tag-link-position-9" style="font-size: 20.394904458599pt;" aria-label="freepbx (349 items)">freepbx</a>
+<a href="/tag/google-voice/" class="tag-cloud-link tag-link-92 tag-link-position-10" style="font-size: 17.363057324841pt;" aria-label="google voice (159 items)">google voice</a>
+<a href="/tag/gpl/" class="tag-cloud-link tag-link-162 tag-link-position-11" style="font-size: 12.101910828025pt;" aria-label="gpl (40 items)">gpl</a>
+<a href="/tag/gvoice/" class="tag-cloud-link tag-link-140 tag-link-position-12" style="font-size: 16.114649681529pt;" aria-label="gvoice (113 items)">gvoice</a>
+<a href="/tag/incrediblepbx/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 21.197452229299pt;" aria-label="IncrediblePBX (423 items)">IncrediblePBX</a>
+<a href="/tag/inum/" class="tag-cloud-link tag-link-150 tag-link-position-14" style="font-size: 8.2675159235669pt;" aria-label="inum (14 items)">inum</a>
+<a href="/tag/iptables/" class="tag-cloud-link tag-link-82 tag-link-position-15" style="font-size: 11.388535031847pt;" aria-label="iptables (33 items)">iptables</a>
+<a href="/tag/issabel/" class="tag-cloud-link tag-link-207 tag-link-position-16" style="font-size: 8.7133757961783pt;" aria-label="issabel (16 items)">issabel</a>
+<a href="/tag/ivr/" class="tag-cloud-link tag-link-78 tag-link-position-17" style="font-size: 8.4458598726115pt;" aria-label="ivr (15 items)">ivr</a>
+<a href="/tag/linux/" class="tag-cloud-link tag-link-137 tag-link-position-18" style="font-size: 9.1592356687898pt;" aria-label="linux (18 items)">linux</a>
+<a href="/tag/networking/" class="tag-cloud-link tag-link-166 tag-link-position-19" style="font-size: 8.7133757961783pt;" aria-label="Networking (16 items)">Networking</a>
+<a href="/tag/orgasmatron/" class="tag-cloud-link tag-link-38 tag-link-position-20" style="font-size: 8.4458598726115pt;" aria-label="orgasmatron (15 items)">orgasmatron</a>
+<a href="/tag/pbx/" class="tag-cloud-link tag-link-40 tag-link-position-21" style="font-size: 11.210191082803pt;" aria-label="pbx (31 items)">pbx</a>
+<a href="/tag/piaf/" class="tag-cloud-link tag-link-33 tag-link-position-22" style="font-size: 17.808917197452pt;" aria-label="piaf (176 items)">piaf</a>
+<a href="/tag/raspberrypi/" class="tag-cloud-link tag-link-197 tag-link-position-23" style="font-size: 9.515923566879pt;" aria-label="raspberrypi (20 items)">raspberrypi</a>
+<a href="/tag/security/" class="tag-cloud-link tag-link-81 tag-link-position-24" style="font-size: 12.458598726115pt;" aria-label="security (44 items)">security</a>
+<a href="/tag/sip/" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 16.382165605096pt;" aria-label="sip (121 items)">sip</a>
+<a href="/tag/sip-phone/" class="tag-cloud-link tag-link-51 tag-link-position-26" style="font-size: 13.707006369427pt;" aria-label="sip phone (61 items)">sip phone</a>
+<a href="/tag/skyetel/" class="tag-cloud-link tag-link-211 tag-link-position-27" style="font-size: 8.7133757961783pt;" aria-label="Skyetel (16 items)">Skyetel</a>
+<a href="/tag/skype/" class="tag-cloud-link tag-link-90 tag-link-position-28" style="font-size: 9.515923566879pt;" aria-label="skype (20 items)">skype</a>
+<a href="/tag/sms/" class="tag-cloud-link tag-link-107 tag-link-position-29" style="font-size: 11.745222929936pt;" aria-label="SMS (36 items)">SMS</a>
+<a href="/tag/softphone/" class="tag-cloud-link tag-link-57 tag-link-position-30" style="font-size: 8.2675159235669pt;" aria-label="softphone (14 items)">softphone</a>
+<a href="/tag/streaming-devices/" class="tag-cloud-link tag-link-171 tag-link-position-31" style="font-size: 8.4458598726115pt;" aria-label="Streaming Devices (15 items)">Streaming Devices</a>
+<a href="/tag/stt/" class="tag-cloud-link tag-link-198 tag-link-position-32" style="font-size: 9.6942675159236pt;" aria-label="stt (21 items)">stt</a>
+<a href="/tag/telephony/" class="tag-cloud-link tag-link-163 tag-link-position-33" style="font-size: 10.229299363057pt;" aria-label="Telephony (24 items)">Telephony</a>
+<a href="/tag/trunking/" class="tag-cloud-link tag-link-217 tag-link-position-34" style="font-size: 10.31847133758pt;" aria-label="trunking (25 items)">trunking</a>
+<a href="/tag/tts/" class="tag-cloud-link tag-link-94 tag-link-position-35" style="font-size: 12.458598726115pt;" aria-label="tts (44 items)">tts</a>
+<a href="/tag/virtualization/" class="tag-cloud-link tag-link-122 tag-link-position-36" style="font-size: 12.636942675159pt;" aria-label="virtualization (46 items)">virtualization</a>
+<a href="/tag/vitalpbx/" class="tag-cloud-link tag-link-208 tag-link-position-37" style="font-size: 9.3375796178344pt;" aria-label="VitalPBX (19 items)">VitalPBX</a>
+<a href="/tag/vitelity/" class="tag-cloud-link tag-link-27 tag-link-position-38" style="font-size: 9.1592356687898pt;" aria-label="vitelity (18 items)">vitelity</a>
+<a href="/tag/vm/" class="tag-cloud-link tag-link-106 tag-link-position-39" style="font-size: 9.8726114649682pt;" aria-label="vm (22 items)">vm</a>
+<a href="/tag/voicemail/" class="tag-cloud-link tag-link-97 tag-link-position-40" style="font-size: 8pt;" aria-label="voicemail (13 items)">voicemail</a>
+<a href="/tag/voip/" class="tag-cloud-link tag-link-37 tag-link-position-41" style="font-size: 18.611464968153pt;" aria-label="voip (217 items)">voip</a>
+<a href="/tag/vpn/" class="tag-cloud-link tag-link-21 tag-link-position-42" style="font-size: 11.388535031847pt;" aria-label="vpn (33 items)">vpn</a>
+<a href="/tag/wazo/" class="tag-cloud-link tag-link-178 tag-link-position-43" style="font-size: 11.299363057325pt;" aria-label="Wazo (32 items)">Wazo</a>
+<a href="/tag/wi-fi/" class="tag-cloud-link tag-link-165 tag-link-position-44" style="font-size: 10.675159235669pt;" aria-label="Wi-Fi (27 items)">Wi-Fi</a>
+<a href="/tag/xivo/" class="tag-cloud-link tag-link-176 tag-link-position-45" style="font-size: 11.299363057325pt;" aria-label="XiVO (32 items)">XiVO</a></div>
+<div class="clear"></div></div>			</div>
+
+			<div class="col2">
+				
+		<div id="recent-posts-5" class="widget widget_recent_entries">
+		<h3 class="title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/incredible-pbx-2026-for-raspberry-pi/">Incredible PBX 2026 for Raspberry Pi</a>
+											<span class="post-date">Monday, September 14, 2026</span>
+									</li>
+											<li>
+					<a href="/esims-the-2026-answer-to-the-burner-phone/">eSIMs: The 2026 Answer to the Burner Phone</a>
+											<span class="post-date">Wednesday, September 9, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-the-45-cellular-trifecta/">Introducing the $45 Cellular Trifecta</a>
+											<span class="post-date">Thursday, August 13, 2026</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2026-for-debian-13/">Introducing Incredible PBX 2026 for Debian 13</a>
+											<span class="post-date">Saturday, May 23, 2026</span>
+									</li>
+											<li>
+					<a href="/daps-little-secrets-not-your-daddys-music-player/">DAP’s Little Secrets: Not Your Daddy’s Music Player</a>
+											<span class="post-date">Monday, January 12, 2026</span>
+									</li>
+											<li>
+					<a href="/traveling-gypsies-road-warrior-tips-for-taming-the-internet/">Traveling Gypsies: Road Warrior Tips for Taming the Internet</a>
+											<span class="post-date">Monday, August 18, 2025</span>
+									</li>
+											<li>
+					<a href="/icing-on-the-cake-meet-fs-pbx-its-fusionpbx-on-steroids/">Icing on the Cake: Meet FS PBX — It’s FusionPBX on Steroids</a>
+											<span class="post-date">Monday, July 28, 2025</span>
+									</li>
+											<li>
+					<a href="/a-new-adventure-introducing-fusionpbx-again/">A New Adventure: Introducing FusionPBX… again</a>
+											<span class="post-date">Sunday, June 22, 2025</span>
+									</li>
+											<li>
+					<a href="/introducing-incredible-pbx-2025-with-asterisk-22-and-freepbx-17/">Introducing Incredible PBX 2025 with Asterisk 22 and FreePBX 17</a>
+											<span class="post-date">Friday, January 17, 2025</span>
+									</li>
+					</ul>
+
+		<div class="clear"></div></div><div id="text-34" class="widget widget_text">			<div class="textwidget"><center><a href="http://s08.flagcounter.com/more/QGz" target="_new"><img src="http://s08.flagcounter.com/count/QGz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_51/viewers_Nerd+Fan+Club/labels_0/pageviews_0/flags_0/" alt="free counters" border="0"></a>
+</center></div>
+		<div class="clear"></div></div><div id="text-30" class="widget widget_text">			<div class="textwidget"><center><a href="/wp-rss2.php" target="_new">NV RSS Feed</a></center></div>
+		<div class="clear"></div></div>			</div> 
+
+	
+ 			<div class="side_ad">
+		
+			<div class="col1">
+<br>
+</div>
+
+<div class="col1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0438471849704014";
+/* 160x600, created 12/6/08 */
+google_ad_slot = "6996254478";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_color = "oc4389";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>		   	
+				
+		</div><!-- /#side_ad -->
+	
+	<div class="clear"></div>
+
+</section>
+
+<div class="clear"></div>
+<div class="clear"></div>
+
+
+
+	</div>
+
+	
+	<div id="footer">
+
+		<div class="wrap">
+
+			<div class="left">
+				<h2 class="title">Nerd Vittles</h2>
+				<p class="copyright">© 2026 Nerd Vittles. All rights reserved.</p>
+			</div>
+
+			<div class="right">
+				<p class="wpzoom">Designed by <a href="https://www.wpzoom.com/" target="_blank" title="Premium WordPress Themes">WPZOOM</a></p>
+			</div>
+
+			<div class="clear"></div>
+
+		</div><!-- /.wrap -->
+
+	</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/wpzoom-chronicle/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.<a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="display:inline-block">Accept</a> <a role="button" tabindex="0" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject</a> <a href="/?page_id=25972" id="CONSTANT_OPEN_URL" target="_blank" class="medium cli-plugin-button cli-plugin-main-link" style="display:inline-block">Read More</a></span></div><div id="cookie-law-info-again" style="display:none" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+																						<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+																						<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+									<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<div class="wt-cli-cookie-description">
+									Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><a rel="me" href="https://mastodon.incrediblepbx.net/@NerdUno"></a>  
+<a rel="me" href="https://mastodon.social/@wardmundy"></a><script id="wpascript-js" src="/wp-content/plugins/honeypot/includes/js/wpa.js?ver=2.4.02"></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6Im5oeWJyYzcyMTEiLCJ3cGFfZmllbGRfdmFsdWUiOjg5NzgzOCwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="wpaescript-js" src="/wp-content/plugins/wp-armour-extended/includes/js/wpae.js?ver=2.4.02"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="/wp-includes/js/comment-reply.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"></script>
+<script id="dropdown-js" src="/wp-content/themes/wpzoom-chronicle/js/dropdown.js?ver=1.1.9"></script>
+<script id="flexslider-js" src="/wp-content/themes/wpzoom-chronicle/js/flexslider.min.js?ver=1.1.9"></script>
+<script id="fitvids-js" src="/wp-content/themes/wpzoom-chronicle/js/fitvids.min.js?ver=1.1.9"></script>
+<script id="placeholder-js" src="/wp-content/themes/wpzoom-chronicle/js/jquery.placeholder.min.js?ver=1.1.9"></script>
+<script id="chronicle-script-js" src="/wp-content/themes/wpzoom-chronicle/js/functions.js?ver=1.1.9"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=1085ce5c29abc323a0de1dc5e80b62c7"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html><!-- WP Optimize page cache - https://teamupdraft.com/wp-optimize/ - Page not served from cache  -->
